@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { PLANT_TYPES } from '../config/constants'
 import './NodeAdder.css'
 
 /**
@@ -11,20 +12,6 @@ import './NodeAdder.css'
  * - Node participates in dispatch
  * - Stored in session state
  */
-
-const PLANT_TYPES = [
-  { value: 'Wind Offshore', label: 'Wind Offshore', color: '#3b82f6' },
-  { value: 'Wind Onshore', label: 'Wind Onshore', color: '#60a5fa' },
-  { value: 'Solar', label: 'Solar', color: '#fbbf24' },
-  { value: 'Nuclear', label: 'Nuclear', color: '#a855f7' },
-  { value: 'CCGT', label: 'CCGT (Gas)', color: '#f97316' },
-  { value: 'OCGT', label: 'OCGT (Peaker)', color: '#ef4444' },
-  { value: 'Hydro', label: 'Hydro', color: '#06b6d4' },
-  { value: 'Pump Storage', label: 'Pumped Storage', color: '#0891b2' },
-  { value: 'Biomass', label: 'Biomass', color: '#84cc16' },
-  { value: 'Battery', label: 'Battery Storage', color: '#8b5cf6' },
-  { value: 'Other', label: 'Other', color: '#6b7280' }
-];
 
 export default function NodeAdder({
   zoneId,

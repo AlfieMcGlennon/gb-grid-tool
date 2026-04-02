@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react'
+import { useDebouncedLocal } from '../hooks/useDebouncedLocal'
 import './ControlPanel.css'
 
 export default function ControlPanel({
@@ -43,23 +44,16 @@ export default function ControlPanel({
     const plant = plants.find(p => (p.project_id || p.project) === plantId);
     return plant?.project || plantId.slice(0, 20);
   };
-  const [localYear, setLocalYear] = useState(year);
-  const [localWindPercentile, setLocalWindPercentile] = useState(windPercentile);
-  const [localSolarPercentile, setLocalSolarPercentile] = useState(solarPercentile);
-  const [localDemandPercentile, setLocalDemandPercentile] = useState(demandPercentile);
-  const [localInterconnectorImport, setLocalInterconnectorImport] = useState(interconnectorImport);
+  const [localYear, setLocalYear] = useDebouncedLocal(year, onYearChange);
+  const [localWindPercentile, setLocalWindPercentile] = useDebouncedLocal(windPercentile, onWindPercentileChange);
+  const [localSolarPercentile, setLocalSolarPercentile] = useDebouncedLocal(solarPercentile, onSolarPercentileChange);
+  const [localDemandPercentile, setLocalDemandPercentile] = useDebouncedLocal(demandPercentile, onDemandPercentileChange);
+  const [localInterconnectorImport, setLocalInterconnectorImport] = useDebouncedLocal(interconnectorImport, onInterconnectorImportChange);
 
   // Collapsible section state
   const [fuelTogglesExpanded, setFuelTogglesExpanded] = useState(false);
   const [changesExpanded, setChangesExpanded] = useState(false);
   const [showResetConfirm, setShowResetConfirm] = useState(false);
-
-  // Sync local state when parent props change (e.g., after reset)
-  useEffect(() => { setLocalYear(year); }, [year]);
-  useEffect(() => { setLocalWindPercentile(windPercentile); }, [windPercentile]);
-  useEffect(() => { setLocalSolarPercentile(solarPercentile); }, [solarPercentile]);
-  useEffect(() => { setLocalDemandPercentile(demandPercentile); }, [demandPercentile]);
-  useEffect(() => { setLocalInterconnectorImport(interconnectorImport); }, [interconnectorImport]);
 
   // Calculate change counts
   const plantEditCount = plantEdits ? Object.keys(plantEdits).length : 0;
@@ -75,56 +69,6 @@ export default function ControlPanel({
     onReset?.();
     setShowResetConfirm(false);
   };
-
-  // Debounce year changes (300ms) - only trigger if local differs from parent
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      if (localYear !== year) {
-        onYearChange(localYear);
-      }
-    }, 300);
-    return () => clearTimeout(timer);
-  }, [localYear]);
-
-  // Debounce wind percentile (300ms)
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      if (localWindPercentile !== windPercentile) {
-        onWindPercentileChange(localWindPercentile);
-      }
-    }, 300);
-    return () => clearTimeout(timer);
-  }, [localWindPercentile]);
-
-  // Debounce solar percentile (300ms)
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      if (localSolarPercentile !== solarPercentile) {
-        onSolarPercentileChange(localSolarPercentile);
-      }
-    }, 300);
-    return () => clearTimeout(timer);
-  }, [localSolarPercentile]);
-
-  // Debounce demand percentile (300ms)
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      if (localDemandPercentile !== demandPercentile) {
-        onDemandPercentileChange(localDemandPercentile);
-      }
-    }, 300);
-    return () => clearTimeout(timer);
-  }, [localDemandPercentile]);
-
-  // Debounce interconnector import (300ms)
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      if (localInterconnectorImport !== interconnectorImport) {
-        onInterconnectorImportChange(localInterconnectorImport);
-      }
-    }, 300);
-    return () => clearTimeout(timer);
-  }, [localInterconnectorImport]);
 
   const seasons = ['Winter', 'Spring', 'Summer', 'Autumn', 'Annual'];
 

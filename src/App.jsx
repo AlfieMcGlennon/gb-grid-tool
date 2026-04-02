@@ -1,6 +1,7 @@
-import { useState, useEffect, useCallback, useRef } from 'react'
+import { useState, useEffect, useCallback, useRef, useMemo } from 'react'
 import { loadAllData } from './data/dataLoader'
 import { runScenario } from './engine/scenarioRunner'
+import { useEscapeKey } from './hooks/useEscapeKey'
 import GridMap from './components/GridMap'
 import DetailPanel from './components/DetailPanel'
 import ControlPanel from './components/ControlPanel'
@@ -94,31 +95,16 @@ function App() {
     localStorage.setItem('colorBlindMode', colorBlindMode);
   }, [colorBlindMode]);
 
-  // Handle Escape key to close modals
-  useEffect(() => {
-    const handleEscape = (e) => {
-      if (e.key === 'Escape') {
-        // Close modals in order of priority (most recently opened first)
-        if (plantEditorZone) {
-          setPlantEditorZone(null);
-        } else if (nodeAdderZone) {
-          setNodeAdderZone(null);
-        } else if (linkEditorOpen) {
-          setLinkEditorOpen(false);
-        } else if (contingencyPanelOpen) {
-          setContingencyPanelOpen(false);
-          setSelectedContingency(null);
-        } else if (scenarioManagerOpen) {
-          setScenarioManagerOpen(false);
-        } else if (dataSourcesOpen) {
-          setDataSourcesOpen(false);
-        }
-      }
-    };
-
-    document.addEventListener('keydown', handleEscape);
-    return () => document.removeEventListener('keydown', handleEscape);
-  }, [plantEditorZone, nodeAdderZone, linkEditorOpen, contingencyPanelOpen, scenarioManagerOpen, dataSourcesOpen]);
+  // Handle Escape key to close modals (innermost first)
+  const escapeModals = useMemo(() => [
+    { isOpen: !!plantEditorZone, onClose: () => setPlantEditorZone(null) },
+    { isOpen: !!nodeAdderZone, onClose: () => setNodeAdderZone(null) },
+    { isOpen: linkEditorOpen, onClose: () => setLinkEditorOpen(false) },
+    { isOpen: contingencyPanelOpen, onClose: () => { setContingencyPanelOpen(false); setSelectedContingency(null); } },
+    { isOpen: scenarioManagerOpen, onClose: () => setScenarioManagerOpen(false) },
+    { isOpen: dataSourcesOpen, onClose: () => setDataSourcesOpen(false) }
+  ], [plantEditorZone, nodeAdderZone, linkEditorOpen, contingencyPanelOpen, scenarioManagerOpen, dataSourcesOpen]);
+  useEscapeKey(escapeModals);
 
   // Run power flow scenario (memoized to avoid unnecessary recalculations)
   const runPowerFlow = useCallback((loadedData, params) => {
