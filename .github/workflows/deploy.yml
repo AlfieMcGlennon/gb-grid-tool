@@ -21,8 +21,13 @@ jobs:
         with:
           node-version: 20
           cache: npm
-      - run: npm install --ignore-scripts
+      - run: npm install
       - run: npm run build
+      - name: Verify build output
+        run: |
+          ls -la dist/
+          ls -la dist/highs* || echo "WARNING: HiGHS files missing from dist/"
+          ls -la dist/assets/
       - uses: actions/upload-pages-artifact@v3
         with:
           path: dist
