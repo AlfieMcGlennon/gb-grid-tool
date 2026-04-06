@@ -1,0 +1,371 @@
+/* SCADA Control Room Plant Editor */
+.plant-editor {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  background: var(--bg-panel);
+  color: var(--text-primary);
+}
+
+.plant-editor-header {
+  padding: 16px 20px;
+  border-bottom: 1px solid var(--border-default);
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  background: var(--bg-panel);
+}
+
+.plant-editor-title h2 {
+  font-size: 18px;
+  font-weight: 600;
+  margin: 0;
+  color: var(--text-primary);
+}
+
+.plant-editor-subtitle {
+  font-size: 13px;
+  color: var(--text-secondary);
+  margin: 4px 0 0 0;
+}
+
+/* Summary Bar */
+.plant-editor-summary {
+  display: flex;
+  gap: 16px;
+  padding: 12px 20px;
+  background: var(--bg-base);
+  border-bottom: 1px solid var(--border-default);
+}
+
+.summary-stat {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.summary-label {
+  font-size: 11px;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.summary-value {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+/* Filters */
+.plant-editor-filters {
+  display: flex;
+  gap: 8px;
+  padding: 12px 20px;
+  border-bottom: 1px solid var(--border-default);
+  background: var(--bg-panel);
+}
+
+.plant-search {
+  flex: 1;
+  padding: 8px 12px;
+  background: var(--bg-panel);
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius);
+  color: var(--text-primary);
+  font-size: 13px;
+}
+
+.plant-search::placeholder {
+  color: var(--text-muted);
+}
+
+.plant-search:focus {
+  outline: none;
+  border-color: var(--accent-primary);
+  box-shadow: none;
+}
+
+.plant-filter {
+  padding: 8px 12px;
+  background: var(--bg-panel);
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius);
+  color: var(--text-primary);
+  font-size: 13px;
+  cursor: pointer;
+  min-width: 120px;
+}
+
+.plant-filter:focus {
+  outline: none;
+  border-color: var(--accent-primary);
+}
+
+/* Plants List */
+.plant-editor-list {
+  flex: 1;
+  overflow-y: auto;
+  padding: 12px 20px;
+  background: var(--bg-base);
+}
+
+.plant-editor-empty {
+  text-align: center;
+  padding: 40px 20px;
+  color: var(--text-secondary);
+  font-size: 14px;
+}
+
+/* Plant Item */
+.plant-editor-item {
+  margin-bottom: 8px;
+  background: var(--bg-panel);
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius);
+  overflow: hidden;
+  transition: border-color 0.2s;
+}
+
+.plant-editor-item.edited {
+  border-color: var(--color-warning);
+}
+
+.plant-editor-item.expanded {
+  border-color: var(--accent-primary);
+}
+
+.plant-editor-item-header {
+  display: flex;
+  align-items: center;
+  padding: 12px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.plant-editor-item-header:hover {
+  background: var(--bg-base);
+}
+
+.plant-item-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.plant-item-name {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text-primary);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.edit-badge {
+  font-size: 10px;
+  padding: 2px 6px;
+  background: var(--color-warning);
+  color: white;
+  border-radius: var(--radius);
+  font-weight: 500;
+  text-transform: uppercase;
+}
+
+.plant-item-meta {
+  display: flex;
+  gap: 8px;
+  margin-top: 4px;
+  font-size: 12px;
+}
+
+.plant-item-type {
+  color: var(--text-secondary);
+}
+
+.plant-item-status {
+  padding: 1px 6px;
+  border-radius: var(--radius);
+  font-size: 11px;
+  font-weight: 500;
+}
+
+.plant-item-status.built {
+  background: rgba(34, 197, 94, 0.1);
+  color: var(--color-success);
+}
+
+.plant-item-status.under-construction {
+  background: rgba(255, 176, 0, 0.08);
+  color: var(--accent-primary);
+}
+
+.plant-item-status.retired {
+  background: rgba(239, 68, 68, 0.1);
+  color: var(--color-alarm);
+}
+
+.plant-item-status.scoping {
+  background: var(--accent-secondary-dim);
+  color: var(--accent-secondary);
+}
+
+.plant-item-power {
+  display: flex;
+  align-items: baseline;
+  gap: 4px;
+  margin-right: 8px;
+}
+
+.plant-item-mw {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--color-success);
+}
+
+.plant-item-mw.reduced {
+  color: var(--color-warning);
+}
+
+.plant-item-base-mw {
+  font-size: 12px;
+  color: var(--text-muted);
+}
+
+.expand-icon {
+  font-size: 10px;
+  color: var(--text-muted);
+  transition: transform 0.2s;
+}
+
+/* Edit Controls */
+.plant-editor-controls {
+  padding: 16px;
+  background: var(--bg-base);
+  border-top: 1px solid var(--border-default);
+}
+
+.control-group {
+  margin-bottom: 16px;
+}
+
+.control-group:last-child {
+  margin-bottom: 0;
+}
+
+.control-label {
+  display: block;
+  font-size: 12px;
+  color: var(--text-secondary);
+  margin-bottom: 8px;
+  font-weight: 500;
+}
+
+/* Status Buttons */
+.status-buttons {
+  display: flex;
+  gap: 6px;
+}
+
+.status-btn {
+  flex: 1;
+  padding: 8px 12px;
+  background: var(--bg-panel);
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius);
+  color: var(--text-secondary);
+  font-size: 12px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.status-btn:hover {
+  background: var(--bg-hover);
+  color: var(--text-primary);
+}
+
+.status-btn.active {
+  background: var(--accent-primary);
+  border-color: var(--accent-primary);
+  color: white;
+}
+
+/* Output Slider */
+.output-slider {
+  width: 100%;
+  height: 6px;
+  -webkit-appearance: none;
+  appearance: none;
+  background: var(--border-default);
+  border-radius: var(--radius);
+  outline: none;
+  cursor: pointer;
+}
+
+.output-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 18px;
+  height: 18px;
+  background: var(--accent-primary);
+  border-radius: 50%;
+  cursor: pointer;
+  border: 2px solid var(--bg-panel);
+  box-shadow: none;
+}
+
+.output-slider::-moz-range-thumb {
+  width: 18px;
+  height: 18px;
+  background: var(--accent-primary);
+  border-radius: 50%;
+  cursor: pointer;
+  border: 2px solid var(--bg-panel);
+  box-shadow: none;
+}
+
+.slider-labels {
+  display: flex;
+  justify-content: space-between;
+  font-size: 10px;
+  color: var(--text-muted);
+  margin-top: 4px;
+}
+
+/* Commissioning Year Select */
+.commissioning-select {
+  width: 100%;
+  padding: 8px 12px;
+  background: var(--bg-panel);
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius);
+  color: var(--text-primary);
+  font-size: 13px;
+  cursor: pointer;
+}
+
+.commissioning-select:focus {
+  outline: none;
+  border-color: var(--accent-primary);
+}
+
+/* Reset Button */
+.reset-plant-btn {
+  width: 100%;
+  padding: 10px;
+  background: transparent;
+  border: 1px solid var(--color-warning);
+  border-radius: var(--radius);
+  color: var(--color-warning);
+  font-size: 13px;
+  cursor: pointer;
+  transition: all 0.2s;
+  margin-top: 12px;
+}
+
+.reset-plant-btn:hover {
+  background: var(--color-warning);
+  color: white;
+}

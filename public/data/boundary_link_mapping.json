@@ -1,0 +1,534 @@
+{
+  "metadata": {
+    "description": "ETYS boundary to TNUoS zonal link mapping",
+    "method": "Geometric intersection of boundary lines with zone polygons"
+  },
+  "boundary_links": {
+    "B0": {
+      "geo_id": "B0",
+      "north_zones": [],
+      "south_zones": [
+        "GZ1"
+      ],
+      "crossing_links": [],
+      "capability_2024_mw": 1800,
+      "resolution_status": "edge",
+      "independently_resolvable": false,
+      "shares_with": [],
+      "resolution_note": "No crossing links at 27-node resolution."
+    },
+    "B13": {
+      "geo_id": "B13",
+      "north_zones": [
+        "GZ21",
+        "GZ22"
+      ],
+      "south_zones": [
+        "GZ26",
+        "GZ27"
+      ],
+      "crossing_links": [
+        "GZ22-GZ26"
+      ],
+      "capability_2024_mw": 3300,
+      "resolution_status": "shared",
+      "independently_resolvable": false,
+      "shares_with": [
+        "SC1",
+        "SC1.5"
+      ],
+      "resolution_note": "Shares all crossing links with SC1, SC1.5. Combined flow shown \u2014 cannot separate at 27-node resolution."
+    },
+    "B14": {
+      "geo_id": "B14",
+      "north_zones": [
+        "GZ18"
+      ],
+      "south_zones": [
+        "GZ23",
+        "GZ24",
+        "GZ25"
+      ],
+      "crossing_links": [
+        "GZ18-GZ24",
+        "GZ18-GZ25"
+      ],
+      "capability_2024_mw": 11600,
+      "resolution_status": "shared",
+      "independently_resolvable": false,
+      "shares_with": [
+        "EC5I",
+        "LE1"
+      ],
+      "resolution_note": "Shares all crossing links with EC5I, LE1. Combined flow shown \u2014 cannot separate at 27-node resolution."
+    },
+    "B1aF": {
+      "geo_id": "B1a",
+      "north_zones": [
+        "GZ1",
+        "GZ2",
+        "GZ3",
+        "GZ4"
+      ],
+      "south_zones": [
+        "GZ10",
+        "GZ11",
+        "GZ12",
+        "GZ13",
+        "GZ14",
+        "GZ15",
+        "GZ16",
+        "GZ17",
+        "GZ18",
+        "GZ19",
+        "GZ20",
+        "GZ21",
+        "GZ22",
+        "GZ23",
+        "GZ24",
+        "GZ25",
+        "GZ26",
+        "GZ27",
+        "GZ5",
+        "GZ6",
+        "GZ7",
+        "GZ8",
+        "GZ9"
+      ],
+      "crossing_links": [
+        "GZ1-GZ5",
+        "GZ1-GZ11",
+        "GZ3-GZ5",
+        "GZ3-GZ8",
+        "GZ3-GZ9"
+      ],
+      "capability_2024_mw": 2600,
+      "resolution_status": "independent",
+      "independently_resolvable": true,
+      "shares_with": [
+        "B2F"
+      ],
+      "resolution_note": "Independently resolvable at 27-node resolution."
+    },
+    "B2F": {
+      "geo_id": "B2",
+      "north_zones": [
+        "GZ1",
+        "GZ2",
+        "GZ3",
+        "GZ4",
+        "GZ5"
+      ],
+      "south_zones": [
+        "GZ10",
+        "GZ11",
+        "GZ6",
+        "GZ7",
+        "GZ8",
+        "GZ9"
+      ],
+      "crossing_links": [
+        "GZ1-GZ11",
+        "GZ3-GZ8",
+        "GZ3-GZ9",
+        "GZ5-GZ6",
+        "GZ5-GZ9"
+      ],
+      "capability_2024_mw": 3600,
+      "resolution_status": "independent",
+      "independently_resolvable": true,
+      "shares_with": [
+        "B1aF",
+        "B4F"
+      ],
+      "resolution_note": "Independently resolvable at 27-node resolution."
+    },
+    "B3": {
+      "geo_id": "B3b",
+      "north_zones": [
+        "GZ3",
+        "GZ7",
+        "GZ8"
+      ],
+      "south_zones": [
+        "GZ10"
+      ],
+      "crossing_links": [
+        "GZ10-GZ7",
+        "GZ10-GZ8"
+      ],
+      "capability_2024_mw": 400,
+      "resolution_status": "independent",
+      "independently_resolvable": true,
+      "shares_with": [
+        "B4F",
+        "B5"
+      ],
+      "resolution_note": "Independently resolvable at 27-node resolution."
+    },
+    "B4F": {
+      "geo_id": "B4",
+      "north_zones": [
+        "GZ5",
+        "GZ6",
+        "GZ8"
+      ],
+      "south_zones": [
+        "GZ10",
+        "GZ7",
+        "GZ9"
+      ],
+      "crossing_links": [
+        "GZ5-GZ9",
+        "GZ10-GZ8",
+        "GZ7-GZ8",
+        "GZ8-GZ9"
+      ],
+      "capability_2024_mw": 4300,
+      "resolution_status": "independent",
+      "independently_resolvable": true,
+      "shares_with": [
+        "B2F",
+        "B3",
+        "B5"
+      ],
+      "resolution_note": "Independently resolvable at 27-node resolution."
+    },
+    "B5": {
+      "geo_id": "B5",
+      "north_zones": [
+        "GZ8",
+        "GZ9"
+      ],
+      "south_zones": [
+        "GZ10",
+        "GZ11"
+      ],
+      "crossing_links": [
+        "GZ10-GZ8",
+        "GZ10-GZ9",
+        "GZ11-GZ9"
+      ],
+      "capability_2024_mw": 4300,
+      "resolution_status": "independent",
+      "independently_resolvable": true,
+      "shares_with": [
+        "B3",
+        "B4F"
+      ],
+      "resolution_note": "Independently resolvable at 27-node resolution."
+    },
+    "B6F": {
+      "geo_id": "B6",
+      "north_zones": [
+        "GZ1",
+        "GZ10",
+        "GZ11",
+        "GZ2",
+        "GZ3",
+        "GZ4",
+        "GZ5",
+        "GZ6",
+        "GZ7",
+        "GZ8",
+        "GZ9"
+      ],
+      "south_zones": [
+        "GZ12",
+        "GZ13",
+        "GZ14",
+        "GZ15",
+        "GZ16",
+        "GZ17",
+        "GZ18",
+        "GZ19",
+        "GZ20",
+        "GZ21",
+        "GZ22",
+        "GZ23",
+        "GZ24",
+        "GZ25",
+        "GZ26",
+        "GZ27"
+      ],
+      "crossing_links": [
+        "GZ10-GZ12",
+        "GZ11-GZ12",
+        "GZ11-GZ13"
+      ],
+      "capability_2024_mw": 7200,
+      "resolution_status": "independent",
+      "independently_resolvable": true,
+      "shares_with": [],
+      "resolution_note": "Independently resolvable at 27-node resolution."
+    },
+    "B7aF": {
+      "geo_id": "B7a",
+      "north_zones": [
+        "GZ14"
+      ],
+      "south_zones": [
+        "GZ15"
+      ],
+      "crossing_links": [
+        "GZ14-GZ15"
+      ],
+      "capability_2024_mw": 10300,
+      "resolution_status": "independent",
+      "independently_resolvable": true,
+      "shares_with": [],
+      "resolution_note": "Independently resolvable at 27-node resolution."
+    },
+    "B8": {
+      "geo_id": "B8",
+      "north_zones": [
+        "GZ15",
+        "GZ16"
+      ],
+      "south_zones": [
+        "GZ18",
+        "GZ20"
+      ],
+      "crossing_links": [
+        "GZ16-GZ18"
+      ],
+      "capability_2024_mw": 12200,
+      "resolution_status": "shared",
+      "independently_resolvable": false,
+      "shares_with": [
+        "NW3"
+      ],
+      "resolution_note": "Shares all crossing links with NW3. Combined flow shown \u2014 cannot separate at 27-node resolution."
+    },
+    "B9": {
+      "geo_id": "B9",
+      "north_zones": [
+        "GZ17"
+      ],
+      "south_zones": [
+        "GZ18",
+        "GZ20"
+      ],
+      "crossing_links": [
+        "GZ17-GZ18"
+      ],
+      "capability_2024_mw": 12900,
+      "resolution_status": "independent",
+      "independently_resolvable": true,
+      "shares_with": [],
+      "resolution_note": "Independently resolvable at 27-node resolution."
+    },
+    "EC5I": {
+      "geo_id": "EC5",
+      "north_zones": [
+        "GZ18"
+      ],
+      "south_zones": [
+        "GZ24"
+      ],
+      "crossing_links": [
+        "GZ18-GZ24"
+      ],
+      "capability_2024_mw": 4000,
+      "resolution_status": "shared",
+      "independently_resolvable": false,
+      "shares_with": [
+        "B14",
+        "LE1"
+      ],
+      "resolution_note": "Shares all crossing links with B14, LE1. Combined flow shown \u2014 cannot separate at 27-node resolution."
+    },
+    "LE1": {
+      "geo_id": "LE1",
+      "north_zones": [
+        "GZ18"
+      ],
+      "south_zones": [
+        "GZ24",
+        "GZ25",
+        "GZ26"
+      ],
+      "crossing_links": [
+        "GZ18-GZ24",
+        "GZ18-GZ25"
+      ],
+      "capability_2024_mw": 11200,
+      "resolution_status": "shared",
+      "independently_resolvable": false,
+      "shares_with": [
+        "B14",
+        "EC5I"
+      ],
+      "resolution_note": "Shares all crossing links with B14, EC5I. Combined flow shown \u2014 cannot separate at 27-node resolution."
+    },
+    "NW1": {
+      "geo_id": "NW1",
+      "north_zones": [],
+      "south_zones": [
+        "GZ19"
+      ],
+      "crossing_links": [],
+      "capability_2024_mw": 1800,
+      "resolution_status": "edge",
+      "independently_resolvable": false,
+      "shares_with": [],
+      "resolution_note": "No crossing links at 27-node resolution."
+    },
+    "NW2": {
+      "geo_id": "NW2",
+      "north_zones": [],
+      "south_zones": [
+        "GZ16",
+        "GZ19"
+      ],
+      "crossing_links": [],
+      "capability_2024_mw": 1400,
+      "resolution_status": "edge",
+      "independently_resolvable": false,
+      "shares_with": [],
+      "resolution_note": "No crossing links at 27-node resolution."
+    },
+    "NW3": {
+      "geo_id": "NW3",
+      "north_zones": [
+        "GZ16"
+      ],
+      "south_zones": [
+        "GZ18"
+      ],
+      "crossing_links": [
+        "GZ16-GZ18"
+      ],
+      "capability_2024_mw": 5500,
+      "resolution_status": "shared",
+      "independently_resolvable": false,
+      "shares_with": [
+        "B8"
+      ],
+      "resolution_note": "Shares all crossing links with B8. Combined flow shown \u2014 cannot separate at 27-node resolution."
+    },
+    "SC1": {
+      "geo_id": "SC1",
+      "north_zones": [
+        "GZ22",
+        "GZ24",
+        "GZ25"
+      ],
+      "south_zones": [
+        "GZ26",
+        "GZ27"
+      ],
+      "crossing_links": [
+        "GZ22-GZ26",
+        "GZ25-GZ26"
+      ],
+      "capability_2024_mw": 5500,
+      "resolution_status": "shared",
+      "independently_resolvable": false,
+      "shares_with": [
+        "B13",
+        "SC1.5"
+      ],
+      "resolution_note": "Shares all crossing links with B13, SC1.5. Combined flow shown \u2014 cannot separate at 27-node resolution."
+    },
+    "SC1.5": {
+      "geo_id": "SC1.5",
+      "north_zones": [
+        "GZ22",
+        "GZ24",
+        "GZ25"
+      ],
+      "south_zones": [
+        "GZ26"
+      ],
+      "crossing_links": [
+        "GZ22-GZ26",
+        "GZ25-GZ26"
+      ],
+      "capability_2024_mw": 5800,
+      "resolution_status": "shared",
+      "independently_resolvable": false,
+      "shares_with": [
+        "B13",
+        "SC1"
+      ],
+      "resolution_note": "Shares all crossing links with B13, SC1. Combined flow shown \u2014 cannot separate at 27-node resolution."
+    },
+    "SC2": {
+      "geo_id": "SC2",
+      "north_zones": [
+        "GZ24"
+      ],
+      "south_zones": [
+        "GZ25"
+      ],
+      "crossing_links": [
+        "GZ24-GZ25"
+      ],
+      "capability_2024_mw": 4900,
+      "resolution_status": "independent",
+      "independently_resolvable": true,
+      "shares_with": [],
+      "resolution_note": "Independently resolvable at 27-node resolution."
+    },
+    "SC3": {
+      "geo_id": "SC3",
+      "north_zones": [],
+      "south_zones": [
+        "GZ24",
+        "GZ25"
+      ],
+      "crossing_links": [],
+      "capability_2024_mw": 7200,
+      "resolution_status": "edge",
+      "independently_resolvable": false,
+      "shares_with": [],
+      "resolution_note": "No crossing links at 27-node resolution."
+    },
+    "SW1": {
+      "geo_id": "SW1",
+      "north_zones": [
+        "GZ18",
+        "GZ20"
+      ],
+      "south_zones": [
+        "GZ21",
+        "GZ22",
+        "GZ26"
+      ],
+      "crossing_links": [
+        "GZ18-GZ21",
+        "GZ18-GZ22"
+      ],
+      "capability_2024_mw": 2900,
+      "resolution_status": "independent",
+      "independently_resolvable": true,
+      "shares_with": [],
+      "resolution_note": "Independently resolvable at 27-node resolution."
+    }
+  },
+  "cap_name_map": {
+    "B0": "B0",
+    "B1a": "B1aF",
+    "B2": "B2F",
+    "B3b": "B3",
+    "B4": "B4F",
+    "B5": "B5",
+    "B6": "B6F",
+    "B7a": "B7aF",
+    "B8": "B8",
+    "B9": "B9",
+    "B13": "B13",
+    "B14": "B14",
+    "EC5": "EC5I",
+    "LE1": "LE1",
+    "NW1": "NW1",
+    "NW2": "NW2",
+    "NW3": "NW3",
+    "SC1": "SC1",
+    "SC1.5": "SC1.5",
+    "SC2": "SC2",
+    "SC3": "SC3",
+    "SW1": "SW1"
+  }
+}

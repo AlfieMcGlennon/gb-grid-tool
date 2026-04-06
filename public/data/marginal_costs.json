@@ -1,0 +1,142 @@
+{
+  "metadata": {
+    "description": "Short-run marginal costs by generation technology for GB economic dispatch",
+    "sources": [
+      "DESNZ Electricity Generation Costs 2023",
+      "Ofgem wholesale market indicators",
+      "NESO FES 2024 fuel price assumptions"
+    ],
+    "base_year": 2024,
+    "gas_price_assumption": "55 p/therm (2024 central estimate)",
+    "carbon_price_assumption": "45 GBP/tCO2 (UK ETS 2024)",
+    "notes": "SRMC = fuel_cost/efficiency + carbon_cost × emissions_factor + VOM. Start-up and ramp costs are linear approximations added to SRMC for snapshot dispatch."
+  },
+  "technologies": {
+    "Wind Onshore": {
+      "srmc_gbp_mwh": 0,
+      "startup_cost_gbp_mw": 0,
+      "ramp_penalty_gbp_mw": 0,
+      "min_stable_pct": 0,
+      "must_run": true,
+      "curtailable": true,
+      "description": "Zero marginal cost, fully curtailable"
+    },
+    "Wind Offshore": {
+      "srmc_gbp_mwh": 0,
+      "startup_cost_gbp_mw": 0,
+      "ramp_penalty_gbp_mw": 0,
+      "min_stable_pct": 0,
+      "must_run": true,
+      "curtailable": true,
+      "description": "Zero marginal cost, fully curtailable"
+    },
+    "Solar": {
+      "srmc_gbp_mwh": 0,
+      "startup_cost_gbp_mw": 0,
+      "ramp_penalty_gbp_mw": 0,
+      "min_stable_pct": 0,
+      "must_run": true,
+      "curtailable": true,
+      "description": "Zero marginal cost, fully curtailable"
+    },
+    "Solar/PV": {
+      "srmc_gbp_mwh": 0,
+      "startup_cost_gbp_mw": 0,
+      "ramp_penalty_gbp_mw": 0,
+      "min_stable_pct": 0,
+      "must_run": true,
+      "curtailable": true,
+      "description": "Zero marginal cost, fully curtailable"
+    },
+    "PV Array (Photo Voltaic/solar)": {
+      "srmc_gbp_mwh": 0,
+      "startup_cost_gbp_mw": 0,
+      "ramp_penalty_gbp_mw": 0,
+      "min_stable_pct": 0,
+      "must_run": true,
+      "curtailable": true,
+      "description": "Zero marginal cost, fully curtailable"
+    },
+    "Nuclear": {
+      "srmc_gbp_mwh": 8,
+      "startup_cost_gbp_mw": 500,
+      "ramp_penalty_gbp_mw": 50,
+      "min_stable_pct": 50,
+      "must_run": true,
+      "curtailable": false,
+      "description": "Low fuel cost, high start-up cost, inflexible. Min stable ~50% for AGR/PWR."
+    },
+    "Hydro": {
+      "srmc_gbp_mwh": 3,
+      "startup_cost_gbp_mw": 0,
+      "ramp_penalty_gbp_mw": 0,
+      "min_stable_pct": 0,
+      "must_run": false,
+      "curtailable": true,
+      "description": "Very flexible, near-zero marginal cost, water availability dependent"
+    },
+    "Pump Storage": {
+      "srmc_gbp_mwh": 15,
+      "startup_cost_gbp_mw": 5,
+      "ramp_penalty_gbp_mw": 0,
+      "min_stable_pct": 0,
+      "must_run": false,
+      "curtailable": true,
+      "description": "Price-taker, dispatched for arbitrage. SRMC represents opportunity cost."
+    },
+    "Biomass": {
+      "srmc_gbp_mwh": 40,
+      "startup_cost_gbp_mw": 100,
+      "ramp_penalty_gbp_mw": 10,
+      "min_stable_pct": 40,
+      "must_run": false,
+      "curtailable": true,
+      "description": "Fuel cost + CfD strike price dynamics. Min stable ~40%."
+    },
+    "CCGT (Combined Cycle Gas Turbine)": {
+      "srmc_gbp_mwh": 55,
+      "startup_cost_gbp_mw": 80,
+      "ramp_penalty_gbp_mw": 8,
+      "min_stable_pct": 50,
+      "must_run": false,
+      "curtailable": true,
+      "description": "Gas price × heat rate + carbon cost + VOM. Min stable ~50%. Hot start ~2hrs."
+    },
+    "CCGT": {
+      "srmc_gbp_mwh": 55,
+      "startup_cost_gbp_mw": 80,
+      "ramp_penalty_gbp_mw": 8,
+      "min_stable_pct": 50,
+      "must_run": false,
+      "curtailable": true,
+      "description": "Gas CCGT alias"
+    },
+    "OCGT (Open Cycle Gas Turbine)": {
+      "srmc_gbp_mwh": 95,
+      "startup_cost_gbp_mw": 20,
+      "ramp_penalty_gbp_mw": 2,
+      "min_stable_pct": 20,
+      "must_run": false,
+      "curtailable": true,
+      "description": "Higher heat rate than CCGT, fast start. Peaking plant."
+    },
+    "OCGT": {
+      "srmc_gbp_mwh": 95,
+      "startup_cost_gbp_mw": 20,
+      "ramp_penalty_gbp_mw": 2,
+      "min_stable_pct": 20,
+      "must_run": false,
+      "curtailable": true,
+      "description": "Gas OCGT alias"
+    },
+    "Interconnector": {
+      "srmc_gbp_mwh": 50,
+      "startup_cost_gbp_mw": 0,
+      "ramp_penalty_gbp_mw": 0,
+      "min_stable_pct": 0,
+      "must_run": false,
+      "curtailable": true,
+      "description": "Import cost approximation based on European wholesale price"
+    }
+  }
+}

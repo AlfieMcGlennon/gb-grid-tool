@@ -1,0 +1,8000 @@
+{
+  "metadata": {
+    "description": "ETYS substation to TNUoS generation zone mapping",
+    "source": "ETYS 2024 Appendix B + NESO GSP regions + TNUoS zone boundaries",
+    "license": "Open Government Licence v3",
+    "crs": "EPSG:4326 (WGS84)",
+    "crs_fix_applied": true,
+    "n_substations": 795,
+    "n_with_zone": 795,
+    "n_zones_populated": 27,
+    "assignment_method": {
+      "phase1_gsp_pip": 295,
+      "phase2_circuit_propagation": 289,
+      "phase3_to_fallback": 211
+    },
+    "validation_passed": true,
+    "fuzzy_improved": 69
+  },
+  "substations": {
+    "ABHA": {
+      "code": "ABHA",
+      "name": "ABERTHAW",
+      "to": "NGET",
+      "voltage_kv": 400,
+      "lat": 50.439787,
+      "lon": -3.764919,
+      "zone": "GZ27",
+      "match_method": "pip"
+    },
+    "ABNE": {
+      "code": "ABNE",
+      "name": "ABERNETHY",
+      "to": "SHET",
+      "voltage_kv": 132,
+      "lat": 56.313108,
+      "lon": -3.40105,
+      "zone": "GZ5",
+      "match_method": "pip"
+    },
+    "ABTH": {
+      "code": "ABTH",
+      "name": "ABERTHAW",
+      "to": "NGET",
+      "voltage_kv": 275,
+      "lat": 51.438066,
+      "lon": -3.352149,
+      "zone": "GZ21",
+      "match_method": "pip"
+    },
+    "ALNE": {
+      "code": "ALNE",
+      "name": "ALNESS GSP",
+      "to": "SHET",
+      "voltage_kv": 132,
+      "lat": 57.755509,
+      "lon": -4.178532,
+      "zone": "GZ1",
+      "match_method": "pip"
+    },
+    "ALST": {
+      "code": "ALST",
+      "name": "ALPHA STEEL",
+      "to": "NGET",
+      "voltage_kv": 33,
+      "lat": 51.652071,
+      "lon": -2.890314,
+      "zone": "GZ21",
+      "match_method": "pip"
+    },
+    "ALVE": {
+      "code": "ALVE",
+      "name": "ALVERDISCOTT",
+      "to": "NGET",
+      "voltage_kv": 400,
+      "lat": 50.893561,
+      "lon": -4.11096,
+      "zone": "GZ27",
+      "match_method": "pip"
+    },
+    "AMEM": {
+      "code": "AMEM",
+      "name": "AMERSHAM MAIN",
+      "to": "NGET",
+      "voltage_kv": 400,
+      "lat": 51.74266,
+      "lon": -0.864303,
+      "zone": "GZ25",
+      "match_method": "pip"
+    },
+    "ARBR": {
+      "code": "ARBR",
+      "name": "ARBROATH",
+      "to": "SHET",
+      "voltage_kv": 132,
+      "lat": 56.566524,
+      "lon": -2.66783,
+      "zone": "GZ5",
+      "match_method": "pip"
+    },
+    "ARDK": {
+      "code": "ARDK",
+      "name": "ARDKINGLAS WIND",
+      "to": "SHET",
+      "voltage_kv": 132,
+      "lat": 56.228046,
+      "lon": -4.960192,
+      "zone": "GZ8",
+      "match_method": "pip"
+    },
+    "ARMO": {
+      "code": "ARMO",
+      "name": "ARDMORE",
+      "to": "SHET",
+      "voltage_kv": 132,
+      "lat": 57.861543,
+      "lon": -6.92312,
+      "zone": "GZ4",
+      "match_method": "pip"
+    },
+    "AXMI": {
+      "code": "AXMI",
+      "name": "AXMINSTER",
+      "to": "NGET",
+      "voltage_kv": 400,
+      "lat": 50.82073,
+      "lon": -2.870505,
+      "zone": "GZ26",
+      "match_method": "pip"
+    },
+    "BAGA": {
+      "code": "BAGA",
+      "name": "BATHGATE",
+      "to": "SPT",
+      "voltage_kv": 132,
+      "lat": 55.891281,
+      "lon": -3.703357,
+      "zone": "GZ9",
+      "match_method": "pip"
+    },
+    "BAIN": {
+      "code": "BAIN",
+      "name": "BAINSFORD",
+      "to": "SPT",
+      "voltage_kv": 132,
+      "lat": 56.042399,
+      "lon": -3.754425,
+      "zone": "GZ9",
+      "match_method": "pip"
+    },
+    "BARK": {
+      "code": "BARK",
+      "name": "BARKING",
+      "to": "NGET",
+      "voltage_kv": 400,
+      "lat": 51.580559,
+      "lon": 0.152723,
+      "zone": "GZ24",
+      "match_method": "pip"
+    },
+    "BEAU": {
+      "code": "BEAU",
+      "name": "BEAULY",
+      "to": "SHET",
+      "voltage_kv": 400,
+      "lat": 57.512098,
+      "lon": -4.560744,
+      "zone": "GZ1",
+      "match_method": "pip"
+    },
+    "BEDD": {
+      "code": "BEDD",
+      "name": "BEDDINGTON",
+      "to": "NGET",
+      "voltage_kv": 400,
+      "lat": 51.33189,
+      "lon": -0.077148,
+      "zone": "GZ25",
+      "match_method": "pip"
+    },
+    "BERB": {
+      "code": "BERB",
+      "name": "BERRY BURN",
+      "to": "SHET",
+      "voltage_kv": 275,
+      "lat": 57.477917,
+      "lon": -2.922239,
+      "zone": "GZ1",
+      "match_method": "pip"
+    },
+    "BERW": {
+      "code": "BERW",
+      "name": "BERWICK",
+      "to": "SPT",
+      "voltage_kv": 132,
+      "lat": 55.7586,
+      "lon": -2.101748,
+      "zone": "GZ11",
+      "match_method": "pip"
+    },
+    "BESW": {
+      "code": "BESW",
+      "name": "BERKSWELL",
+      "to": "NGET",
+      "voltage_kv": 275,
+      "lat": 52.346822,
+      "lon": -1.672421,
+      "zone": "GZ18",
+      "match_method": "pip"
+    },
+    "BICF": {
+      "code": "BICF",
+      "name": "BICKER FEN",
+      "to": "NGET",
+      "voltage_kv": 400,
+      "lat": 53.076784,
+      "lon": -0.223119,
+      "zone": "GZ17",
+      "match_method": "pip"
+    },
+    "BIRK": {
+      "code": "BIRK",
+      "name": "BIRKENHEAD",
+      "to": "NGET",
+      "voltage_kv": 275,
+      "lat": 53.400847,
+      "lon": -3.079411,
+      "zone": "GZ16",
+      "match_method": "pip"
+    },
+    "BISW": {
+      "code": "BISW",
+      "name": "BISHOPS WOOD",
+      "to": "NGET",
+      "voltage_kv": 275,
+      "lat": 52.222199,
+      "lon": -3.137422,
+      "zone": "GZ18",
+      "match_method": "pip"
+    },
+    "BLYT": {
+      "code": "BLYT",
+      "name": "BLYTH",
+      "to": "NGET",
+      "voltage_kv": 400,
+      "lat": 55.129896,
+      "lon": -1.718516,
+      "zone": "GZ13",
+      "match_method": "pip"
+    },
+    "BOAG": {
+      "code": "BOAG",
+      "name": "BOAT OF GARTEN",
+      "to": "SHET",
+      "voltage_kv": 132,
+      "lat": 57.159125,
+      "lon": -3.911855,
+      "zone": "GZ1",
+      "match_method": "pip"
+    },
+    "BOLN": {
+      "code": "BOLN",
+      "name": "BOLNEY",
+      "to": "NGET",
+      "voltage_kv": 400,
+      "lat": 51.017902,
+      "lon": -0.26708,
+      "zone": "GZ25",
+      "match_method": "pip"
+    },
+    "BONN": {
+      "code": "BONN",
+      "name": "BONNYBRIDGE",
+      "to": "SPT",
+      "voltage_kv": 400,
+      "lat": 56.011526,
+      "lon": -3.958983,
+      "zone": "GZ9",
+      "match_method": "pip"
+    },
+    "BOTW": {
+      "code": "BOTW",
+      "name": "BOTLEY WOOD",
+      "to": "NGET",
+      "voltage_kv": 400,
+      "lat": 50.932654,
+      "lon": -1.239933,
+      "zone": "GZ26",
+      "match_method": "pip"
+    },
+    "BRAI": {
+      "code": "BRAI",
+      "name": "BRAINTREE",
+      "to": "NGET",
+      "voltage_kv": 400,
+      "lat": 51.865234,
+      "lon": 0.560138,
+      "zone": "GZ24",
+      "match_method": "pip"
+    },
+    "BRAP": {
+      "code": "BRAP",
+      "name": "BRAEHEAD PARK",
+      "to": "SPT",
+      "voltage_kv": 132,
+      "lat": 55.869762,
+      "lon": -4.388422,
+      "zone": "GZ9",
+      "match_method": "pip"
+    },
+    "BRAW": {
+      "code": "BRAW",
+      "name": "BRADFORD WEST",
+      "to": "NGET",
+      "voltage_kv": 400,
+      "lat": 53.96502,
+      "lon": -1.946645,
+      "zone": "GZ15",
+      "match_method": "pip"
+    },
+    "BRED": {
+      "code": "BRED",
+      "name": "BREDBURY",
+      "to": "NGET",
+      "voltage_kv": 275,
+      "lat": 53.391416,
+      "lon": -2.121312,
+      "zone": "GZ16",
+      "match_method": "pip"
+    },
+    "BRFO": {
+      "code": "BRFO",
+      "name": "BRAMFORD",
+      "to": "NGET",
+      "voltage_kv": 400,
+      "lat": 52.216981,
+      "lon": 1.065959,
+      "zone": "GZ18",
+      "match_method": "pip"
+    },
+    "BRID": {
+      "code": "BRID",
+      "name": "BRIDGE OF DUN",
+      "to": "SHET",
+      "voltage_kv": 132,
+      "lat": 56.81023,
+      "lon": -2.749567,
+      "zone": "GZ5",
+      "match_method": "pip"
+    },
+    "BRIM": {
+      "code": "BRIM",
+      "name": "BRIMSDOWN",
+      "to": "NGET",
+      "voltage_kv": 400,
+      "lat": 51.678934,
+      "lon": -0.10578,
+      "zone": "GZ24",
+      "match_method": "pip"
+    },
+    "BRLE": {
+      "code": "BRLE",
+      "name": "BRAMLEY",
+      "to": "NGET",
+      "voltage_kv": 400,
+      "lat": 51.270915,
+      "lon": -1.048296,
+      "zone": "GZ25",
+      "match_method": "pip"
+    },
+    "BROA": {
+      "code": "BROA",
+      "name": "BROADFORD",
+      "to": "SHET",
+      "voltage_kv": 132,
+      "lat": 57.304833,
+      "lon": -5.871662,
+      "zone": "GZ4",
+      "match_method": "pip"
+    },
+    "BROR": {
+      "code": "BROR",
+      "name": "BRORA",
+      "to": "SHET",
+      "voltage_kv": 132,
+      "lat": 58.086733,
+      "lon": -3.909133,
+      "zone": "GZ1",
+      "match_method": "pip"
+    },
+    "BROX": {
+      "code": "BROX",
+      "name": "BROXBURN",
+      "to": "SPT",
+      "voltage_kv": 132,
+      "lat": 55.96264,
+      "lon": -3.442306,
+      "zone": "GZ9",
+      "match_method": "pip"
+    },
+    "BRWA": {
+      "code": "BRWA",
+      "name": "BRIDGWATER",
+      "to": "NGET",
+      "voltage_kv": 400,
+      "lat": 51.160695,
+      "lon": -2.83957,
+      "zone": "GZ26",
+      "match_method": "pip"
+    },
+    "BUMU": {
+      "code": "BUMU",
+      "name": "BURGHMUIR",
+      "to": "SHET",
+      "voltage_kv": 132,
+      "lat": 56.4447,
+      "lon": -3.690059,
+      "zone": "GZ5",
+      "match_method": "pip"
+    },
+    "BUSH": {
+      "code": "BUSH",
+      "name": "BUSHBURY",
+      "to": "NGET",
+      "voltage_kv": 275,
+      "lat": 52.743461,
+      "lon": -2.128834,
+      "zone": "GZ18",
+      "match_method": "pip"
+    },
+    "BUST": {
+      "code": "BUST",
+      "name": "BUSTLEHOLME",
+      "to": "NGET",
+      "voltage_kv": 400,
+      "lat": 52.564422,
+      "lon": -1.929129,
+      "zone": "GZ18",
+      "match_method": "pip"
+    },
+    "CAAD": {
+      "code": "CAAD",
+      "name": "CARRADALE",
+      "to": "SHET",
+      "voltage_kv": 132,
+      "lat": 55.613916,
+      "lon": -5.379778,
+      "zone": "GZ10",
+      "match_method": "pip"
+    },
+    "CAFA": {
+      "code": "CAFA",
+      "name": "CARSFAD",
+      "to": "SPT",
+      "voltage_kv": 132,
+      "lat": 54.932915,
+      "lon": -3.997163,
+      "zone": "GZ10",
+      "match_method": "pip"
+    },
+    "CANT": {
+      "code": "CANT",
+      "name": "CANTERBURY NORTH",
+      "to": "NGET",
+      "voltage_kv": 400,
+      "lat": 51.277394,
+      "lon": 1.068348,
+      "zone": "GZ24",
+      "match_method": "pip"
+    },
+    "CAPE": {
+      "code": "CAPE",
+      "name": "CAPENHURST",
+      "to": "NGET",
+      "voltage_kv": 400,
+      "lat": 53.218182,
+      "lon": -2.905451,
+      "zone": "GZ16",
+      "match_method": "pip"
+    },
+    "CARE": {
+      "code": "CARE",
+      "name": "CARDIFF EAST",
+      "to": "NGET",
+      "voltage_kv": 275,
+      "lat": 51.521668,
+      "lon": -3.144527,
+      "zone": "GZ21",
+      "match_method": "pip"
+    },
+    "CARR": {
+      "code": "CARR",
+      "name": "CARRINGTON",
+      "to": "NGET",
+      "voltage_kv": 400,
+      "lat": 53.432318,
+      "lon": -2.378454,
+      "zone": "GZ16",
+      "match_method": "pip"
+    },
+    "CASS": {
+      "code": "CASS",
+      "name": "CASSLEY",
+      "to": "SHET",
+      "voltage_kv": 132,
+      "lat": 58.378442,
+      "lon": -4.8526,
+      "zone": "GZ1",
+      "match_method": "pip"
+    },
+    "CATY": {
+      "code": "CATY",
+      "name": "CARNTYNE",
+      "to": "SPT",
+      "voltage_kv": 132,
+      "lat": 55.845576,
+      "lon": -4.17595,
+      "zone": "GZ9",
+      "match_method": "pip"
+    },
+    "CEAN": {
+      "code": "CEAN",
+      "name": "CEANNACROC",
+      "to": "SHET",
+      "voltage_kv": 132,
+      "lat": 57.1872,
+      "lon": -4.912714,
+      "zone": "GZ3",
+      "match_method": "pip"
+    },
+    "CELL": {
+      "code": "CELL",
+      "name": "CELLARHEAD",
+      "to": "NGET",
+      "voltage_kv": 400,
+      "lat": 52.981179,
+      "lon": -2.172847,
+      "zone": "GZ18",
+      "match_method": "pip"
+    },
+    "CHAP": {
+      "code": "CHAP",
+      "name": "CHAPELCROSS",
+      "to": "SPT",
+      "voltage_kv": 132,
+      "lat": 55.199929,
+      "lon": -3.170686,
+      "zone": "GZ12",
+      "match_method": "pip"
+    },
+    "CHAR": {
+      "code": "CHAR",
+      "name": "CHARLESTON",
+      "to": "SHET",
+      "voltage_kv": 132,
+      "lat": 56.475431,
+      "lon": -3.10093,
+      "zone": "GZ5",
+      "match_method": "pip"
+    },
+    "CHAS": {
+      "code": "CHAS",
+      "name": "CHARLOTTE STREET",
+      "to": "SPT",
+      "voltage_kv": 275,
+      "lat": 55.849109,
+      "lon": -4.263548,
+      "zone": "GZ9",
+      "match_method": "pip"
+    },
+    "CHIC": {
+      "code": "CHIC",
+      "name": "CHICKERELL",
+      "to": "NGET",
+      "voltage_kv": 400,
+      "lat": 50.721971,
+      "lon": -2.488655,
+      "zone": "GZ26",
+      "match_method": "pip"
+    },
+    "CHSI": {
+      "code": "CHSI",
+      "name": "CHESSINGTON",
+      "to": "NGET",
+      "voltage_kv": 275,
+      "lat": 51.378171,
+      "lon": -0.331863,
+      "zone": "GZ25",
+      "match_method": "pip"
+    },
+    "CHTE": {
+      "code": "CHTE",
+      "name": "CHESTERFIELD",
+      "to": "NGET",
+      "voltage_kv": 400,
+      "lat": 53.179806,
+      "lon": -1.327295,
+      "zone": "GZ16",
+      "match_method": "pip"
+    },
+    "CITR": {
+      "code": "CITR",
+      "name": "CITY ROAD",
+      "to": "NGET",
+      "voltage_kv": 400,
+      "lat": 51.519797,
+      "lon": -0.089758,
+      "zone": "GZ23",
+      "match_method": "pip"
+    },
+    "CLAY": {
+      "code": "CLAY",
+      "name": "CLAYHILLS",
+      "to": "SHET",
+      "voltage_kv": 132,
+      "lat": 57.140991,
+      "lon": -2.085534,
+      "zone": "GZ1",
+      "match_method": "pip"
+    },
+    "CLYM": {
+      "code": "CLYM",
+      "name": "CLYDE'S MILL",
+      "to": "SPT",
+      "voltage_kv": 400,
+      "lat": 55.815684,
+      "lon": -4.141689,
+      "zone": "GZ9",
+      "match_method": "pip"
+    },
+    "COAT": {
+      "code": "COAT",
+      "name": "COATBRIDGE",
+      "to": "SPT",
+      "voltage_kv": 275,
+      "lat": 55.861542,
+      "lon": -4.018241,
+      "zone": "GZ9",
+      "match_method": "pip"
+    },
+    "COCK": {
+      "code": "COCK",
+      "name": "COCKENZIE",
+      "to": "SPT",
+      "voltage_kv": 400,
+      "lat": 55.909513,
+      "lon": -2.840482,
+      "zone": "GZ11",
+      "match_method": "pip"
+    },
+    "CONQ": {
+      "code": "CONQ",
+      "name": "CONNAHS QUAY",
+      "to": "NGET",
+      "voltage_kv": 400,
+      "lat": 53.216289,
+      "lon": -3.302741,
+      "zone": "GZ16",
+      "match_method": "pip"
+    },
+    "COUA": {
+      "code": "COUA",
+      "name": "COUPAR ANGUS",
+      "to": "SHET",
+      "voltage_kv": 132,
+      "lat": 56.660489,
+      "lon": -3.449017,
+      "zone": "GZ5",
+      "match_method": "pip"
+    },
+    "COVE": {
+      "code": "COVE",
+      "name": "COVENTRY",
+      "to": "NGET",
+      "voltage_kv": 275,
+      "lat": 52.407351,
+      "lon": -1.273244,
+      "zone": "GZ18",
+      "match_method": "pip"
+    },
+    "COWL": {
+      "code": "COWL",
+      "name": "COWLEY",
+      "to": "NGET",
+      "voltage_kv": 400,
+      "lat": 51.759269,
+      "lon": -1.284353,
+      "zone": "GZ25",
+      "match_method": "pip"
+    },
+    "COYL": {
+      "code": "COYL",
+      "name": "COYLTON",
+      "to": "SPT",
+      "voltage_kv": 400,
+      "lat": 55.40378,
+      "lon": -4.228981,
+      "zone": "GZ10",
+      "match_method": "pip"
+    },
+    "CRAI": {
+      "code": "CRAI",
+      "name": "CRAIGIEBUCKLER",
+      "to": "SHET",
+      "voltage_kv": 132,
+      "lat": 57.094771,
+      "lon": -2.238958,
+      "zone": "GZ1",
+      "match_method": "pip"
+    },
+    "CREB": {
+      "code": "CREB",
+      "name": "CREYKE BECK",
+      "to": "NGET",
+      "voltage_kv": 400,
+      "lat": 53.932097,
+      "lon": -0.494393,
+      "zone": "GZ15",
+      "match_method": "pip"
+    },
+    "CROO": {
+      "code": "CROO",
+      "name": "CROOKSTON",
+      "to": "SPT",
+      "voltage_kv": 132,
+      "lat": 55.78422,
+      "lon": -4.430521,
+      "zone": "GZ10",
+      "match_method": "pip"
+    },
+    "CUMB": {
+      "code": "CUMB",
+      "name": "CUMBERNAULD",
+      "to": "SPT",
+      "voltage_kv": 275,
+      "lat": 55.943146,
+      "lon": -3.960126,
+      "zone": "GZ9",
+      "match_method": "pip"
+    },
+    "CUPA": {
+      "code": "CUPA",
+      "name": "CUPAR",
+      "to": "SPT",
+      "voltage_kv": 132,
+      "lat": 56.327323,
+      "lon": -2.993493,
+      "zone": "GZ9",
+      "match_method": "pip"
+    },
+    "CURR": {
+      "code": "CURR",
+      "name": "CURRIE",
+      "to": "SPT",
+      "voltage_kv": 400,
+      "lat": 55.886685,
+      "lon": -3.308109,
+      "zone": "GZ11",
+      "match_method": "pip"
+    },
+    "DALM": {
+      "code": "DALM",
+      "name": "DALMARNOCK",
+      "to": "SPT",
+      "voltage_kv": 275,
+      "lat": 55.842895,
+      "lon": -4.203799,
+      "zone": "GZ9",
+      "match_method": "pip"
+    },
+    "DEVM": {
+      "code": "DEVM",
+      "name": "DEVOL MOOR",
+      "to": "SPT",
+      "voltage_kv": 400,
+      "lat": 55.936047,
+      "lon": -4.71546,
+      "zone": "GZ10",
+      "match_method": "pip"
+    },
+    "DEVO": {
+      "code": "DEVO",
+      "name": "DEVONSIDE",
+      "to": "SPT",
+      "voltage_kv": 132,
+      "lat": 56.139946,
+      "lon": -3.725563,
+      "zone": "GZ9",
+      "match_method": "pip"
+    },
+    "DEWP": {
+      "code": "DEWP",
+      "name": "DEWAR PLACE",
+      "to": "SPT",
+      "voltage_kv": 275,
+      "lat": 55.961299,
+      "lon": -3.208993,
+      "zone": "GZ9",
+      "match_method": "pip"
+    },
+    "DOUN": {
+      "code": "DOUN",
+      "name": "DOUNREAY",
+      "to": "SHET",
+      "voltage_kv": 400,
+      "lat": 58.514186,
+      "lon": -4.089321,
+      "zone": "GZ1",
+      "match_method": "pip"
+    },
+    "DRAK": {
+      "code": "DRAK",
+      "name": "DRAKELOW",
+      "to": "NGET",
+      "voltage_kv": 400,
+      "lat": 52.790158,
+      "lon": -1.608087,
+      "zone": "GZ18",
+      "match_method": "pip"
+    },
+    "DRAX": {
+      "code": "DRAX",
+      "name": "DRAX",
+      "to": "NGET",
+      "voltage_kv": 400,
+      "lat": 53.777278,
+      "lon": -1.001205,
+      "zone": "GZ15",
+      "match_method": "pip"
+    },
+    "DRCR": {
+      "code": "DRCR",
+      "name": "DRUMCROSS",
+      "to": "SPT",
+      "voltage_kv": 132,
+      "lat": 55.910917,
+      "lon": -3.564983,
+      "zone": "GZ9",
+      "match_method": "pip"
+    },
+    "DRUM": {
+      "code": "DRUM",
+      "name": "DRUMCHAPEL",
+      "to": "SPT",
+      "voltage_kv": 275,
+      "lat": 55.961907,
+      "lon": -4.37044,
+      "zone": "GZ8",
+      "match_method": "pip"
+    },
+    "DUBE": {
+      "code": "DUBE",
+      "name": "DUNBEATH",
+      "to": "SHET",
+      "voltage_kv": 132,
+      "lat": 58.300985,
+      "lon": -3.440285,
+      "zone": "GZ1",
+      "match_method": "pip"
+    },
+    "DUDH": {
+      "code": "DUDH",
+      "name": "DUDHOPE",
+      "to": "SHET",
+      "voltage_kv": 132,
+      "lat": 56.463634,
+      "lon": -2.981389,
+      "zone": "GZ5",
+      "match_method": "pip"
+    },
+    "DUGR": {
+      "code": "DUGR",
+      "name": "DUNVEGAN GRID",
+      "to": "SHET",
+      "voltage_kv": 132,
+      "lat": 57.413907,
+      "lon": -6.389609,
+      "zone": "GZ4",
+      "match_method": "pip"
+    },
+    "DUMF": {
+      "code": "DUMF",
+      "name": "DUMFRIES",
+      "to": "SPT",
+      "voltage_kv": 132,
+      "lat": 55.17087,
+      "lon": -3.79792,
+      "zone": "GZ10",
+      "match_method": "pip"
+    },
+    "DUNB": {
+      "code": "DUNB",
+      "name": "DUNBAR",
+      "to": "SPT",
+      "voltage_kv": 132,
+      "lat": 55.968554,
+      "lon": -2.561889,
+      "zone": "GZ11",
+      "match_method": "pip"
+    },
+    "DUNF": {
+      "code": "DUNF",
+      "name": "DUNFERMLINE",
+      "to": "SPT",
+      "voltage_kv": 132,
+      "lat": 56.089876,
+      "lon": -3.53313,
+      "zone": "GZ9",
+      "match_method": "pip"
+    },
+    "DUNO": {
+      "code": "DUNO",
+      "name": "DUNOON",
+      "to": "SHET",
+      "voltage_kv": 132,
+      "lat": 55.941511,
+      "lon": -5.106995,
+      "zone": "GZ8",
+      "match_method": "pip"
+    },
+    "DYCE": {
+      "code": "DYCE",
+      "name": "DYCE",
+      "to": "SHET",
+      "voltage_kv": 132,
+      "lat": 57.310968,
+      "lon": -2.110349,
+      "zone": "GZ2",
+      "match_method": "pip"
+    },
+    "EALI": {
+      "code": "EALI",
+      "name": "EALING",
+      "to": "NGET",
+      "voltage_kv": 275,
+      "lat": 51.495513,
+      "lon": -0.315752,
+      "zone": "GZ25",
+      "match_method": "pip"
+    },
+    "EASO": {
+      "code": "EASO",
+      "name": "EATON SOCON",
+      "to": "NGET",
+      "voltage_kv": 400,
+      "lat": 52.289639,
+      "lon": -0.213536,
+      "zone": "GZ18",
+      "match_method": "pip"
+    },
+    "ECCL": {
+      "code": "ECCL",
+      "name": "ECCLES",
+      "to": "SPT",
+      "voltage_kv": 400,
+      "lat": 55.699998,
+      "lon": -2.414733,
+      "zone": "GZ11",
+      "match_method": "pip"
+    },
+    "ECLA": {
+      "code": "ECLA",
+      "name": "EAST CLAYDON",
+      "to": "NGET",
+      "voltage_kv": 400,
+      "lat": 52.094159,
+      "lon": -1.340888,
+      "zone": "GZ18",
+      "match_method": "pip"
+    },
+    "EERH": {
+      "code": "EERH",
+      "name": "EASTERHOUSE",
+      "to": "SPT",
+      "voltage_kv": 275,
+      "lat": 55.915715,
+      "lon": -4.124111,
+      "zone": "GZ9",
+      "match_method": "pip"
+    },
+    "EKIL": {
+      "code": "EKIL",
+      "name": "EAST KILBRIDE",
+      "to": "SPT",
+      "voltage_kv": 275,
+      "lat": 55.750066,
+      "lon": -4.173438,
+      "zone": "GZ9",
+      "match_method": "pip"
+    },
+    "EKIS": {
+      "code": "EKIS",
+      "name": "EAST KILBRIDE SOUTH",
+      "to": "SPT",
+      "voltage_kv": 275,
+      "lat": 55.74556,
+      "lon": -4.178106,
+      "zone": "GZ10",
+      "match_method": "pip"
+    },
+    "ELDE": {
+      "code": "ELDE",
+      "name": "ELDERSLIE",
+      "to": "SPT",
+      "voltage_kv": 132,
+      "lat": 55.829879,
+      "lon": -4.453588,
+      "zone": "GZ10",
+      "match_method": "pip"
+    },
+    "ELGI": {
+      "code": "ELGI",
+      "name": "ELGIN",
+      "to": "SHET",
+      "voltage_kv": 132,
+      "lat": 57.644551,
+      "lon": -3.283966,
+      "zone": "GZ1",
+      "match_method": "pip"
+    },
+    "ELLA": {
+      "code": "ELLA",
+      "name": "ELLAND",
+      "to": "NGET",
+      "voltage_kv": 275,
+      "lat": 53.657613,
+      "lon": -1.865284,
+      "zone": "GZ15",
+      "match_method": "pip"
+    },
+    "ELST": {
+      "code": "ELST",
+      "name": "ELSTREE",
+      "to": "NGET",
+      "voltage_kv": 400,
+      "lat": 51.706456,
+      "lon": -0.345135,
+      "zone": "GZ25",
+      "match_method": "pip"
+    },
+    "ENDE": {
+      "code": "ENDE",
+      "name": "ENDERBY",
+      "to": "NGET",
+      "voltage_kv": 400,
+      "lat": 52.656616,
+      "lon": -1.24072,
+      "zone": "GZ18",
+      "match_method": "pip"
+    },
+    "ERSK": {
+      "code": "ERSK",
+      "name": "ERSKINE",
+      "to": "SPT",
+      "voltage_kv": 132,
+      "lat": 55.903482,
+      "lon": -4.494336,
+      "zone": "GZ10",
+      "match_method": "pip"
+    },
+    "EXET": {
+      "code": "EXET",
+      "name": "EXETER",
+      "to": "NGET",
+      "voltage_kv": 400,
+      "lat": 50.816238,
+      "lon": -3.458633,
+      "zone": "GZ26",
+      "match_method": "pip"
+    },
+    "FASN": {
+      "code": "FASN",
+      "name": "FASNAKYLE",
+      "to": "SHET",
+      "voltage_kv": 275,
+      "lat": 57.314983,
+      "lon": -4.898142,
+      "zone": "GZ3",
+      "match_method": "pip"
+    },
+    "FAUG": {
+      "code": "FAUG",
+      "name": "FORT AUGUSTUS",
+      "to": "SHET",
+      "voltage_kv": 400,
+      "lat": 57.145902,
+      "lon": -4.656957,
+      "zone": "GZ3",
+      "match_method": "pip"
+    },
+    "FAWL": {
+      "code": "FAWL",
+      "name": "FAWLEY",
+      "to": "NGET",
+      "voltage_kv": 400,
+      "lat": 50.712924,
+      "lon": -1.332559,
+      "zone": "GZ26",
+      "match_method": "pip"
+    },
+    "FECK": {
+      "code": "FECK",
+      "name": "FECKENHAM",
+      "to": "NGET",
+      "voltage_kv": 400,
+      "lat": 52.08977,
+      "lon": -1.836929,
+      "zone": "GZ18",
+      "match_method": "pip"
+    },
+    "FERR": {
+      "code": "FERR",
+      "name": "FERRYBRIDGE",
+      "to": "NGET",
+      "voltage_kv": 400,
+      "lat": 53.827845,
+      "lon": -1.328034,
+      "zone": "GZ15",
+      "match_method": "pip"
+    },
+    "FETT": {
+      "code": "FETT",
+      "name": "FETTERESSO",
+      "to": "SHET",
+      "voltage_kv": 400,
+      "lat": 57.204142,
+      "lon": -2.449617,
+      "zone": "GZ1",
+      "match_method": "pip"
+    },
+    "FIDD": {
+      "code": "FIDD",
+      "name": "FIDDES",
+      "to": "SHET",
+      "voltage_kv": 132,
+      "lat": 56.894693,
+      "lon": -2.41768,
+      "zone": "GZ5",
+      "match_method": "pip"
+    },
+    "FIDF": {
+      "code": "FIDF",
+      "name": "FIDDLERS FERRY",
+      "to": "NGET",
+      "voltage_kv": 275,
+      "lat": 53.313697,
+      "lon": -2.464191,
+      "zone": "GZ16",
+      "match_method": "pip"
+    },
+    "FINN": {
+      "code": "FINN",
+      "name": "FINNIESTON",
+      "to": "SPT",
+      "voltage_kv": 132,
+      "lat": 55.872145,
+      "lon": -4.282816,
+      "zone": "GZ9",
+      "match_method": "pip"
+    },
+    "FOUR": {
+      "code": "FOUR",
+      "name": "FOURSTONES",
+      "to": "NGET",
+      "voltage_kv": 275,
+      "lat": 55.022556,
+      "lon": -2.236443,
+      "zone": "GZ13",
+      "match_method": "pip"
+    },
+    "FRAS": {
+      "code": "FRAS",
+      "name": "FRASERBURGH",
+      "to": "SHET",
+      "voltage_kv": 132,
+      "lat": 57.66047,
+      "lon": -2.021026,
+      "zone": "GZ2",
+      "match_method": "pip"
+    },
+    "FROD": {
+      "code": "FROD",
+      "name": "FRODSHAM",
+      "to": "NGET",
+      "voltage_kv": 400,
+      "lat": 53.126986,
+      "lon": -2.590032,
+      "zone": "GZ16",
+      "match_method": "pip"
+    },
+    "FWIL": {
+      "code": "FWIL",
+      "name": "FORT WILLIAM",
+      "to": "SHET",
+      "voltage_kv": 132,
+      "lat": 56.809886,
+      "lon": -5.423107,
+      "zone": "GZ3",
+      "match_method": "pip"
+    },
+    "GALA": {
+      "code": "GALA",
+      "name": "GALASHIELS",
+      "to": "SPT",
+      "voltage_kv": 132,
+      "lat": 55.586395,
+      "lon": -2.939443,
+      "zone": "GZ11",
+      "match_method": "pip"
+    },
+    "GIFF": {
+      "code": "GIFF",
+      "name": "GIFFNOCK",
+      "to": "SPT",
+      "voltage_kv": 275,
+      "lat": 55.741325,
+      "lon": -4.304546,
+      "zone": "GZ10",
+      "match_method": "pip"
+    },
+    "GLLU": {
+      "code": "GLLU",
+      "name": "GLENLUCE",
+      "to": "SPT",
+      "voltage_kv": 132,
+      "lat": 54.907267,
+      "lon": -4.939523,
+      "zone": "GZ10",
+      "match_method": "pip"
+    },
+    "GLNI": {
+      "code": "GLNI",
+      "name": "GLENNISTON",
+      "to": "SPT",
+      "voltage_kv": 132,
+      "lat": 56.089166,
+      "lon": -3.224655,
+      "zone": "GZ9",
+      "match_method": "pip"
+    },
+    "GLRO": {
+      "code": "GLRO",
+      "name": "GLENROTHES",
+      "to": "SPT",
+      "voltage_kv": 275,
+      "lat": 56.22284,
+      "lon": -3.193188,
+      "zone": "GZ9",
+      "match_method": "pip"
+    },
+    "GORG": {
+      "code": "GORG",
+      "name": "GORGIE",
+      "to": "SPT",
+      "voltage_kv": 132,
+      "lat": 55.935381,
+      "lon": -3.224655,
+      "zone": "GZ11",
+      "match_method": "pip"
+    },
+    "GOVA": {
+      "code": "GOVA",
+      "name": "GOVAN",
+      "to": "SPT",
+      "voltage_kv": 132,
+      "lat": 55.853712,
+      "lon": -4.317448,
+      "zone": "GZ9",
+      "match_method": "pip"
+    },
+    "GREN": {
+      "code": "GREN",
+      "name": "GRENDON",
+      "to": "NGET",
+      "voltage_kv": 400,
+      "lat": 52.460583,
+      "lon": -0.763525,
+      "zone": "GZ18",
+      "match_method": "pip"
+    },
+    "GRIW": {
+      "code": "GRIW",
+      "name": "GRIMSBY WEST",
+      "to": "NGET",
+      "voltage_kv": 400,
+      "lat": 53.585065,
+      "lon": -0.209709,
+      "zone": "GZ15",
+      "match_method": "pip"
+    },
+    "GRMO": {
+      "code": "GRMO",
+      "name": "GRANGEMOUTH",
+      "to": "SPT",
+      "voltage_kv": 275,
+      "lat": 55.980191,
+      "lon": -3.659028,
+      "zone": "GZ9",
+      "match_method": "pip"
+    },
+    "GRUB": {
+      "code": "GRUB",
+      "name": "GRUDIE BRIDGE",
+      "to": "SHET",
+      "voltage_kv": 132,
+      "lat": 57.784939,
+      "lon": -5.197094,
+      "zone": "GZ1",
+      "match_method": "pip"
+    },
+    "HACK": {
+      "code": "HACK",
+      "name": "HACKNEY",
+      "to": "NGET",
+      "voltage_kv": 400,
+      "lat": 51.569444,
+      "lon": -0.036829,
+      "zone": "GZ23",
+      "match_method": "pip"
+    },
+    "HAGR": {
+      "code": "HAGR",
+      "name": "HAGGS ROAD",
+      "to": "SPT",
+      "voltage_kv": 132,
+      "lat": 55.825854,
+      "lon": -4.278543,
+      "zone": "GZ9",
+      "match_method": "pip"
+    },
+    "HAMH": {
+      "code": "HAMH",
+      "name": "HAMS HALL",
+      "to": "NGET",
+      "voltage_kv": 400,
+      "lat": 52.445211,
+      "lon": -1.74744,
+      "zone": "GZ18",
+      "match_method": "pip"
+    },
+    "HARK": {
+      "code": "HARK",
+      "name": "HARKER",
+      "to": "NGET",
+      "voltage_kv": 400,
+      "lat": 54.565261,
+      "lon": -2.885101,
+      "zone": "GZ14",
+      "match_method": "pip"
+    },
+    "HARM": {
+      "code": "HARM",
+      "name": "HARTMOOR",
+      "to": "NGET",
+      "voltage_kv": 275,
+      "lat": 54.686459,
+      "lon": -1.311998,
+      "zone": "GZ13",
+      "match_method": "pip"
+    },
+    "HAWI": {
+      "code": "HAWI",
+      "name": "HAWICK",
+      "to": "SPT",
+      "voltage_kv": 132,
+      "lat": 55.408958,
+      "lon": -2.677744,
+      "zone": "GZ11",
+      "match_method": "pip"
+    },
+    "HAWP": {
+      "code": "HAWP",
+      "name": "HAWTHORN PIT",
+      "to": "NGET",
+      "voltage_kv": 400,
+      "lat": 54.816325,
+      "lon": -1.406021,
+      "zone": "GZ13",
+      "match_method": "pip"
+    },
+    "HELE": {
+      "code": "HELE",
+      "name": "HELENSBURGH",
+      "to": "SPT",
+      "voltage_kv": 132,
+      "lat": 56.031346,
+      "lon": -4.763667,
+      "zone": "GZ8",
+      "match_method": "pip"
+    },
+    "HEYS": {
+      "code": "HEYS",
+      "name": "HEYSHAM",
+      "to": "NGET",
+      "voltage_kv": 400,
+      "lat": 54.038911,
+      "lon": -2.728628,
+      "zone": "GZ14",
+      "match_method": "pip"
+    },
+    "HUER": {
+      "code": "HUER",
+      "name": "HUNTERSTON",
+      "to": "SPT",
+      "voltage_kv": 400,
+      "lat": 55.723831,
+      "lon": -4.904441,
+      "zone": "GZ10",
+      "match_method": "pip"
+    },
+    "HURS": {
+      "code": "HURS",
+      "name": "HURST",
+      "to": "NGET",
+      "voltage_kv": 275,
+      "lat": 51.440701,
+      "lon": 0.051843,
+      "zone": "GZ23",
+      "match_method": "pip"
+    },
+    "INDQ": {
+      "code": "INDQ",
+      "name": "INDIAN QUEENS",
+      "to": "NGET",
+      "voltage_kv": 400,
+      "lat": 50.316498,
+      "lon": -5.0642,
+      "zone": "GZ27",
+      "match_method": "pip"
+    },
+    "INKE": {
+      "code": "INKE",
+      "name": "INVERKEITHING",
+      "to": "SPT",
+      "voltage_kv": 132,
+      "lat": 56.031916,
+      "lon": -3.396688,
+      "zone": "GZ9",
+      "match_method": "pip"
+    },
+    "INNE": {
+      "code": "INNE",
+      "name": "INVERNESS",
+      "to": "SHET",
+      "voltage_kv": 132,
+      "lat": 57.350499,
+      "lon": -4.254125,
+      "zone": "GZ1",
+      "match_method": "pip"
+    },
+    "IROA": {
+      "code": "IROA",
+      "name": "IRON ACTON",
+      "to": "NGET",
+      "voltage_kv": 275,
+      "lat": 51.466033,
+      "lon": -2.574547,
+      "zone": "GZ22",
+      "match_method": "pip"
+    },
+    "IRON": {
+      "code": "IRON",
+      "name": "IRONBRIDGE",
+      "to": "NGET",
+      "voltage_kv": 400,
+      "lat": 52.605121,
+      "lon": -2.540378,
+      "zone": "GZ18",
+      "match_method": "pip"
+    },
+    "ISLI": {
+      "code": "ISLI",
+      "name": "ISLINGTON",
+      "to": "NGET",
+      "voltage_kv": 132,
+      "lat": 51.525305,
+      "lon": -0.023304,
+      "zone": "GZ23",
+      "match_method": "pip"
+    },
+    "IVER": {
+      "code": "IVER",
+      "name": "IVER",
+      "to": "NGET",
+      "voltage_kv": 400,
+      "lat": 51.543132,
+      "lon": -0.566406,
+      "zone": "GZ25",
+      "match_method": "pip"
+    },
+    "JOHN": {
+      "code": "JOHN",
+      "name": "JOHNSTONE",
+      "to": "SPT",
+      "voltage_kv": 132,
+      "lat": 55.849982,
+      "lon": -4.626727,
+      "zone": "GZ10",
+      "match_method": "pip"
+    },
+    "JORD": {
+      "code": "JORD",
+      "name": "JORDANTHORPE",
+      "to": "NGET",
+      "voltage_kv": 275,
+      "lat": 53.323007,
+      "lon": -1.519027,
+      "zone": "GZ16",
+      "match_method": "pip"
+    },
+    "KAIM": {
+      "code": "KAIM",
+      "name": "KAIMES",
+      "to": "SPT",
+      "voltage_kv": 275,
+      "lat": 55.730274,
+      "lon": -3.239022,
+      "zone": "GZ11",
+      "match_method": "pip"
+    },
+    "KEAD": {
+      "code": "KEAD",
+      "name": "KEADBY",
+      "to": "NGET",
+      "voltage_kv": 400,
+      "lat": 53.460428,
+      "lon": -0.380086,
+      "zone": "GZ16",
+      "match_method": "pip"
+    },
+    "KEAR": {
+      "code": "KEAR",
+      "name": "KEARSLEY",
+      "to": "NGET",
+      "voltage_kv": 400,
+      "lat": 53.566531,
+      "lon": -2.42191,
+      "zone": "GZ15",
+      "match_method": "pip"
+    },
+    "KEMS": {
+      "code": "KEMS",
+      "name": "KEMSLEY",
+      "to": "NGET",
+      "voltage_kv": 400,
+      "lat": 51.344642,
+      "lon": 0.793081,
+      "zone": "GZ24",
+      "match_method": "pip"
+    },
+    "KIBY": {
+      "code": "KIBY",
+      "name": "KIRKBY",
+      "to": "NGET",
+      "voltage_kv": 275,
+      "lat": 53.48219,
+      "lon": -2.858443,
+      "zone": "GZ15",
+      "match_method": "pip"
+    },
+    "KIER": {
+      "code": "KIER",
+      "name": "KILLERMONT",
+      "to": "SPT",
+      "voltage_kv": 132,
+      "lat": 55.958022,
+      "lon": -4.254293,
+      "zone": "GZ9",
+      "match_method": "pip"
+    },
+    "KIIN": {
+      "code": "KIIN",
+      "name": "KILLIN",
+      "to": "SHET",
+      "voltage_kv": 132,
+      "lat": 56.459453,
+      "lon": -4.363985,
+      "zone": "GZ6",
+      "match_method": "pip"
+    },
+    "KILB": {
+      "code": "KILB",
+      "name": "KILBOWIE",
+      "to": "SPT",
+      "voltage_kv": 132,
+      "lat": 55.935635,
+      "lon": -4.410825,
+      "zone": "GZ8",
+      "match_method": "pip"
+    },
+    "KILS": {
+      "code": "KILS",
+      "name": "KILMARNOCK SOUTH",
+      "to": "SPT",
+      "voltage_kv": 400,
+      "lat": 55.572445,
+      "lon": -4.47703,
+      "zone": "GZ10",
+      "match_method": "pip"
+    },
+    "KILT": {
+      "code": "KILT",
+      "name": "KILMARNOCK TOWN",
+      "to": "SPT",
+      "voltage_kv": 275,
+      "lat": 55.660628,
+      "lon": -4.516591,
+      "zone": "GZ10",
+      "match_method": "pip"
+    },
+    "KILW": {
+      "code": "KILW",
+      "name": "KILWINNING",
+      "to": "SPT",
+      "voltage_kv": 132,
+      "lat": 55.613045,
+      "lon": -4.653443,
+      "zone": "GZ10",
+      "match_method": "pip"
+    },
+    "KINO": {
+      "code": "KINO",
+      "name": "KINGSNORTH",
+      "to": "NGET",
+      "voltage_kv": 400,
+      "lat": 51.378672,
+      "lon": 0.467879,
+      "zone": "GZ24",
+      "match_method": "pip"
+    },
+    "KIRK": {
+      "code": "KIRK",
+      "name": "KIRKSTALL",
+      "to": "NGET",
+      "voltage_kv": 275,
+      "lat": 53.788773,
+      "lon": -1.591659,
+      "zone": "GZ15",
+      "match_method": "pip"
+    },
+    "KITW": {
+      "code": "KITW",
+      "name": "KITWELL",
+      "to": "NGET",
+      "voltage_kv": 275,
+      "lat": 52.415515,
+      "lon": -1.972324,
+      "zone": "GZ18",
+      "match_method": "pip"
+    },
+    "KNAR": {
+      "code": "KNAR",
+      "name": "KNARESBOROUGH",
+      "to": "NGET",
+      "voltage_kv": 275,
+      "lat": 54.136938,
+      "lon": -1.457647,
+      "zone": "GZ15",
+      "match_method": "pip"
+    },
+    "LACK": {
+      "code": "LACK",
+      "name": "LACKENBY",
+      "to": "NGET",
+      "voltage_kv": 400,
+      "lat": 54.515788,
+      "lon": -0.988672,
+      "zone": "GZ15",
+      "match_method": "pip"
+    },
+    "LAIR": {
+      "code": "LAIR",
+      "name": "LAIRG",
+      "to": "SHET",
+      "voltage_kv": 132,
+      "lat": 58.046451,
+      "lon": -4.472131,
+      "zone": "GZ1",
+      "match_method": "pip"
+    },
+    "LALE": {
+      "code": "LALE",
+      "name": "LALEHAM",
+      "to": "NGET",
+      "voltage_kv": 275,
+      "lat": 51.431662,
+      "lon": -0.502909,
+      "zone": "GZ25",
+      "match_method": "pip"
+    },
+    "LAND": {
+      "code": "LAND",
+      "name": "LANDULPH",
+      "to": "NGET",
+      "voltage_kv": 400,
+      "lat": 50.481867,
+      "lon": -4.300928,
+      "zone": "GZ27",
+      "match_method": "pip"
+    },
+    "LEGA": {
+      "code": "LEGA",
+      "name": "LEGACY",
+      "to": "NGET",
+      "voltage_kv": 400,
+      "lat": 52.837253,
+      "lon": -3.144434,
+      "zone": "GZ18",
+      "match_method": "pip"
+    },
+    "LEVE": {
+      "code": "LEVE",
+      "name": "LEVEN",
+      "to": "SPT",
+      "voltage_kv": 132,
+      "lat": 56.228172,
+      "lon": -2.867631,
+      "zone": "GZ9",
+      "match_method": "pip"
+    },
+    "LING": {
+      "code": "LING",
+      "name": "LIVINGSTON",
+      "to": "SPT",
+      "voltage_kv": 132,
+      "lat": 55.851317,
+      "lon": -3.47435,
+      "zone": "GZ11",
+      "match_method": "pip"
+    },
+    "LINM": {
+      "code": "LINM",
+      "name": "LINNMILL",
+      "to": "SPT",
+      "voltage_kv": 132,
+      "lat": 55.580405,
+      "lon": -3.711118,
+      "zone": "GZ11",
+      "match_method": "pip"
+    },
+    "LISD": {
+      "code": "LISD",
+      "name": "LISTER DRIVE",
+      "to": "NGET",
+      "voltage_kv": 275,
+      "lat": 53.48914,
+      "lon": -2.962413,
+      "zone": "GZ16",
+      "match_method": "pip"
+    },
+    "LITT": {
+      "code": "LITT",
+      "name": "LITTLEBROOK",
+      "to": "NGET",
+      "voltage_kv": 400,
+      "lat": 51.429278,
+      "lon": 0.199903,
+      "zone": "GZ24",
+      "match_method": "pip"
+    },
+    "LODR": {
+      "code": "LODR",
+      "name": "LODGE ROAD",
+      "to": "NGET",
+      "voltage_kv": 66,
+      "lat": 51.534286,
+      "lon": -0.169105,
+      "zone": "GZ23",
+      "match_method": "pip"
+    },
+    "LOVE": {
+      "code": "LOVE",
+      "name": "LOVEDEAN",
+      "to": "NGET",
+      "voltage_kv": 400,
+      "lat": 50.86901,
+      "lon": -0.852867,
+      "zone": "GZ26",
+      "match_method": "pip"
+    },
+    "LUNA": {
+      "code": "LUNA",
+      "name": "LUNANHEAD",
+      "to": "SHET",
+      "voltage_kv": 132,
+      "lat": 56.718963,
+      "lon": -2.984307,
+      "zone": "GZ5",
+      "match_method": "pip"
+    },
+    "LYND": {
+      "code": "LYND",
+      "name": "LYNDHURST",
+      "to": "SHET",
+      "voltage_kv": 132,
+      "lat": 56.492229,
+      "lon": -3.007838,
+      "zone": "GZ5",
+      "match_method": "pip"
+    },
+    "MACC": {
+      "code": "MACC",
+      "name": "MACCLESFIELD",
+      "to": "NGET",
+      "voltage_kv": 400,
+      "lat": 53.247528,
+      "lon": -2.103253,
+      "zone": "GZ16",
+      "match_method": "pip"
+    },
+    "MACD": {
+      "code": "MACD",
+      "name": "MACDUFF",
+      "to": "SHET",
+      "voltage_kv": 132,
+      "lat": 57.647625,
+      "lon": -2.517483,
+      "zone": "GZ1",
+      "match_method": "pip"
+    },
+    "MAGA": {
+      "code": "MAGA",
+      "name": "MARGAM",
+      "to": "NGET",
+      "voltage_kv": 275,
+      "lat": 51.621573,
+      "lon": -3.620641,
+      "zone": "GZ21",
+      "match_method": "pip"
+    },
+    "MANN": {
+      "code": "MANN",
+      "name": "MANNINGTON",
+      "to": "NGET",
+      "voltage_kv": 400,
+      "lat": 50.899961,
+      "lon": -1.987736,
+      "zone": "GZ26",
+      "match_method": "pip"
+    },
+    "MAYB": {
+      "code": "MAYB",
+      "name": "MAYBOLE",
+      "to": "SPT",
+      "voltage_kv": 132,
+      "lat": 55.209686,
+      "lon": -4.712295,
+      "zone": "GZ10",
+      "match_method": "pip"
+    },
+    "MELK": {
+      "code": "MELK",
+      "name": "MELKSHAM",
+      "to": "NGET",
+      "voltage_kv": 400,
+      "lat": 51.388137,
+      "lon": -2.358995,
+      "zone": "GZ22",
+      "match_method": "pip"
+    },
+    "MILC": {
+      "code": "MILC",
+      "name": "MILTON OF CRAIGIE",
+      "to": "SHET",
+      "voltage_kv": 132,
+      "lat": 56.511086,
+      "lon": -2.873133,
+      "zone": "GZ5",
+      "match_method": "pip"
+    },
+    "MILH": {
+      "code": "MILH",
+      "name": "MILL HILL",
+      "to": "NGET",
+      "voltage_kv": 275,
+      "lat": 51.602215,
+      "lon": -0.220229,
+      "zone": "GZ25",
+      "match_method": "pip"
+    },
+    "MITY": {
+      "code": "MITY",
+      "name": "MINETY",
+      "to": "NGET",
+      "voltage_kv": 400,
+      "lat": 51.676275,
+      "lon": -1.795602,
+      "zone": "GZ22",
+      "match_method": "pip"
+    },
+    "MYBS": {
+      "code": "MYBS",
+      "name": "MYBSTER",
+      "to": "SHET",
+      "voltage_kv": 132,
+      "lat": 58.370462,
+      "lon": -3.971604,
+      "zone": "GZ1",
+      "match_method": "pip"
+    },
+    "NAIR": {
+      "code": "NAIR",
+      "name": "NAIRN",
+      "to": "SHET",
+      "voltage_kv": 132,
+      "lat": 57.345957,
+      "lon": -3.757707,
+      "zone": "GZ1",
+      "match_method": "pip"
+    },
+    "NEAR": {
+      "code": "NEAR",
+      "name": "NEWARTHILL",
+      "to": "SPT",
+      "voltage_kv": 275,
+      "lat": 55.810717,
+      "lon": -3.78479,
+      "zone": "GZ9",
+      "match_method": "pip"
+    },
+    "NEEP": {
+      "code": "NEEP",
+      "name": "NEEPSEND",
+      "to": "NGET",
+      "voltage_kv": 400,
+      "lat": 53.414599,
+      "lon": -1.590261,
+      "zone": "GZ16",
+      "match_method": "pip"
+    },
+    "NETS": {
+      "code": "NETS",
+      "name": "NEWTON STEWART",
+      "to": "SPT",
+      "voltage_kv": 132,
+      "lat": 54.938855,
+      "lon": -4.479595,
+      "zone": "GZ10",
+      "match_method": "pip"
+    },
+    "NEWX": {
+      "code": "NEWX",
+      "name": "NEW CROSS",
+      "to": "NGET",
+      "voltage_kv": 400,
+      "lat": 51.476489,
+      "lon": -0.066353,
+      "zone": "GZ23",
+      "match_method": "pip"
+    },
+    "NFLE": {
+      "code": "NFLE",
+      "name": "NORTHFLEET EAST",
+      "to": "NGET",
+      "voltage_kv": 400,
+      "lat": 51.260635,
+      "lon": 0.217744,
+      "zone": "GZ24",
+      "match_method": "pip"
+    },
+    "NHYD": {
+      "code": "NHYD",
+      "name": "NORTH HYDE",
+      "to": "NGET",
+      "voltage_kv": 275,
+      "lat": 51.494357,
+      "lon": -0.405888,
+      "zone": "GZ25",
+      "match_method": "pip"
+    },
+    "NINF": {
+      "code": "NINF",
+      "name": "NINFIELD",
+      "to": "NGET",
+      "voltage_kv": 400,
+      "lat": 50.962484,
+      "lon": 0.347348,
+      "zone": "GZ25",
+      "match_method": "pip"
+    },
+    "NORL": {
+      "code": "NORL",
+      "name": "NORTON LEES",
+      "to": "NGET",
+      "voltage_kv": 275,
+      "lat": 53.36193,
+      "lon": -1.525263,
+      "zone": "GZ16",
+      "match_method": "pip"
+    },
+    "NORM": {
+      "code": "NORM",
+      "name": "NORWICH MAIN",
+      "to": "NGET",
+      "voltage_kv": 400,
+      "lat": 52.669511,
+      "lon": 1.316722,
+      "zone": "GZ18",
+      "match_method": "pip"
+    },
+    "NORT": {
+      "code": "NORT",
+      "name": "NORTON",
+      "to": "NGET",
+      "voltage_kv": 400,
+      "lat": 54.369502,
+      "lon": -1.672998,
+      "zone": "GZ15",
+      "match_method": "pip"
+    },
+    "NURS": {
+      "code": "NURS",
+      "name": "NURSLING",
+      "to": "NGET",
+      "voltage_kv": 400,
+      "lat": 51.008044,
+      "lon": -1.461079,
+      "zone": "GZ26",
+      "match_method": "pip"
+    },
+    "OCKH": {
+      "code": "OCKH",
+      "name": "OCKER HILL",
+      "to": "NGET",
+      "voltage_kv": 275,
+      "lat": 52.537731,
+      "lon": -2.024018,
+      "zone": "GZ18",
+      "match_method": "pip"
+    },
+    "OFFE": {
+      "code": "OFFE",
+      "name": "OFFERTON",
+      "to": "NGET",
+      "voltage_kv": 275,
+      "lat": 54.881647,
+      "lon": -1.452635,
+      "zone": "GZ13",
+      "match_method": "pip"
+    },
+    "OLDB": {
+      "code": "OLDB",
+      "name": "OLDBURY",
+      "to": "NGET",
+      "voltage_kv": 400,
+      "lat": 52.494213,
+      "lon": -2.033666,
+      "zone": "GZ18",
+      "match_method": "pip"
+    },
+    "OSBA": {
+      "code": "OSBA",
+      "name": "OSBALDWICK",
+      "to": "NGET",
+      "voltage_kv": 400,
+      "lat": 54.453446,
+      "lon": -1.253755,
+      "zone": "GZ15",
+      "match_method": "pip"
+    },
+    "PADI": {
+      "code": "PADI",
+      "name": "PADIHAM",
+      "to": "NGET",
+      "voltage_kv": 400,
+      "lat": 53.928543,
+      "lon": -2.314698,
+      "zone": "GZ14",
+      "match_method": "pip"
+    },
+    "PAIS": {
+      "code": "PAIS",
+      "name": "PAISLEY",
+      "to": "SPT",
+      "voltage_kv": 132,
+      "lat": 55.845585,
+      "lon": -4.423042,
+      "zone": "GZ9",
+      "match_method": "pip"
+    },
+    "PART": {
+      "code": "PART",
+      "name": "PARTICK",
+      "to": "SPT",
+      "voltage_kv": 132,
+      "lat": 55.877439,
+      "lon": -4.318573,
+      "zone": "GZ9",
+      "match_method": "pip"
+    },
+    "PEHG": {
+      "code": "PEHG",
+      "name": "PETERHEAD GRANGE",
+      "to": "SHET",
+      "voltage_kv": 132,
+      "lat": 57.516553,
+      "lon": -1.863405,
+      "zone": "GZ2",
+      "match_method": "pip"
+    },
+    "PEHS": {
+      "code": "PEHS",
+      "name": "PETERHEAD SHELL",
+      "to": "SHET",
+      "voltage_kv": 11,
+      "lat": 57.529102,
+      "lon": -2.164615,
+      "zone": "GZ2",
+      "match_method": "pip"
+    },
+    "PELH": {
+      "code": "PELH",
+      "name": "PELHAM",
+      "to": "NGET",
+      "voltage_kv": 400,
+      "lat": 51.999104,
+      "lon": 0.41329,
+      "zone": "GZ18",
+      "match_method": "pip"
+    },
+    "PEMB": {
+      "code": "PEMB",
+      "name": "PEMBROKE",
+      "to": "NGET",
+      "voltage_kv": 400,
+      "lat": 51.823956,
+      "lon": -4.945013,
+      "zone": "GZ20",
+      "match_method": "pip"
+    },
+    "PENE": {
+      "code": "PENE",
+      "name": "PENWORTHAM EAST",
+      "to": "NGET",
+      "voltage_kv": 132,
+      "lat": 55.42094,
+      "lon": -1.883037,
+      "zone": "GZ12",
+      "match_method": "pip"
+    },
+    "PENN": {
+      "code": "PENN",
+      "name": "PENN",
+      "to": "NGET",
+      "voltage_kv": 400,
+      "lat": 52.523668,
+      "lon": -2.191144,
+      "zone": "GZ18",
+      "match_method": "pip"
+    },
+    "PENT": {
+      "code": "PENT",
+      "name": "PENTIR",
+      "to": "NGET",
+      "voltage_kv": 400,
+      "lat": 53.086547,
+      "lon": -4.255206,
+      "zone": "GZ19",
+      "match_method": "pip"
+    },
+    "PENW": {
+      "code": "PENW",
+      "name": "PENWORTHAM WEST",
+      "to": "NGET",
+      "voltage_kv": 132,
+      "lat": 53.767454,
+      "lon": -2.823562,
+      "zone": "GZ15",
+      "match_method": "pip"
+    },
+    "PERS": {
+      "code": "PERS",
+      "name": "PERSLEY",
+      "to": "SHET",
+      "voltage_kv": 275,
+      "lat": 57.192384,
+      "lon": -2.134193,
+      "zone": "GZ1",
+      "match_method": "pip"
+    },
+    "PITS": {
+      "code": "PITS",
+      "name": "PITSMOOR",
+      "to": "NGET",
+      "voltage_kv": 275,
+      "lat": 53.416991,
+      "lon": -1.44804,
+      "zone": "GZ16",
+      "match_method": "pip"
+    },
+    "POOB": {
+      "code": "POOB",
+      "name": "PORTOBELLO",
+      "to": "SPT",
+      "voltage_kv": 275,
+      "lat": 55.86227,
+      "lon": -3.060114,
+      "zone": "GZ11",
+      "match_method": "pip"
+    },
+    "POPP": {
+      "code": "POPP",
+      "name": "POPPLETON",
+      "to": "NGET",
+      "voltage_kv": 275,
+      "lat": 53.993349,
+      "lon": -1.193595,
+      "zone": "GZ15",
+      "match_method": "pip"
+    },
+    "PORA": {
+      "code": "PORA",
+      "name": "PORT ANN",
+      "to": "SHET",
+      "voltage_kv": 132,
+      "lat": 55.842325,
+      "lon": -5.806133,
+      "zone": "GZ7",
+      "match_method": "pip"
+    },
+    "PORD": {
+      "code": "PORD",
+      "name": "PORT DUNDAS",
+      "to": "SPT",
+      "voltage_kv": 275,
+      "lat": 55.880974,
+      "lon": -4.229234,
+      "zone": "GZ9",
+      "match_method": "pip"
+    },
+    "PYLE": {
+      "code": "PYLE",
+      "name": "PYLE",
+      "to": "NGET",
+      "voltage_kv": 275,
+      "lat": 51.504942,
+      "lon": -3.6312,
+      "zone": "GZ21",
+      "match_method": "pip"
+    },
+    "QUOI": {
+      "code": "QUOI",
+      "name": "QUOICH",
+      "to": "SHET",
+      "voltage_kv": 132,
+      "lat": 57.069837,
+      "lon": -5.248489,
+      "zone": "GZ3",
+      "match_method": "pip"
+    },
+    "RAIN": {
+      "code": "RAIN",
+      "name": "RAINHILL",
+      "to": "NGET",
+      "voltage_kv": 275,
+      "lat": 53.426015,
+      "lon": -2.7536,
+      "zone": "GZ15",
+      "match_method": "pip"
+    },
+    "RANN": {
+      "code": "RANN",
+      "name": "RANNOCH",
+      "to": "SHET",
+      "voltage_kv": 132,
+      "lat": 56.619411,
+      "lon": -4.68839,
+      "zone": "GZ6",
+      "match_method": "pip"
+    },
+    "RASS": {
+      "code": "RASS",
+      "name": "RASSAU",
+      "to": "NGET",
+      "voltage_kv": 400,
+      "lat": 52.036618,
+      "lon": -3.312498,
+      "zone": "GZ18",
+      "match_method": "pip"
+    },
+    "RATS": {
+      "code": "RATS",
+      "name": "RATCLIFFE-ON-SOAR",
+      "to": "NGET",
+      "voltage_kv": 400,
+      "lat": 52.804552,
+      "lon": -1.093946,
+      "zone": "GZ18",
+      "match_method": "pip"
+    },
+    "RAVE": {
+      "code": "RAVE",
+      "name": "RAVENSCRAIG",
+      "to": "SPT",
+      "voltage_kv": 33,
+      "lat": 55.739212,
+      "lon": -3.961857,
+      "zone": "GZ11",
+      "match_method": "pip"
+    },
+    "RAYL": {
+      "code": "RAYL",
+      "name": "RAYLEIGH",
+      "to": "NGET",
+      "voltage_kv": 400,
+      "lat": 51.712934,
+      "lon": 0.729248,
+      "zone": "GZ24",
+      "match_method": "pip"
+    },
+    "REBR": {
+      "code": "REBR",
+      "name": "REDBRIDGE",
+      "to": "NGET",
+      "voltage_kv": 275,
+      "lat": 51.563613,
+      "lon": 0.072973,
+      "zone": "GZ24",
+      "match_method": "pip"
+    },
+    "REDH": {
+      "code": "REDH",
+      "name": "REDHOUSE",
+      "to": "SPT",
+      "voltage_kv": 132,
+      "lat": 56.152959,
+      "lon": -3.132275,
+      "zone": "GZ9",
+      "match_method": "pip"
+    },
+    "REDM": {
+      "code": "REDM",
+      "name": "REDMOSS",
+      "to": "SHET",
+      "voltage_kv": 132,
+      "lat": 57.056595,
+      "lon": -2.164598,
+      "zone": "GZ1",
+      "match_method": "pip"
+    },
+    "ROCH": {
+      "code": "ROCH",
+      "name": "ROCHDALE",
+      "to": "NGET",
+      "voltage_kv": 400,
+      "lat": 53.687458,
+      "lon": -2.284135,
+      "zone": "GZ15",
+      "match_method": "pip"
+    },
+    "RUGE": {
+      "code": "RUGE",
+      "name": "RUGELEY",
+      "to": "NGET",
+      "voltage_kv": 400,
+      "lat": 52.720698,
+      "lon": -1.896839,
+      "zone": "GZ18",
+      "match_method": "pip"
+    },
+    "RYEH": {
+      "code": "RYEH",
+      "name": "RYE HOUSE",
+      "to": "NGET",
+      "voltage_kv": 400,
+      "lat": 51.774003,
+      "lon": 0.051896,
+      "zone": "GZ24",
+      "match_method": "pip"
+    },
+    "SACO": {
+      "code": "SACO",
+      "name": "SALTCOATS",
+      "to": "SPT",
+      "voltage_kv": 132,
+      "lat": 55.741704,
+      "lon": -4.778216,
+      "zone": "GZ10",
+      "match_method": "pip"
+    },
+    "SALH": {
+      "code": "SALH",
+      "name": "SALTHOLME",
+      "to": "NGET",
+      "voltage_kv": 400,
+      "lat": 54.629199,
+      "lon": -1.208444,
+      "zone": "GZ13",
+      "match_method": "pip"
+    },
+    "SANX": {
+      "code": "SANX",
+      "name": "ST ANDREWS CROSS",
+      "to": "SPT",
+      "voltage_kv": 132,
+      "lat": 55.845925,
+      "lon": -4.269441,
+      "zone": "GZ9",
+      "match_method": "pip"
+    },
+    "SEAB": {
+      "code": "SEAB",
+      "name": "SEABANK",
+      "to": "NGET",
+      "voltage_kv": 400,
+      "lat": 51.307208,
+      "lon": -2.638564,
+      "zone": "GZ22",
+      "match_method": "pip"
+    },
+    "SELL": {
+      "code": "SELL",
+      "name": "SELLINDGE",
+      "to": "NGET",
+      "voltage_kv": 400,
+      "lat": 51.115825,
+      "lon": 0.92664,
+      "zone": "GZ24",
+      "match_method": "pip"
+    },
+    "SFEG": {
+      "code": "SFEG",
+      "name": "ST FERGUS GAS TERMINAL",
+      "to": "SHET",
+      "voltage_kv": 132,
+      "lat": 57.576743,
+      "lon": -1.856006,
+      "zone": "GZ2",
+      "match_method": "pip"
+    },
+    "SFIL": {
+      "code": "SFIL",
+      "name": "ST FILLANS",
+      "to": "SHET",
+      "voltage_kv": 132,
+      "lat": 56.362023,
+      "lon": -4.052433,
+      "zone": "GZ6",
+      "match_method": "pip"
+    },
+    "SHEC": {
+      "code": "SHEC",
+      "name": "SHEFFIELD CITY",
+      "to": "NGET",
+      "voltage_kv": 275,
+      "lat": 53.365758,
+      "lon": -1.446362,
+      "zone": "GZ16",
+      "match_method": "pip"
+    },
+    "SHIN": {
+      "code": "SHIN",
+      "name": "SHIN",
+      "to": "SHET",
+      "voltage_kv": 132,
+      "lat": 57.455412,
+      "lon": -5.111386,
+      "zone": "GZ1",
+      "match_method": "pip"
+    },
+    "SHRU": {
+      "code": "SHRU",
+      "name": "SHRUBHILL",
+      "to": "SPT",
+      "voltage_kv": 275,
+      "lat": 55.974095,
+      "lon": -3.186771,
+      "zone": "GZ9",
+      "match_method": "pip"
+    },
+    "SIGH": {
+      "code": "SIGH",
+      "name": "SIGHTHILL",
+      "to": "SPT",
+      "voltage_kv": 275,
+      "lat": 55.943347,
+      "lon": -3.290472,
+      "zone": "GZ9",
+      "match_method": "pip"
+    },
+    "SJOW": {
+      "code": "SJOW",
+      "name": "ST JOHNS WOOD",
+      "to": "NGET",
+      "voltage_kv": 400,
+      "lat": 51.510616,
+      "lon": -0.16225,
+      "zone": "GZ23",
+      "match_method": "pip"
+    },
+    "SKLG": {
+      "code": "SKLG",
+      "name": "SKELTON GRANGE",
+      "to": "NGET",
+      "voltage_kv": 275,
+      "lat": 53.752432,
+      "lon": -1.607589,
+      "zone": "GZ15",
+      "match_method": "pip"
+    },
+    "SLOY": {
+      "code": "SLOY",
+      "name": "SLOY",
+      "to": "SHET",
+      "voltage_kv": 132,
+      "lat": 56.242567,
+      "lon": -4.682124,
+      "zone": "GZ8",
+      "match_method": "pip"
+    },
+    "SMAN": {
+      "code": "SMAN",
+      "name": "SOUTH MANCHESTER",
+      "to": "NGET",
+      "voltage_kv": 275,
+      "lat": 53.334633,
+      "lon": -2.244463,
+      "zone": "GZ16",
+      "match_method": "pip"
+    },
+    "SPAV": {
+      "code": "SPAV",
+      "name": "SPANGO VALLEY",
+      "to": "SPT",
+      "voltage_kv": 132,
+      "lat": 55.915448,
+      "lon": -4.850716,
+      "zone": "GZ10",
+      "match_method": "pip"
+    },
+    "SPEN": {
+      "code": "SPEN",
+      "name": "SPENNYMOOR",
+      "to": "NGET",
+      "voltage_kv": 400,
+      "lat": 54.648612,
+      "lon": -1.862725,
+      "zone": "GZ13",
+      "match_method": "pip"
+    },
+    "SSHI": {
+      "code": "SSHI",
+      "name": "SOUTH SHIELDS",
+      "to": "NGET",
+      "voltage_kv": 275,
+      "lat": 54.984383,
+      "lon": -1.436529,
+      "zone": "GZ13",
+      "match_method": "pip"
+    },
+    "STAL": {
+      "code": "STAL",
+      "name": "STALYBRIDGE",
+      "to": "NGET",
+      "voltage_kv": 400,
+      "lat": 53.413011,
+      "lon": -1.96133,
+      "zone": "GZ16",
+      "match_method": "pip"
+    },
+    "STAY": {
+      "code": "STAY",
+      "name": "STAYTHORPE",
+      "to": "NGET",
+      "voltage_kv": 400,
+      "lat": 53.155842,
+      "lon": -0.842513,
+      "zone": "GZ16",
+      "match_method": "pip"
+    },
+    "STEN": {
+      "code": "STEN",
+      "name": "STELLA NORTH",
+      "to": "NGET",
+      "voltage_kv": 132,
+      "lat": 54.973582,
+      "lon": -1.711523,
+      "zone": "GZ13",
+      "match_method": "pip"
+    },
+    "STES": {
+      "code": "STES",
+      "name": "STELLA SOUTH",
+      "to": "NGET",
+      "voltage_kv": 132,
+      "lat": 55.025767,
+      "lon": -2.021068,
+      "zone": "GZ13",
+      "match_method": "pip"
+    },
+    "STHA": {
+      "code": "STHA",
+      "name": "STRATHAVEN",
+      "to": "SPT",
+      "voltage_kv": 400,
+      "lat": 55.761487,
+      "lon": -4.060976,
+      "zone": "GZ11",
+      "match_method": "pip"
+    },
+    "STIR": {
+      "code": "STIR",
+      "name": "STIRLING",
+      "to": "SPT",
+      "voltage_kv": 132,
+      "lat": 56.102124,
+      "lon": -3.954357,
+      "zone": "GZ9",
+      "match_method": "pip"
+    },
+    "STLE": {
+      "code": "STLE",
+      "name": "STRATHLEVEN",
+      "to": "SPT",
+      "voltage_kv": 132,
+      "lat": 55.972111,
+      "lon": -4.541962,
+      "zone": "GZ8",
+      "match_method": "pip"
+    },
+    "SUND": {
+      "code": "SUND",
+      "name": "SUNDON",
+      "to": "NGET",
+      "voltage_kv": 400,
+      "lat": 51.948081,
+      "lon": -0.589281,
+      "zone": "GZ18",
+      "match_method": "pip"
+    },
+    "SWAN": {
+      "code": "SWAN",
+      "name": "SWANSEA NORTH",
+      "to": "NGET",
+      "voltage_kv": 400,
+      "lat": 51.933453,
+      "lon": -4.103589,
+      "zone": "GZ18",
+      "match_method": "pip"
+    },
+    "TARL": {
+      "code": "TARL",
+      "name": "TARLAND",
+      "to": "SHET",
+      "voltage_kv": 132,
+      "lat": 57.10197,
+      "lon": -3.088783,
+      "zone": "GZ5",
+      "match_method": "pip"
+    },
+    "TAUN": {
+      "code": "TAUN",
+      "name": "TAUNTON",
+      "to": "NGET",
+      "voltage_kv": 400,
+      "lat": 51.078056,
+      "lon": -3.39464,
+      "zone": "GZ26",
+      "match_method": "pip"
+    },
+    "TAYN": {
+      "code": "TAYN",
+      "name": "TAYNUILT",
+      "to": "SHET",
+      "voltage_kv": 132,
+      "lat": 56.42551,
+      "lon": -5.698251,
+      "zone": "GZ3",
+      "match_method": "pip"
+    },
+    "TELR": {
+      "code": "TELR",
+      "name": "TELFORD ROAD",
+      "to": "SPT",
+      "voltage_kv": 132,
+      "lat": 55.977327,
+      "lon": -3.258789,
+      "zone": "GZ9",
+      "match_method": "pip"
+    },
+    "TEMP": {
+      "code": "TEMP",
+      "name": "TEMPLEBOROUGH",
+      "to": "NGET",
+      "voltage_kv": 275,
+      "lat": 53.413033,
+      "lon": -1.334796,
+      "zone": "GZ16",
+      "match_method": "pip"
+    },
+    "THOM": {
+      "code": "THOM",
+      "name": "THORPE MARSH",
+      "to": "NGET",
+      "voltage_kv": 400,
+      "lat": 53.546538,
+      "lon": -1.124354,
+      "zone": "GZ16",
+      "match_method": "pip"
+    },
+    "THUR": {
+      "code": "THUR",
+      "name": "THURCROFT",
+      "to": "NGET",
+      "voltage_kv": 275,
+      "lat": 53.405971,
+      "lon": -1.199668,
+      "zone": "GZ16",
+      "match_method": "pip"
+    },
+    "TILB": {
+      "code": "TILB",
+      "name": "TILBURY",
+      "to": "NGET",
+      "voltage_kv": 400,
+      "lat": 51.533172,
+      "lon": 0.430701,
+      "zone": "GZ24",
+      "match_method": "pip"
+    },
+    "TOTT": {
+      "code": "TOTT",
+      "name": "TOTTENHAM",
+      "to": "NGET",
+      "voltage_kv": 275,
+      "lat": 51.628811,
+      "lon": -0.100757,
+      "zone": "GZ24",
+      "match_method": "pip"
+    },
+    "TRAW": {
+      "code": "TRAW",
+      "name": "TRAWSFYNYDD",
+      "to": "NGET",
+      "voltage_kv": 400,
+      "lat": 52.769038,
+      "lon": -3.794253,
+      "zone": "GZ18",
+      "match_method": "pip"
+    },
+    "TUMB": {
+      "code": "TUMB",
+      "name": "TUMMEL BRIDGE",
+      "to": "SHET",
+      "voltage_kv": 132,
+      "lat": 56.726116,
+      "lon": -3.951341,
+      "zone": "GZ5",
+      "match_method": "pip"
+    },
+    "TYNE": {
+      "code": "TYNE",
+      "name": "TYNEMOUTH",
+      "to": "NGET",
+      "voltage_kv": 275,
+      "lat": 55.023725,
+      "lon": -1.509436,
+      "zone": "GZ13",
+      "match_method": "pip"
+    },
+    "UPPB": {
+      "code": "UPPB",
+      "name": "UPPER BOAT",
+      "to": "NGET",
+      "voltage_kv": 275,
+      "lat": 51.647905,
+      "lon": -3.357405,
+      "zone": "GZ21",
+      "match_method": "pip"
+    },
+    "WALH": {
+      "code": "WALH",
+      "name": "WALHAM",
+      "to": "NGET",
+      "voltage_kv": 400,
+      "lat": 51.863288,
+      "lon": -2.303875,
+      "zone": "GZ22",
+      "match_method": "pip"
+    },
+    "WALP": {
+      "code": "WALP",
+      "name": "WALPOLE",
+      "to": "NGET",
+      "voltage_kv": 400,
+      "lat": 52.82809,
+      "lon": -0.150543,
+      "zone": "GZ17",
+      "match_method": "pip"
+    },
+    "WARL": {
+      "code": "WARL",
+      "name": "WARLEY",
+      "to": "NGET",
+      "voltage_kv": 275,
+      "lat": 51.598349,
+      "lon": 0.301157,
+      "zone": "GZ24",
+      "match_method": "pip"
+    },
+    "WBOL": {
+      "code": "WBOL",
+      "name": "WEST BOLDON",
+      "to": "NGET",
+      "voltage_kv": 275,
+      "lat": 54.936446,
+      "lon": -1.476845,
+      "zone": "GZ13",
+      "match_method": "pip"
+    },
+    "WBUR": {
+      "code": "WBUR",
+      "name": "WEST BURTON",
+      "to": "NGET",
+      "voltage_kv": 400,
+      "lat": 53.229597,
+      "lon": -0.525178,
+      "zone": "GZ16",
+      "match_method": "pip"
+    },
+    "WFIE": {
+      "code": "WFIE",
+      "name": "WESTFIELD",
+      "to": "SPT",
+      "voltage_kv": 400,
+      "lat": 56.130253,
+      "lon": -3.310619,
+      "zone": "GZ9",
+      "match_method": "pip"
+    },
+    "WGEO": {
+      "code": "WGEO",
+      "name": "WEST GEORGE STREET",
+      "to": "SPT",
+      "voltage_kv": 275,
+      "lat": 55.862523,
+      "lon": -4.275811,
+      "zone": "GZ9",
+      "match_method": "pip"
+    },
+    "WHGA": {
+      "code": "WHGA",
+      "name": "WHITEGATE",
+      "to": "NGET",
+      "voltage_kv": 275,
+      "lat": 53.549584,
+      "lon": -2.133894,
+      "zone": "GZ15",
+      "match_method": "pip"
+    },
+    "WHHO": {
+      "code": "WHHO",
+      "name": "WHITEHOUSE",
+      "to": "SPT",
+      "voltage_kv": 275,
+      "lat": 55.917466,
+      "lon": -3.203151,
+      "zone": "GZ11",
+      "match_method": "pip"
+    },
+    "WIBA": {
+      "code": "WIBA",
+      "name": "WINCOBANK",
+      "to": "NGET",
+      "voltage_kv": 275,
+      "lat": 53.43238,
+      "lon": -1.408496,
+      "zone": "GZ16",
+      "match_method": "pip"
+    },
+    "WIEN": {
+      "code": "WIEN",
+      "name": "WILLENHALL",
+      "to": "NGET",
+      "voltage_kv": 275,
+      "lat": 52.584004,
+      "lon": -2.054751,
+      "zone": "GZ18",
+      "match_method": "pip"
+    },
+    "WILL": {
+      "code": "WILL",
+      "name": "WILLINGTON",
+      "to": "NGET",
+      "voltage_kv": 275,
+      "lat": 52.950565,
+      "lon": -1.871989,
+      "zone": "GZ18",
+      "match_method": "pip"
+    },
+    "WIMB": {
+      "code": "WIMB",
+      "name": "WIMBLEDON",
+      "to": "NGET",
+      "voltage_kv": 400,
+      "lat": 51.43471,
+      "lon": -0.19274,
+      "zone": "GZ23",
+      "match_method": "pip"
+    },
+    "WIOW": {
+      "code": "WIOW",
+      "name": "WILLOWDALE",
+      "to": "SHET",
+      "voltage_kv": 132,
+      "lat": 57.160069,
+      "lon": -2.103508,
+      "zone": "GZ1",
+      "match_method": "pip"
+    },
+    "WMEL": {
+      "code": "WMEL",
+      "name": "WEST MELTON",
+      "to": "NGET",
+      "voltage_kv": 275,
+      "lat": 53.501631,
+      "lon": -1.596137,
+      "zone": "GZ16",
+      "match_method": "pip"
+    },
+    "WOHI": {
+      "code": "WOHI",
+      "name": "WOODHILL",
+      "to": "SHET",
+      "voltage_kv": 132,
+      "lat": 57.150984,
+      "lon": -2.205972,
+      "zone": "GZ1",
+      "match_method": "pip"
+    },
+    "WTHU": {
+      "code": "WTHU",
+      "name": "WEST THURROCK",
+      "to": "NGET",
+      "voltage_kv": 400,
+      "lat": 51.479953,
+      "lon": 0.308363,
+      "zone": "GZ24",
+      "match_method": "pip"
+    },
+    "WWEY": {
+      "code": "WWEY",
+      "name": "WEST WEYBRIDGE",
+      "to": "NGET",
+      "voltage_kv": 400,
+      "lat": 51.281287,
+      "lon": -0.450927,
+      "zone": "GZ25",
+      "match_method": "pip"
+    },
+    "WYLF": {
+      "code": "WYLF",
+      "name": "WYLFA",
+      "to": "NGET",
+      "voltage_kv": 400,
+      "lat": 53.316588,
+      "lon": -4.464,
+      "zone": "GZ19",
+      "match_method": "pip"
+    },
+    "WYMO": {
+      "code": "WYMO",
+      "name": "WYMONDLEY",
+      "to": "NGET",
+      "voltage_kv": 400,
+      "lat": 51.972281,
+      "lon": -0.142148,
+      "zone": "GZ18",
+      "match_method": "pip"
+    },
+    "MAYT": {
+      "code": "MAYT",
+      "name": "MAYBOLE TEE",
+      "to": "SPT",
+      "voltage_kv": 132,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ10",
+      "match_method": "circuit_propagation_iter1"
+    },
+    "SAEN": {
+      "code": "SAEN",
+      "name": "SALTEND NORTH",
+      "to": "NGET",
+      "voltage_kv": 275,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ15",
+      "match_method": "circuit_propagation_iter1"
+    },
+    "MOTA": {
+      "code": "MOTA",
+      "name": "MOULTAIVE",
+      "to": "SHET",
+      "voltage_kv": 132,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ1",
+      "match_method": "circuit_propagation_iter1"
+    },
+    "WALX": {
+      "code": "WALX",
+      "name": "WALTHAM CROSS",
+      "to": "NGET",
+      "voltage_kv": 400,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ24",
+      "match_method": "circuit_propagation_iter1"
+    },
+    "SPIT": {
+      "code": "SPIT",
+      "name": "SPITTAL",
+      "to": "SHET",
+      "voltage_kv": 132,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ1",
+      "match_method": "circuit_propagation_iter1"
+    },
+    "QUER": {
+      "code": "QUER",
+      "name": "QUERNMOOR",
+      "to": "NGET",
+      "voltage_kv": 400,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ14",
+      "match_method": "circuit_propagation_iter1"
+    },
+    "DENN": {
+      "code": "DENN",
+      "name": "DENNY NORTH",
+      "to": "SPT",
+      "voltage_kv": 400,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ9",
+      "match_method": "circuit_propagation_iter1"
+    },
+    "GRAI": {
+      "code": "GRAI",
+      "name": "GRAIN",
+      "to": "NGET",
+      "voltage_kv": 400,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ24",
+      "match_method": "circuit_propagation_iter1"
+    },
+    "GWYN": {
+      "code": "GWYN",
+      "name": "GWYNEDD",
+      "to": "NGET",
+      "voltage_kv": 400,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ19",
+      "match_method": "circuit_propagation_iter1"
+    },
+    "SHBA": {
+      "code": "SHBA",
+      "name": "SOUTH HUMBER BANK",
+      "to": "NGET",
+      "voltage_kv": 400,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ15",
+      "match_method": "circuit_propagation_iter1"
+    },
+    "MOSS": {
+      "code": "MOSS",
+      "name": "MOSSFORD",
+      "to": "SHET",
+      "voltage_kv": 132,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ1",
+      "match_method": "circuit_propagation_iter1"
+    },
+    "GLLE": {
+      "code": "GLLE",
+      "name": "GLENLEE",
+      "to": "SPT",
+      "voltage_kv": 132,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ10",
+      "match_method": "circuit_propagation_iter1"
+    },
+    "SAFO": {
+      "code": "SAFO",
+      "name": "SANDFORD",
+      "to": "NGET",
+      "voltage_kv": 400,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ22",
+      "match_method": "circuit_propagation_iter1"
+    },
+    "LAGG": {
+      "code": "LAGG",
+      "name": "LAGGAN",
+      "to": "SHET",
+      "voltage_kv": 132,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ3",
+      "match_method": "circuit_propagation_iter1"
+    },
+    "GRNA": {
+      "code": "GRNA",
+      "name": "GRETNA",
+      "to": "SPT",
+      "voltage_kv": 400,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ11",
+      "match_method": "circuit_propagation_iter1"
+    },
+    "DIDC": {
+      "code": "DIDC",
+      "name": "DIDCOT",
+      "to": "NGET",
+      "voltage_kv": 400,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ25",
+      "match_method": "circuit_propagation_iter1"
+    },
+    "WLEX": {
+      "code": "WLEX",
+      "name": "WHITELEE EXTENSION",
+      "to": "SPT",
+      "voltage_kv": 275,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ10",
+      "match_method": "circuit_propagation_iter1"
+    },
+    "STSB": {
+      "code": "STSB",
+      "name": "STOCKSBRIDGE",
+      "to": "NGET",
+      "voltage_kv": 400,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ16",
+      "match_method": "circuit_propagation_iter1"
+    },
+    "BREC": {
+      "code": "BREC",
+      "name": "BRECHIN",
+      "to": "SHET",
+      "voltage_kv": 132,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ5",
+      "match_method": "circuit_propagation_iter1"
+    },
+    "CLUN": {
+      "code": "CLUN",
+      "name": "CLUNIE",
+      "to": "SHET",
+      "voltage_kv": 132,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ5",
+      "match_method": "circuit_propagation_iter1"
+    },
+    "LEIB": {
+      "code": "LEIB",
+      "name": "LEIGHTON BUZZARD",
+      "to": "NGET",
+      "voltage_kv": 400,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ18",
+      "match_method": "circuit_propagation_iter1"
+    },
+    "IMPP": {
+      "code": "IMPP",
+      "name": "IMPERIAL PARK",
+      "to": "NGET",
+      "voltage_kv": 400,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ22",
+      "match_method": "circuit_propagation_iter1"
+    },
+    "CILF": {
+      "code": "CILF",
+      "name": "CILFYNYDD",
+      "to": "NGET",
+      "voltage_kv": 400,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ18",
+      "match_method": "circuit_propagation_iter1"
+    },
+    "USKM": {
+      "code": "USKM",
+      "name": "USKMOUTH",
+      "to": "NGET",
+      "voltage_kv": 275,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ21",
+      "match_method": "circuit_propagation_iter1"
+    },
+    "BAGB": {
+      "code": "BAGB",
+      "name": "BAGLAN BAY",
+      "to": "NGET",
+      "voltage_kv": 275,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ18",
+      "match_method": "circuit_propagation_iter1"
+    },
+    "KILL": {
+      "code": "KILL",
+      "name": "KILLINGHOLME",
+      "to": "NGET",
+      "voltage_kv": 400,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ16",
+      "match_method": "circuit_propagation_iter1"
+    },
+    "INVE": {
+      "code": "INVE",
+      "name": "INVERARAY",
+      "to": "SHET",
+      "voltage_kv": 132,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ8",
+      "match_method": "circuit_propagation_iter1"
+    },
+    "WHAM": {
+      "code": "WHAM",
+      "name": "WEST HAM",
+      "to": "NGET",
+      "voltage_kv": 400,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ23",
+      "match_method": "circuit_propagation_iter1"
+    },
+    "TORN": {
+      "code": "TORN",
+      "name": "TORNESS",
+      "to": "SPT",
+      "voltage_kv": 400,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ11",
+      "match_method": "circuit_propagation_iter1"
+    },
+    "DISS": {
+      "code": "DISS",
+      "name": "DISS",
+      "to": "NGET",
+      "voltage_kv": 400,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ18",
+      "match_method": "circuit_propagation_iter1"
+    },
+    "INCE": {
+      "code": "INCE",
+      "name": "INCE",
+      "to": "NGET",
+      "voltage_kv": 132,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ16",
+      "match_method": "circuit_propagation_iter1"
+    },
+    "COWT": {
+      "code": "COWT",
+      "name": "COWBRIDGE TEE",
+      "to": "NGET",
+      "voltage_kv": 275,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ21",
+      "match_method": "circuit_propagation_iter1"
+    },
+    "GART": {
+      "code": "GART",
+      "name": "GARTH CABLE COMPOUND",
+      "to": "NGET",
+      "voltage_kv": 400,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ15",
+      "match_method": "circuit_propagation_iter1"
+    },
+    "HEND": {
+      "code": "HEND",
+      "name": "HENDON",
+      "to": "NGET",
+      "voltage_kv": 132,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ25",
+      "match_method": "circuit_propagation_iter1"
+    },
+    "ALDW": {
+      "code": "ALDW",
+      "name": "ALDWARKE",
+      "to": "NGET",
+      "voltage_kv": 275,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ16",
+      "match_method": "circuit_propagation_iter1"
+    },
+    "NEIL": {
+      "code": "NEIL",
+      "name": "NEILSTON",
+      "to": "SPT",
+      "voltage_kv": 400,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ10",
+      "match_method": "circuit_propagation_iter1"
+    },
+    "FLEE": {
+      "code": "FLEE",
+      "name": "FLEET",
+      "to": "NGET",
+      "voltage_kv": 400,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ26",
+      "match_method": "circuit_propagation_iter1"
+    },
+    "FFES": {
+      "code": "FFES",
+      "name": "FFESTINIOG",
+      "to": "NGET",
+      "voltage_kv": 275,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ18",
+      "match_method": "circuit_propagation_iter1"
+    },
+    "CULJ": {
+      "code": "CULJ",
+      "name": "CULHAM JET",
+      "to": "NGET",
+      "voltage_kv": 400,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ25",
+      "match_method": "circuit_propagation_iter1"
+    },
+    "SLKB": {
+      "code": "SLKB",
+      "name": "SLACKBUIE",
+      "to": "SHET",
+      "voltage_kv": 132,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ1",
+      "match_method": "circuit_propagation_iter1"
+    },
+    "JUNV": {
+      "code": "JUNV",
+      "name": "JUNCTION V",
+      "to": "SPT",
+      "voltage_kv": 132,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ11",
+      "match_method": "circuit_propagation_iter1"
+    },
+    "NECT": {
+      "code": "NECT",
+      "name": "NECTON",
+      "to": "NGET",
+      "voltage_kv": 400,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ18",
+      "match_method": "circuit_propagation_iter1"
+    },
+    "MAWO": {
+      "code": "MAWO",
+      "name": "MARCHWOOD",
+      "to": "NGET",
+      "voltage_kv": 400,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ26",
+      "match_method": "circuit_propagation_iter1"
+    },
+    "KILC": {
+      "code": "KILC",
+      "name": "KILLIN CASCADE GROUP",
+      "to": "SHET",
+      "voltage_kv": 132,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ3",
+      "match_method": "circuit_propagation_iter1"
+    },
+    "HUTT": {
+      "code": "HUTT",
+      "name": "HUTTON",
+      "to": "NGET",
+      "voltage_kv": 400,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ14",
+      "match_method": "circuit_propagation_iter1"
+    },
+    "CRAR": {
+      "code": "CRAR",
+      "name": "CRARAE",
+      "to": "SHET",
+      "voltage_kv": 132,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ7",
+      "match_method": "circuit_propagation_iter1"
+    },
+    "MOSM": {
+      "code": "MOSM",
+      "name": "MOSSMORRAN",
+      "to": "SPT",
+      "voltage_kv": 400,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ9",
+      "match_method": "circuit_propagation_iter1"
+    },
+    "BRIN": {
+      "code": "BRIN",
+      "name": "BRINSWORTH",
+      "to": "NGET",
+      "voltage_kv": 400,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ16",
+      "match_method": "circuit_propagation_iter1"
+    },
+    "SMEA": {
+      "code": "SMEA",
+      "name": "SMEATON",
+      "to": "SPT",
+      "voltage_kv": 400,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ11",
+      "match_method": "circuit_propagation_iter1"
+    },
+    "DAMC": {
+      "code": "DAMC",
+      "name": "DAMHEAD CREEK",
+      "to": "NGET",
+      "voltage_kv": 400,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ24",
+      "match_method": "circuit_propagation_iter1"
+    },
+    "SFEV": {
+      "code": "SFEV",
+      "name": "ST FERGUS VSD",
+      "to": "SHET",
+      "voltage_kv": 132,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ2",
+      "match_method": "circuit_propagation_iter1"
+    },
+    "PUDM": {
+      "code": "PUDM",
+      "name": "PUDDING MILL LANE",
+      "to": "NGET",
+      "voltage_kv": 400,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ23",
+      "match_method": "circuit_propagation_iter1"
+    },
+    "CONN": {
+      "code": "CONN",
+      "name": "CONNAGILL",
+      "to": "SHET",
+      "voltage_kv": 132,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ1",
+      "match_method": "circuit_propagation_iter1"
+    },
+    "DAIN": {
+      "code": "DAIN",
+      "name": "DAINES",
+      "to": "NGET",
+      "voltage_kv": 400,
+      "lat": 53.07,
+      "lon": -2.0,
+      "zone": "GZ18",
+      "match_method": "geo_corrected_from_circuit_propagation_iter1"
+    },
+    "ALYT": {
+      "code": "ALYT",
+      "name": "ALYTH",
+      "to": "SHET",
+      "voltage_kv": 275,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ1",
+      "match_method": "circuit_propagation_iter1"
+    },
+    "MARH": {
+      "code": "MARH",
+      "name": "MARKET HARBOROUGH",
+      "to": "NGET",
+      "voltage_kv": 400,
+      "lat": 52.48,
+      "lon": -0.92,
+      "zone": "GZ18",
+      "match_method": "geo_corrected_from_circuit_propagation_iter1"
+    },
+    "HAKB": {
+      "code": "HAKB",
+      "name": "HARKER BORDER NODE",
+      "to": "SPT",
+      "voltage_kv": 400,
+      "lat": 54.93,
+      "lon": -2.94,
+      "zone": "GZ12",
+      "match_method": "geo_corrected_from_circuit_propagation_iter1"
+    },
+    "BIHI": {
+      "code": "BIHI",
+      "name": "BIRKHILL",
+      "to": "SHET",
+      "voltage_kv": 132,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ5",
+      "match_method": "circuit_propagation_iter1"
+    },
+    "FLIB": {
+      "code": "FLIB",
+      "name": "FLINTSHIRE BRIDGE",
+      "to": "NGET",
+      "voltage_kv": 400,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ16",
+      "match_method": "circuit_propagation_iter1"
+    },
+    "NECH": {
+      "code": "NECH",
+      "name": "NECHELLS",
+      "to": "NGET",
+      "voltage_kv": 275,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ18",
+      "match_method": "circuit_propagation_iter1"
+    },
+    "RICH": {
+      "code": "RICH",
+      "name": "RICHBOROUGH",
+      "to": "NGET",
+      "voltage_kv": 400,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ24",
+      "match_method": "circuit_propagation_iter1"
+    },
+    "ROWD": {
+      "code": "ROWD",
+      "name": "ROWDOWN",
+      "to": "NGET",
+      "voltage_kv": 400,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ25",
+      "match_method": "circuit_propagation_iter1"
+    },
+    "NECU": {
+      "code": "NECU",
+      "name": "NEW CUMNOCK",
+      "to": "SPT",
+      "voltage_kv": 400,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ10",
+      "match_method": "circuit_propagation_iter1"
+    },
+    "FRIS": {
+      "code": "FRIS",
+      "name": "FRISTON",
+      "to": "NGET",
+      "voltage_kv": 400,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ18",
+      "match_method": "circuit_propagation_iter1"
+    },
+    "CAMA": {
+      "code": "CAMA",
+      "name": "CAMBRIDGE ARMS",
+      "to": "NGET",
+      "voltage_kv": 132,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ22",
+      "match_method": "circuit_propagation_iter1"
+    },
+    "ANSU": {
+      "code": "ANSU",
+      "name": "AN SUIDHE",
+      "to": "SHET",
+      "voltage_kv": 132,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ7",
+      "match_method": "circuit_propagation_iter1"
+    },
+    "EGGB": {
+      "code": "EGGB",
+      "name": "EGGBOROUGH",
+      "to": "NGET",
+      "voltage_kv": 400,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ15",
+      "match_method": "circuit_propagation_iter1"
+    },
+    "DENS": {
+      "code": "DENS",
+      "name": "DENSIDE",
+      "to": "SHET",
+      "voltage_kv": 132,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ5",
+      "match_method": "circuit_propagation_iter1"
+    },
+    "DLCH": {
+      "code": "DLCH",
+      "name": "DALCHORK",
+      "to": "SHET",
+      "voltage_kv": 132,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ1",
+      "match_method": "circuit_propagation_iter1"
+    },
+    "CLEH": {
+      "code": "CLEH",
+      "name": "CLEVE HILL",
+      "to": "NGET",
+      "voltage_kv": 400,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ24",
+      "match_method": "circuit_propagation_iter1"
+    },
+    "FINL": {
+      "code": "FINL",
+      "name": "FINLARIG",
+      "to": "SHET",
+      "voltage_kv": 132,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ6",
+      "match_method": "circuit_propagation_iter1"
+    },
+    "BEIN": {
+      "code": "BEIN",
+      "name": "BEINNEUN WIND FARM",
+      "to": "SHET",
+      "voltage_kv": 132,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ3",
+      "match_method": "circuit_propagation_iter1"
+    },
+    "DINO": {
+      "code": "DINO",
+      "name": "DINORWIG",
+      "to": "NGET",
+      "voltage_kv": 400,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ19",
+      "match_method": "circuit_propagation_iter1"
+    },
+    "HUNE": {
+      "code": "HUNE",
+      "name": "HUNTERSTON EAST",
+      "to": "SPT",
+      "voltage_kv": 400,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ10",
+      "match_method": "circuit_propagation_iter1"
+    },
+    "SHRE": {
+      "code": "SHRE",
+      "name": "SHREWSBURY",
+      "to": "NGET",
+      "voltage_kv": 400,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ18",
+      "match_method": "circuit_propagation_iter1"
+    },
+    "PAFB": {
+      "code": "PAFB",
+      "name": "PATFORD BRIDGE",
+      "to": "NGET",
+      "voltage_kv": 400,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ18",
+      "match_method": "circuit_propagation_iter1"
+    },
+    "BLLX": {
+      "code": "BLLX",
+      "name": "BLACKLAW EXTENSION",
+      "to": "SPT",
+      "voltage_kv": 132,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ11",
+      "match_method": "circuit_propagation_iter1"
+    },
+    "HAMB": {
+      "code": "HAMB",
+      "name": "HAMBLETON",
+      "to": "NGET",
+      "voltage_kv": 400,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ14",
+      "match_method": "circuit_propagation_iter1"
+    },
+    "TEAL": {
+      "code": "TEAL",
+      "name": "TEALING",
+      "to": "SHET",
+      "voltage_kv": 132,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ5",
+      "match_method": "circuit_propagation_iter1"
+    },
+    "INRU": {
+      "code": "INRU",
+      "name": "INVERUGIE",
+      "to": "SHET",
+      "voltage_kv": 132,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ2",
+      "match_method": "circuit_propagation_iter1"
+    },
+    "COYT": {
+      "code": "COYT",
+      "name": "COYLTON TEE",
+      "to": "SPT",
+      "voltage_kv": 132,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ10",
+      "match_method": "circuit_propagation_iter1"
+    },
+    "TREU": {
+      "code": "TREU",
+      "name": "TREUDDYN",
+      "to": "NGET",
+      "voltage_kv": 400,
+      "lat": 53.12,
+      "lon": -3.12,
+      "zone": "GZ16",
+      "match_method": "geo_corrected_from_circuit_propagation_iter1"
+    },
+    "KINT": {
+      "code": "KINT",
+      "name": "KINTORE",
+      "to": "SHET",
+      "voltage_kv": 132,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ1",
+      "match_method": "circuit_propagation_iter1"
+    },
+    "KINC": {
+      "code": "KINC",
+      "name": "KINCARDINE",
+      "to": "SPT",
+      "voltage_kv": 400,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ11",
+      "match_method": "circuit_propagation_iter1"
+    },
+    "TONG": {
+      "code": "TONG",
+      "name": "TONGLAND",
+      "to": "SPT",
+      "voltage_kv": 132,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ10",
+      "match_method": "circuit_propagation_iter1"
+    },
+    "LUND": {
+      "code": "LUND",
+      "name": "LUNDAVRA",
+      "to": "SHET",
+      "voltage_kv": 132,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ3",
+      "match_method": "circuit_propagation_iter1"
+    },
+    "HEDO": {
+      "code": "HEDO",
+      "name": "HEDON (GIS)",
+      "to": "NGET",
+      "voltage_kv": 275,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ15",
+      "match_method": "circuit_propagation_iter1"
+    },
+    "ECCF": {
+      "code": "ECCF",
+      "name": "ECCLEFECHAN",
+      "to": "SPT",
+      "voltage_kv": 132,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ12",
+      "match_method": "circuit_propagation_iter1"
+    },
+    "SFEE": {
+      "code": "SFEE",
+      "name": "ST FERGUS EAST",
+      "to": "SHET",
+      "voltage_kv": 132,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ2",
+      "match_method": "circuit_propagation_iter1"
+    },
+    "HATL": {
+      "code": "HATL",
+      "name": "HARTLEPOOL",
+      "to": "NGET",
+      "voltage_kv": 275,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ13",
+      "match_method": "circuit_propagation_iter1"
+    },
+    "MEAD": {
+      "code": "MEAD",
+      "name": "MEADOWHEAD",
+      "to": "SPT",
+      "voltage_kv": 132,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ10",
+      "match_method": "circuit_propagation_iter1"
+    },
+    "ABBA": {
+      "code": "ABBA",
+      "name": "ABERDEEN BAY WINDFARM",
+      "to": "SHET",
+      "voltage_kv": 132,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ2",
+      "match_method": "circuit_propagation_iter1"
+    },
+    "PEHE": {
+      "code": "PEHE",
+      "name": "PETERHEAD",
+      "to": "SHET",
+      "voltage_kv": 132,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ1",
+      "match_method": "circuit_propagation_iter1"
+    },
+    "EDIN": {
+      "code": "EDIN",
+      "name": "EDINBANE 132/33KV",
+      "to": "SHET",
+      "voltage_kv": 132,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ4",
+      "match_method": "circuit_propagation_iter1"
+    },
+    "OLDS": {
+      "code": "OLDS",
+      "name": "OLDBURY ON SEVERN",
+      "to": "NGET",
+      "voltage_kv": 132,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ22",
+      "match_method": "circuit_propagation_iter1"
+    },
+    "JUNA": {
+      "code": "JUNA",
+      "name": "JUNCTION A",
+      "to": "SPT",
+      "voltage_kv": 132,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ10",
+      "match_method": "circuit_propagation_iter1"
+    },
+    "HINP": {
+      "code": "HINP",
+      "name": "HINKLEY POINT",
+      "to": "NGET",
+      "voltage_kv": 400,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ22",
+      "match_method": "circuit_propagation_iter1"
+    },
+    "MIDL": {
+      "code": "MIDL",
+      "name": "MIDDLETON",
+      "to": "NGET",
+      "voltage_kv": 400,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ14",
+      "match_method": "circuit_propagation_iter1"
+    },
+    "FOGG": {
+      "code": "FOGG",
+      "name": "FOGGIETON",
+      "to": "SHET",
+      "voltage_kv": 132,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ5",
+      "match_method": "circuit_propagation_iter1"
+    },
+    "DUCC": {
+      "code": "DUCC",
+      "name": "DUNMORE CABLE COMPOUND",
+      "to": "SHET",
+      "voltage_kv": 132,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ1",
+      "match_method": "circuit_propagation_iter1"
+    },
+    "BROT": {
+      "code": "BROT",
+      "name": "BROKEN CROSS TEE",
+      "to": "SPT",
+      "voltage_kv": 132,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ11",
+      "match_method": "circuit_propagation_iter1"
+    },
+    "GARB": {
+      "code": "GARB",
+      "name": "GARELOCH BOUNDARY",
+      "to": "SHET",
+      "voltage_kv": 132,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ8",
+      "match_method": "circuit_propagation_iter1"
+    },
+    "MONF": {
+      "code": "MONF",
+      "name": "MONK FRYSTON",
+      "to": "NGET",
+      "voltage_kv": 400,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ15",
+      "match_method": "circuit_propagation_iter1"
+    },
+    "WATS": {
+      "code": "WATS",
+      "name": "WATFORD SOUTH",
+      "to": "NGET",
+      "voltage_kv": 275,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ25",
+      "match_method": "circuit_propagation_iter1"
+    },
+    "PEWO": {
+      "code": "PEWO",
+      "name": "PENWORTHAM",
+      "to": "NGET",
+      "voltage_kv": 400,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ16",
+      "match_method": "circuit_propagation_iter1"
+    },
+    "CHUE": {
+      "code": "CHUE",
+      "name": "CHAFFORD HUNDRED EAST",
+      "to": "NGET",
+      "voltage_kv": 400,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ24",
+      "match_method": "circuit_propagation_iter1"
+    },
+    "LEMR": {
+      "code": "LEMR",
+      "name": "LEA MARSTON",
+      "to": "NGET",
+      "voltage_kv": 132,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ18",
+      "match_method": "circuit_propagation_iter1"
+    },
+    "CHIL": {
+      "code": "CHIL",
+      "name": "CHILLING",
+      "to": "NGET",
+      "voltage_kv": 400,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ26",
+      "match_method": "circuit_propagation_iter1"
+    },
+    "WIYH": {
+      "code": "WIYH",
+      "name": "WINDYHILL",
+      "to": "SPT",
+      "voltage_kv": 400,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ8",
+      "match_method": "circuit_propagation_iter1"
+    },
+    "STEW": {
+      "code": "STEW",
+      "name": "STELLA WEST",
+      "to": "NGET",
+      "voltage_kv": 400,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ13",
+      "match_method": "circuit_propagation_iter1"
+    },
+    "BULL": {
+      "code": "BULL",
+      "name": "BULLS LODGE",
+      "to": "NGET",
+      "voltage_kv": 400,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ24",
+      "match_method": "circuit_propagation_iter1"
+    },
+    "ESST": {
+      "code": "ESST",
+      "name": "ESSENSIDE",
+      "to": "SPT",
+      "voltage_kv": 132,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ9",
+      "match_method": "circuit_propagation_iter1"
+    },
+    "KENG": {
+      "code": "KENG",
+      "name": "KENSAL GREEN",
+      "to": "NGET",
+      "voltage_kv": 400,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ23",
+      "match_method": "circuit_propagation_iter1"
+    },
+    "TUMM": {
+      "code": "TUMM",
+      "name": "TUMMEL",
+      "to": "SHET",
+      "voltage_kv": 132,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ3",
+      "match_method": "circuit_propagation_iter1"
+    },
+    "GLRB": {
+      "code": "GLRB",
+      "name": "GLENROTHES BOUNDARY",
+      "to": "SHET",
+      "voltage_kv": 275,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ9",
+      "match_method": "circuit_propagation_iter1"
+    },
+    "STWB": {
+      "code": "STWB",
+      "name": "STELLA WEST BORDER NODE",
+      "to": "SPT",
+      "voltage_kv": 400,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ11",
+      "match_method": "circuit_propagation_iter1"
+    },
+    "STOB": {
+      "code": "STOB",
+      "name": "STOKE BARDOLPH",
+      "to": "NGET",
+      "voltage_kv": 400,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ18",
+      "match_method": "circuit_propagation_iter1"
+    },
+    "TODP": {
+      "code": "TODP",
+      "name": "TOD POINT",
+      "to": "NGET",
+      "voltage_kv": 275,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ15",
+      "match_method": "circuit_propagation_iter1"
+    },
+    "AMUL": {
+      "code": "AMUL",
+      "name": "AMULREE",
+      "to": "SHET",
+      "voltage_kv": 132,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ5",
+      "match_method": "circuit_propagation_iter1"
+    },
+    "DUNE": {
+      "code": "DUNE",
+      "name": "DUNLAW EXTENSION",
+      "to": "SPT",
+      "voltage_kv": 132,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ11",
+      "match_method": "circuit_propagation_iter1"
+    },
+    "COYW": {
+      "code": "COYW",
+      "name": "COYLTON WEST",
+      "to": "SPT",
+      "voltage_kv": 275,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ10",
+      "match_method": "circuit_propagation_iter1"
+    },
+    "MARV": {
+      "code": "MARV",
+      "name": "MARSTON VALE",
+      "to": "NGET",
+      "voltage_kv": 400,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ18",
+      "match_method": "circuit_propagation_iter1"
+    },
+    "SPLN": {
+      "code": "SPLN",
+      "name": "SPALDING NORTH",
+      "to": "NGET",
+      "voltage_kv": 400,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ17",
+      "match_method": "circuit_propagation_iter1"
+    },
+    "CRSS": {
+      "code": "CRSS",
+      "name": "CROSSAIG",
+      "to": "SHET",
+      "voltage_kv": 132,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ10",
+      "match_method": "circuit_propagation_iter1"
+    },
+    "THUS": {
+      "code": "THUS",
+      "name": "THURSO SOUTH",
+      "to": "SHET",
+      "voltage_kv": 132,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ1",
+      "match_method": "circuit_propagation_iter1"
+    },
+    "SHUR": {
+      "code": "SHUR",
+      "name": "SHURTON",
+      "to": "NGET",
+      "voltage_kv": 400,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ26",
+      "match_method": "circuit_propagation_iter1"
+    },
+    "CULL": {
+      "code": "CULL",
+      "name": "CULLIGRAN",
+      "to": "SHET",
+      "voltage_kv": 132,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ1",
+      "match_method": "circuit_propagation_iter1"
+    },
+    "LOCB": {
+      "code": "LOCB",
+      "name": "LOCH BUIDHE",
+      "to": "SHET",
+      "voltage_kv": 132,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ1",
+      "match_method": "circuit_propagation_iter1"
+    },
+    "KEOO": {
+      "code": "KEOO",
+      "name": "KENDOON",
+      "to": "SPT",
+      "voltage_kv": 132,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ10",
+      "match_method": "circuit_propagation_iter1"
+    },
+    "GLDO": {
+      "code": "GLDO",
+      "name": "GLENDOE SUBSTATION",
+      "to": "SHET",
+      "voltage_kv": 132,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ3",
+      "match_method": "circuit_propagation_iter1"
+    },
+    "WHTB": {
+      "code": "WHTB",
+      "name": "WHISTLEFIELD BORDER",
+      "to": "SHET",
+      "voltage_kv": 132,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ8",
+      "match_method": "circuit_propagation_iter1"
+    },
+    "HIBU": {
+      "code": "HIBU",
+      "name": "HIGHBURY",
+      "to": "NGET",
+      "voltage_kv": 400,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ23",
+      "match_method": "circuit_propagation_iter1"
+    },
+    "MAHI": {
+      "code": "MAHI",
+      "name": "MARK HILL",
+      "to": "SPT",
+      "voltage_kv": 275,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ10",
+      "match_method": "circuit_propagation_iter1"
+    },
+    "LEVT": {
+      "code": "LEVT",
+      "name": "LEVEN TEE",
+      "to": "SPT",
+      "voltage_kv": 132,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ9",
+      "match_method": "circuit_propagation_iter1"
+    },
+    "GRST": {
+      "code": "GRST",
+      "name": "GREYSTONES",
+      "to": "NGET",
+      "voltage_kv": 275,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ15",
+      "match_method": "circuit_propagation_iter1"
+    },
+    "AUCW": {
+      "code": "AUCW",
+      "name": "AUCHENWYND",
+      "to": "SPT",
+      "voltage_kv": 132,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ10",
+      "match_method": "circuit_propagation_iter1"
+    },
+    "BIGG": {
+      "code": "BIGG",
+      "name": "BIGGLESWADE",
+      "to": "NGET",
+      "voltage_kv": 400,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ18",
+      "match_method": "circuit_propagation_iter1"
+    },
+    "LOCL": {
+      "code": "LOCL",
+      "name": "LOCH LUNDIE",
+      "to": "SHET",
+      "voltage_kv": 132,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ3",
+      "match_method": "circuit_propagation_iter1"
+    },
+    "GLFA": {
+      "code": "GLFA",
+      "name": "GLENFARCLAS",
+      "to": "SHET",
+      "voltage_kv": 132,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ1",
+      "match_method": "circuit_propagation_iter1"
+    },
+    "WISH": {
+      "code": "WISH",
+      "name": "WISHAW",
+      "to": "SPT",
+      "voltage_kv": 400,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ11",
+      "match_method": "circuit_propagation_iter1"
+    },
+    "ERRO": {
+      "code": "ERRO",
+      "name": "ERROCHTY",
+      "to": "SHET",
+      "voltage_kv": 132,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ5",
+      "match_method": "circuit_propagation_iter1"
+    },
+    "BURW": {
+      "code": "BURW",
+      "name": "BURWELL MAIN",
+      "to": "NGET",
+      "voltage_kv": 400,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ18",
+      "match_method": "circuit_propagation_iter1"
+    },
+    "CLAC": {
+      "code": "CLAC",
+      "name": "CLACHAN",
+      "to": "SHET",
+      "voltage_kv": 132,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ8",
+      "match_method": "circuit_propagation_iter1"
+    },
+    "FENW": {
+      "code": "FENW",
+      "name": "FENWICK TEE",
+      "to": "NGET",
+      "voltage_kv": 400,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ16",
+      "match_method": "circuit_propagation_iter1"
+    },
+    "WFIB": {
+      "code": "WFIB",
+      "name": "WESTFIELD BOUNDARY",
+      "to": "SHET",
+      "voltage_kv": 275,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ9",
+      "match_method": "circuit_propagation_iter1"
+    },
+    "ROCK": {
+      "code": "ROCK",
+      "name": "ROCKSAVAGE",
+      "to": "NGET",
+      "voltage_kv": 400,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ16",
+      "match_method": "circuit_propagation_iter1"
+    },
+    "LOCH": {
+      "code": "LOCH",
+      "name": "LOCHAY",
+      "to": "SHET",
+      "voltage_kv": 132,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ6",
+      "match_method": "circuit_propagation_iter1"
+    },
+    "ELVA": {
+      "code": "ELVA",
+      "name": "ELVANFOOT",
+      "to": "SPT",
+      "voltage_kv": 400,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ11",
+      "match_method": "circuit_propagation_iter1"
+    },
+    "WASF": {
+      "code": "WASF",
+      "name": "WASHWAY FARM",
+      "to": "NGET",
+      "voltage_kv": 275,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ15",
+      "match_method": "circuit_propagation_iter1"
+    },
+    "RYHA": {
+      "code": "RYHA",
+      "name": "RYHALL",
+      "to": "NGET",
+      "voltage_kv": 400,
+      "lat": 52.67,
+      "lon": -0.49,
+      "zone": "GZ17",
+      "match_method": "geo_corrected_from_circuit_propagation_iter1"
+    },
+    "MELG": {
+      "code": "MELG",
+      "name": "MELGARVE SUBSTATION",
+      "to": "SHET",
+      "voltage_kv": 132,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ3",
+      "match_method": "circuit_propagation_iter1"
+    },
+    "HUNF": {
+      "code": "HUNF",
+      "name": "HUNTERSTON FARM",
+      "to": "SPT",
+      "voltage_kv": 132,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ10",
+      "match_method": "circuit_propagation_iter1"
+    },
+    "GLAG": {
+      "code": "GLAG",
+      "name": "GLENAGNES",
+      "to": "SHET",
+      "voltage_kv": 132,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ5",
+      "match_method": "circuit_propagation_iter1"
+    },
+    "LOAN": {
+      "code": "LOAN",
+      "name": "LONGANNET",
+      "to": "SPT",
+      "voltage_kv": 400,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ9",
+      "match_method": "circuit_propagation_iter1"
+    },
+    "RHIG": {
+      "code": "RHIG",
+      "name": "RHIGOS",
+      "to": "NGET",
+      "voltage_kv": 400,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ18",
+      "match_method": "circuit_propagation_iter1"
+    },
+    "KNOC": {
+      "code": "KNOC",
+      "name": "KNOCKNAGAEL",
+      "to": "SHET",
+      "voltage_kv": 132,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ1",
+      "match_method": "circuit_propagation_iter1"
+    },
+    "BUSB": {
+      "code": "BUSB",
+      "name": "BUSBY",
+      "to": "SPT",
+      "voltage_kv": 275,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ10",
+      "match_method": "circuit_propagation_iter1"
+    },
+    "FERO": {
+      "code": "FERO",
+      "name": "FERNOCH WIND",
+      "to": "SHET",
+      "voltage_kv": 132,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ3",
+      "match_method": "circuit_propagation_iter1"
+    },
+    "THTO": {
+      "code": "THTO",
+      "name": "THORNTON",
+      "to": "NGET",
+      "voltage_kv": 400,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ15",
+      "match_method": "circuit_propagation_iter1"
+    },
+    "TOMT": {
+      "code": "TOMT",
+      "name": "TOMATIN",
+      "to": "SHET",
+      "voltage_kv": 132,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ1",
+      "match_method": "circuit_propagation_iter1"
+    },
+    "INVR": {
+      "code": "INVR",
+      "name": "INVERARNAN",
+      "to": "SHET",
+      "voltage_kv": 132,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ8",
+      "match_method": "circuit_propagation_iter1"
+    },
+    "SING": {
+      "code": "SING",
+      "name": "SINGLEWELL",
+      "to": "NGET",
+      "voltage_kv": 400,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ24",
+      "match_method": "circuit_propagation_iter1"
+    },
+    "COAL": {
+      "code": "COAL",
+      "name": "COALBURN",
+      "to": "SPT",
+      "voltage_kv": 400,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ11",
+      "match_method": "circuit_propagation_iter1"
+    },
+    "WHSO": {
+      "code": "WHSO",
+      "name": "WHITSON",
+      "to": "NGET",
+      "voltage_kv": 400,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ22",
+      "match_method": "circuit_propagation_iter1"
+    },
+    "COSO": {
+      "code": "COSO",
+      "name": "CORYTON SOUTH",
+      "to": "NGET",
+      "voltage_kv": 400,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ24",
+      "match_method": "circuit_propagation_iter1"
+    },
+    "HIGM": {
+      "code": "HIGM",
+      "name": "HIGH MARNHAM",
+      "to": "NGET",
+      "voltage_kv": 400,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ16",
+      "match_method": "circuit_propagation_iter1"
+    },
+    "WISD": {
+      "code": "WISD",
+      "name": "WILLESDEN",
+      "to": "NGET",
+      "voltage_kv": 400,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ25",
+      "match_method": "circuit_propagation_iter1"
+    },
+    "DUNG": {
+      "code": "DUNG",
+      "name": "DUNGENESS",
+      "to": "NGET",
+      "voltage_kv": 400,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ24",
+      "match_method": "circuit_propagation_iter1"
+    },
+    "LAMB": {
+      "code": "LAMB",
+      "name": "LAMBHILL",
+      "to": "SPT",
+      "voltage_kv": 400,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ9",
+      "match_method": "circuit_propagation_iter1"
+    },
+    "WLEE": {
+      "code": "WLEE",
+      "name": "WHITELEE",
+      "to": "SPT",
+      "voltage_kv": 275,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ10",
+      "match_method": "circuit_propagation_iter1"
+    },
+    "INWI": {
+      "code": "INWI",
+      "name": "INNERWICK",
+      "to": "SPT",
+      "voltage_kv": 132,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ11",
+      "match_method": "circuit_propagation_iter1"
+    },
+    "LOFI": {
+      "code": "LOFI",
+      "name": "LONGFIELD",
+      "to": "NGET",
+      "voltage_kv": 400,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ24",
+      "match_method": "circuit_propagation_iter1"
+    },
+    "TREM": {
+      "code": "TREM",
+      "name": "TREMORFA",
+      "to": "NGET",
+      "voltage_kv": 275,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ21",
+      "match_method": "circuit_propagation_iter1"
+    },
+    "LAGA": {
+      "code": "LAGA",
+      "name": "LANGAGE",
+      "to": "NGET",
+      "voltage_kv": 400,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ27",
+      "match_method": "circuit_propagation_iter1"
+    },
+    "FYRI": {
+      "code": "FYRI",
+      "name": "FYRISH",
+      "to": "SHET",
+      "voltage_kv": 132,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ1",
+      "match_method": "circuit_propagation_iter1"
+    },
+    "LUMB": {
+      "code": "LUMB",
+      "name": "LUMBS",
+      "to": "SHET",
+      "voltage_kv": 132,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ2",
+      "match_method": "circuit_propagation_iter1"
+    },
+    "KIOR": {
+      "code": "KIOR",
+      "name": "KILMORACK",
+      "to": "SHET",
+      "voltage_kv": 132,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ1",
+      "match_method": "circuit_propagation_iter1"
+    },
+    "GORW": {
+      "code": "GORW",
+      "name": "GORDONBUSH WINDFARM",
+      "to": "SHET",
+      "voltage_kv": 275,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ1",
+      "match_method": "circuit_propagation_iter1"
+    },
+    "KEIT": {
+      "code": "KEIT",
+      "name": "KEITH",
+      "to": "SHET",
+      "voltage_kv": 132,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ1",
+      "match_method": "circuit_propagation_iter1"
+    },
+    "WILE": {
+      "code": "WILE",
+      "name": "WILLINGTON EAST",
+      "to": "NGET",
+      "voltage_kv": 400,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ18",
+      "match_method": "circuit_propagation_iter1"
+    },
+    "COTT": {
+      "code": "COTT",
+      "name": "COTTAM",
+      "to": "NGET",
+      "voltage_kv": 400,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ16",
+      "match_method": "circuit_propagation_iter1"
+    },
+    "BLHI": {
+      "code": "BLHI",
+      "name": "BLACKHILLOCK",
+      "to": "SHET",
+      "voltage_kv": 132,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ1",
+      "match_method": "circuit_propagation_iter1"
+    },
+    "MOSH": {
+      "code": "MOSH",
+      "name": "MOSSMORRAN SHELL",
+      "to": "SPT",
+      "voltage_kv": 132,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ9",
+      "match_method": "circuit_propagation_iter2"
+    },
+    "MOWO": {
+      "code": "MOWO",
+      "name": "MORAY WEST ONSHORE",
+      "to": "SHET",
+      "voltage_kv": 400,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ1",
+      "match_method": "circuit_propagation_iter2"
+    },
+    "MILW": {
+      "code": "MILW",
+      "name": "MILLENIUM WIND",
+      "to": "SHET",
+      "voltage_kv": 132,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ3",
+      "match_method": "circuit_propagation_iter2"
+    },
+    "HUCS": {
+      "code": "HUCS",
+      "name": "HUNTERSTON CONVERTER STATION",
+      "to": "SPT",
+      "voltage_kv": 400,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ10",
+      "match_method": "circuit_propagation_iter2"
+    },
+    "CLYS": {
+      "code": "CLYS",
+      "name": "CLYDE SOUTH",
+      "to": "SPT",
+      "voltage_kv": 275,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ11",
+      "match_method": "circuit_propagation_iter2"
+    },
+    "GRIF": {
+      "code": "GRIF",
+      "name": "GRIFFIN WINDFARM (SSE)",
+      "to": "SHET",
+      "voltage_kv": 132,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ5",
+      "match_method": "circuit_propagation_iter2"
+    },
+    "TINP": {
+      "code": "TINP",
+      "name": "TINSLEY PARK",
+      "to": "NGET",
+      "voltage_kv": 275,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ16",
+      "match_method": "circuit_propagation_iter2"
+    },
+    "EAST": {
+      "code": "EAST",
+      "name": "EARLSTOUN",
+      "to": "SPT",
+      "voltage_kv": 132,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ10",
+      "match_method": "circuit_propagation_iter2"
+    },
+    "HUMR": {
+      "code": "HUMR",
+      "name": "HUMBER REFINERY",
+      "to": "NGET",
+      "voltage_kv": 400,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ15",
+      "match_method": "circuit_propagation_iter2"
+    },
+    "STAH": {
+      "code": "STAH",
+      "name": "STANAH",
+      "to": "NGET",
+      "voltage_kv": 400,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ14",
+      "match_method": "circuit_propagation_iter2"
+    },
+    "SOKY": {
+      "code": "SOKY",
+      "name": "SOUTH KYLE",
+      "to": "SPT",
+      "voltage_kv": 132,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ10",
+      "match_method": "circuit_propagation_iter2"
+    },
+    "AUCH": {
+      "code": "AUCH",
+      "name": "AUCHENCROSH",
+      "to": "SPT",
+      "voltage_kv": 275,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ10",
+      "match_method": "circuit_propagation_iter2"
+    },
+    "KINB": {
+      "code": "KINB",
+      "name": "KINCARDINE BOUNDARY",
+      "to": "SHET",
+      "voltage_kv": 275,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ11",
+      "match_method": "circuit_propagation_iter2"
+    },
+    "KINA": {
+      "code": "KINA",
+      "name": "KINARDOCHY",
+      "to": "SHET",
+      "voltage_kv": 275,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ3",
+      "match_method": "circuit_propagation_iter2"
+    },
+    "BEAT": {
+      "code": "BEAT",
+      "name": "BEATRICE ONSHORE",
+      "to": "SHET",
+      "voltage_kv": 400,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ1",
+      "match_method": "circuit_propagation_iter2"
+    },
+    "BLCW": {
+      "code": "BLCW",
+      "name": "BLACKCRAIG",
+      "to": "SPT",
+      "voltage_kv": 132,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ10",
+      "match_method": "circuit_propagation_iter2"
+    },
+    "AREC": {
+      "code": "AREC",
+      "name": "ARECLEOCH",
+      "to": "SPT",
+      "voltage_kv": 132,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ10",
+      "match_method": "circuit_propagation_iter2"
+    },
+    "CREA": {
+      "code": "CREA",
+      "name": "CREAG RIABHACH WINDFARM",
+      "to": "SHET",
+      "voltage_kv": 132,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ1",
+      "match_method": "circuit_propagation_iter2"
+    },
+    "KILG": {
+      "code": "KILG",
+      "name": "KILGALLIOCH",
+      "to": "SPT",
+      "voltage_kv": 275,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ10",
+      "match_method": "circuit_propagation_iter2"
+    },
+    "TRLO": {
+      "code": "TRLO",
+      "name": "TRALORG",
+      "to": "SPT",
+      "voltage_kv": 33,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ10",
+      "match_method": "circuit_propagation_iter2"
+    },
+    "CORI": {
+      "code": "CORI",
+      "name": "CORRIEMOILLIE",
+      "to": "SHET",
+      "voltage_kv": 132,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ1",
+      "match_method": "circuit_propagation_iter2"
+    },
+    "STRB": {
+      "code": "STRB",
+      "name": "STRATH BRORA WIND",
+      "to": "SHET",
+      "voltage_kv": 275,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ1",
+      "match_method": "circuit_propagation_iter2"
+    },
+    "FAAR": {
+      "code": "FAAR",
+      "name": "FARR WINDFARM",
+      "to": "SHET",
+      "voltage_kv": 132,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ1",
+      "match_method": "circuit_propagation_iter2"
+    },
+    "PRST": {
+      "code": "PRST",
+      "name": "PRIESTGILL",
+      "to": "SPT",
+      "voltage_kv": 33,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ11",
+      "match_method": "circuit_propagation_iter2"
+    },
+    "SAES": {
+      "code": "SAES",
+      "name": "SALTEND SOUTH",
+      "to": "NGET",
+      "voltage_kv": 275,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ15",
+      "match_method": "circuit_propagation_iter2"
+    },
+    "JUNB": {
+      "code": "JUNB",
+      "name": "JUNCTION B",
+      "to": "SPT",
+      "voltage_kv": 132,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ11",
+      "match_method": "circuit_propagation_iter2"
+    },
+    "STRL": {
+      "code": "STRL",
+      "name": "STRONELAIRG WIND FARM (SSE)",
+      "to": "SHET",
+      "voltage_kv": 132,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ3",
+      "match_method": "circuit_propagation_iter2"
+    },
+    "ROTI": {
+      "code": "ROTI",
+      "name": "ROTHIENORMAN",
+      "to": "SHET",
+      "voltage_kv": 33,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ1",
+      "match_method": "circuit_propagation_iter2"
+    },
+    "MOFF": {
+      "code": "MOFF",
+      "name": "MOFFAT",
+      "to": "SPT",
+      "voltage_kv": 400,
+      "lat": 55.33,
+      "lon": -3.44,
+      "zone": "GZ11",
+      "match_method": "geo_corrected_from_circuit_propagation_iter2"
+    },
+    "CAIN": {
+      "code": "CAIN",
+      "name": "CAIRNFORD",
+      "to": "SHET",
+      "voltage_kv": 275,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ1",
+      "match_method": "circuit_propagation_iter2"
+    },
+    "FRIN": {
+      "code": "FRIN",
+      "name": "FRISTON NORTH",
+      "to": "NGET",
+      "voltage_kv": 400,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ18",
+      "match_method": "circuit_propagation_iter2"
+    },
+    "GARE": {
+      "code": "GARE",
+      "name": "GARELOCH",
+      "to": "SPT",
+      "voltage_kv": 132,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ8",
+      "match_method": "circuit_propagation_iter2"
+    },
+    "AYR-": {
+      "code": "AYR-",
+      "name": "AYR",
+      "to": "SPT",
+      "voltage_kv": 275,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ10",
+      "match_method": "circuit_propagation_iter2"
+    },
+    "STRW": {
+      "code": "STRW",
+      "name": "STRATHY WIND",
+      "to": "SHET",
+      "voltage_kv": 132,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ1",
+      "match_method": "circuit_propagation_iter2"
+    },
+    "YAXL": {
+      "code": "YAXL",
+      "name": "YAXLEY",
+      "to": "NGET",
+      "voltage_kv": 400,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ18",
+      "match_method": "circuit_propagation_iter2"
+    },
+    "NEDE": {
+      "code": "NEDE",
+      "name": "NEW DEER",
+      "to": "SHET",
+      "voltage_kv": 400,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ1",
+      "match_method": "circuit_propagation_iter2"
+    },
+    "WHTL": {
+      "code": "WHTL",
+      "name": "WHISTLEFIELD",
+      "to": "SPT",
+      "voltage_kv": 132,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ8",
+      "match_method": "circuit_propagation_iter2"
+    },
+    "KEIH": {
+      "code": "KEIH",
+      "name": "KEITHSHILL",
+      "to": "SPT",
+      "voltage_kv": 33,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ11",
+      "match_method": "circuit_propagation_iter2"
+    },
+    "AIGA": {
+      "code": "AIGA",
+      "name": "AIGAS HYDRO",
+      "to": "SHET",
+      "voltage_kv": 132,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ1",
+      "match_method": "circuit_propagation_iter2"
+    },
+    "SGRX": {
+      "code": "SGRX",
+      "name": "SEAGREEN ONE 275KV ONSHORE",
+      "to": "SHET",
+      "voltage_kv": 275,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ5",
+      "match_method": "circuit_propagation_iter2"
+    },
+    "HUNN": {
+      "code": "HUNN",
+      "name": "HUNTERSTON NORTH",
+      "to": "SHET",
+      "voltage_kv": 275,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ10",
+      "match_method": "circuit_propagation_iter2"
+    },
+    "CRYR": {
+      "code": "CRYR",
+      "name": "CRYSTAL RIG",
+      "to": "SPT",
+      "voltage_kv": 400,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ11",
+      "match_method": "circuit_propagation_iter2"
+    },
+    "STRI": {
+      "code": "STRI",
+      "name": "STRICHEN",
+      "to": "SHET",
+      "voltage_kv": 132,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ2",
+      "match_method": "circuit_propagation_iter2"
+    },
+    "INGA": {
+      "code": "INGA",
+      "name": "INVERGARRY",
+      "to": "SHET",
+      "voltage_kv": 132,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ3",
+      "match_method": "circuit_propagation_iter2"
+    },
+    "BONB": {
+      "code": "BONB",
+      "name": "BONNYBRIDGE BORDER NODE",
+      "to": "SHET",
+      "voltage_kv": 275,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ9",
+      "match_method": "circuit_propagation_iter2"
+    },
+    "EWEH": {
+      "code": "EWEH",
+      "name": "EWE HILL",
+      "to": "SPT",
+      "voltage_kv": 132,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ11",
+      "match_method": "circuit_propagation_iter2"
+    },
+    "ORRI": {
+      "code": "ORRI",
+      "name": "ORRIN",
+      "to": "SHET",
+      "voltage_kv": 132,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ1",
+      "match_method": "circuit_propagation_iter2"
+    },
+    "WHIB": {
+      "code": "WHIB",
+      "name": "WHITE BRIDGE",
+      "to": "SHET",
+      "voltage_kv": 132,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ5",
+      "match_method": "circuit_propagation_iter2"
+    },
+    "INVB": {
+      "code": "INVB",
+      "name": "INVERANAN BOUNDARY",
+      "to": "SHET",
+      "voltage_kv": 275,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ8",
+      "match_method": "circuit_propagation_iter2"
+    },
+    "GLEN": {
+      "code": "GLEN",
+      "name": "GLENMORISTON",
+      "to": "SHET",
+      "voltage_kv": 132,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ3",
+      "match_method": "circuit_propagation_iter2"
+    },
+    "CCSS": {
+      "code": "CCSS",
+      "name": "CUMBERHEAD COLLECTOR",
+      "to": "SPT",
+      "voltage_kv": 132,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ11",
+      "match_method": "circuit_propagation_iter2"
+    },
+    "DUNH": {
+      "code": "DUNH",
+      "name": "DUNHILL",
+      "to": "SPT",
+      "voltage_kv": 132,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ10",
+      "match_method": "circuit_propagation_iter2"
+    },
+    "BODE": {
+      "code": "BODE",
+      "name": "BODELWYDDAN",
+      "to": "NGET",
+      "voltage_kv": 400,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ19",
+      "match_method": "circuit_propagation_iter2"
+    },
+    "DORE": {
+      "code": "DORE",
+      "name": "DORENELL WIND FARM",
+      "to": "SHET",
+      "voltage_kv": 132,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ1",
+      "match_method": "circuit_propagation_iter2"
+    },
+    "NOKY": {
+      "code": "NOKY",
+      "name": "NORTH KYLE",
+      "to": "SPT",
+      "voltage_kv": 132,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ10",
+      "match_method": "circuit_propagation_iter2"
+    },
+    "LEIS": {
+      "code": "LEIS",
+      "name": "LEISTON",
+      "to": "NGET",
+      "voltage_kv": 400,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ18",
+      "match_method": "circuit_propagation_iter2"
+    },
+    "GLKO": {
+      "code": "GLKO",
+      "name": "GLEN KYLLACHY",
+      "to": "SHET",
+      "voltage_kv": 132,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ1",
+      "match_method": "circuit_propagation_iter2"
+    },
+    "MEDB": {
+      "code": "MEDB",
+      "name": "MEDBURN TEE B",
+      "to": "NGET",
+      "voltage_kv": 400,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ13",
+      "match_method": "circuit_propagation_iter2"
+    },
+    "SFER": {
+      "code": "SFER",
+      "name": "ST FERGUS",
+      "to": "SHET",
+      "voltage_kv": 132,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ2",
+      "match_method": "circuit_propagation_iter2"
+    },
+    "ENHI": {
+      "code": "ENHI",
+      "name": "ENOCH HILL WIND FARM",
+      "to": "SPT",
+      "voltage_kv": 132,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ10",
+      "match_method": "circuit_propagation_iter2"
+    },
+    "KILO": {
+      "code": "KILO",
+      "name": "KINLOCHLEVEN",
+      "to": "SHET",
+      "voltage_kv": 132,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ3",
+      "match_method": "circuit_propagation_iter2"
+    },
+    "NANT": {
+      "code": "NANT",
+      "name": "NANT (LOCH NANT)",
+      "to": "SHET",
+      "voltage_kv": 132,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ3",
+      "match_method": "circuit_propagation_iter2"
+    },
+    "WILT": {
+      "code": "WILT",
+      "name": "WILTON",
+      "to": "NGET",
+      "voltage_kv": 275,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ15",
+      "match_method": "circuit_propagation_iter2"
+    },
+    "HADH": {
+      "code": "HADH",
+      "name": "HADYARD HILL",
+      "to": "SPT",
+      "voltage_kv": 132,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ10",
+      "match_method": "circuit_propagation_iter2"
+    },
+    "DEAN": {
+      "code": "DEAN",
+      "name": "DEANIE",
+      "to": "SHET",
+      "voltage_kv": 132,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ1",
+      "match_method": "circuit_propagation_iter2"
+    },
+    "DESA": {
+      "code": "DESA",
+      "name": "DERSALLOCH",
+      "to": "SPT",
+      "voltage_kv": 132,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ10",
+      "match_method": "circuit_propagation_iter2"
+    },
+    "BLKL": {
+      "code": "BLKL",
+      "name": "BLACKLAW",
+      "to": "SPT",
+      "voltage_kv": 132,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ11",
+      "match_method": "circuit_propagation_iter2"
+    },
+    "NETH": {
+      "code": "NETH",
+      "name": "NETHERTON ENERGY",
+      "to": "SPT",
+      "voltage_kv": 33,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ11",
+      "match_method": "circuit_propagation_iter2"
+    },
+    "FALL": {
+      "code": "FALL",
+      "name": "FALLAGO",
+      "to": "SPT",
+      "voltage_kv": 400,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ11",
+      "match_method": "circuit_propagation_iter2"
+    },
+    "SIZE": {
+      "code": "SIZE",
+      "name": "SIZEWELL",
+      "to": "NGET",
+      "voltage_kv": 400,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ18",
+      "match_method": "circuit_propagation_iter2"
+    },
+    "BROC": {
+      "code": "BROC",
+      "name": "BROKEN CROSS",
+      "to": "SPT",
+      "voltage_kv": 132,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ11",
+      "match_method": "circuit_propagation_iter2"
+    },
+    "DALL": {
+      "code": "DALL",
+      "name": "DALMALLY",
+      "to": "SPT",
+      "voltage_kv": 275,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ8",
+      "match_method": "circuit_propagation_iter2"
+    },
+    "KYPE": {
+      "code": "KYPE",
+      "name": "KYPE MUIR",
+      "to": "SPT",
+      "voltage_kv": 132,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ11",
+      "match_method": "circuit_propagation_iter2"
+    },
+    "CLYN": {
+      "code": "CLYN",
+      "name": "CLYDE NORTH",
+      "to": "SPT",
+      "voltage_kv": 275,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ11",
+      "match_method": "circuit_propagation_iter2"
+    },
+    "TODD": {
+      "code": "TODD",
+      "name": "TODDLEBURN",
+      "to": "SPT",
+      "voltage_kv": 33,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ11",
+      "match_method": "circuit_propagation_iter2"
+    },
+    "MEDW": {
+      "code": "MEDW",
+      "name": "MEDWAY",
+      "to": "NGET",
+      "voltage_kv": 400,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ24",
+      "match_method": "circuit_propagation_iter2"
+    },
+    "MIDM": {
+      "code": "MIDM",
+      "name": "MIDDLE MUIR",
+      "to": "SPT",
+      "voltage_kv": 132,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ11",
+      "match_method": "circuit_propagation_iter2"
+    },
+    "FARI": {
+      "code": "FARI",
+      "name": "FARIGAIG",
+      "to": "SHET",
+      "voltage_kv": 132,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ1",
+      "match_method": "circuit_propagation_iter2"
+    },
+    "DONO": {
+      "code": "DONO",
+      "name": "DOUGLAS NORTH COLLECTOR",
+      "to": "SPT",
+      "voltage_kv": 132,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ11",
+      "match_method": "circuit_propagation_iter2"
+    },
+    "DAAS": {
+      "code": "DAAS",
+      "name": "DALLAS SUBSTATION",
+      "to": "SHET",
+      "voltage_kv": 275,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ1",
+      "match_method": "circuit_propagation_iter2"
+    },
+    "POGB": {
+      "code": "POGB",
+      "name": "POGBIE",
+      "to": "SPT",
+      "voltage_kv": 33,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ11",
+      "match_method": "circuit_propagation_iter2"
+    },
+    "KENN": {
+      "code": "KENN",
+      "name": "KENNOXHEAD",
+      "to": "SPT",
+      "voltage_kv": 132,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ11",
+      "match_method": "circuit_propagation_iter2"
+    },
+    "GAWH": {
+      "code": "GAWH",
+      "name": "GALAWHISTLE",
+      "to": "SPT",
+      "voltage_kv": 132,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ11",
+      "match_method": "circuit_propagation_iter3"
+    },
+    "CRDY": {
+      "code": "CRDY",
+      "name": "CROSSDYKES",
+      "to": "SPT",
+      "voltage_kv": 33,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ11",
+      "match_method": "circuit_propagation_iter3"
+    },
+    "BRCW": {
+      "code": "BRCW",
+      "name": "BRACO WEST",
+      "to": "SHET",
+      "voltage_kv": 132,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ9",
+      "match_method": "circuit_propagation_iter3"
+    },
+    "MINN": {
+      "code": "MINN",
+      "name": "MINNYGAP",
+      "to": "SPT",
+      "voltage_kv": 33,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ14",
+      "match_method": "circuit_propagation_iter3"
+    },
+    "WESE": {
+      "code": "WESE",
+      "name": "WESTERDOD",
+      "to": "SPT",
+      "voltage_kv": 132,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ11",
+      "match_method": "circuit_propagation_iter3"
+    },
+    "HAGH": {
+      "code": "HAGH",
+      "name": "HAGSHAW HILL PHASE 2",
+      "to": "SPT",
+      "voltage_kv": 33,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ11",
+      "match_method": "circuit_propagation_iter3"
+    },
+    "SFEM": {
+      "code": "SFEM",
+      "name": "ST FERGUS MOBIL",
+      "to": "SHET",
+      "voltage_kv": 132,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ2",
+      "match_method": "circuit_propagation_iter3"
+    },
+    "FOYE": {
+      "code": "FOYE",
+      "name": "FOYERS",
+      "to": "SHET",
+      "voltage_kv": null,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ1",
+      "match_method": "circuit_propagation_iter3"
+    },
+    "BLAH": {
+      "code": "BLAH",
+      "name": "BLACKHILL",
+      "to": "SPT",
+      "voltage_kv": 132,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ10",
+      "match_method": "circuit_propagation_iter3"
+    },
+    "HARR": {
+      "code": "HARR",
+      "name": "HARTING RIG WIND FARM",
+      "to": "SPT",
+      "voltage_kv": 33,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ11",
+      "match_method": "circuit_propagation_iter3"
+    },
+    "COGA": {
+      "code": "COGA",
+      "name": "CORRIEGARTH WIND FARM",
+      "to": "SHET",
+      "voltage_kv": 132,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ1",
+      "match_method": "circuit_propagation_iter3"
+    },
+    "DUNM": {
+      "code": "DUNM",
+      "name": "DUNMAGLASS",
+      "to": "SHET",
+      "voltage_kv": 132,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ1",
+      "match_method": "circuit_propagation_iter3"
+    },
+    "LUIC": {
+      "code": "LUIC",
+      "name": "LUICHART",
+      "to": "SHET",
+      "voltage_kv": 132,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ1",
+      "match_method": "circuit_propagation_iter3"
+    },
+    "HARE": {
+      "code": "HARE",
+      "name": "HARESTANES",
+      "to": "SPT",
+      "voltage_kv": 132,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ14",
+      "match_method": "circuit_propagation_iter3"
+    },
+    "CRUA": {
+      "code": "CRUA",
+      "name": "CRUACHAN",
+      "to": "SPT",
+      "voltage_kv": 275,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ8",
+      "match_method": "circuit_propagation_iter3"
+    },
+    "CUMH": {
+      "code": "CUMH",
+      "name": "CUMBERHEAD WF SUBSTATION",
+      "to": "SPT",
+      "voltage_kv": 33,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ11",
+      "match_method": "circuit_propagation_iter3"
+    },
+    "BLKS": {
+      "code": "BLKS",
+      "name": "BLACKCRAIG SOUTH",
+      "to": "SPT",
+      "voltage_kv": 33,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ10",
+      "match_method": "circuit_propagation_iter3"
+    },
+    "MORF": {
+      "code": "MORF",
+      "name": "MORAY EAST ONSHORE",
+      "to": "SHET",
+      "voltage_kv": 400,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ1",
+      "match_method": "circuit_propagation_iter3"
+    },
+    "BHLA": {
+      "code": "BHLA",
+      "name": "BHLARAIDH WIND FARM",
+      "to": "SHET",
+      "voltage_kv": 132,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ3",
+      "match_method": "circuit_propagation_iter3"
+    },
+    "GLAP": {
+      "code": "GLAP",
+      "name": "GLEN APP",
+      "to": "SPT",
+      "voltage_kv": 33,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ10",
+      "match_method": "circuit_propagation_iter3"
+    },
+    "HAHA": {
+      "code": "HAHA",
+      "name": "HAGSHAW HILL PHASE 1",
+      "to": "SPT",
+      "voltage_kv": 33,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ11",
+      "match_method": "circuit_propagation_iter4"
+    },
+    "GLGL": {
+      "code": "GLGL",
+      "name": "GLENGLASS",
+      "to": "SPT",
+      "voltage_kv": 132,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ10",
+      "match_method": "circuit_propagation_iter4"
+    },
+    "SAKN": {
+      "code": "SAKN",
+      "name": "SANDY KNOWE",
+      "to": "SPT",
+      "voltage_kv": 132,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ10",
+      "match_method": "circuit_propagation_iter5"
+    },
+    "SNQR": {
+      "code": "SNQR",
+      "name": "SANQUHAR",
+      "to": "SPT",
+      "voltage_kv": 33,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ10",
+      "match_method": "circuit_propagation_iter5"
+    },
+    "WHLL": {
+      "code": "WHLL",
+      "name": "WHITESIDE HILL",
+      "to": "SPT",
+      "voltage_kv": 33,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ10",
+      "match_method": "circuit_propagation_iter5"
+    },
+    "ABED": {
+      "code": "ABED",
+      "name": "ABERARDER ONSHORE WIND FARM",
+      "to": "SHET",
+      "voltage_kv": 132,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ1",
+      "match_method": "to_fallback_SHET"
+    },
+    "ACHE": {
+      "code": "ACHE",
+      "name": "ACHANY EXTENSION",
+      "to": "SHET",
+      "voltage_kv": 132,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ10",
+      "match_method": "fuzzy_name_EXTENSION"
+    },
+    "AIGN": {
+      "code": "AIGN",
+      "name": "AIGAS NORTH",
+      "to": "SHET",
+      "voltage_kv": 132,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ24",
+      "match_method": "fuzzy_name_NORTH"
+    },
+    "AIKE": {
+      "code": "AIKE",
+      "name": "AIKENGALL",
+      "to": "SPT",
+      "voltage_kv": 33,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ5",
+      "match_method": "to_fallback_SPT"
+    },
+    "ANSN": {
+      "code": "ANSN",
+      "name": "AN SUIDHE NORTH",
+      "to": "SHET",
+      "voltage_kv": 275,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ7",
+      "match_method": "fuzzy_name_SUIDHE"
+    },
+    "ARCR": {
+      "code": "ARCR",
+      "name": "ARECLEOCH REPOWERING",
+      "to": "SPT",
+      "voltage_kv": 275,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ5",
+      "match_method": "to_fallback_SPT"
+    },
+    "AREX": {
+      "code": "AREX",
+      "name": "ARECLEOCH EXTENSION",
+      "to": "SPT",
+      "voltage_kv": 132,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ10",
+      "match_method": "fuzzy_name_EXTENSION"
+    },
+    "ARFO": {
+      "code": "ARFO",
+      "name": "ARTFIELD FOREST WF",
+      "to": "SPT",
+      "voltage_kv": 132,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ5",
+      "match_method": "to_fallback_SPT"
+    },
+    "ARMA": {
+      "code": "ARMA",
+      "name": "ARMADALE",
+      "to": "SHET",
+      "voltage_kv": 132,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ1",
+      "match_method": "to_fallback_SHET"
+    },
+    "ARRS": {
+      "code": "ARRS",
+      "name": "ARRESGILL",
+      "to": "SPT",
+      "voltage_kv": 132,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ5",
+      "match_method": "to_fallback_SPT"
+    },
+    "ASBS": {
+      "code": "ASBS",
+      "name": "ALYTH SOLAR AND BATTERY STORAGE",
+      "to": "SHET",
+      "voltage_kv": 132,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ1",
+      "match_method": "to_fallback_SHET"
+    },
+    "AUBU": {
+      "code": "AUBU",
+      "name": "AUCHENMADY BURN",
+      "to": "SPT",
+      "voltage_kv": 132,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ1",
+      "match_method": "fuzzy_name_BURN"
+    },
+    "AYRE": {
+      "code": "AYRE",
+      "name": "AYRE OFFSHORE WIND FARM",
+      "to": "SHET",
+      "voltage_kv": 400,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ1",
+      "match_method": "to_fallback_SHET"
+    },
+    "AYRS": {
+      "code": "AYRS",
+      "name": "AYRSHIRE GRID COLLECTOR",
+      "to": "SPT",
+      "voltage_kv": 400,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ4",
+      "match_method": "fuzzy_name_GRID"
+    },
+    "BACT": {
+      "code": "BACT",
+      "name": "BACTON",
+      "to": "NGET",
+      "voltage_kv": 400,
+      "lat": 52.855,
+      "lon": 1.365,
+      "zone": "GZ18",
+      "match_method": "geo_corrected_from_to_fallback_NGET"
+    },
+    "BAGP": {
+      "code": "BAGP",
+      "name": "BAILLIE GREENER GRID PARK",
+      "to": "SHET",
+      "voltage_kv": 275,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ4",
+      "match_method": "fuzzy_name_GRID"
+    },
+    "BALA": {
+      "code": "BALA",
+      "name": "BALALLAN",
+      "to": "SHET",
+      "voltage_kv": 132,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ1",
+      "match_method": "to_fallback_SHET"
+    },
+    "BANN": {
+      "code": "BANN",
+      "name": "BANNISKIRK",
+      "to": "SHET",
+      "voltage_kv": 400,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ1",
+      "match_method": "to_fallback_SHET"
+    },
+    "BARP": {
+      "code": "BARP",
+      "name": "BARKING POWER",
+      "to": "NGET",
+      "voltage_kv": 275,
+      "lat": 51.513,
+      "lon": 0.076,
+      "zone": "GZ23",
+      "match_method": "geo_corrected_from_to_fallback_NGET"
+    },
+    "BARW": {
+      "code": "BARW",
+      "name": "BARKING WEST",
+      "to": "NGET",
+      "voltage_kv": 33,
+      "lat": 51.534,
+      "lon": 0.075,
+      "zone": "GZ23",
+      "match_method": "geo_corrected_from_to_fallback_NGET"
+    },
+    "BEDT": {
+      "code": "BEDT",
+      "name": "BEDDINGTON TEE",
+      "to": "NGET",
+      "voltage_kv": 132,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ25",
+      "match_method": "fuzzy_name_BEDDINGTON"
+    },
+    "BENB": {
+      "code": "BENB",
+      "name": "BENBRACK WIND FARM",
+      "to": "SPT",
+      "voltage_kv": 132,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ5",
+      "match_method": "to_fallback_SPT"
+    },
+    "BENR": {
+      "code": "BENR",
+      "name": "BENGEWORTH ROAD",
+      "to": "NGET",
+      "voltage_kv": 400,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ23",
+      "match_method": "fuzzy_name_ROAD"
+    },
+    "BEWF": {
+      "code": "BEWF",
+      "name": "BEAW FIELD",
+      "to": "SHET",
+      "voltage_kv": 132,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ1",
+      "match_method": "to_fallback_SHET"
+    },
+    "BING": {
+      "code": "BING",
+      "name": "BINGALLY",
+      "to": "SHET",
+      "voltage_kv": 400,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ1",
+      "match_method": "to_fallback_SHET"
+    },
+    "BLBS": {
+      "code": "BLBS",
+      "name": "BLACKHILLOCK BATTERY STORAGE",
+      "to": "SHET",
+      "voltage_kv": 33,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ1",
+      "match_method": "to_fallback_SHET"
+    },
+    "BLEX": {
+      "code": "BLEX",
+      "name": "BHLARAIDH EXTENSION",
+      "to": "SHET",
+      "voltage_kv": 132,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ10",
+      "match_method": "fuzzy_name_EXTENSION"
+    },
+    "BLGH": {
+      "code": "BLGH",
+      "name": "BLARGHOUR",
+      "to": "SHET",
+      "voltage_kv": 132,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ1",
+      "match_method": "to_fallback_SHET"
+    },
+    "BOWD": {
+      "code": "BOWD",
+      "name": "BOWDUN OFFSHORE",
+      "to": "SHET",
+      "voltage_kv": 400,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ1",
+      "match_method": "to_fallback_SHET"
+    },
+    "BPGR": {
+      "code": "BPGR",
+      "name": "BP GRANGEMOUTH",
+      "to": "SPT",
+      "voltage_kv": 33,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ9",
+      "match_method": "fuzzy_name_GRANGEMOUTH"
+    },
+    "BREE": {
+      "code": "BREE",
+      "name": "BREEZY HILL",
+      "to": "SPT",
+      "voltage_kv": 132,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ25",
+      "match_method": "fuzzy_name_HILL"
+    },
+    "BRNX": {
+      "code": "BRNX",
+      "name": "BRANXTON",
+      "to": "SPT",
+      "voltage_kv": 400,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ5",
+      "match_method": "to_fallback_SPT"
+    },
+    "BUCH": {
+      "code": "BUCH",
+      "name": "Buchan",
+      "to": "SHET",
+      "voltage_kv": 400,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ1",
+      "match_method": "to_fallback_SHET"
+    },
+    "CAAI": {
+      "code": "CAAI",
+      "name": "CARNAIG",
+      "to": "SHET",
+      "voltage_kv": 400,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ1",
+      "match_method": "to_fallback_SHET"
+    },
+    "CADU": {
+      "code": "CADU",
+      "name": "CAIRN DUHIE",
+      "to": "SHET",
+      "voltage_kv": 275,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ1",
+      "match_method": "to_fallback_SHET"
+    },
+    "CAID": {
+      "code": "CAID",
+      "name": "CAIRN DUHIE WIND FARM",
+      "to": "SHET",
+      "voltage_kv": 275,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ1",
+      "match_method": "to_fallback_SHET"
+    },
+    "CALD": {
+      "code": "CALD",
+      "name": "CALEDONIA OFFSHORE",
+      "to": "SHET",
+      "voltage_kv": 400,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ1",
+      "match_method": "to_fallback_SHET"
+    },
+    "CAML": {
+      "code": "CAML",
+      "name": "CAMBLESFORTH",
+      "to": "NGET",
+      "voltage_kv": 66,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ16",
+      "match_method": "to_fallback_NGET"
+    },
+    "CARL": {
+      "code": "CARL",
+      "name": "CARLISLE",
+      "to": "NGET",
+      "voltage_kv": 400,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ16",
+      "match_method": "to_fallback_NGET"
+    },
+    "CHLS": {
+      "code": "CHLS",
+      "name": "CHLEANSAID",
+      "to": "SHET",
+      "voltage_kv": 132,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ1",
+      "match_method": "to_fallback_SHET"
+    },
+    "CHMO": {
+      "code": "CHMO",
+      "name": "CHIRMORIE",
+      "to": "SPT",
+      "voltage_kv": 132,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ5",
+      "match_method": "to_fallback_SPT"
+    },
+    "CLAU": {
+      "code": "CLAU",
+      "name": "CLAUCHRIE",
+      "to": "SPT",
+      "voltage_kv": 132,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ5",
+      "match_method": "to_fallback_SPT"
+    },
+    "CLAW": {
+      "code": "CLAW",
+      "name": "CLAWFIN",
+      "to": "SPT",
+      "voltage_kv": 132,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ5",
+      "match_method": "to_fallback_SPT"
+    },
+    "CLFO": {
+      "code": "CLFO",
+      "name": "CLOICH FOREST",
+      "to": "SPT",
+      "voltage_kv": 132,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ5",
+      "match_method": "to_fallback_SPT"
+    },
+    "CLGO": {
+      "code": "CLGO",
+      "name": "CLASH GOUR WIND FARM",
+      "to": "SHET",
+      "voltage_kv": 132,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ1",
+      "match_method": "to_fallback_SHET"
+    },
+    "CLOI": {
+      "code": "CLOI",
+      "name": "CLOICHE WIND FARM",
+      "to": "SHET",
+      "voltage_kv": 132,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ1",
+      "match_method": "to_fallback_SHET"
+    },
+    "CMBS": {
+      "code": "CMBS",
+      "name": "CAMBUSHINNIE",
+      "to": "SHET",
+      "voltage_kv": 400,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ1",
+      "match_method": "to_fallback_SHET"
+    },
+    "COAB": {
+      "code": "COAB",
+      "name": "COALBURN BATTERY STORAGE FACILITY",
+      "to": "SPT",
+      "voltage_kv": 400,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ11",
+      "match_method": "fuzzy_name_COALBURN"
+    },
+    "COAN": {
+      "code": "COAN",
+      "name": "COALBURN NORTH",
+      "to": "SPT",
+      "voltage_kv": 400,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ11",
+      "match_method": "fuzzy_name_COALBURN"
+    },
+    "COBA": {
+      "code": "COBA",
+      "name": "COALBURN BATTERY STORAGE TWO",
+      "to": "SPT",
+      "voltage_kv": 400,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ11",
+      "match_method": "fuzzy_name_COALBURN"
+    },
+    "COFD": {
+      "code": "COFD",
+      "name": "COACHFORD",
+      "to": "SHET",
+      "voltage_kv": 400,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ1",
+      "match_method": "to_fallback_SHET"
+    },
+    "COGL": {
+      "code": "COGL",
+      "name": "COIRE GLAS PUMPED STORAGE",
+      "to": "SHET",
+      "voltage_kv": 400,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ1",
+      "match_method": "to_fallback_SHET"
+    },
+    "CONL": {
+      "code": "CONL",
+      "name": "CONLAND",
+      "to": "SPT",
+      "voltage_kv": 400,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ5",
+      "match_method": "to_fallback_SPT"
+    },
+    "COST": {
+      "code": "COST",
+      "name": "COSTA HEAD",
+      "to": "SHET",
+      "voltage_kv": 132,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ1",
+      "match_method": "to_fallback_SHET"
+    },
+    "CRAS": {
+      "code": "CRAS",
+      "name": "CRARAE SOUTH",
+      "to": "SHET",
+      "voltage_kv": 275,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ7",
+      "match_method": "fuzzy_name_CRARAE"
+    },
+    "CRBB": {
+      "code": "CRBB",
+      "name": "CREYKE BECK B",
+      "to": "NGET",
+      "voltage_kv": 400,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ15",
+      "match_method": "fuzzy_name_CREYKE"
+    },
+    "CRCK": {
+      "code": "CRCK",
+      "name": "CARRICK",
+      "to": "SPT",
+      "voltage_kv": 275,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ5",
+      "match_method": "to_fallback_SPT"
+    },
+    "CRDH": {
+      "code": "CRDH",
+      "name": "CREAG DHUBH",
+      "to": "SHET",
+      "voltage_kv": 132,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ1",
+      "match_method": "to_fallback_SHET"
+    },
+    "CRMU": {
+      "code": "CRMU",
+      "name": "CRAIG MURRAIL",
+      "to": "SHET",
+      "voltage_kv": 275,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ1",
+      "match_method": "to_fallback_SHET"
+    },
+    "CRSN": {
+      "code": "CRSN",
+      "name": "CROSSAIG NORTH",
+      "to": "SHET",
+      "voltage_kv": 132,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ10",
+      "match_method": "fuzzy_name_CROSSAIG"
+    },
+    "CULR": {
+      "code": "CULR",
+      "name": "CULROSS",
+      "to": "SPT",
+      "voltage_kv": 275,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ5",
+      "match_method": "to_fallback_SPT"
+    },
+    "CUMW": {
+      "code": "CUMW",
+      "name": "CUMBERHEAD WEST",
+      "to": "SPT",
+      "voltage_kv": 132,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ15",
+      "match_method": "fuzzy_name_WEST"
+    },
+    "DAER": {
+      "code": "DAER",
+      "name": "DAER WINDFARM",
+      "to": "SPT",
+      "voltage_kv": 132,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ2",
+      "match_method": "fuzzy_name_WINDFARM"
+    },
+    "DALB": {
+      "code": "DALB",
+      "name": "DALMALLY BORDER NODE",
+      "to": "SHET",
+      "voltage_kv": 275,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ11",
+      "match_method": "fuzzy_name_BORDER"
+    },
+    "DEAW": {
+      "code": "DEAW",
+      "name": "DEANIE WEST",
+      "to": "SHET",
+      "voltage_kv": 132,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ15",
+      "match_method": "fuzzy_name_WEST"
+    },
+    "DEBS": {
+      "code": "DEBS",
+      "name": "DEVILLA BATTERY STORAGE FACILITY",
+      "to": "SPT",
+      "voltage_kv": 275,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ5",
+      "match_method": "to_fallback_SPT"
+    },
+    "DELL": {
+      "code": "DELL",
+      "name": "DELL",
+      "to": "SHET",
+      "voltage_kv": 132,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ1",
+      "match_method": "to_fallback_SHET"
+    },
+    "DUMN": {
+      "code": "DUMN",
+      "name": "DUMFRIES NORTH",
+      "to": "SPT",
+      "voltage_kv": 400,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ10",
+      "match_method": "fuzzy_name_DUMFRIES"
+    },
+    "DUNA": {
+      "code": "DUNA",
+      "name": "DUNACH WIND FARM",
+      "to": "SHET",
+      "voltage_kv": 132,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ1",
+      "match_method": "to_fallback_SHET"
+    },
+    "DWEX": {
+      "code": "DWEX",
+      "name": "DOUGLAS WEST EXTENSION",
+      "to": "SPT",
+      "voltage_kv": 33,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ15",
+      "match_method": "fuzzy_name_WEST"
+    },
+    "EACS": {
+      "code": "EACS",
+      "name": "EAST ANGLIA COASTAL SUBSTATION",
+      "to": "NGET",
+      "voltage_kv": 400,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ21",
+      "match_method": "fuzzy_name_EAST"
+    },
+    "EARR": {
+      "code": "EARR",
+      "name": "EARRAGHAIL",
+      "to": "SHET",
+      "voltage_kv": 275,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ1",
+      "match_method": "to_fallback_SHET"
+    },
+    "EDAY": {
+      "code": "EDAY",
+      "name": "EDAY",
+      "to": "SHET",
+      "voltage_kv": 132,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ1",
+      "match_method": "to_fallback_SHET"
+    },
+    "ELCH": {
+      "code": "ELCH",
+      "name": "ELCHIES",
+      "to": "SHET",
+      "voltage_kv": 132,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ1",
+      "match_method": "to_fallback_SHET"
+    },
+    "ELIB": {
+      "code": "ELIB",
+      "name": "ELLIBISTER SWITCHING STATION",
+      "to": "SHET",
+      "voltage_kv": 132,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ1",
+      "match_method": "to_fallback_SHET"
+    },
+    "EMMO": {
+      "code": "EMMO",
+      "name": "EMMOCK",
+      "to": "SHET",
+      "voltage_kv": 400,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ1",
+      "match_method": "to_fallback_SHET"
+    },
+    "ENEI": {
+      "code": "ENEI",
+      "name": "ENERGY ISLES WIND FARM",
+      "to": "SHET",
+      "voltage_kv": 132,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ1",
+      "match_method": "to_fallback_SHET"
+    },
+    "ERED": {
+      "code": "ERED",
+      "name": "EREDINE",
+      "to": "SHET",
+      "voltage_kv": 275,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ1",
+      "match_method": "to_fallback_SHET"
+    },
+    "ETTR": {
+      "code": "ETTR",
+      "name": "ETTRICK",
+      "to": "SPT",
+      "voltage_kv": 400,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ5",
+      "match_method": "to_fallback_SPT"
+    },
+    "EUCH": {
+      "code": "EUCH",
+      "name": "EUCHANHEAD",
+      "to": "SPT",
+      "voltage_kv": 132,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ5",
+      "match_method": "to_fallback_SPT"
+    },
+    "FASI": {
+      "code": "FASI",
+      "name": "FAW SIDE",
+      "to": "SPT",
+      "voltage_kv": 132,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ5",
+      "match_method": "to_fallback_SPT"
+    },
+    "FASQ": {
+      "code": "FASQ",
+      "name": "FASQUE",
+      "to": "SHET",
+      "voltage_kv": 132,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ1",
+      "match_method": "to_fallback_SHET"
+    },
+    "FELL": {
+      "code": "FELL",
+      "name": "FELL WIND FARM",
+      "to": "SPT",
+      "voltage_kv": 132,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ5",
+      "match_method": "to_fallback_SPT"
+    },
+    "FIGS": {
+      "code": "FIGS",
+      "name": "FIFE GRID SERVICES",
+      "to": "SPT",
+      "voltage_kv": 275,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ4",
+      "match_method": "fuzzy_name_GRID"
+    },
+    "FINS": {
+      "code": "FINS",
+      "name": "ORKNEY FINSTOWN",
+      "to": "SHET",
+      "voltage_kv": 132,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ1",
+      "match_method": "to_fallback_SHET"
+    },
+    "FNLN": {
+      "code": "FNLN",
+      "name": "FANELLAN",
+      "to": "SHET",
+      "voltage_kv": 400,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ1",
+      "match_method": "to_fallback_SHET"
+    },
+    "FOUX": {
+      "code": "FOUX",
+      "name": "FOUR CROSSES",
+      "to": "NGET",
+      "voltage_kv": 400,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ16",
+      "match_method": "to_fallback_NGET"
+    },
+    "GALN": {
+      "code": "GALN",
+      "name": "GALA NORTH",
+      "to": "SPT",
+      "voltage_kv": 400,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ24",
+      "match_method": "fuzzy_name_NORTH"
+    },
+    "GHPS": {
+      "code": "GHPS",
+      "name": "GLENMUCKLOCH HYDRO PUMPED STORAGE",
+      "to": "SPT",
+      "voltage_kv": 400,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ5",
+      "match_method": "to_fallback_SPT"
+    },
+    "GILB": {
+      "code": "GILB",
+      "name": "GILLS BAY SUBSTATION",
+      "to": "SHET",
+      "voltage_kv": 132,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ1",
+      "match_method": "to_fallback_SHET"
+    },
+    "GLDY": {
+      "code": "GLDY",
+      "name": "GLENDYE",
+      "to": "SHET",
+      "voltage_kv": 132,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ1",
+      "match_method": "to_fallback_SHET"
+    },
+    "GLMU": {
+      "code": "GLMU",
+      "name": "GLENMUCKLOCH",
+      "to": "SPT",
+      "voltage_kv": 33,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ5",
+      "match_method": "to_fallback_SPT"
+    },
+    "GLNU": {
+      "code": "GLNU",
+      "name": "GLEN ULLINISH WINDFARM",
+      "to": "SHET",
+      "voltage_kv": 132,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ2",
+      "match_method": "fuzzy_name_WINDFARM"
+    },
+    "GLUE": {
+      "code": "GLUE",
+      "name": "GLEN ULLINISH EXTENSION",
+      "to": "SHET",
+      "voltage_kv": 132,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ10",
+      "match_method": "fuzzy_name_EXTENSION"
+    },
+    "GNSH": {
+      "code": "GNSH",
+      "name": "GLENSHIMMEROCH",
+      "to": "SPT",
+      "voltage_kv": 132,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ5",
+      "match_method": "to_fallback_SPT"
+    },
+    "GRAN": {
+      "code": "GRAN",
+      "name": "GRANGE",
+      "to": "NGET",
+      "voltage_kv": 66,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ2",
+      "match_method": "fuzzy_name_GRANGE"
+    },
+    "GREM": {
+      "code": "GREM",
+      "name": "GREMISTA",
+      "to": "SHET",
+      "voltage_kv": 132,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ1",
+      "match_method": "to_fallback_SHET"
+    },
+    "GRNS": {
+      "code": "GRNS",
+      "name": "GREENS",
+      "to": "SHET",
+      "voltage_kv": 400,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ1",
+      "match_method": "to_fallback_SHET"
+    },
+    "GRNV": {
+      "code": "GRNV",
+      "name": "GREEN VOLT OFFSHORE WIND FARM",
+      "to": "SHET",
+      "voltage_kv": 400,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ23",
+      "match_method": "fuzzy_name_GREEN"
+    },
+    "GRTO": {
+      "code": "GRTO",
+      "name": "GRANGETOWN",
+      "to": "NGET",
+      "voltage_kv": 66,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ16",
+      "match_method": "to_fallback_NGET"
+    },
+    "GWYD": {
+      "code": "GWYD",
+      "name": "GWYDDELWERN",
+      "to": "NGET",
+      "voltage_kv": 400,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ16",
+      "match_method": "to_fallback_NGET"
+    },
+    "HARB": {
+      "code": "HARB",
+      "name": "HARBURN",
+      "to": "SPT",
+      "voltage_kv": 400,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ5",
+      "match_method": "to_fallback_SPT"
+    },
+    "HARG": {
+      "code": "HARG",
+      "name": "HARKER GIS",
+      "to": "NGET",
+      "voltage_kv": 400,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ14",
+      "match_method": "fuzzy_name_HARKER"
+    },
+    "HARI": {
+      "code": "HARI",
+      "name": "HARRIS",
+      "to": "SHET",
+      "voltage_kv": 132,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ1",
+      "match_method": "to_fallback_SHET"
+    },
+    "HAZE": {
+      "code": "HAZE",
+      "name": "HAZELSIDE",
+      "to": "SPT",
+      "voltage_kv": 132,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ5",
+      "match_method": "to_fallback_SPT"
+    },
+    "HBES": {
+      "code": "HBES",
+      "name": "HUNTERSTON BATTERY STORAGE",
+      "to": "SPT",
+      "voltage_kv": 400,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ10",
+      "match_method": "fuzzy_name_HUNTERSTON"
+    },
+    "HESF": {
+      "code": "HESF",
+      "name": "HUNTERSTON ENERGY STORAGE FACILITY",
+      "to": "SPT",
+      "voltage_kv": 400,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ10",
+      "match_method": "fuzzy_name_HUNTERSTON"
+    },
+    "HEST": {
+      "code": "HEST",
+      "name": "HESTA HEAD",
+      "to": "SHET",
+      "voltage_kv": 33,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ1",
+      "match_method": "to_fallback_SHET"
+    },
+    "HICL": {
+      "code": "HICL",
+      "name": "HIGH CONSTELLATION",
+      "to": "SHET",
+      "voltage_kv": 132,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ16",
+      "match_method": "fuzzy_name_HIGH"
+    },
+    "HIMB": {
+      "code": "HIMB",
+      "name": "HIGH MARNHAM SUBSTATION-B",
+      "to": "NGET",
+      "voltage_kv": 400,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ16",
+      "match_method": "to_fallback_NGET"
+    },
+    "HLND": {
+      "code": "HLND",
+      "name": "HEATHLAND",
+      "to": "SPT",
+      "voltage_kv": 132,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ5",
+      "match_method": "to_fallback_SPT"
+    },
+    "HOLM": {
+      "code": "HOLM",
+      "name": "HOLM HILL",
+      "to": "SPT",
+      "voltage_kv": 132,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ25",
+      "match_method": "fuzzy_name_HILL"
+    },
+    "HOME": {
+      "code": "HOME",
+      "name": "HOLLANDMEY",
+      "to": "SHET",
+      "voltage_kv": 132,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ1",
+      "match_method": "to_fallback_SHET"
+    },
+    "HORI": {
+      "code": "HORI",
+      "name": "HOPSRIG COLLECTOR",
+      "to": "SPT",
+      "voltage_kv": 132,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ5",
+      "match_method": "to_fallback_SPT"
+    },
+    "HUCR": {
+      "code": "HUCR",
+      "name": "HUNTERSTON CRYOBATTERY",
+      "to": "SPT",
+      "voltage_kv": 400,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ10",
+      "match_method": "fuzzy_name_HUNTERSTON"
+    },
+    "HURL": {
+      "code": "HURL",
+      "name": "HURLIE",
+      "to": "SHET",
+      "voltage_kv": 400,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ1",
+      "match_method": "to_fallback_SHET"
+    },
+    "HVBY": {
+      "code": "HVBY",
+      "name": "HAVBREDEY OFFSHORE WIND FARM",
+      "to": "SHET",
+      "voltage_kv": 400,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ1",
+      "match_method": "to_fallback_SHET"
+    },
+    "KEAP": {
+      "code": "KEAP",
+      "name": "KEADBY POWER",
+      "to": "NGET",
+      "voltage_kv": 400,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ16",
+      "match_method": "to_fallback_NGET"
+    },
+    "KENE": {
+      "code": "KENE",
+      "name": "KENNOXHEAD WINDFARM EXTENSION",
+      "to": "SPT",
+      "voltage_kv": 33,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ2",
+      "match_method": "fuzzy_name_WINDFARM"
+    },
+    "KERG": {
+      "code": "KERG",
+      "name": "KERGORD",
+      "to": "SHET",
+      "voltage_kv": 132,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ1",
+      "match_method": "to_fallback_SHET"
+    },
+    "KINM": {
+      "code": "KINM",
+      "name": "KINMUCK",
+      "to": "SHET",
+      "voltage_kv": 275,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ1",
+      "match_method": "to_fallback_SHET"
+    },
+    "KINN": {
+      "code": "KINN",
+      "name": "KINCARDINE NORTH",
+      "to": "SPT",
+      "voltage_kv": 400,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ11",
+      "match_method": "fuzzy_name_KINCARDINE"
+    },
+    "KION": {
+      "code": "KION",
+      "name": "KILMORACK NORTH",
+      "to": "SHET",
+      "voltage_kv": 132,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ24",
+      "match_method": "fuzzy_name_NORTH"
+    },
+    "KLYN": {
+      "code": "KLYN",
+      "name": "KINGS LYNN",
+      "to": "NGET",
+      "voltage_kv": 400,
+      "lat": 52.754,
+      "lon": 0.401,
+      "zone": "GZ17",
+      "match_method": "geo_corrected_from_to_fallback_NGET"
+    },
+    "KNOK": {
+      "code": "KNOK",
+      "name": "KNOCKODHAR",
+      "to": "SPT",
+      "voltage_kv": 132,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ5",
+      "match_method": "to_fallback_SPT"
+    },
+    "KNSH": {
+      "code": "KNSH",
+      "name": "KNOCKSHEE",
+      "to": "SPT",
+      "voltage_kv": 132,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ5",
+      "match_method": "to_fallback_SPT"
+    },
+    "KRKN": {
+      "code": "KRKN",
+      "name": "KIRKTON",
+      "to": "SHET",
+      "voltage_kv": 132,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ1",
+      "match_method": "to_fallback_SHET"
+    },
+    "LAIS": {
+      "code": "LAIS",
+      "name": "LAIRG SOUTH",
+      "to": "SHET",
+      "voltage_kv": 132,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ10",
+      "match_method": "fuzzy_name_SOUTH"
+    },
+    "LCNA": {
+      "code": "LCNA",
+      "name": "LINCOLNSHIRE COASTAL NODE A",
+      "to": "NGET",
+      "voltage_kv": 400,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ11",
+      "match_method": "fuzzy_name_NODE"
+    },
+    "LCNB": {
+      "code": "LCNB",
+      "name": "LINCOLNSHIRE COASTAL NODE B",
+      "to": "NGET",
+      "voltage_kv": 400,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ11",
+      "match_method": "fuzzy_name_NODE"
+    },
+    "LEGO": {
+      "code": "LEGO",
+      "name": "LESMAHAGOW",
+      "to": "SPT",
+      "voltage_kv": 132,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ5",
+      "match_method": "to_fallback_SPT"
+    },
+    "LETH": {
+      "code": "LETH",
+      "name": "LETHANS",
+      "to": "SPT",
+      "voltage_kv": 132,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ5",
+      "match_method": "to_fallback_SPT"
+    },
+    "LEWI": {
+      "code": "LEWI",
+      "name": "LEWIS SUBSTATION",
+      "to": "SHET",
+      "voltage_kv": 132,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ1",
+      "match_method": "to_fallback_SHET"
+    },
+    "LHEU": {
+      "code": "LHEU",
+      "name": "LOCH NAN EUN PSH",
+      "to": "SHET",
+      "voltage_kv": 275,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ1",
+      "match_method": "to_fallback_SHET"
+    },
+    "LHOR": {
+      "code": "LHOR",
+      "name": "LITTLE HORSTED",
+      "to": "NGET",
+      "voltage_kv": 400,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ16",
+      "match_method": "to_fallback_NGET"
+    },
+    "LIMK": {
+      "code": "LIMK",
+      "name": "LIMEKILNS WINDFARM",
+      "to": "SHET",
+      "voltage_kv": 132,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ2",
+      "match_method": "fuzzy_name_WINDFARM"
+    },
+    "LITB": {
+      "code": "LITB",
+      "name": "LITTLE BARFORD",
+      "to": "NGET",
+      "voltage_kv": 400,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ16",
+      "match_method": "to_fallback_NGET"
+    },
+    "LKEM": {
+      "code": "LKEM",
+      "name": "LOCH KEMP PUMPED STORAGE",
+      "to": "SHET",
+      "voltage_kv": 275,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ1",
+      "match_method": "to_fallback_SHET"
+    },
+    "LOFR": {
+      "code": "LOFR",
+      "name": "LOWER FRANKTON",
+      "to": "NGET",
+      "voltage_kv": 400,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ16",
+      "match_method": "to_fallback_NGET"
+    },
+    "LOFT": {
+      "code": "LOFT",
+      "name": "LOWER FRANKTON TEE",
+      "to": "NGET",
+      "voltage_kv": 400,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ16",
+      "match_method": "to_fallback_NGET"
+    },
+    "LORG": {
+      "code": "LORG",
+      "name": "LORG",
+      "to": "SPT",
+      "voltage_kv": 132,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ5",
+      "match_method": "to_fallback_SPT"
+    },
+    "LOSD": {
+      "code": "LOSD",
+      "name": "LONGSIDE",
+      "to": "SHET",
+      "voltage_kv": 132,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ1",
+      "match_method": "to_fallback_SHET"
+    },
+    "MABL": {
+      "code": "MABL",
+      "name": "MABLETHORPE",
+      "to": "NGET",
+      "voltage_kv": 400,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ16",
+      "match_method": "to_fallback_NGET"
+    },
+    "MARA": {
+      "code": "MARA",
+      "name": "MARRAM OFFSHORE",
+      "to": "SHET",
+      "voltage_kv": 400,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ1",
+      "match_method": "to_fallback_SHET"
+    },
+    "MEYG": {
+      "code": "MEYG",
+      "name": "MEYGEN",
+      "to": "SHET",
+      "voltage_kv": 132,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ1",
+      "match_method": "to_fallback_SHET"
+    },
+    "MFSN": {
+      "code": "MFSN",
+      "name": "MONK FRYSTON NEW",
+      "to": "NGET",
+      "voltage_kv": 275,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ15",
+      "match_method": "fuzzy_name_MONK"
+    },
+    "MILP": {
+      "code": "MILP",
+      "name": "MILTON PARK",
+      "to": "NGET",
+      "voltage_kv": 33,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ5",
+      "match_method": "fuzzy_name_MILTON"
+    },
+    "MONQ": {
+      "code": "MONQ",
+      "name": "MONQUHILL",
+      "to": "SPT",
+      "voltage_kv": 33,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ5",
+      "match_method": "to_fallback_SPT"
+    },
+    "MSHL": {
+      "code": "MSHL",
+      "name": "MOSSY HILL",
+      "to": "SHET",
+      "voltage_kv": 33,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ25",
+      "match_method": "fuzzy_name_HILL"
+    },
+    "MUAI": {
+      "code": "MUAI",
+      "name": "MUAITHEBHEAL WIND FARM",
+      "to": "SHET",
+      "voltage_kv": 132,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ1",
+      "match_method": "to_fallback_SHET"
+    },
+    "MUMR": {
+      "code": "MUMR",
+      "name": "MUIR MHOR OFFSHORE WIND FARM",
+      "to": "SHET",
+      "voltage_kv": 400,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ1",
+      "match_method": "to_fallback_SHET"
+    },
+    "NASS": {
+      "code": "NASS",
+      "name": "NEW ABERDEENSHIRE SUBSTATION",
+      "to": "SHET",
+      "voltage_kv": 275,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ1",
+      "match_method": "to_fallback_SHET"
+    },
+    "NERY": {
+      "code": "NERY",
+      "name": "NEW RYHALL",
+      "to": "NGET",
+      "voltage_kv": 400,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ16",
+      "match_method": "to_fallback_NGET"
+    },
+    "NLEI": {
+      "code": "NLEI",
+      "name": "NORTH LOWTHER ENERGY INITIATIVE",
+      "to": "SPT",
+      "voltage_kv": 132,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ24",
+      "match_method": "fuzzy_name_NORTH"
+    },
+    "NORW": {
+      "code": "NORW",
+      "name": "NORWICH",
+      "to": "NGET",
+      "voltage_kv": 132,
+      "lat": 52.63,
+      "lon": 1.31,
+      "zone": "GZ18",
+      "match_method": "geo_corrected_from_to_fallback_NGET"
+    },
+    "NOTR": {
+      "code": "NOTR",
+      "name": "NORWICH TROWSE",
+      "to": "NGET",
+      "voltage_kv": 132,
+      "lat": 52.613,
+      "lon": 1.298,
+      "zone": "GZ18",
+      "match_method": "geo_corrected_from_to_fallback_NGET"
+    },
+    "NPIC": {
+      "code": "NPIC",
+      "name": "SPIORAD NA MARA OFFSHORE WIND FARM",
+      "to": "SHET",
+      "voltage_kv": 400,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ1",
+      "match_method": "to_fallback_SHET"
+    },
+    "OBST": {
+      "code": "OBST",
+      "name": "OSBALDWICK TEE",
+      "to": "NGET",
+      "voltage_kv": 400,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ15",
+      "match_method": "fuzzy_name_OSBALDWICK"
+    },
+    "OFOA": {
+      "code": "OFOA",
+      "name": "OLD FOREST OF AE",
+      "to": "SPT",
+      "voltage_kv": 132,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ5",
+      "match_method": "to_fallback_SPT"
+    },
+    "OHLL": {
+      "code": "OHLL",
+      "name": "OVERHILL",
+      "to": "SPT",
+      "voltage_kv": 132,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ5",
+      "match_method": "to_fallback_SPT"
+    },
+    "ORLA": {
+      "code": "ORLA",
+      "name": "ORANGE LANE",
+      "to": "SPT",
+      "voltage_kv": 132,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ23",
+      "match_method": "fuzzy_name_LANE"
+    },
+    "OVER": {
+      "code": "OVER",
+      "name": "YORK NORTH",
+      "to": "NGET",
+      "voltage_kv": 275,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ24",
+      "match_method": "fuzzy_name_NORTH"
+    },
+    "OWFD": {
+      "code": "OWFD",
+      "name": "OWF-100",
+      "to": "SHET",
+      "voltage_kv": 132,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ1",
+      "match_method": "to_fallback_SHET"
+    },
+    "OWPL": {
+      "code": "OWPL",
+      "name": "OWPL WINDFARM",
+      "to": "SHET",
+      "voltage_kv": 400,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ2",
+      "match_method": "fuzzy_name_WINDFARM"
+    },
+    "PENI": {
+      "code": "PENI",
+      "name": "PENISARWAUN",
+      "to": "NGET",
+      "voltage_kv": 400,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ16",
+      "match_method": "to_fallback_NGET"
+    },
+    "PERH": {
+      "code": "PERH",
+      "name": "PENRHOS",
+      "to": "NGET",
+      "voltage_kv": 132,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ16",
+      "match_method": "to_fallback_NGET"
+    },
+    "PLOE": {
+      "code": "PLOE",
+      "name": "PENCLOE",
+      "to": "SPT",
+      "voltage_kv": 33,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ5",
+      "match_method": "to_fallback_SPT"
+    },
+    "POAB": {
+      "code": "POAB",
+      "name": "PONT ABRAHAM",
+      "to": "NGET",
+      "voltage_kv": 400,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ16",
+      "match_method": "to_fallback_NGET"
+    },
+    "PORH": {
+      "code": "PORH",
+      "name": "PORT HAM",
+      "to": "NGET",
+      "voltage_kv": 132,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ7",
+      "match_method": "fuzzy_name_PORT"
+    },
+    "QUAN": {
+      "code": "QUAN",
+      "name": "QUANTANS HILL",
+      "to": "SPT",
+      "voltage_kv": 132,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ25",
+      "match_method": "fuzzy_name_HILL"
+    },
+    "RAYM": {
+      "code": "RAYM",
+      "name": "RAYLEIGH MAIN",
+      "to": "NGET",
+      "voltage_kv": 132,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ24",
+      "match_method": "fuzzy_name_RAYLEIGH"
+    },
+    "REDS": {
+      "code": "REDS",
+      "name": "REDSHAW",
+      "to": "SPT",
+      "voltage_kv": 400,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ5",
+      "match_method": "to_fallback_SPT"
+    },
+    "REJO": {
+      "code": "REJO",
+      "name": "RED JOHN PSH STORAGE",
+      "to": "SHET",
+      "voltage_kv": 275,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ1",
+      "match_method": "to_fallback_SHET"
+    },
+    "RICB": {
+      "code": "RICB",
+      "name": "RICHBOROUGH B",
+      "to": "NGET",
+      "voltage_kv": 400,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ24",
+      "match_method": "fuzzy_name_RICHBOROUGH"
+    },
+    "SALM": {
+      "code": "SALM",
+      "name": "SALAMANDER OFFSHORE WIND FARM",
+      "to": "SHET",
+      "voltage_kv": 132,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ1",
+      "match_method": "to_fallback_SHET"
+    },
+    "SANQ": {
+      "code": "SANQ",
+      "name": "SANQUHAR II WIND FARM",
+      "to": "SPT",
+      "voltage_kv": 132,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ5",
+      "match_method": "to_fallback_SPT"
+    },
+    "SASA": {
+      "code": "SASA",
+      "name": "ST ASAPHS",
+      "to": "NGET",
+      "voltage_kv": 132,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ16",
+      "match_method": "to_fallback_NGET"
+    },
+    "SCOP": {
+      "code": "SCOP",
+      "name": "SCOOP HILL WIND FARM",
+      "to": "SPT",
+      "voltage_kv": 132,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ25",
+      "match_method": "fuzzy_name_HILL"
+    },
+    "SCRA": {
+      "code": "SCRA",
+      "name": "SCARABEN OFFSHORE WIND FARM",
+      "to": "SHET",
+      "voltage_kv": 132,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ1",
+      "match_method": "to_fallback_SHET"
+    },
+    "SHEE": {
+      "code": "SHEE",
+      "name": "SHEERNESS",
+      "to": "NGET",
+      "voltage_kv": 132,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ16",
+      "match_method": "to_fallback_NGET"
+    },
+    "SHRG": {
+      "code": "SHRG",
+      "name": "SHEPHERDS RIG",
+      "to": "SPT",
+      "voltage_kv": 132,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ5",
+      "match_method": "to_fallback_SPT"
+    },
+    "SLCK": {
+      "code": "SLCK",
+      "name": "SLICKLY WIND FARM",
+      "to": "SHET",
+      "voltage_kv": 132,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ1",
+      "match_method": "to_fallback_SHET"
+    },
+    "SPRB": {
+      "code": "SPRB",
+      "name": "SPIREBUSH",
+      "to": "SPT",
+      "voltage_kv": 132,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ5",
+      "match_method": "to_fallback_SPT"
+    },
+    "STCS": {
+      "code": "STCS",
+      "name": "STRATHY COLLECTOR STATION",
+      "to": "SHET",
+      "voltage_kv": 132,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ1",
+      "match_method": "to_fallback_SHET"
+    },
+    "STMR": {
+      "code": "STMR",
+      "name": "STROMAR OFFSHORE WIND FARM",
+      "to": "SHET",
+      "voltage_kv": 400,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ1",
+      "match_method": "to_fallback_SHET"
+    },
+    "STNG": {
+      "code": "STNG",
+      "name": "STANNERGATE",
+      "to": "SHET",
+      "voltage_kv": 33,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ1",
+      "match_method": "to_fallback_SHET"
+    },
+    "STOC": {
+      "code": "STOC",
+      "name": "STRANOCH WIND FARM",
+      "to": "SPT",
+      "voltage_kv": 132,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ5",
+      "match_method": "to_fallback_SPT"
+    },
+    "STOR": {
+      "code": "STOR",
+      "name": "STORNOWAY",
+      "to": "SHET",
+      "voltage_kv": 132,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ1",
+      "match_method": "to_fallback_SHET"
+    },
+    "STSO": {
+      "code": "STSO",
+      "name": "STRATHY SOUTH",
+      "to": "SHET",
+      "voltage_kv": 132,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ10",
+      "match_method": "fuzzy_name_SOUTH"
+    },
+    "STWO": {
+      "code": "STWO",
+      "name": "STRATHY WOOD",
+      "to": "SHET",
+      "voltage_kv": 132,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ18",
+      "match_method": "fuzzy_name_WOOD"
+    },
+    "STYC": {
+      "code": "STYC",
+      "name": "STAYTHORPE C",
+      "to": "NGET",
+      "voltage_kv": 132,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ16",
+      "match_method": "to_fallback_NGET"
+    },
+    "SUTB": {
+      "code": "SUTB",
+      "name": "SUTTON BRIDGE",
+      "to": "NGET",
+      "voltage_kv": 400,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ5",
+      "match_method": "fuzzy_name_BRIDGE"
+    },
+    "SYEL": {
+      "code": "SYEL",
+      "name": "SOUTH YELL",
+      "to": "SHET",
+      "voltage_kv": 132,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ10",
+      "match_method": "fuzzy_name_SOUTH"
+    },
+    "TADT": {
+      "code": "TADT",
+      "name": "TADCASTER TEE",
+      "to": "NGET",
+      "voltage_kv": 275,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ16",
+      "match_method": "to_fallback_NGET"
+    },
+    "TEVB": {
+      "code": "TEVB",
+      "name": "Teviot Border Node",
+      "to": "SPT",
+      "voltage_kv": 400,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ11",
+      "match_method": "fuzzy_name_BORDER"
+    },
+    "TEVI": {
+      "code": "TEVI",
+      "name": "TEVIOT",
+      "to": "SPT",
+      "voltage_kv": 400,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ5",
+      "match_method": "to_fallback_SPT"
+    },
+    "TILN": {
+      "code": "TILN",
+      "name": "TILBURY NORTH",
+      "to": "NGET",
+      "voltage_kv": 400,
+      "lat": 51.464,
+      "lon": 0.355,
+      "zone": "GZ24",
+      "match_method": "geo_corrected_from_to_fallback_NGET"
+    },
+    "TLSK": {
+      "code": "TLSK",
+      "name": "TALISK OFFSHORE WIND FARM",
+      "to": "SHET",
+      "voltage_kv": 400,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ1",
+      "match_method": "to_fallback_SHET"
+    },
+    "TNGF": {
+      "code": "TNGF",
+      "name": "TANGY IV",
+      "to": "SHET",
+      "voltage_kv": 132,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ1",
+      "match_method": "to_fallback_SHET"
+    },
+    "TRSN": {
+      "code": "TRSN",
+      "name": "TROSTON",
+      "to": "SPT",
+      "voltage_kv": 132,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ5",
+      "match_method": "to_fallback_SPT"
+    },
+    "TWIN": {
+      "code": "TWIN",
+      "name": "TWINSTEAD",
+      "to": "NGET",
+      "voltage_kv": 400,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ16",
+      "match_method": "to_fallback_NGET"
+    },
+    "WALE": {
+      "code": "WALE",
+      "name": "GRAIN WEST",
+      "to": "NGET",
+      "voltage_kv": 400,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ24",
+      "match_method": "fuzzy_name_GRAIN"
+    },
+    "WCNB": {
+      "code": "WCNB",
+      "name": "WCNC BORDER NODE",
+      "to": "SPT",
+      "voltage_kv": 400,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ11",
+      "match_method": "fuzzy_name_BORDER"
+    },
+    "WEAV": {
+      "code": "WEAV",
+      "name": "WEAVER JUNCTION",
+      "to": "NGET",
+      "voltage_kv": 25,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ11",
+      "match_method": "fuzzy_name_JUNCTION"
+    },
+    "WEMA": {
+      "code": "WEMA",
+      "name": "WESTON MARSH",
+      "to": "NGET",
+      "voltage_kv": 400,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ16",
+      "match_method": "to_fallback_NGET"
+    },
+    "WHBR": {
+      "code": "WHBR",
+      "name": "WHITELAW BRAE",
+      "to": "SPT",
+      "voltage_kv": 33,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ5",
+      "match_method": "to_fallback_SPT"
+    },
+    "WLER": {
+      "code": "WLER",
+      "name": "WHITELEE REPOWERING",
+      "to": "SPT",
+      "voltage_kv": 275,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ10",
+      "match_method": "fuzzy_name_WHITELEE"
+    },
+    "WNUK": {
+      "code": "WNUK",
+      "name": "WHITENEUK",
+      "to": "SPT",
+      "voltage_kv": 132,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ5",
+      "match_method": "to_fallback_SPT"
+    },
+    "WYLS": {
+      "code": "WYLS",
+      "name": "WYLFA SOUTH",
+      "to": "NGET",
+      "voltage_kv": 400,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ19",
+      "match_method": "fuzzy_name_WYLFA"
+    },
+    "WYSE": {
+      "code": "WYSE",
+      "name": "WYSEBY HILL",
+      "to": "SPT",
+      "voltage_kv": 400,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ25",
+      "match_method": "fuzzy_name_HILL"
+    },
+    "YORK": {
+      "code": "YORK",
+      "name": "YORK NORTH",
+      "to": "NGET",
+      "voltage_kv": 400,
+      "lat": null,
+      "lon": null,
+      "zone": "GZ24",
+      "match_method": "fuzzy_name_NORTH"
+    }
+  },
+  "zone_summary": {
+    "GZ1": 157,
+    "GZ10": 60,
+    "GZ11": 55,
+    "GZ12": 4,
+    "GZ13": 15,
+    "GZ14": 10,
+    "GZ15": 32,
+    "GZ16": 80,
+    "GZ17": 5,
+    "GZ18": 57,
+    "GZ19": 5,
+    "GZ2": 13,
+    "GZ20": 1,
+    "GZ21": 9,
+    "GZ22": 11,
+    "GZ23": 14,
+    "GZ24": 29,
+    "GZ25": 20,
+    "GZ26": 14,
+    "GZ27": 5,
+    "GZ3": 23,
+    "GZ4": 4,
+    "GZ5": 96,
+    "GZ6": 5,
+    "GZ7": 3,
+    "GZ8": 18,
+    "GZ9": 50
+  }
+}

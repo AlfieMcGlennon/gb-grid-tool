@@ -1,0 +1,503 @@
+/* SCADA Control Room Data Sources Page */
+.data-sources-page {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  background: var(--bg-base);
+  color: var(--text-primary);
+}
+
+.data-sources-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 24px;
+  background: var(--bg-panel);
+  border-bottom: 1px solid var(--border-default);
+  flex-shrink: 0;
+}
+
+.data-sources-header h1 {
+  font-size: 22px;
+  font-weight: 600;
+  margin: 0;
+  color: var(--text-primary);
+}
+
+.data-sources-content {
+  flex: 1;
+  overflow-y: auto;
+  padding: 24px;
+}
+
+/* Sections */
+.ds-section {
+  margin-bottom: 32px;
+  max-width: 900px;
+}
+
+.ds-section h2 {
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--accent-primary);
+  margin: 0 0 16px 0;
+  padding-bottom: 8px;
+  border-bottom: 1px solid var(--border-default);
+}
+
+.ds-section h3 {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin: 20px 0 12px 0;
+}
+
+.ds-section h4 {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-secondary);
+  margin: 0 0 8px 0;
+}
+
+.ds-section p {
+  font-size: 14px;
+  line-height: 1.7;
+  color: var(--text-primary);
+  margin: 0 0 12px 0;
+}
+
+.ds-section ul,
+.ds-section ol {
+  margin: 0 0 12px 0;
+  padding-left: 20px;
+}
+
+.ds-section li {
+  font-size: 14px;
+  line-height: 1.7;
+  color: var(--text-primary);
+  margin-bottom: 8px;
+}
+
+.ds-section a {
+  color: var(--accent-primary);
+  text-decoration: none;
+}
+
+.ds-section a:hover {
+  text-decoration: underline;
+}
+
+.ds-note {
+  font-style: italic;
+  color: var(--text-secondary) !important;
+  padding: 12px 16px;
+  background: var(--bg-base);
+  border-left: 3px solid var(--border-default);
+  border-radius: 0 var(--radius) var(--radius) 0;
+}
+
+/* Data Sources Table */
+.ds-table-wrapper {
+  overflow-x: auto;
+  margin: 0 -8px;
+  padding: 0 8px;
+}
+
+.ds-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+  background: var(--bg-panel);
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+
+.ds-table th {
+  text-align: left;
+  padding: 12px 16px;
+  background: var(--bg-base);
+  color: var(--accent-primary);
+  font-weight: 600;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  border-bottom: 1px solid var(--border-default);
+}
+
+.ds-table td {
+  padding: 12px 16px;
+  border-bottom: 1px solid var(--border-subtle, var(--border-default));
+  vertical-align: top;
+}
+
+.ds-table tbody tr:hover {
+  background: var(--bg-base);
+}
+
+.ds-dataset {
+  display: block;
+  font-weight: 500;
+  color: var(--text-primary);
+  margin-bottom: 4px;
+}
+
+.ds-desc {
+  display: block;
+  font-size: 12px;
+  color: var(--text-muted);
+}
+
+/* Compact table for validation */
+.ds-table-compact {
+  max-width: 500px;
+}
+
+.ds-table-compact th,
+.ds-table-compact td {
+  padding: 8px 12px;
+}
+
+.ds-validation-table {
+  margin: 16px 0;
+}
+
+.ds-good td:last-child {
+  color: var(--color-success);
+  font-weight: 500;
+}
+
+.ds-ok td:last-child {
+  color: var(--accent-primary);
+  font-weight: 500;
+}
+
+/* Merit Order List */
+.ds-merit-order {
+  list-style: decimal;
+  padding-left: 24px;
+}
+
+.ds-merit-order li {
+  margin-bottom: 6px;
+}
+
+/* Limitations List */
+.ds-limitations li {
+  margin-bottom: 12px;
+}
+
+.ds-limitations li strong {
+  color: var(--text-primary);
+}
+
+/* Licence Boxes */
+.ds-licence-box {
+  margin-bottom: 20px;
+  padding: 16px 20px;
+  background: var(--bg-panel);
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius);
+}
+
+.ds-licence-box h4 {
+  color: var(--text-primary);
+  margin-bottom: 12px;
+}
+
+.ds-licence-box p {
+  margin-bottom: 8px;
+}
+
+.ds-licence-box p:last-child {
+  margin-bottom: 0;
+}
+
+.ds-licence-box ul {
+  margin: 0;
+  padding-left: 16px;
+}
+
+.ds-licence-box li {
+  margin-bottom: 8px;
+}
+
+.ds-licence-box em {
+  color: var(--text-secondary);
+}
+
+/* Footer */
+.ds-footer {
+  padding-top: 24px;
+  border-top: 1px solid var(--border-default);
+}
+
+.ds-footer p {
+  text-align: center;
+  color: var(--text-muted);
+  font-size: 13px;
+}
+
+/* Close button */
+.data-sources-page .close-button {
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius);
+  color: var(--text-secondary);
+  font-size: 20px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.data-sources-page .close-button:hover {
+  background: var(--bg-hover);
+  color: var(--text-primary);
+}
+
+/* ============================================
+   VALIDATION SECTION STYLES
+   ============================================ */
+
+.ds-validation {
+  max-width: 960px;
+}
+
+/* Methodology Box */
+.validation-methodology-box {
+  background: var(--bg-panel);
+  border: 1px solid var(--border-default);
+  border-left: 4px solid var(--accent-primary);
+  border-radius: 0 var(--radius) var(--radius) 0;
+  padding: 20px 24px;
+  margin-bottom: 28px;
+}
+
+.validation-methodology-box h4 {
+  color: var(--accent-primary);
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 12px;
+}
+
+.validation-methodology-box p {
+  color: var(--text-primary);
+  font-size: 14px;
+  line-height: 1.7;
+  margin: 0;
+}
+
+.validation-intro {
+  color: var(--text-secondary) !important;
+  font-size: 13px !important;
+  margin-bottom: 16px !important;
+}
+
+/* Validation Tables */
+.validation-table {
+  width: 100%;
+  margin-bottom: 28px;
+  background: var(--bg-panel);
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+
+.validation-table th {
+  background: var(--bg-base);
+  padding: 10px 12px;
+  font-size: 11px;
+  white-space: nowrap;
+  color: var(--accent-primary);
+}
+
+.validation-table th.num {
+  text-align: right;
+}
+
+.validation-table td {
+  padding: 10px 12px;
+  font-size: 13px;
+  border-bottom: 1px solid var(--border-subtle, var(--border-default));
+}
+
+.validation-table td.num {
+  text-align: right;
+  font-family: var(--font-mono);
+  font-size: 12px;
+}
+
+.validation-table td.note {
+  color: var(--text-muted);
+  font-size: 12px;
+  font-style: italic;
+}
+
+/* Consistent row styling - no alternating colours */
+.validation-table tbody tr {
+  background: transparent;
+}
+
+.validation-table tbody tr:hover {
+  background: rgba(255, 176, 0, 0.04);
+}
+
+/* Error color coding */
+.validation-table .err-good {
+  color: var(--color-success);
+  font-weight: 600;
+}
+
+.validation-table .err-warn {
+  color: var(--accent-primary);
+  font-weight: 600;
+}
+
+.validation-table .err-bad {
+  color: var(--color-alarm-severe);
+  font-weight: 600;
+}
+
+/* Status badges */
+.status-badge {
+  display: inline-block;
+  padding: 3px 8px;
+  border-radius: var(--radius);
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+}
+
+.status-badge.status-good {
+  background: rgba(22, 163, 74, 0.1);
+  color: var(--color-success);
+  border: 1px solid rgba(22, 163, 74, 0.2);
+}
+
+.status-badge.status-warn {
+  background: rgba(255, 176, 0, 0.1);
+  color: var(--accent-primary);
+  border: 1px solid rgba(255, 176, 0, 0.2);
+}
+
+.status-badge.status-bad {
+  background: rgba(220, 38, 38, 0.1);
+  color: var(--color-alarm-severe);
+  border: 1px solid rgba(220, 38, 38, 0.2);
+}
+
+/* Generation mix table specifics */
+.validation-table-gen .excess {
+  color: var(--color-warning);
+}
+
+.validation-table-gen .deficit {
+  color: var(--accent-primary);
+}
+
+.validation-table-gen .total-row {
+  background: var(--bg-base) !important;
+  border-top: 2px solid var(--border-default);
+}
+
+.validation-table-gen .total-row td {
+  font-weight: 600;
+}
+
+/* Validation result boxes */
+.validation-box {
+  padding: 20px 24px;
+  border-radius: var(--radius);
+  margin-bottom: 20px;
+}
+
+.validation-box h4 {
+  font-size: 14px;
+  font-weight: 600;
+  margin: 0 0 14px 0;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.validation-box ul {
+  margin: 0;
+  padding-left: 20px;
+}
+
+.validation-box li {
+  margin-bottom: 10px;
+  line-height: 1.6;
+}
+
+.validation-box li:last-child {
+  margin-bottom: 0;
+}
+
+.validation-box li strong {
+  color: var(--text-primary);
+}
+
+/* Good box - green accent */
+.validation-good {
+  background: rgba(22, 163, 74, 0.05);
+  border: 1px solid rgba(22, 163, 74, 0.15);
+  border-left: 4px solid var(--color-success);
+}
+
+.validation-good h4 {
+  color: var(--color-success);
+}
+
+.validation-good h4::before {
+  content: '\2713';
+  font-size: 16px;
+}
+
+/* Warning box - amber accent */
+.validation-warning {
+  background: rgba(255, 176, 0, 0.05);
+  border: 1px solid rgba(255, 176, 0, 0.15);
+  border-left: 4px solid var(--accent-primary);
+}
+
+.validation-warning h4 {
+  color: var(--accent-primary);
+}
+
+.validation-warning h4::before {
+  content: '\26A0';
+  font-size: 14px;
+}
+
+/* Info box - blue accent */
+.validation-info {
+  background: var(--accent-secondary-dim);
+  border: 1px solid rgba(37, 99, 235, 0.15);
+  border-left: 4px solid var(--accent-primary);
+}
+
+.validation-info h4 {
+  color: var(--accent-primary);
+}
+
+.validation-info h4::before {
+  content: '\2192';
+  font-size: 16px;
+}
+
+.improvement-note {
+  margin-top: 16px !important;
+  padding-top: 12px;
+  border-top: 1px solid rgba(255, 176, 0, 0.1);
+  font-style: italic;
+  color: var(--text-secondary) !important;
+  font-size: 13px !important;
+}

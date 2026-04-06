@@ -1,0 +1,110 @@
+/* SCADA Control Room National Summary */
+.national-summary {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  font-size: 13px;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.summary-note-inline {
+  font-size: 10px;
+  color: var(--text-secondary);
+  margin-left: 8px;
+  font-style: italic;
+  white-space: nowrap;
+}
+
+.summary-item {
+  display: flex;
+  align-items: baseline;
+  gap: 6px;
+}
+
+.summary-label {
+  color: var(--text-secondary);
+  font-weight: 500;
+}
+
+.summary-value {
+  color: var(--text-primary);
+  font-weight: 700;
+  font-size: 15px;
+}
+
+.summary-value.deficit {
+  color: var(--color-alarm-severe);
+}
+
+.summary-value.surplus {
+  color: var(--color-success);
+}
+
+.summary-status {
+  font-size: 12px;
+  font-weight: 500;
+  margin-left: 4px;
+  opacity: 0.8;
+}
+
+.summary-divider {
+  color: var(--border-default);
+  font-weight: 300;
+  margin: 0 4px;
+}
+
+.national-summary-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 8px;
+}
+
+.scenario-warnings {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  justify-content: flex-end;
+}
+
+.warning-badge {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 10px;
+  border-radius: var(--radius);
+  font-size: 11px;
+  font-weight: 500;
+}
+
+.warning-badge.error {
+  background: rgba(239, 68, 68, 0.1);
+  border: 1px solid rgba(239, 68, 68, 0.3);
+  color: var(--color-alarm);
+}
+
+.warning-badge.warning {
+  background: rgba(255, 176, 0, 0.08);
+  border: 1px solid rgba(245, 158, 11, 0.3);
+  color: #92400e;
+}
+
+.warning-badge.info {
+  background: var(--accent-secondary-dim);
+  border: 1px solid rgba(0, 180, 216, 0.3);
+  color: var(--accent-secondary);
+}
+
+.warning-badge svg {
+  flex-shrink: 0;
+}
+
+.scenario-narrative {
+  font-size: 12px;
+  color: var(--text-secondary);
+  font-style: italic;
+  text-align: right;
+  max-width: 500px;
+  line-height: 1.4;
+}

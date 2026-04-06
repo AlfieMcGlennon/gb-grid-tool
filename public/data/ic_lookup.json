@@ -1,0 +1,462 @@
+{
+  "metadata": {
+    "description": "Dynamic interconnector import lookup from NESO historic data (2009-2024)",
+    "source": "NESO half-hourly demand data aligned with ERA5 weather",
+    "season": "winter (Oct-Mar)",
+    "total_ic_capacity_mw": 9800,
+    "ic_zones": {
+      "GZ26": 5000,
+      "GZ24": 1000,
+      "GZ10": 500,
+      "GZ19": 500,
+      "GZ13": 1400,
+      "GZ15": 1400
+    },
+    "records_used": 69952,
+    "overall_mean_pct": 16.4,
+    "overall_mean_mw": 1611.0
+  },
+  "wind_cf_percentiles": {
+    "5": 0.0233,
+    "10": 0.0414,
+    "15": 0.0596,
+    "20": 0.0785,
+    "25": 0.1004,
+    "30": 0.1233,
+    "35": 0.1483,
+    "40": 0.1765,
+    "45": 0.2081,
+    "50": 0.2453,
+    "55": 0.285,
+    "60": 0.3284,
+    "65": 0.3768,
+    "70": 0.4311,
+    "75": 0.4919,
+    "80": 0.5614,
+    "85": 0.643,
+    "90": 0.7417,
+    "95": 0.8566
+  },
+  "demand_percentiles_mw": {
+    "5": 24236.0,
+    "10": 25847.0,
+    "15": 27223.0,
+    "20": 28581.0,
+    "25": 29804.0,
+    "30": 30968.0,
+    "35": 32114.0,
+    "40": 33259.0,
+    "45": 34389.0,
+    "50": 35578.0,
+    "55": 36744.0,
+    "60": 37875.0,
+    "65": 39062.0,
+    "70": 40307.0,
+    "75": 41582.0,
+    "80": 42976.0,
+    "85": 44500.0,
+    "90": 46300.0,
+    "95": 49042.0
+  },
+  "wind_bin_edges": [
+    0,
+    0.0785,
+    0.1765,
+    0.3284,
+    0.5614,
+    1.01
+  ],
+  "demand_bin_edges": [
+    0,
+    28581.0,
+    33259.0,
+    37875.0,
+    42976.0,
+    100000
+  ],
+  "lookup": [
+    {
+      "wind_bin": 0,
+      "demand_bin": 0,
+      "wind_range": [
+        0,
+        0.0785
+      ],
+      "demand_range": [
+        0,
+        28581.0
+      ],
+      "ic_import_pct": 30.1,
+      "ic_import_mw": 2950.0,
+      "sample_count": 2023
+    },
+    {
+      "wind_bin": 0,
+      "demand_bin": 1,
+      "wind_range": [
+        0,
+        0.0785
+      ],
+      "demand_range": [
+        28581.0,
+        33259.0
+      ],
+      "ic_import_pct": 21.5,
+      "ic_import_mw": 2107.0,
+      "sample_count": 2700
+    },
+    {
+      "wind_bin": 0,
+      "demand_bin": 2,
+      "wind_range": [
+        0,
+        0.0785
+      ],
+      "demand_range": [
+        33259.0,
+        37875.0
+      ],
+      "ic_import_pct": 17.8,
+      "ic_import_mw": 1742.0,
+      "sample_count": 2878
+    },
+    {
+      "wind_bin": 0,
+      "demand_bin": 3,
+      "wind_range": [
+        0,
+        0.0785
+      ],
+      "demand_range": [
+        37875.0,
+        42976.0
+      ],
+      "ic_import_pct": 16.1,
+      "ic_import_mw": 1576.0,
+      "sample_count": 3079
+    },
+    {
+      "wind_bin": 0,
+      "demand_bin": 4,
+      "wind_range": [
+        0,
+        0.0785
+      ],
+      "demand_range": [
+        42976.0,
+        100000
+      ],
+      "ic_import_pct": 4.6,
+      "ic_import_mw": 454.0,
+      "sample_count": 3311
+    },
+    {
+      "wind_bin": 1,
+      "demand_bin": 0,
+      "wind_range": [
+        0.0785,
+        0.1765
+      ],
+      "demand_range": [
+        0,
+        28581.0
+      ],
+      "ic_import_pct": 28.6,
+      "ic_import_mw": 2804.0,
+      "sample_count": 2256
+    },
+    {
+      "wind_bin": 1,
+      "demand_bin": 1,
+      "wind_range": [
+        0.0785,
+        0.1765
+      ],
+      "demand_range": [
+        28581.0,
+        33259.0
+      ],
+      "ic_import_pct": 21.1,
+      "ic_import_mw": 2065.0,
+      "sample_count": 2749
+    },
+    {
+      "wind_bin": 1,
+      "demand_bin": 2,
+      "wind_range": [
+        0.0785,
+        0.1765
+      ],
+      "demand_range": [
+        33259.0,
+        37875.0
+      ],
+      "ic_import_pct": 17.1,
+      "ic_import_mw": 1680.0,
+      "sample_count": 2867
+    },
+    {
+      "wind_bin": 1,
+      "demand_bin": 3,
+      "wind_range": [
+        0.0785,
+        0.1765
+      ],
+      "demand_range": [
+        37875.0,
+        42976.0
+      ],
+      "ic_import_pct": 13.5,
+      "ic_import_mw": 1322.0,
+      "sample_count": 2943
+    },
+    {
+      "wind_bin": 1,
+      "demand_bin": 4,
+      "wind_range": [
+        0.0785,
+        0.1765
+      ],
+      "demand_range": [
+        42976.0,
+        100000
+      ],
+      "ic_import_pct": 3.8,
+      "ic_import_mw": 369.0,
+      "sample_count": 3175
+    },
+    {
+      "wind_bin": 2,
+      "demand_bin": 0,
+      "wind_range": [
+        0.1765,
+        0.3284
+      ],
+      "demand_range": [
+        0,
+        28581.0
+      ],
+      "ic_import_pct": 24.9,
+      "ic_import_mw": 2437.0,
+      "sample_count": 2783
+    },
+    {
+      "wind_bin": 2,
+      "demand_bin": 1,
+      "wind_range": [
+        0.1765,
+        0.3284
+      ],
+      "demand_range": [
+        28581.0,
+        33259.0
+      ],
+      "ic_import_pct": 21.6,
+      "ic_import_mw": 2119.0,
+      "sample_count": 2755
+    },
+    {
+      "wind_bin": 2,
+      "demand_bin": 2,
+      "wind_range": [
+        0.1765,
+        0.3284
+      ],
+      "demand_range": [
+        33259.0,
+        37875.0
+      ],
+      "ic_import_pct": 17.3,
+      "ic_import_mw": 1693.0,
+      "sample_count": 2777
+    },
+    {
+      "wind_bin": 2,
+      "demand_bin": 3,
+      "wind_range": [
+        0.1765,
+        0.3284
+      ],
+      "demand_range": [
+        37875.0,
+        42976.0
+      ],
+      "ic_import_pct": 12.9,
+      "ic_import_mw": 1265.0,
+      "sample_count": 2766
+    },
+    {
+      "wind_bin": 2,
+      "demand_bin": 4,
+      "wind_range": [
+        0.1765,
+        0.3284
+      ],
+      "demand_range": [
+        42976.0,
+        100000
+      ],
+      "ic_import_pct": 4.9,
+      "ic_import_mw": 481.0,
+      "sample_count": 2909
+    },
+    {
+      "wind_bin": 3,
+      "demand_bin": 0,
+      "wind_range": [
+        0.3284,
+        0.5614
+      ],
+      "demand_range": [
+        0,
+        28581.0
+      ],
+      "ic_import_pct": 18.4,
+      "ic_import_mw": 1804.0,
+      "sample_count": 3361
+    },
+    {
+      "wind_bin": 3,
+      "demand_bin": 1,
+      "wind_range": [
+        0.3284,
+        0.5614
+      ],
+      "demand_range": [
+        28581.0,
+        33259.0
+      ],
+      "ic_import_pct": 22.5,
+      "ic_import_mw": 2207.0,
+      "sample_count": 2781
+    },
+    {
+      "wind_bin": 3,
+      "demand_bin": 2,
+      "wind_range": [
+        0.3284,
+        0.5614
+      ],
+      "demand_range": [
+        33259.0,
+        37875.0
+      ],
+      "ic_import_pct": 20.4,
+      "ic_import_mw": 2000.0,
+      "sample_count": 2662
+    },
+    {
+      "wind_bin": 3,
+      "demand_bin": 3,
+      "wind_range": [
+        0.3284,
+        0.5614
+      ],
+      "demand_range": [
+        37875.0,
+        42976.0
+      ],
+      "ic_import_pct": 14.3,
+      "ic_import_mw": 1406.0,
+      "sample_count": 2663
+    },
+    {
+      "wind_bin": 3,
+      "demand_bin": 4,
+      "wind_range": [
+        0.3284,
+        0.5614
+      ],
+      "demand_range": [
+        42976.0,
+        100000
+      ],
+      "ic_import_pct": 4.3,
+      "ic_import_mw": 424.0,
+      "sample_count": 2523
+    },
+    {
+      "wind_bin": 4,
+      "demand_bin": 0,
+      "wind_range": [
+        0.5614,
+        1.01
+      ],
+      "demand_range": [
+        0,
+        28581.0
+      ],
+      "ic_import_pct": 9.7,
+      "ic_import_mw": 951.0,
+      "sample_count": 3568
+    },
+    {
+      "wind_bin": 4,
+      "demand_bin": 1,
+      "wind_range": [
+        0.5614,
+        1.01
+      ],
+      "demand_range": [
+        28581.0,
+        33259.0
+      ],
+      "ic_import_pct": 24.7,
+      "ic_import_mw": 2418.0,
+      "sample_count": 3005
+    },
+    {
+      "wind_bin": 4,
+      "demand_bin": 2,
+      "wind_range": [
+        0.5614,
+        1.01
+      ],
+      "demand_range": [
+        33259.0,
+        37875.0
+      ],
+      "ic_import_pct": 23.6,
+      "ic_import_mw": 2312.0,
+      "sample_count": 2806
+    },
+    {
+      "wind_bin": 4,
+      "demand_bin": 3,
+      "wind_range": [
+        0.5614,
+        1.01
+      ],
+      "demand_range": [
+        37875.0,
+        42976.0
+      ],
+      "ic_import_pct": 18.2,
+      "ic_import_mw": 1783.0,
+      "sample_count": 2539
+    },
+    {
+      "wind_bin": 4,
+      "demand_bin": 4,
+      "wind_range": [
+        0.5614,
+        1.01
+      ],
+      "demand_range": [
+        42976.0,
+        100000
+      ],
+      "ic_import_pct": 7.8,
+      "ic_import_mw": 760.0,
+      "sample_count": 2073
+    }
+  ],
+  "per_zone_shares": {
+    "GZ26": 0.5102,
+    "GZ24": 0.102,
+    "GZ10": 0.051,
+    "GZ19": 0.051,
+    "GZ13": 0.1429,
+    "GZ15": 0.1429
+  }
+}

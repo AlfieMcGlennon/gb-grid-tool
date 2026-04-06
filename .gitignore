@@ -137,3 +137,43 @@ dist
 # Vite logs files
 vite.config.js.timestamp-*
 vite.config.ts.timestamp-*
+
+# Build artifacts
+dist/
+.vite/
+
+# Large intermediate data files (not app data)
+scripts/*.json
+docs/validate/era5_zone_timeseries.npz
+docs/substation/
+docs/neso_docs/
+docs/fes/
+docs/flop/
+docs/papers/
+
+# OS files
+nul
+.DS_Store
+Thumbs.db
+
+# Claude Code working files
+.claude/
+
+# Development scratch notes (not part of the project)
+CLAUDE_v4_updates.md
+DARK_THEME_LAYOUT.md
+DEMAND_FIX.md
+DEMAND_INVESTIGATION.md
+LAYOUT_RESTRUCTURE.md
+MERIT_ORDER_FIX.md
+PROJECT_OVERVIEW.md
+UX_IMPROVEMENTS.md
+docs/ARCHITECTURE.md
+docs/IMPLEMENTATION_v4_updates.md
+docs/PHASE4_NOTES.md
+docs/PROGRESS.md
+docs/screenshot.txt
+
+# HiGHS WASM files (copied from node_modules at build time)
+public/highs.js
+public/highs.wasm

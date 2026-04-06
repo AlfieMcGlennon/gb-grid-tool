@@ -1,0 +1,389 @@
+[
+  {
+    "id": "GZ1-GZ11",
+    "from": "GZ1",
+    "to": "GZ11",
+    "capacity_mw": 2180,
+    "n_circuits": 2,
+    "x_equivalent": 1.4523,
+    "carrier": "AC"
+  },
+  {
+    "id": "GZ1-GZ2",
+    "from": "GZ1",
+    "to": "GZ2",
+    "capacity_mw": 848,
+    "n_circuits": 5,
+    "x_equivalent": 0.164166,
+    "carrier": "AC"
+  },
+  {
+    "id": "GZ1-GZ3",
+    "from": "GZ1",
+    "to": "GZ3",
+    "capacity_mw": 4690,
+    "n_circuits": 2,
+    "x_equivalent": 0.487871,
+    "carrier": "AC"
+  },
+  {
+    "id": "GZ1-GZ5",
+    "from": "GZ1",
+    "to": "GZ5",
+    "capacity_mw": 3946,
+    "n_circuits": 7,
+    "x_equivalent": 0.298726,
+    "carrier": "AC"
+  },
+  {
+    "id": "GZ10-GZ11",
+    "from": "GZ10",
+    "to": "GZ11",
+    "capacity_mw": 5800,
+    "n_circuits": 4,
+    "x_equivalent": 0.115839,
+    "carrier": "AC"
+  },
+  {
+    "id": "GZ10-GZ12",
+    "from": "GZ10",
+    "to": "GZ12",
+    "capacity_mw": 342,
+    "n_circuits": 2,
+    "x_equivalent": 3.042099,
+    "carrier": "AC"
+  },
+  {
+    "id": "GZ10-GZ7",
+    "from": "GZ10",
+    "to": "GZ7",
+    "capacity_mw": 1478,
+    "n_circuits": 2,
+    "x_equivalent": 3.95595,
+    "carrier": "AC"
+  },
+  {
+    "id": "GZ10-GZ8",
+    "from": "GZ10",
+    "to": "GZ8",
+    "capacity_mw": 2240,
+    "n_circuits": 2,
+    "x_equivalent": 0.381978,
+    "carrier": "AC"
+  },
+  {
+    "id": "GZ10-GZ9",
+    "from": "GZ10",
+    "to": "GZ9",
+    "capacity_mw": 759,
+    "n_circuits": 4,
+    "x_equivalent": 0.321971,
+    "carrier": "AC"
+  },
+  {
+    "id": "GZ11-GZ12",
+    "from": "GZ11",
+    "to": "GZ12",
+    "capacity_mw": 4684,
+    "n_circuits": 4,
+    "x_equivalent": 0.036459,
+    "carrier": "AC"
+  },
+  {
+    "id": "GZ11-GZ13",
+    "from": "GZ11",
+    "to": "GZ13",
+    "capacity_mw": 6652,
+    "n_circuits": 2,
+    "x_equivalent": 0.75445,
+    "carrier": "AC"
+  },
+  {
+    "id": "GZ11-GZ9",
+    "from": "GZ11",
+    "to": "GZ9",
+    "capacity_mw": 8886,
+    "n_circuits": 18,
+    "x_equivalent": 0.010005,
+    "carrier": "AC"
+  },
+  {
+    "id": "GZ12-GZ14",
+    "from": "GZ12",
+    "to": "GZ14",
+    "capacity_mw": 4515,
+    "n_circuits": 3,
+    "x_equivalent": 0.09785,
+    "carrier": "AC"
+  },
+  {
+    "id": "GZ13-GZ14",
+    "from": "GZ13",
+    "to": "GZ14",
+    "capacity_mw": 1628,
+    "n_circuits": 2,
+    "x_equivalent": 1.417726,
+    "carrier": "AC"
+  },
+  {
+    "id": "GZ13-GZ15",
+    "from": "GZ13",
+    "to": "GZ15",
+    "capacity_mw": 14967,
+    "n_circuits": 8,
+    "x_equivalent": 0.050427,
+    "carrier": "AC"
+  },
+  {
+    "id": "GZ14-GZ15",
+    "from": "GZ14",
+    "to": "GZ15",
+    "capacity_mw": 7157,
+    "n_circuits": 3,
+    "x_equivalent": 0.348681,
+    "carrier": "AC"
+  },
+  {
+    "id": "GZ15-GZ16",
+    "from": "GZ15",
+    "to": "GZ16",
+    "capacity_mw": 41109,
+    "n_circuits": 19,
+    "x_equivalent": 0.012879,
+    "carrier": "AC"
+  },
+  {
+    "id": "GZ16-GZ17",
+    "from": "GZ16",
+    "to": "GZ17",
+    "capacity_mw": 12785,
+    "n_circuits": 4,
+    "x_equivalent": 0.303849,
+    "carrier": "AC"
+  },
+  {
+    "id": "GZ16-GZ18",
+    "from": "GZ16",
+    "to": "GZ18",
+    "capacity_mw": 40768,
+    "n_circuits": 16,
+    "x_equivalent": 0.009643,
+    "carrier": "AC"
+  },
+  {
+    "id": "GZ16-GZ19",
+    "from": "GZ16",
+    "to": "GZ19",
+    "capacity_mw": 5330,
+    "n_circuits": 2,
+    "x_equivalent": 0.264,
+    "carrier": "AC"
+  },
+  {
+    "id": "GZ17-GZ18",
+    "from": "GZ17",
+    "to": "GZ18",
+    "capacity_mw": 19409,
+    "n_circuits": 6,
+    "x_equivalent": 0.144246,
+    "carrier": "AC"
+  },
+  {
+    "id": "GZ18-GZ20",
+    "from": "GZ18",
+    "to": "GZ20",
+    "capacity_mw": 8337,
+    "n_circuits": 3,
+    "x_equivalent": 0.489393,
+    "carrier": "AC"
+  },
+  {
+    "id": "GZ18-GZ21",
+    "from": "GZ18",
+    "to": "GZ21",
+    "capacity_mw": 3114,
+    "n_circuits": 3,
+    "x_equivalent": 0.115045,
+    "carrier": "AC"
+  },
+  {
+    "id": "GZ18-GZ22",
+    "from": "GZ18",
+    "to": "GZ22",
+    "capacity_mw": 12271,
+    "n_circuits": 5,
+    "x_equivalent": 0.165123,
+    "carrier": "AC"
+  },
+  {
+    "id": "GZ18-GZ24",
+    "from": "GZ18",
+    "to": "GZ24",
+    "capacity_mw": 11663,
+    "n_circuits": 4,
+    "x_equivalent": 0.142223,
+    "carrier": "AC"
+  },
+  {
+    "id": "GZ18-GZ25",
+    "from": "GZ18",
+    "to": "GZ25",
+    "capacity_mw": 14136,
+    "n_circuits": 6,
+    "x_equivalent": 0.116955,
+    "carrier": "AC"
+  },
+  {
+    "id": "GZ21-GZ22",
+    "from": "GZ21",
+    "to": "GZ22",
+    "capacity_mw": 3387,
+    "n_circuits": 4,
+    "x_equivalent": 0.066345,
+    "carrier": "AC"
+  },
+  {
+    "id": "GZ22-GZ25",
+    "from": "GZ22",
+    "to": "GZ25",
+    "capacity_mw": 5138,
+    "n_circuits": 4,
+    "x_equivalent": 0.421472,
+    "carrier": "AC"
+  },
+  {
+    "id": "GZ22-GZ26",
+    "from": "GZ22",
+    "to": "GZ26",
+    "capacity_mw": 10224,
+    "n_circuits": 4,
+    "x_equivalent": 0.01169,
+    "carrier": "AC"
+  },
+  {
+    "id": "GZ23-GZ24",
+    "from": "GZ23",
+    "to": "GZ24",
+    "capacity_mw": 7932,
+    "n_circuits": 6,
+    "x_equivalent": 0.039898,
+    "carrier": "AC"
+  },
+  {
+    "id": "GZ23-GZ25",
+    "from": "GZ23",
+    "to": "GZ25",
+    "capacity_mw": 7161,
+    "n_circuits": 5,
+    "x_equivalent": 0.014706,
+    "carrier": "AC"
+  },
+  {
+    "id": "GZ24-GZ25",
+    "from": "GZ24",
+    "to": "GZ25",
+    "capacity_mw": 10835,
+    "n_circuits": 6,
+    "x_equivalent": 0.139046,
+    "carrier": "AC"
+  },
+  {
+    "id": "GZ25-GZ26",
+    "from": "GZ25",
+    "to": "GZ26",
+    "capacity_mw": 11431,
+    "n_circuits": 4,
+    "x_equivalent": 0.120103,
+    "carrier": "AC"
+  },
+  {
+    "id": "GZ26-GZ27",
+    "from": "GZ26",
+    "to": "GZ27",
+    "capacity_mw": 7279,
+    "n_circuits": 4,
+    "x_equivalent": 0.295607,
+    "carrier": "AC"
+  },
+  {
+    "id": "GZ3-GZ4",
+    "from": "GZ3",
+    "to": "GZ4",
+    "capacity_mw": 99,
+    "n_circuits": 1,
+    "x_equivalent": 14.87,
+    "carrier": "AC"
+  },
+  {
+    "id": "GZ3-GZ5",
+    "from": "GZ3",
+    "to": "GZ5",
+    "capacity_mw": 600,
+    "n_circuits": 2,
+    "x_equivalent": 0.048238,
+    "carrier": "AC"
+  },
+  {
+    "id": "GZ3-GZ8",
+    "from": "GZ3",
+    "to": "GZ8",
+    "capacity_mw": 198,
+    "n_circuits": 2,
+    "x_equivalent": 1.780235,
+    "carrier": "AC"
+  },
+  {
+    "id": "GZ3-GZ9",
+    "from": "GZ3",
+    "to": "GZ9",
+    "capacity_mw": 4690,
+    "n_circuits": 2,
+    "x_equivalent": 0.885625,
+    "carrier": "AC"
+  },
+  {
+    "id": "GZ5-GZ6",
+    "from": "GZ5",
+    "to": "GZ6",
+    "capacity_mw": 384,
+    "n_circuits": 3,
+    "x_equivalent": 2.08539,
+    "carrier": "AC"
+  },
+  {
+    "id": "GZ5-GZ9",
+    "from": "GZ5",
+    "to": "GZ9",
+    "capacity_mw": 2180,
+    "n_circuits": 2,
+    "x_equivalent": 0.835,
+    "carrier": "AC"
+  },
+  {
+    "id": "GZ6-GZ8",
+    "from": "GZ6",
+    "to": "GZ8",
+    "capacity_mw": 264,
+    "n_circuits": 2,
+    "x_equivalent": 2.6769,
+    "carrier": "AC"
+  },
+  {
+    "id": "GZ7-GZ8",
+    "from": "GZ7",
+    "to": "GZ8",
+    "capacity_mw": 1478,
+    "n_circuits": 2,
+    "x_equivalent": 1.336958,
+    "carrier": "AC"
+  },
+  {
+    "id": "GZ8-GZ9",
+    "from": "GZ8",
+    "to": "GZ9",
+    "capacity_mw": 2711,
+    "n_circuits": 6,
+    "x_equivalent": 0.36515,
+    "carrier": "AC"
+  }
+]

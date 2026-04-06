@@ -2,264 +2,222 @@
 
 ## What this is
 
-An interactive web tool for stress-testing the GB electricity transmission grid. 20-node zonal model with DC power flow physics, real public data, all computation client-side. Hosted on GitHub Pages.
+Interactive client-side tool for stress-testing and scenario planning on the GB electricity transmission grid. Users can:
+- Select a year (2024-2035) and see planned reinforcements appear on the network
+- Toggle reinforcements on/off to compare current vs future network capacity
+- Choose FES/CP30 scenarios with different generation and demand assumptions
+- Switch between TNUoS 27-zone and FLOP 137-zone resolution for power flow analysis
+- Stress-test with weather percentile sliders (wind, solar, demand by season)
+- Toggle fuel types on/off to explore retirement scenarios (e.g. "what if all gas retires?")
+- Edit individual power plants (ramp up, ramp down, retire, change commissioning date)
+- Add hypothetical generation nodes ("what if 3 GW offshore wind connects into GZ17?")
+- Add or upgrade transmission links ("what if B6 capacity doubles?")
+- Run N-1 contingency analysis (remove one link, see cascading effects)
+- Compare merit order dispatch against simple dispatch
+- See DC power flow results on a Leaflet map with boundary utilisation heatmapping
 
-**Stack:** Vite + React 18, Leaflet.js (OpenStreetMap tiles), no backend, no external APIs at runtime.
+All data is from publicly available NESO and ECMWF sources. All calculations, assumptions, and limitations are documented in IMPLEMENTATION.md and exposed in the tool's Data & Methodology page.
 
-## Repository structure
+Built with React + Vite, deployed to GitHub Pages. No backend — all computation is client-side.
+
+## Repo structure
 
 ```
 gb-grid-tool/
-├── CLAUDE.md                    ← You are here
-├── docs/
-│   └── IMPLEMENTATION.md        ← Full pseudocode and component specs
-├── public/
-│   └── data/
-│       ├── zones.json           (5.5 KB — 20 transmission zones)
-│       ├── links.json           (4.3 KB — 37 transmission links)
-│       ├── plants.json          (47 KB — 383 generation plants)
-│       ├── climatology.json     (1.2 MB raw / ~373 KB gzipped — 34-year ERA5 climatology)
-│       ├── demand_climatology.json (~5 KB — NESO historic demand distributions)
-│       ├── gb_coastline.geojson (~15 KB — simplified GB outline)
-│       └── zone_boundaries.geojson (TBD — ETYS zone polygons, may not exist yet)
+├── public/data/                  # Static JSON/GeoJSON data files (see Data Files below)
 ├── src/
-│   ├── App.jsx
-│   ├── main.jsx
-│   ├── index.css
+│   ├── main.jsx                  # Entry point
+│   ├── App.jsx                   # Top-level layout: map + control panel + detail panel
 │   ├── components/
-│   │   ├── MapView.jsx          (Leaflet map with zones, links, boundaries)
-│   │   ├── LeftPanel.jsx        (Global controls, fuel toggles, sliders)
-│   │   ├── RightPanel.jsx       (Zone/link detail on click)
-│   │   ├── ZonePolygon.jsx      (Individual zone overlay on map)
-│   │   ├── LinkLine.jsx         (Transmission link on map)
-│   │   ├── PlantList.jsx        (Sortable, filterable plant table)
-│   │   ├── WindSliders.jsx      (Per-zone wind percentile sliders, collapsible)
-│   │   ├── PeriodSelector.jsx   (Winter/Spring/Summer/Autumn/Annual toggle)
-│   │   ├── FuelToggles.jsx
-│   │   ├── SystemSummary.jsx    (Total gen/dem/balance/bottlenecks)
-│   │   ├── ContingencyPanel.jsx (N-1 analysis results)
-│   │   ├── NodeEdgeEditor.jsx   (Add/remove nodes and edges)
-│   │   ├── ExportImport.jsx     (PNG/CSV/JSON export, CSV/JSON import)
-│   │   └── AboutPage.jsx        (Methodology, assumptions, data sources)
+│   │   ├── GridMap.jsx           # Leaflet map: zones, boundaries, links, coastline
+│   │   ├── ControlPanel.jsx      # Year slider, scenario selector, fuel toggles, weather sliders
+│   │   ├── DetailPanel.jsx       # Click-to-inspect: zone, boundary, or link detail
+│   │   ├── LinkLayer.jsx         # Zonal link arrows with flow magnitude
+│   │   ├── ScenarioManager.jsx   # FES scenario + CP30 scenario management
+│   │   ├── PlantEditor.jsx       # Edit individual plant output, status, commissioning
+│   │   ├── NodeAdder.jsx         # Add hypothetical generation to any zone
+│   │   ├── LinkEditor.jsx        # Add/upgrade/remove transmission links
+│   │   ├── ContingencyPanel.jsx  # N-1 contingency analysis UI
+│   │   ├── NationalSummary.jsx   # National generation/demand summary bar
+│   │   ├── MapLegend.jsx         # Map colour legend
+│   │   ├── ScenarioChangeSummary.jsx # Summary of user scenario edits
+│   │   ├── ErrorBoundary.jsx     # React error boundary wrapper
+│   │   └── DataSourcesPage.jsx   # Attribution, methodology, limitations, download links
 │   ├── engine/
-│   │   ├── dcPowerFlow.js       (Matrix solve, flow calculation)
-│   │   ├── capacityFactors.js   (Wind/solar CF from climatology percentiles)
-│   │   ├── contingency.js       (N-1 analysis — remove each link, re-solve)
-│   │   └── networkEditor.js     (Add/remove nodes and edges, rebuild B matrix)
-│   ├── state/
-│   │   └── useGridState.js      (Central state hook — all scenario state)
-│   ├── utils/
-│   │   ├── colours.js           (Utilisation → colour mapping)
-│   │   ├── stateExport.js       (CSV/URL state serialisation)
-│   │   └── constants.js         (Fuel colours, default CFs, season months)
-│   └── hooks/
-│       └── useDataLoader.js     (Async load of JSON data files)
-├── .github/
-│   └── workflows/
-│       └── deploy.yml           (GitHub Pages deploy action)
-├── package.json
-├── vite.config.js
+│   │   ├── dcPowerFlow.js        # Gaussian elimination DC power flow solver
+│   │   ├── networkBuilder.js     # Build admittance matrix from links for selected year
+│   │   ├── scenarioRunner.js     # Combine generation, demand, weather → run power flow
+│   │   ├── meritOrder.js         # Stack generation by marginal cost until demand met
+│   │   ├── lopf.js               # Linear optimal power flow (HiGHS-based)
+│   │   └── contingency.js        # N-1 analysis: remove each link, re-solve, find worst case
+│   ├── data/
+│   │   └── dataLoader.js         # Fetch and cache all JSON/GeoJSON from public/data/
+│   └── utils/
+│       ├── colours.js            # Utilisation → colour mapping (green-amber-red)
+│       └── percentiles.js        # Interpolated percentile lookup for climatology data
+├── scripts/
+│   ├── validation/               # Validation and testing scripts
+│   ├── data-processing/          # Data preparation scripts (ERA5, FES, FLOP, IC lookup)
+│   └── *.json                    # Intermediate model files (not tracked in git)
 ├── index.html
-└── README.md
+├── vite.config.js
+├── package.json
+├── CLAUDE.md                     # This file
+└── IMPLEMENTATION.md             # Detailed specs (data schemas, algorithms, UI)
 ```
 
-## Critical rules for implementation
+## Tech stack
 
-### 1. DC power flow is the ONLY physics engine
-No ML, no GNN, no approximations. The solve is: `B × θ = P`, LU decomposition with partial pivoting. This is exact within its assumptions. See `docs/IMPLEMENTATION.md` Section 3 for the full algorithm.
+- **Vite + React 18** (JSX, no TypeScript)
+- **Leaflet + react-leaflet** for the map
+- **No backend** — all data is static JSON in `public/data/`, all computation is client-side
+- **GitHub Pages** deployment via `vite build` → `dist/`
+- No state management library — React useState/useReducer is sufficient
+- No UI framework — custom CSS, clean and functional
 
-### 2. All computation is client-side
-No backend, no API calls, no serverless functions. Everything runs in the browser. The DC power flow solve on a 26×26 matrix takes <1ms. Even N-1 contingency (37 re-solves) takes <50ms.
+## Key concepts
 
-### 3. Data files are immutable at runtime
-`zones.json`, `links.json`, `plants.json`, `climatology.json` are loaded once on startup. User modifications (toggle plant, add node) modify in-memory state only. Export/import allows persisting state.
+### Zone schemes
 
-### 4. Every user interaction triggers a re-solve
-Toggle a fuel → recalculate zone generation → re-solve DC power flow → update all flows → update map colours. This must be <16ms to feel instant. At 26 nodes it will be.
+- **27 TNUoS generation zones** (GZ1–GZ27): Primary physics network. DC power flow runs at this resolution. Each zone is a node in the power flow.
+- **137 FLOP zones** (A1, B2, R5, T1, etc.): Higher-resolution zonal model derived from NESO's FLOP (Forecast of Locational Prices) methodology. Uses substation-level aggregation. No year-dependent topology (static 2024 network). Slack bus = R5 (Lancashire/Cumbria, maps to GZ14).
+- **14 DNO licence areas**: Display aggregation layer. Toggle to show demand grouped by distribution region. Not used in physics.
 
-### 5. Graceful degradation for missing data
-If `zone_boundaries.geojson` doesn't exist, fall back to circle markers at zone centroids. If `climatology.json` fails to load, disable scenario sliders but keep fuel toggles and plant toggles working. Always show something useful.
+### ETYS boundaries
 
-### 6. Interconnectors are NOT generation
-Fuel types starting with `INT` (INTFR, INTNED, INTELEC, INTNEM, INTIFA2, INTNSL, INTVKL, INTGRNL, INTEW, INTIRL) are interconnector capacity. They appear in `plants.json` and `zones.json` capacity_mw but must be treated as import links, not dispatchable generation. Their flow is determined by the DC power flow solve via the interconnector links in `links.json`.
+34 named transmission boundaries (B0, B6F, EC5I, SC1, NW1, etc.) that cross between specific TNUoS zones. Each has a published **capability** (MW) per year per FES scenario from NESO's ETYS 2024. The boundary-to-link mapping in `boundary_link_mapping.json` was derived programmatically from geometric intersection of boundary lines with zone polygons. 18 of 22 boundaries with capability data have crossing links mapped; the 4 unmapped (B0, NW1, NW2, SC3) are network-edge boundaries at peninsulas/islands with no cross-zone link to map.
 
-### 7. Capacity ≠ Output
-Never display nameplate capacity as generation. Always apply capacity factors:
-- **Wind:** From `climatology.json`, per-zone, per-season, at user-selected percentile (p1-p99)
-- **Solar:** From `climatology.json`, per-zone, per-season, at user-selected percentile (p1-p99)  
-- **Nuclear:** 0.90
-- **CCGT:** 0.50
-- **Biomass:** 0.85
-- **Coal:** 0.70
-- **OCGT:** 0.30
-- **Hydro (NPSHYD):** 0.40
-- **Pumped Storage (PS):** 0.10 (default, adjustable)
-- **Other:** 0.30
+### Utilisation (the core metric)
 
-### 8. Demand comes from real data, not hardcoded multipliers
-Demand is driven by `demand_climatology.json`, which contains p1-p99 distributions of actual NESO half-hourly demand data (2009-2025), broken down per zone, per season, plus annual.
+**Default view — Boundary capability utilisation:**
+```
+boundary_util = Σ|flow across links crossing boundary| / ETYS_capability_MW × 100%
+```
+This is the operationally meaningful metric — what NESO manages to. Capability incorporates N-1 security, voltage constraints, and stability limits.
 
-The demand slider works identically to the wind slider: pick a percentile (p1-p99) and get a realistic demand level for the selected period (season or annual). This replaces the earlier approach of base demand × seasonal multiplier.
+**Detail panel — Thermal utilisation:**
+```
+thermal_util = |flow on link| / sum(circuit winter ratings) × 100%
+```
+Raw physical headroom in the conductors. Always lower than boundary utilisation because boundary capability is more conservative than thermal limits.
 
-For each zone: `demand_mw = demand_climatology.zones[zoneId][season].hourly["p" + demandPercentile]`
+### DC power flow
 
-The user can also select "annual" as the period, which uses the all-months distribution.
+Standard DC power flow approximation (linearised from full AC power flow by assuming flat voltage profile and small angle differences). Drops reactive power — solves only for MW flows and voltage angles. Valid for transmission-level planning studies at this zonal resolution. Uses real equivalent reactances aggregated from ETYS Appendix B individual circuit data (parallel combination: X_eq = 1/Σ(1/x_i)), not a capacity proxy.
 
-Default: p50 (median demand for the selected season).
+Gaussian elimination with partial pivoting, 27×27 system, <1ms solve time. Pure JS, no libraries. Slack bus = highest-demand zone (GZ18, London/Thames Valley).
 
-The `demand_share` field in demand_climatology.json records each zone's proportion of national demand (from PyPSA-GB ESPENI). This is used to distribute national demand to zones.
+**Assumption**: Power distributes inversely proportional to reactance. This is physically correct for DC power flow but does not account for active dispatch decisions, constraint management, or generator merit order that NESO applies in real-time operation. Merit order dispatch is available as an optional mode (see Phase 4).
 
----
+### Year slider (2024-2035)
 
-## Data schemas
+Network topology changes per year from ETYS Appendix B planned changes (B-2-2 sheets). Links appear/disappear, ratings change. ETYS boundary capabilities also vary by year and scenario. Total network capacity grows from ~267 GVA (2024) to ~408 GVA (2035) as reinforcements are built. Users can see exactly when each reinforcement is scheduled and test "what if it's delayed?"
 
-### zones.json
-```typescript
-interface Zone {
-  id: string;           // "Z1_1", "Z2", etc.
-  name: string;         // "Shetland & North Scotland"
-  lat: number;          // Centroid latitude
-  lon: number;          // Centroid longitude
-  capacity_mw: Record<string, number>;  // Fuel type → nameplate MW
-  total_capacity_mw: number;
-  demand_mw: number;    // Base annual average demand
-}
-// File is Zone[]
+### Scenario editing
+
+Users can modify the network beyond the published ETYS plan:
+- **Plant editing**: Change output, status, or commissioning year of any of the 1,896 TEC Register projects
+- **Node addition**: Add hypothetical generation (any type, any MW) to any zone
+- **Link editing**: Add new transmission links, upgrade existing capacity, or remove links
+- All edits persist during the session and can be exported/imported as JSON
+- The year slider shows how user edits interact with NESO's planned reinforcement timeline
+
+### Climatology
+
+ERA5 reanalysis (1991-2024, 34 years, hourly, 0.25° grid) provides per-zone weather distributions:
+
+- **Wind CF**: IEC cubic ramp power curve (cut-in 3 m/s, rated 12 m/s, cut-out 25 m/s) applied to ERA5 100m wind speed. All hours included. Source: Staffell & Pfenninger (2016), doi:10.1016/j.energy.2016.08.060.
+- **Solar CF**: 85% system efficiency applied to ERA5 surface solar radiation downwards (ssrd), per IEC 61215 STC (1000 W/m²). **DAYLIGHT HOURS ONLY** — percentiles computed after filtering to hours where solar elevation angle > 0° at zone centroid, using Spencer (1971) solar position equations. Each entry includes `daylight_fraction`.
+- **Temperature**: ERA5 2m temperature converted to °C.
+- **Raw variables also stored**: wind_ms (m/s), solar_jm2 (J/m²/hr), cloud_frac (0-1) — allows swapping in different turbine power curves or panel efficiency models without rebuilding ERA5 data.
+
+**Front-end solar usage**: `zone_solar_mw = installed_mw × solar_cf_at_percentile × daylight_fraction`
+
+### Demand climatology
+
+NESO historic half-hourly Transmission System Demand (TSD) from 2009-2025 (~280,000 records) provides national seasonal percentile distributions. Per-zone demand computed by applying ETYS Appendix G zone shares (47,940 MW total, 2024) to national percentiles.
+
+**Assumption**: Zone demand shares are constant across percentiles. See limitations.
+
+## Data files (public/data/)
+
+| File | Size | Content |
+|------|------|---------|
+| `zone_boundaries_tnuos.geojson` | 38 KB | 27 TNUoS zone polygons, WGS84 |
+| `zone_boundaries_dno.geojson` | 349 KB | 14 DNO licence area polygons, WGS84 |
+| `zone_boundaries_flop.geojson` | ~200 KB | 137 FLOP zone polygons, WGS84 |
+| `etys_boundaries.geojson` | 63 KB | 34 boundary lines, WGS84 |
+| `gb_coastline.geojson` | 146 KB | GB outline (union of DNO areas) |
+| `etys_capabilities.json` | 323 KB | 22 boundaries × 20 years × 5 scenarios × 7 metrics (exact NESO values) |
+| `links_tnuos.json` | ~5 KB | 40 adjacency-filtered zonal links with real reactances |
+| `links_tnuos_by_year.json` | ~60 KB | Network evolution 2024-2035 (from Appendix B planned changes) |
+| `links_flop.json` | ~15 KB | FLOP zonal links with reactances (static 2024 topology) |
+| `boundary_link_mapping.json` | ~5 KB | ETYS boundary → crossing TNUoS link pairs (18/22 mapped) |
+| `boundary_link_mapping_flop.json` | ~8 KB | ETYS boundary → crossing FLOP link pairs with shares_with |
+| `zones_tnuos.json` | ~30 KB | 27 zones: generation by type + demand by year (47,940 MW base) |
+| `zones_flop.json` | ~80 KB | 137 FLOP zones: generation by type, demand_mw, primary_tnuos_zone |
+| `plants_tnuos.json` | ~100 KB | 1,896 generation projects with zone assignments |
+| `demand_by_node.json` | ~80 KB | 965 demand nodes with yearly MW (100% mapped) |
+| `climatology.json` | 296 KB | ERA5 6 variables, 23 percentiles, daylight-filtered solar |
+| `demand_climatology.json` | 56 KB | 27-zone seasonal demand percentiles from NESO historic TSD |
+| `ic_lookup.json` | ~5 KB | NESO historic IC import % binned by wind CF × demand quintile |
+| `marginal_costs.json` | ~2 KB | Fuel-type marginal costs for merit order and LOPF dispatch |
+| `substation_zone_mapping.json` | 183 KB | 795 ETYS substations mapped to TNUoS zones |
+
+**Total: ~2 MB. All data from NESO (OGL v3) and ECMWF/Copernicus (C3S licence).**
+
+## Commands
+
+```bash
+npm install          # Install dependencies
+npm run dev          # Dev server on localhost:5173
+npm run build        # Production build to dist/
+npm run preview      # Preview production build
 ```
 
-### links.json
-```typescript
-interface Link {
-  id: string;           // "Z9-Z3" or "IFA"
-  from: string;         // Zone ID or foreign node name
-  to: string;
-  capacity_mw: number;
-  carrier: "AC" | "DC";
-}
-// File is Link[]
-// Foreign nodes: France1, France2, Netherlands, Belgium, N. Ireland, Ireland
-// These are NOT in zones.json — position them off-coast on the map
-```
+## Code style
 
-### plants.json
-```typescript
-interface Plant {
-  id: string;           // "DRAXX-1"
-  name: string;         // "T_DRAXX-1"
-  zone: string;         // "Z5"
-  fuel: string;         // "BIOMASS", "CCGT", "WIND", etc.
-  capacity_mw: number;
-}
-// File is Plant[]
-// 383 plants, covering 98.9% of GB generation
-```
+- Functional components with hooks
+- Named exports for components, default export for pages
+- Data loading in a single `dataLoader.js` with Promise.all
+- No prop drilling beyond 2 levels — use context if needed
+- Comments on non-obvious engineering calculations, citing sources where applicable
+- British spelling in UI text (utilisation, licence, colour)
 
-### climatology.json
-```typescript
-interface Climatology {
-  metadata: { ... };
-  capacity_factor_curves: { wind: {...}, solar: {...} };
-  zones: Record<string, ZoneClimatology>;
-}
+## Known limitations and assumptions
 
-interface ZoneClimatology {
-  wind_ms: SeasonalVar;    // 100m wind speed (m/s)
-  wind_cf: SeasonalVar;    // Wind capacity factor (0-1)
-  solar_jm2: SeasonalVar;  // Solar radiation (J/m²/hour)
-  solar_cf: SeasonalVar;   // Solar capacity factor (0-1)
-  cloud_frac: SeasonalVar; // Cloud cover (0-1)
-  t2m_c: SeasonalVar;      // Temperature (°C)
-}
+1. **DC power flow approximation**: Drops reactive power and voltage magnitude. Valid for MW flow patterns at zonal resolution but cannot detect voltage stability or reactive power issues. This is the same approximation NESO uses for boundary transfer analysis.
+2. **27-node zonal aggregation**: Internal congestion within zones is invisible. A zone like GZ18 (101 ERA5 grid points, 54 substations) may have internal bottlenecks the model cannot see.
+3. **4 unmapped edge boundaries**: B0 (Orkney/Caithness), NW1/NW2 (Anglesey), SC3 (South Coast) are network-edge boundaries with no cross-zone link. Displayed on map but not included in utilisation calculation.
+4. **Plant mapping coverage**: 58% of TEC Register projects (1,093/1,896) mapped to zones. The 42% unmapped are predominantly "Scoping" status. All 313 "Built" projects and most "Under Construction" projects are mapped.
+5. **Solar daylight filtering**: Uses Spencer (1971) solar position at zone centroid. Does not account for terrain shading. ~5% of daytime winter hours have genuinely zero solar CF from heavy overcast — these are correctly included as real daytime conditions.
+6. **Demand year-scaling with constant zone shares**: Zone demand = year-projected baseline × (seasonal percentile / seasonal mean). This preserves ETYS demand growth projections while applying seasonal weather variation from historic data. However, per-zone shares of national demand are constant across percentiles — the zone's share at p10 is the same as at p90.
+7. **No generator merit order in default mode**: Simple dispatch runs all enabled generation simultaneously. Merit order mode (Phase 4) stacks by marginal cost. Neither accounts for NESO's real-time balancing mechanism actions.
+8. **Substation mapping**: 795/885 ETYS substations mapped via 3-phase process (GSP point-in-polygon → circuit-graph propagation → TO fallback + fuzzy name matching).
+9. **Shared boundary resolution**: Boundaries sharing crossing links at 27-node resolution (B1aF/B2F, B3/B4F/B5, B8/NW3, EC5I/B14/LE1, SC1/SC1.5/B13) use the maximum capability in the shared group as denominator. This prevents artificial utilisation inflation but means the model cannot distinguish individual boundary constraints within a shared group.
+10. **FLOP zone static topology**: The 137-zone FLOP model uses a single static 2024 network topology. Unlike the TNUoS model which has year-dependent links from ETYS Appendix B (2024-2035), the FLOP links do not change with the year slider. Reinforcement analysis should be done in TNUoS mode. FLOP generation uses pre-aggregated built capacity only (no year-dependent commissioning pipeline).
 
-interface SeasonalVar {
-  winter: Resolution;
-  spring: Resolution;
-  summer: Resolution;
-  autumn: Resolution;
-  annual: Resolution;      // All months combined
-}
+## Future: Monte Carlo stress testing
 
-interface Resolution {
-  hourly: Stats;
-  daily: Stats;
-}
+The tool architecture is designed to support probabilistic analysis in a future phase. The climatology data contains joint weather distributions across all 27 zones from 34 years of hourly ERA5 data. Combined with a copula-based sampling framework (preserving the spatial and inter-variable dependence structure), this enables Monte Carlo simulation: sample 10,000+ weather scenarios, run DC power flow for each, and produce probability distributions of boundary exceedance. This transforms the tool from deterministic scenario exploration into quantitative risk assessment.
 
-interface Stats {
-  p1: number; p2: number; ... p99: number;  // Every integer percentile
-  mean: number; min: number; max: number; std: number; count: number;
-}
-```
+## Data sources and attribution
 
-### demand_climatology.json
-```typescript
-interface DemandClimatology {
-  metadata: { ... };
-  national: DemandPeriods;   // National-level demand distributions
-  zones: Record<string, ZoneDemand>;
-}
+| Data | Source | Licence | URL |
+|------|--------|---------|-----|
+| DNO licence areas | NESO | OGL v3 | neso.energy/data-portal/gis-boundaries-gb-dno-license-areas |
+| TNUoS generation zones | NESO | OGL v3 | neso.energy/data-portal/gis-boundaries-gb-generation-charging-zones |
+| ETYS boundary geometry | NESO | OGL v3 | neso.energy/data-portal/etys-gb-transmission-system-boundaries |
+| ETYS boundary capabilities | NESO | OGL v3 | neso.energy/data-portal/electricity-transmission-network-requirements |
+| ETYS Appendix B (network) | NESO | OGL v3 | neso.energy/data-portal/etys-documents-and-appendices |
+| ETYS Appendix F (TEC Register) | NESO | OGL v3 | neso.energy/data-portal/etys-documents-and-appendices |
+| ETYS Appendix G (GSP demand) | NESO | OGL v3 | neso.energy/data-portal/etys-documents-and-appendices |
+| GSP region boundaries | NESO | OGL v3 | neso.energy/data-portal/gis-boundaries-gb-grid-supply-points |
+| Historic demand (TSD) | NESO | OGL v3 | neso.energy/data-portal/historic-demand-data |
+| ERA5 reanalysis | ECMWF/Copernicus | C3S licence | earthdatahub.destine.eu |
+| Wind CF power curve | Staffell & Pfenninger (2016) | Academic | doi.org/10.1016/j.energy.2016.08.060 |
+| Solar CF methodology | IEC 61215 / Pfenninger & Staffell (2016) | Standard | — |
+| Solar position equations | Spencer (1971) | Academic | — |
 
-interface ZoneDemand {
-  name: string;
-  demand_share: number;      // Fraction of national demand (sums to 1.0)
-  base_demand_mw: number;    // From zones.json
-  winter: Resolution;        // p1-p99 demand in MW for this zone
-  spring: Resolution;
-  summer: Resolution;
-  autumn: Resolution;
-  annual: Resolution;
-}
-
-// national has the same structure (Resolution per period)
-// Source: NESO Historic Demand Data (half-hourly TSD), 2009-2025
-// Zone shares: PyPSA-GB ESPENI population-weighted profiles
-```
-
----
-
-## Foreign node positions (for map display)
-```javascript
-const FOREIGN_NODES = {
-  "France1":      { lat: 49.8,  lon: 1.3,  name: "France (IFA)" },
-  "France2":      { lat: 49.6,  lon: 0.5,  name: "France (IFA2)" },
-  "Netherlands":  { lat: 52.1,  lon: 3.5,  name: "Netherlands" },
-  "Belgium":      { lat: 51.2,  lon: 2.8,  name: "Belgium" },
-  "N. Ireland":   { lat: 54.6,  lon: -5.9, name: "N. Ireland" },
-  "Ireland":      { lat: 53.3,  lon: -6.3, name: "Ireland" },
-};
-```
-
----
-
-## Region groupings (for collapsible wind sliders)
-```javascript
-const REGION_GROUPS = {
-  "Scotland":  ["Z1_1", "Z1_2", "Z1_3", "Z1_4"],
-  "North":     ["Z2", "Z3", "Z4", "Z5"],
-  "Midlands":  ["Z6", "Z7", "Z8"],
-  "West":      ["Z9"],
-  "East":      ["Z10"],
-  "Central":   ["Z11"],
-  "South":     ["Z12", "Z13", "Z14", "Z15", "Z16", "Z17"],
-};
-```
-
----
-
-## B6 boundary
-The Scotland-England boundary is the single most important constraint in GB transmission. Links `Z9-Z3` (8000 MW) and `Z7-Z2` (6000 MW) are the B6 boundary. These should be visually highlighted on the map with a distinct style (dashed line, label, or glow) and called out in the system summary when stressed.
-
----
-
-## Build phases
-See `docs/IMPLEMENTATION.md` for detailed specs. Summary:
-
-1. **Phase 1:** Project scaffold, data loading, Leaflet map with zones + links + coastline
-2. **Phase 2:** DC power flow engine, link colouring by utilisation, zone colouring by surplus/deficit
-3. **Phase 3:** Left panel — fuel toggles, season selector, demand slider, system summary
-4. **Phase 4:** Per-zone wind sliders (p1-p99), solar slider, seasonal CF switching
-5. **Phase 5:** Right panel — zone detail, generation mix chart, plant list with on/off toggles
-6. **Phase 6:** N-1 contingency analysis, add/remove nodes and edges
-7. **Phase 7:** Export/import (PNG, CSV, JSON), shareable URL state
-8. **Phase 8:** About/methodology page, polish, mobile responsive, error handling, deploy
-
-Each phase should be a working commit. Each phase builds on the previous. Do not skip ahead.
+Contains NESO data © Crown copyright, used under the Open Government Licence v3.0.
+Contains modified Copernicus Climate Change Service information, 2024.

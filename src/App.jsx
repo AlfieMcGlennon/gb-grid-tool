@@ -38,8 +38,15 @@ function App() {
   const [dispatchMode, setDispatchMode] = useState('simple');
   const [availableFuelTypes, setAvailableFuelTypes] = useState([]);
 
-  // Phase 4: Interconnector import percentage (0-100%)
+  // Phase 4: Interconnector import percentage (0-100%) and dynamic mode
   const [interconnectorImport, setInterconnectorImport] = useState(65);
+  const [dynamicIC, setDynamicIC] = useState(false);
+
+  // Zone mode: 'tnuos' (27 zones) or 'flop' (82 zones)
+  const [zoneMode, setZoneMode] = useState('tnuos');
+
+  // Reinforcements toggle: when disabled, use 2024 baseline topology regardless of year
+  const [reinforcementsEnabled, setReinforcementsEnabled] = useState(true);
 
   // Phase 5: Plant edits overlay (session-only, not persisted)
   // Structure: { [plantId]: { status, outputPct, commissioningYear, _plantType, _baseMW } }
@@ -81,6 +88,10 @@ function App() {
   // UI state: left panel open/closed
   const [leftPanelOpen, setLeftPanelOpen] = useState(false);
 
+  // HiGHS solver instance (loaded once, used for LOPF dispatch)
+  const highsRef = useRef(null);
+  const [highsReady, setHighsReady] = useState(false);
+
   // UI state: calculating indicator
   const [calculating, setCalculating] = useState(false);
 
@@ -94,6 +105,47 @@ function App() {
   useEffect(() => {
     localStorage.setItem('colorBlindMode', colorBlindMode);
   }, [colorBlindMode]);
+
+  // Load HiGHS WASM solver on mount (for LOPF dispatch mode)
+  // Loaded via script tag to bypass Vite's ESM transformation which breaks the Emscripten module
+  useEffect(() => {
+    const script = document.createElement('script');
+    script.src = import.meta.env.BASE_URL + 'highs.js';
+    script.async = true;
+    script.onload = async () => {
+      try {
+        // The Emscripten module attaches itself as window.Module or returns from the IIFE
+        const initFn = window.Module;
+        if (typeof initFn === 'function') {
+          const instance = await initFn({
+            locateFile: (file) => file.endsWith('.wasm')
+              ? import.meta.env.BASE_URL + 'highs.wasm'
+              : import.meta.env.BASE_URL + file
+          });
+          if (instance && typeof instance.solve === 'function') {
+            highsRef.current = instance;
+            setHighsReady(true);
+            console.log('HiGHS solver loaded successfully');
+          } else {
+            console.warn('HiGHS init returned object without solve()');
+          }
+        } else {
+          console.warn('HiGHS script loaded but Module not a function:', typeof initFn);
+        }
+      } catch (err) {
+        console.warn('HiGHS init failed:', err.message);
+      }
+    };
+    script.onerror = () => {
+      console.warn('Failed to load HiGHS script');
+    };
+    document.head.appendChild(script);
+
+    return () => {
+      // Cleanup on unmount
+      if (script.parentNode) script.parentNode.removeChild(script);
+    };
+  }, []);
 
   // Handle Escape key to close modals (innermost first)
   const escapeModals = useMemo(() => [
@@ -119,9 +171,13 @@ function App() {
       fuelToggles: params.fuelToggles,
       dispatchMode: params.dispatchMode,
       interconnectorImport: params.interconnectorImport,
+      dynamicIC: params.dynamicIC,
+      reinforcementsEnabled: params.reinforcementsEnabled,
       plantEdits: params.plantEdits,
       addedNodes: params.addedNodes,
-      linkEdits: params.linkEdits
+      linkEdits: params.linkEdits,
+      zoneMode: params.zoneMode,
+      highs: params.dispatchMode === 'lopf' ? highsRef.current : null
     });
 
     setPowerFlowResults(results);
@@ -360,7 +416,8 @@ function App() {
           interconnectorImport,
           plantEdits: {},
           addedNodes: [],
-          linkEdits: { added: [], removed: [], modified: {} }
+          linkEdits: { added: [], removed: [], modified: {} },
+          zoneMode
         });
         setLoading(false);
       })
@@ -386,16 +443,19 @@ function App() {
             fuelToggles,
             dispatchMode,
             interconnectorImport,
+            dynamicIC,
+            reinforcementsEnabled,
             plantEdits,
             addedNodes,
-            linkEdits
+            linkEdits,
+            zoneMode
           });
         } finally {
           setCalculating(false);
         }
       }, 0);
     }
-  }, [year, season, windPercentile, solarPercentile, demandPercentile, fuelToggles, dispatchMode, interconnectorImport, plantEdits, addedNodes, linkEdits, data, runPowerFlow, resetCounter, scenario]);
+  }, [year, season, windPercentile, solarPercentile, demandPercentile, fuelToggles, dispatchMode, interconnectorImport, dynamicIC, reinforcementsEnabled, plantEdits, addedNodes, linkEdits, zoneMode, data, runPowerFlow, resetCounter, scenario]);
 
   if (loading) {
     return (
@@ -574,7 +634,7 @@ function App() {
           </div>
           <div className="top-bar-title">
             <h1>GB Grid Scenario Tool</h1>
-            <p>27 TNUoS Zones • Year {year}</p>
+            <p>{zoneMode === 'flop' ? '82 FLOP Zones' : '27 TNUoS Zones'} • Year {year}</p>
           </div>
         </div>
         <nav className="top-bar-nav">
@@ -653,6 +713,7 @@ function App() {
             selectedZone={selectedZone}
             selectedBoundary={selectedBoundary}
             year={year}
+            zoneMode={zoneMode}
             colorBlindMode={colorBlindMode}
             onZoneClick={(zoneId) => {
               setSelectedZone(zoneId);
@@ -680,6 +741,8 @@ function App() {
           calculating={calculating}
           year={year}
           season={season}
+          zoneMode={zoneMode}
+          onZoneModeChange={setZoneMode}
           windPercentile={windPercentile}
           solarPercentile={solarPercentile}
           demandPercentile={demandPercentile}
@@ -699,6 +762,11 @@ function App() {
           }}
           onDispatchModeChange={setDispatchMode}
           onInterconnectorImportChange={setInterconnectorImport}
+          dynamicIC={dynamicIC}
+          onDynamicICChange={setDynamicIC}
+          reinforcementsEnabled={reinforcementsEnabled}
+          onReinforcementsChange={setReinforcementsEnabled}
+          resolvedICImport={powerFlowResults?.resolvedICImport}
           onColorBlindModeChange={setColorBlindMode}
           onOpenContingency={() => setContingencyPanelOpen(true)}
           onOpenScenarioManager={() => setScenarioManagerOpen(true)}
@@ -721,7 +789,10 @@ function App() {
             setSolarPercentile(50);
             setDemandPercentile(75);
             setInterconnectorImport(65);
+            setDynamicIC(false);
+            setReinforcementsEnabled(true);
             setDispatchMode('simple');
+            setZoneMode('tnuos');
             // Reset fuel toggles to all enabled (set each key to true)
             setFuelToggles(prev => Object.fromEntries(Object.keys(prev).map(k => [k, true])));
             // Clear all edits

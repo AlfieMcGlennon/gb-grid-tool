@@ -1,0 +1,60 @@
+/* SCADA Control Room Scenario Change Summary */
+.scenario-change-summary {
+  position: fixed;
+  top: 80px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 2000;
+  background: var(--bg-panel);
+  color: var(--text-primary);
+  padding: 12px 20px;
+  border-radius: var(--radius);
+  box-shadow: none;
+  border: 1px solid var(--accent-primary);
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  max-width: 90%;
+  animation: slideDown 0.3s ease-out;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateX(-50%) translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+  }
+}
+
+.change-message {
+  font-size: 14px;
+  font-weight: 500;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.dismiss-button {
+  background: none;
+  border: none;
+  color: var(--text-muted);
+  font-size: 24px;
+  cursor: pointer;
+  padding: 0;
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius);
+  transition: all 0.2s;
+  flex-shrink: 0;
+}
+
+.dismiss-button:hover {
+  background: var(--bg-hover);
+  color: var(--text-primary);
+}

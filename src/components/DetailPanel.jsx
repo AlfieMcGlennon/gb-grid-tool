@@ -24,7 +24,7 @@ function BoundaryDetail({ boundaryId, boundaryData, powerFlowResults, onClose })
           <button className="close-button" onClick={onClose}>×</button>
         </div>
         <div className="panel-content">
-          <p style={{ color: '#6b7280' }}>
+          <p style={{ color: '#71717a' }}>
             Boundary data not available. This may be an unmapped edge boundary (B0, NW1, NW2, SC3).
           </p>
         </div>
@@ -60,7 +60,7 @@ function BoundaryDetail({ boundaryId, boundaryData, powerFlowResults, onClose })
               <div className="utilisation-value" style={{
                 color: boundaryUtil.utilisation_pct > 85 ? '#ef4444' :
                        boundaryUtil.utilisation_pct > 75 ? '#f97316' :
-                       boundaryUtil.utilisation_pct > 60 ? '#facc15' : '#22c55e'
+                       boundaryUtil.utilisation_pct > 60 ? '#f59e0b' : '#22c55e'
               }}>
                 {boundaryUtil.utilisation_pct.toFixed(1)}%
               </div>
@@ -164,7 +164,7 @@ function BoundaryDetail({ boundaryId, boundaryData, powerFlowResults, onClose })
                           <div className="link-thermal" style={{
                             color: thermalPct > 80 ? '#ef4444' :
                                    thermalPct > 60 ? '#f97316' :
-                                   thermalPct > 40 ? '#facc15' : '#94a3b8'
+                                   thermalPct > 40 ? '#f59e0b' : '#71717a'
                           }}>
                             {thermalPct.toFixed(1)}% thermal
                           </div>
@@ -243,7 +243,7 @@ function ZoneDetail({ selectedZone, zone, powerFlowResults, plantsData, plantEdi
   const isExporting = netInjection > 100;
   const isImporting = netInjection < -100;
   const statusText = isExporting ? 'Exporting' : isImporting ? 'Importing' : 'Balanced';
-  const statusColor = isExporting ? '#22c55e' : isImporting ? '#ef4444' : '#94a3b8';
+  const statusColor = isExporting ? '#22c55e' : isImporting ? '#ef4444' : '#71717a';
 
   return (
     <div className="detail-panel">
@@ -303,8 +303,8 @@ function ZoneDetail({ selectedZone, zone, powerFlowResults, plantsData, plantEdi
                           style={{
                             width: `${Math.min(d.cf * 100, 100)}%`,
                             backgroundColor: d.cf >= 0.8 ? '#22c55e' :
-                                           d.cf >= 0.5 ? '#facc15' :
-                                           d.cf >= 0.2 ? '#fb923c' : '#94a3b8'
+                                           d.cf >= 0.5 ? '#f59e0b' :
+                                           d.cf >= 0.2 ? '#f97316' : '#71717a'
                           }}
                         />
                       </div>
@@ -586,7 +586,7 @@ function WelcomeOverview({ powerFlowResults, zoneData, onBoundaryClick, onClose 
             </div>
           </div>
           <div className="welcome-imbalance" style={{
-            color: Math.abs(imbalance) < 500 ? '#94a3b8' : imbalance > 0 ? '#22c55e' : '#ef4444'
+            color: Math.abs(imbalance) < 500 ? '#71717a' : imbalance > 0 ? '#22c55e' : '#ef4444'
           }}>
             {imbalance >= 0 ? '+' : ''}{(imbalance / 1000).toFixed(1)} GW {Math.abs(imbalance) < 500 ? 'balanced' : imbalance > 0 ? 'surplus' : 'deficit'}
           </div>
@@ -631,7 +631,7 @@ function WelcomeOverview({ powerFlowResults, zoneData, onBoundaryClick, onClose 
                         width: `${Math.min(b.utilisation_pct, 100)}%`,
                         backgroundColor: b.utilisation_pct > 85 ? '#ef4444' :
                                         b.utilisation_pct > 75 ? '#f97316' :
-                                        b.utilisation_pct > 60 ? '#facc15' : '#22c55e'
+                                        b.utilisation_pct > 60 ? '#f59e0b' : '#22c55e'
                       }}
                     />
                     {b.utilisation_pct > 100 && (
@@ -644,7 +644,7 @@ function WelcomeOverview({ powerFlowResults, zoneData, onBoundaryClick, onClose 
                     color: b.utilisation_pct > 100 ? '#dc2626' :
                            b.utilisation_pct > 85 ? '#ef4444' :
                            b.utilisation_pct > 75 ? '#f97316' :
-                           b.utilisation_pct > 60 ? '#facc15' : '#94a3b8'
+                           b.utilisation_pct > 60 ? '#f59e0b' : '#71717a'
                   }}>
                     {b.utilisation_pct > 100 && <span className="constrained-label">!</span>}
                     {b.utilisation_pct.toFixed(0)}%
@@ -714,7 +714,7 @@ export default function DetailPanel({ selectedZone, selectedBoundary, zoneData, 
           <button className="close-button" onClick={onClose}>×</button>
         </div>
         <div className="panel-content">
-          <p style={{ color: '#6b7280' }}>No data available for this zone</p>
+          <p style={{ color: '#71717a' }}>No data available for this zone</p>
         </div>
       </div>
     );

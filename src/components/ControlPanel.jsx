@@ -12,6 +12,8 @@ export default function ControlPanel({
   fuelToggles,
   dispatchMode,
   interconnectorImport,
+  zoneMode,
+  onZoneModeChange,
   colorBlindMode,
   onYearChange,
   onSeasonChange,
@@ -21,6 +23,11 @@ export default function ControlPanel({
   onFuelToggleChange,
   onDispatchModeChange,
   onInterconnectorImportChange,
+  dynamicIC,
+  onDynamicICChange,
+  reinforcementsEnabled,
+  onReinforcementsChange,
+  resolvedICImport,
   onColorBlindModeChange,
   onOpenContingency,
   onOpenScenarioManager,
@@ -253,6 +260,16 @@ export default function ControlPanel({
             <span>2030</span>
             <span>2035</span>
           </div>
+          {localYear > 2024 && (
+            <label className="dynamic-ic-toggle">
+              <input
+                type="checkbox"
+                checked={reinforcementsEnabled}
+                onChange={(e) => onReinforcementsChange(e.target.checked)}
+              />
+              Include planned reinforcements
+            </label>
+          )}
         </div>
 
         {/* Season Selector */}
@@ -267,6 +284,25 @@ export default function ControlPanel({
               <option key={s} value={s.toLowerCase()}>{s}</option>
             ))}
           </select>
+        </div>
+
+        {/* Zone Scheme Toggle */}
+        <div className="control-group">
+          <label className="control-label">Zone Scheme</label>
+          <div className="zone-scheme-toggle">
+            <button
+              className={`toggle-button ${zoneMode === 'tnuos' ? 'active' : ''}`}
+              onClick={() => onZoneModeChange('tnuos')}
+            >
+              TNUoS (27)
+            </button>
+            <button
+              className={`toggle-button ${zoneMode === 'flop' ? 'active' : ''}`}
+              onClick={() => onZoneModeChange('flop')}
+            >
+              FLOP (82)
+            </button>
+          </div>
         </div>
 
         {/* Dispatch Mode Toggle */}
@@ -285,7 +321,18 @@ export default function ControlPanel({
             >
               Merit Order
             </button>
+            <button
+              className={`toggle-button ${dispatchMode === 'lopf' ? 'active' : ''}`}
+              onClick={() => onDispatchModeChange('lopf')}
+            >
+              LOPF
+            </button>
           </div>
+          {dispatchMode === 'lopf' && (
+            <span className="control-hint" style={{ fontSize: '0.7rem', opacity: 0.7, marginTop: '2px', display: 'block' }}>
+              Network-constrained economic dispatch
+            </span>
+          )}
         </div>
       </div>
 
@@ -373,30 +420,45 @@ export default function ControlPanel({
           </div>
         </div>
 
-        {/* Interconnector Import Slider */}
+        {/* Interconnector Import */}
         <div className="control-group">
           <label className="control-label">
-            Imports: <span className="control-value">{localInterconnectorImport}%</span>
+            Imports: <span className="control-value">
+              {dynamicIC ? `${resolvedICImport ?? '...'}%` : `${localInterconnectorImport}%`}
+            </span>
             <span className="percentile-desc">
-              {localInterconnectorImport <= 20 ? '(exporting)' :
+              {dynamicIC ? '(NESO historic)' :
+               localInterconnectorImport <= 20 ? '(exporting)' :
                localInterconnectorImport <= 45 ? '(low import)' :
                localInterconnectorImport <= 75 ? '(typical)' : '(max import)'}
             </span>
           </label>
-          <input
-            type="range"
-            min="0"
-            max="100"
-            step="5"
-            value={localInterconnectorImport}
-            onChange={(e) => setLocalInterconnectorImport(Number(e.target.value))}
-            className="percentile-slider"
-          />
-          <div className="slider-labels">
-            <span>Export</span>
-            <span>Typical</span>
-            <span>Max Import</span>
-          </div>
+          <label className="dynamic-ic-toggle">
+            <input
+              type="checkbox"
+              checked={dynamicIC}
+              onChange={(e) => onDynamicICChange(e.target.checked)}
+            />
+            Dynamic (from NESO data)
+          </label>
+          {!dynamicIC && (
+            <>
+              <input
+                type="range"
+                min="0"
+                max="100"
+                step="5"
+                value={localInterconnectorImport}
+                onChange={(e) => setLocalInterconnectorImport(Number(e.target.value))}
+                className="percentile-slider"
+              />
+              <div className="slider-labels">
+                <span>Export</span>
+                <span>Typical</span>
+                <span>Max Import</span>
+              </div>
+            </>
+          )}
         </div>
       </div>
 

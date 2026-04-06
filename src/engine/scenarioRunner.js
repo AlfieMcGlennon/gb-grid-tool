@@ -3,6 +3,7 @@
 import { solveDCPF } from './dcPowerFlow.js';
 import { getLinksForYear, applyUserEdits } from './networkBuilder.js';
 import { applyMeritOrder } from './meritOrder.js';
+import { solveLOPF } from './lopf.js';
 import { getInterpolatedPercentile } from '../utils/percentiles.js';
 
 /**
@@ -149,6 +150,51 @@ function isPlantOperational(plant, year) {
 }
 
 /**
+ * Compute dynamic interconnector import % from NESO historic lookup table.
+ * Bins by national wind CF quintile × demand quintile to capture the real
+ * relationship: high demand → less import (Europe also cold), high wind → slightly less import.
+ *
+ * @param {number} windPercentile - Wind slider percentile (1-99)
+ * @param {number} demandPercentile - Demand slider percentile (1-99)
+ * @param {Object} icLookup - Lookup table from ic_lookup.json
+ * @returns {number} IC import percentage (0-100)
+ */
+export function computeDynamicIC(windPercentile, demandPercentile, icLookup) {
+  if (!icLookup || !icLookup.lookup) return 16;  // fallback to overall mean
+
+  const windEdges = icLookup.wind_bin_edges;
+  const demEdges = icLookup.demand_bin_edges;
+  const windPctMap = icLookup.wind_cf_percentiles;
+  const demPctMap = icLookup.demand_percentiles_mw;
+
+  // Convert slider percentile → physical value using the lookup's percentile mapping
+  // Find the closest mapped percentile
+  const pctKeys = Object.keys(windPctMap).map(Number).sort((a, b) => a - b);
+  const getClosest = (val, keys) => keys.reduce((prev, curr) =>
+    Math.abs(curr - val) < Math.abs(prev - val) ? curr : prev
+  );
+
+  const closestWindPct = getClosest(windPercentile, pctKeys);
+  const closestDemPct = getClosest(demandPercentile, pctKeys);
+  const windCF = windPctMap[String(closestWindPct)] || 0.25;
+  const demandMW = demPctMap[String(closestDemPct)] || 35000;
+
+  // Find which bin this falls into
+  let windBin = 0;
+  for (let i = 0; i < windEdges.length - 1; i++) {
+    if (windCF >= windEdges[i] && windCF < windEdges[i + 1]) { windBin = i; break; }
+  }
+  let demBin = 0;
+  for (let i = 0; i < demEdges.length - 1; i++) {
+    if (demandMW >= demEdges[i] && demandMW < demEdges[i + 1]) { demBin = i; break; }
+  }
+
+  // Look up IC import %
+  const entry = icLookup.lookup.find(e => e.wind_bin === windBin && e.demand_bin === demBin);
+  return entry ? Math.max(0, Math.round(entry.ic_import_pct)) : 16;
+}
+
+/**
  * Build per-zone generation and demand from plant data, climatology, and user edits.
  *
  * @returns {{ yearFilteredCapacity, zoneGenerationByType, zoneDemand, interconnectorByZone, totalInterconnectorImport, debugTotals }}
@@ -159,6 +205,7 @@ function buildZoneGeneration({
 }) {
   const zoneGenerationByType = {};
   const zoneDemand = {};
+  const warnedZones = new Set();
 
   const climatology = data.climatology?.tnuos_zones || {};
   const demandClimatology = data.demandClimatology?.zones || {};
@@ -243,20 +290,27 @@ function buildZoneGeneration({
 
       if (plantType.includes('Wind') && zoneClimate) {
         const windCF = getInterpolatedPercentile(
-          zoneClimate.wind_cf?.[season]?.percentiles || zoneClimate.wind_cf?.[season],
+          zoneClimate.wind_cf?.[season]?.percentiles || zoneClimate.wind_cf?.[season] || {},
           windPercentile
         );
         generation = capacity * windCF;
+      } else if (plantType.includes('Wind') && !zoneClimate) {
+        // No climatology for this zone — use conservative default CF
+        if (!warnedZones.has(zoneId)) { warnedZones.add(zoneId); console.warn(`No climatology data for zone ${zoneId}, using default CFs`); }
+        generation = capacity * 0.25;
       } else if ((plantType.includes('Solar') || plantType.includes('PV')) && zoneClimate) {
         const solarData = zoneClimate.solar_cf?.[season];
         if (solarData) {
           const solarCF = getInterpolatedPercentile(
-            solarData.percentiles || solarData,
+            solarData.percentiles || solarData || {},
             solarPercentile
           );
           const daylightFraction = solarData.daylight_fraction || 1.0;
           generation = capacity * solarCF * daylightFraction;
         }
+      } else if ((plantType.includes('Solar') || plantType.includes('PV')) && !zoneClimate) {
+        if (!warnedZones.has(zoneId)) { warnedZones.add(zoneId); console.warn(`No climatology data for zone ${zoneId}, using default CFs`); }
+        generation = capacity * 0.15;
       } else if (plantType.includes('Nuclear')) {
         generation = capacity * NUCLEAR_AVAILABILITY_FACTOR;
       } else {
@@ -315,10 +369,163 @@ function buildZoneGeneration({
     let demand = baseDemand;
     const zoneDemanClimate = demandClimatology[zoneId];
     if (zoneDemanClimate?.seasonal?.[season]?.percentiles) {
-      demand = getInterpolatedPercentile(
+      // Use seasonal percentile value directly as demand for the base year.
+      // The demand_climatology percentiles are absolute MW values derived from
+      // real NESO historic TSD (2009-2025) distributed by zone shares.
+      // For future years, scale proportionally: if 2030 ACS demand is 1.2× 2024,
+      // apply that growth factor to the seasonal percentile.
+      const seasonalDemand = getInterpolatedPercentile(
         zoneDemanClimate.seasonal[season].percentiles,
         demandPercentile
       );
+
+      // Year growth factor: how much has zone demand grown from base year?
+      const baseYearDemand = zoneDemanClimate.demand_by_year?.['2024'] || zoneDemanClimate.seasonal?.[season]?.mean || baseDemand;
+      const yearGrowthFactor = baseYearDemand > 0 ? baseDemand / baseYearDemand : 1;
+
+      // For 2024: growth factor ≈ 1.0, demand = seasonal percentile directly
+      // For 2030: growth factor > 1.0, demand = seasonal percentile × growth
+      demand = seasonalDemand * (year === 2024 ? 1.0 : yearGrowthFactor);
+    }
+
+    zoneDemand[zoneId] = demand;
+  }
+
+  return {
+    yearFilteredCapacity,
+    zoneGenerationByType,
+    zoneDemand,
+    interconnectorByZone,
+    totalInterconnectorImport,
+    debugTotals: {
+      builtCapacity: debugTotalBuiltCapacity,
+      windCapacity: debugTotalWindCapacity,
+      solarCapacity: debugTotalSolarCapacity,
+      nuclearCapacity: debugTotalNuclearCapacity,
+      baseDemand: debugTotalBaseDemand
+    }
+  };
+}
+
+/**
+ * Build per-zone generation and demand for FLOP zones.
+ * Uses pre-aggregated data from zones_flop.json with weather CFs from the
+ * zone's primary_tnuos_zone climatology.
+ *
+ * @returns {{ yearFilteredCapacity, zoneGenerationByType, zoneDemand, interconnectorByZone, totalInterconnectorImport, debugTotals }}
+ */
+function buildFLOPGeneration({
+  data, season, windPercentile, solarPercentile, demandPercentile,
+  interconnectorImport, fuelToggles
+}) {
+  const zoneGenerationByType = {};
+  const zoneDemand = {};
+  const yearFilteredCapacity = {};
+  const warnedZones = new Set();
+
+  const climatology = data.climatology?.tnuos_zones || {};
+  const demandClimatology = data.demandClimatology?.zones || {};
+
+  let totalInterconnectorImport = 0;
+  const interconnectorByZone = {};
+
+  let debugTotalBuiltCapacity = 0;
+  let debugTotalWindCapacity = 0;
+  let debugTotalSolarCapacity = 0;
+  let debugTotalNuclearCapacity = 0;
+  let debugTotalBaseDemand = 0;
+
+  const zonesFLOP = data.zonesFLOP || {};
+
+  for (const [zoneId, zoneData] of Object.entries(zonesFLOP)) {
+    const genByType = {};
+    const zoneFallback = zoneData.generation_by_type || {};
+    const primaryTNUoS = zoneData.primary_tnuos_zone;
+    const zoneClimate = primaryTNUoS ? climatology[primaryTNUoS] : null;
+
+    // Track capacity for this zone
+    yearFilteredCapacity[zoneId] = {};
+
+    for (const [plantType, typeData] of Object.entries(zoneFallback)) {
+      if (!isGenerationType(plantType)) continue;
+
+      const capacity = typeData.built_mw || 0;
+      yearFilteredCapacity[zoneId][plantType] = capacity;
+
+      debugTotalBuiltCapacity += capacity;
+      if (plantType.includes('Wind')) debugTotalWindCapacity += capacity;
+      if (plantType.includes('Solar') || plantType.includes('PV')) debugTotalSolarCapacity += capacity;
+      if (plantType.includes('Nuclear')) debugTotalNuclearCapacity += capacity;
+
+      // Handle interconnectors
+      if (plantType === 'Interconnector') {
+        const importMW = capacity * (interconnectorImport / 100);
+        interconnectorByZone[zoneId] = (interconnectorByZone[zoneId] || 0) + importMW;
+        totalInterconnectorImport += importMW;
+        genByType[plantType] = importMW;
+        continue;
+      }
+
+      // Apply fuel toggles
+      if (fuelToggles[plantType] === false) {
+        genByType[plantType] = 0;
+        continue;
+      }
+
+      // Apply weather capacity factors
+      let generation = 0;
+
+      if (plantType.includes('Wind') && zoneClimate) {
+        const windCF = getInterpolatedPercentile(
+          zoneClimate.wind_cf?.[season]?.percentiles || zoneClimate.wind_cf?.[season] || {},
+          windPercentile
+        );
+        generation = capacity * windCF;
+      } else if (plantType.includes('Wind') && !zoneClimate) {
+        if (!warnedZones.has(zoneId)) { warnedZones.add(zoneId); console.warn(`No climatology for FLOP zone ${zoneId} (primary: ${primaryTNUoS}), using default CFs`); }
+        generation = capacity * 0.25;
+      } else if ((plantType.includes('Solar') || plantType.includes('PV')) && zoneClimate) {
+        const solarData = zoneClimate.solar_cf?.[season];
+        if (solarData) {
+          const solarCF = getInterpolatedPercentile(
+            solarData.percentiles || solarData || {},
+            solarPercentile
+          );
+          const daylightFraction = solarData.daylight_fraction || 1.0;
+          generation = capacity * solarCF * daylightFraction;
+        }
+      } else if ((plantType.includes('Solar') || plantType.includes('PV')) && !zoneClimate) {
+        if (!warnedZones.has(zoneId)) { warnedZones.add(zoneId); console.warn(`No climatology for FLOP zone ${zoneId} (primary: ${primaryTNUoS}), using default CFs`); }
+        generation = capacity * 0.15;
+      } else if (plantType.includes('Nuclear')) {
+        generation = capacity * NUCLEAR_AVAILABILITY_FACTOR;
+      } else {
+        generation = capacity;
+      }
+
+      genByType[plantType] = generation;
+    }
+
+    zoneGenerationByType[zoneId] = genByType;
+
+    // Demand: use seasonal percentile directly, scaled by this zone's share of the TNUoS zone
+    // This mirrors the TNUoS demand fix — using absolute seasonal values, not ACS-scaled
+    const baseDemand = zoneData.demand_mw || 0;
+    debugTotalBaseDemand += baseDemand;
+
+    let demand = baseDemand;
+    const zoneDemandClimate = primaryTNUoS ? demandClimatology[primaryTNUoS] : null;
+    if (zoneDemandClimate?.seasonal?.[season]?.percentiles && zoneDemandClimate.seasonal?.[season]?.mean) {
+      const seasonalDemand = getInterpolatedPercentile(
+        zoneDemandClimate.seasonal[season].percentiles,
+        demandPercentile
+      );
+      const tnuosMeanDemand = zoneDemandClimate.seasonal[season].mean;
+      // This FLOP zone's share of the TNUoS zone's demand
+      const tnuosTotalDemand = zoneDemandClimate.demand_by_year?.['2024'] || tnuosMeanDemand;
+      const zoneShare = tnuosTotalDemand > 0 ? baseDemand / tnuosTotalDemand : 0;
+      // Apply: seasonal percentile × this zone's share
+      demand = seasonalDemand * zoneShare;
     }
 
     zoneDemand[zoneId] = demand;
@@ -454,12 +661,13 @@ function applyCurtailment(meritResult, zoneGeneration, zoneDemand) {
  * @param {number} params.solarPercentile - Solar percentile 1-99 (default: 50)
  * @param {number} params.demandPercentile - Demand percentile 1-99 (default: 75)
  * @param {Object} params.fuelToggles - Which fuel types are enabled
- * @param {string} params.dispatchMode - 'simple' or 'merit-order' (default: 'simple')
+ * @param {string} params.dispatchMode - 'simple', 'merit-order', or 'lopf' (default: 'simple')
  * @param {number} params.interconnectorImport - Interconnector import % (0-100, default: 65)
  * @param {Object} params.userEdits - User modifications to plants/links (Phase 6)
  * @param {Object} params.plantEdits - Plant edits: { plantId: { status, outputPct, ... } }
  * @param {Array} params.addedNodes - Hypothetical generation nodes: [{ zoneId, plantType, capacityMW }, ...]
  * @param {Object} params.linkEdits - Link edits: { added: [], removed: [], modified: {} }
+ * @param {Object} [params.highs] - HiGHS solver instance (required for LOPF dispatch mode)
  * @returns {Object} { flows, angles, boundaryUtilisation, thermalUtilisation, zoneInjections, validationInfo }
  */
 export function runScenario(params) {
@@ -474,21 +682,47 @@ export function runScenario(params) {
     fuelToggles = {},
     dispatchMode = 'simple',
     interconnectorImport = 65,  // Default 65% import (typical for GB)
+    dynamicIC = false,          // Use NESO historic lookup for IC import %
     userEdits = null,
     plantEdits = {},
     addedNodes = [],
-    linkEdits = { added: [], removed: [], modified: {} }
+    linkEdits = { added: [], removed: [], modified: {} },
+    reinforcementsEnabled = true,
+    zoneMode = 'tnuos',
+    highs = null
   } = params;
 
-  // Get network links for this year and apply edits
-  const baseLinks = getLinksForYear(data.linksTNUoSByYear, year);
-  let links = applyUserEdits(baseLinks, userEdits);
+  // Resolve IC import percentage: dynamic lookup or user-specified
+  let resolvedICImport = interconnectorImport;
+  if (dynamicIC && data.icLookup) {
+    resolvedICImport = computeDynamicIC(windPercentile, demandPercentile, data.icLookup);
+  }
 
-  // Apply link edits (added, removed, modified)
-  links = applyLinkEdits(links, linkEdits);
+  // Build network links based on zone mode
+  const linkYear = reinforcementsEnabled ? year : 2024;
+  let links;
+  if (zoneMode === 'flop') {
+    links = data.linksFLOP || [];  // FLOP has no year-dependent topology
+  } else {
+    const baseLinks = getLinksForYear(data.linksTNUoSByYear, linkYear);
+    links = applyUserEdits(baseLinks, userEdits);
+    links = applyLinkEdits(links, linkEdits);
+  }
 
   // Build per-zone generation and demand
   const zoneInjections = {};
+  let genResult;
+  if (zoneMode === 'flop') {
+    genResult = buildFLOPGeneration({
+      data, season, windPercentile, solarPercentile, demandPercentile,
+      interconnectorImport: resolvedICImport, fuelToggles
+    });
+  } else {
+    genResult = buildZoneGeneration({
+      data, year, season, windPercentile, solarPercentile, demandPercentile,
+      interconnectorImport: resolvedICImport, fuelToggles, plantEdits, addedNodes
+    });
+  }
   const {
     yearFilteredCapacity,
     zoneGenerationByType,
@@ -496,17 +730,23 @@ export function runScenario(params) {
     interconnectorByZone,
     totalInterconnectorImport,
     debugTotals
-  } = buildZoneGeneration({
-    data, year, season, windPercentile, solarPercentile, demandPercentile,
-    interconnectorImport, fuelToggles, plantEdits, addedNodes
-  });
+  } = genResult;
+
+  // Slack zone depends on zone mode (defined early — needed by LOPF and DCPF)
+  const slackZoneId = zoneMode === 'flop' ? 'R5' : 'GZ18';
+
+  // Build installed wind capacity per zone (for CF weighting — must use capacity, not generation)
+  const installedWindCapacity = {};
+  for (const [zoneId, types] of Object.entries(yearFilteredCapacity)) {
+    installedWindCapacity[zoneId] = (types['Wind Onshore'] || 0) + (types['Wind Offshore'] || 0);
+  }
 
   // Calculate national wind CF for blended dispatch
   const nationalWindCF = calculateNationalWindCFFromGeneration(
-    zoneGenerationByType,
     data.climatology,
     season,
-    windPercentile
+    windPercentile,
+    installedWindCapacity
   );
 
   // DEBUG: Log capacity totals before dispatch
@@ -556,10 +796,118 @@ export function runScenario(params) {
       imbalance: dispatchDetails.national.imbalance.toFixed(0) + ' MW',
       blendFactor: (dispatchDetails.blendFactor * 100).toFixed(0) + '% national'
     });
+  } else if (dispatchMode === 'lopf' && highs) {
+    // LOPF dispatch: network-constrained economic dispatch using HiGHS LP solver
+    // Build boundary limits from ETYS capabilities
+    const boundaryLimits = {};
+    const activeBoundaryMapping = zoneMode === 'flop' ? data.boundaryLinkMappingFLOP : data.boundaryLinkMapping;
+    if (activeBoundaryMapping?.boundary_links) {
+      for (const [bndId, bndData] of Object.entries(activeBoundaryMapping.boundary_links)) {
+        const crossingLinks = bndData.crossing_links || [];
+        if (crossingLinks.length === 0) continue;
+
+        // Look up capability for this year/scenario
+        let capabilityMW = 0;
+        if (data.etysCapabilities?.boundaries?.[bndId]) {
+          const fesScenarios = ['Holistic Transition', 'Electric Engagement', 'Hydrogen Evolution'];
+          const isFES = fesScenarios.includes(scenario);
+          const scenarioGroup = isFES ? 'fes24' : 'cp30';
+          const scenarioData = data.etysCapabilities.boundaries[bndId][scenarioGroup];
+          if (scenarioData?.[scenario]?.Capability) {
+            capabilityMW = scenarioData[scenario].Capability[String(year)] || 0;
+          }
+        }
+        if (capabilityMW === 0) {
+          capabilityMW = bndData.capability_2024_mw || 0;
+        }
+        if (capabilityMW > 0) {
+          boundaryLimits[bndId] = { crossing_links: crossingLinks, capability_mw: capabilityMW };
+        }
+      }
+    }
+
+    // Add interconnector imports to generation before LOPF (treated as must-run)
+    const lopfGenByType = {};
+    for (const [zoneId, genByType] of Object.entries(zoneGenerationByType)) {
+      lopfGenByType[zoneId] = { ...genByType };
+    }
+    for (const [zoneId, importMW] of Object.entries(interconnectorByZone)) {
+      if (!lopfGenByType[zoneId]) lopfGenByType[zoneId] = {};
+      lopfGenByType[zoneId]['Interconnector'] = (lopfGenByType[zoneId]['Interconnector'] || 0) + importMW;
+    }
+
+    const lopfResult = solveLOPF({
+      zoneGenerationByType: lopfGenByType,
+      zoneDemand,
+      links,
+      marginalCosts: data.marginalCosts || {},
+      fuelToggles,
+      boundaryLimits,
+      slackZone: slackZoneId,
+      highs
+    });
+
+    dispatchDetails = {
+      lopf: true,
+      status: lopfResult.status,
+      totalCost: lopfResult.totalCost,
+      constraintCost: lopfResult.constraintCost,
+      boundaryViolations: lopfResult.boundaryViolations,
+      nodalPrices: lopfResult.nodalPrices,
+      generators: lopfResult.generators
+    };
+
+    if (lopfResult.status === 'Optimal') {
+      // Use LOPF dispatch results
+      for (const [zoneId, genByType] of Object.entries(lopfResult.dispatch)) {
+        zoneGeneration[zoneId] = Object.values(genByType).reduce((sum, v) => sum + v, 0);
+      }
+    } else {
+      // Fallback to merit order if LOPF fails
+      console.warn('LOPF failed with status:', lopfResult.status, '— falling back to merit order');
+      const meritFallback = applyMeritOrder(zoneGenerationByType, zoneDemand, fuelToggles, nationalWindCF);
+      for (const [zoneId, genByType] of Object.entries(meritFallback.adjustedGeneration)) {
+        zoneGeneration[zoneId] = Object.values(genByType).reduce((sum, v) => sum + v, 0);
+      }
+      for (const [zoneId, importMW] of Object.entries(interconnectorByZone)) {
+        zoneGeneration[zoneId] = (zoneGeneration[zoneId] || 0) + importMW;
+      }
+      const curtailFallback = applyCurtailment(meritFallback, zoneGeneration, zoneDemand);
+      zoneGeneration = curtailFallback.zoneGeneration;
+      dispatchDetails.lopfFallback = true;
+    }
+
+    console.log('LOPF Dispatch Results:', {
+      status: lopfResult.status,
+      totalCost: lopfResult.totalCost?.toFixed(0) + ' GBP',
+      constraintCost: lopfResult.constraintCost?.toFixed(0) + ' GBP',
+      violations: Object.keys(lopfResult.boundaryViolations || {}).length
+    });
+  } else if (dispatchMode === 'lopf' && !highs) {
+    // LOPF requested but HiGHS not loaded — fall back to merit order
+    console.warn('LOPF requested but HiGHS solver not available — falling back to merit order dispatch');
+    const meritResult = applyMeritOrder(zoneGenerationByType, zoneDemand, fuelToggles, nationalWindCF);
+    dispatchDetails = meritResult;
+    dispatchDetails.lopfFallback = true;
+
+    for (const [zoneId, genByType] of Object.entries(meritResult.adjustedGeneration)) {
+      zoneGeneration[zoneId] = Object.values(genByType).reduce((sum, v) => sum + v, 0);
+    }
+    for (const [zoneId, importMW] of Object.entries(interconnectorByZone)) {
+      zoneGeneration[zoneId] = (zoneGeneration[zoneId] || 0) + importMW;
+    }
+    const curtailmentResult = applyCurtailment(meritResult, zoneGeneration, zoneDemand);
+    zoneGeneration = curtailmentResult.zoneGeneration;
+    dispatchDetails.windCurtailment = curtailmentResult.windCurtailment;
   } else {
-    // Simple dispatch: sum all generation as-is
+    // Simple dispatch: sum all generation as-is (no demand matching)
     for (const [zoneId, genByType] of Object.entries(zoneGenerationByType)) {
       zoneGeneration[zoneId] = Object.values(genByType).reduce((sum, v) => sum + v, 0);
+    }
+
+    // Add interconnector imports
+    for (const [zoneId, importMW] of Object.entries(interconnectorByZone)) {
+      zoneGeneration[zoneId] = (zoneGeneration[zoneId] || 0) + importMW;
     }
 
     // DEBUG: Log simple dispatch totals
@@ -574,22 +922,43 @@ export function runScenario(params) {
   console.groupEnd();
 
   // Net injection = generation - demand per zone
-  for (const zoneId of Object.keys(data.zonesTNUoS)) {
+  const zoneSource = zoneMode === 'flop' ? (data.zonesFLOP || {}) : data.zonesTNUoS;
+  for (const zoneId of Object.keys(zoneSource)) {
     const generation = zoneGeneration[zoneId] || 0;
     const demand = zoneDemand[zoneId] || 0;
     zoneInjections[zoneId] = generation - demand;
   }
 
-  // Run DC power flow
-  const powerFlowResult = solveDCPF(links, zoneInjections, "GZ18");
-  const { flows, angles, slackAbsorption, slackZone } = powerFlowResult;
+  // Run DC power flow (or use LOPF flows if available)
+  let flows = {}, angles = {}, slackAbsorption = 0, slackZone = slackZoneId;
+  try {
+    if (dispatchMode === 'lopf' && dispatchDetails?.lopf && dispatchDetails.status === 'Optimal') {
+      const lopfPFResult = solveDCPF(links, zoneInjections, slackZoneId);
+      flows = lopfPFResult.flows;
+      angles = lopfPFResult.angles;
+      slackAbsorption = lopfPFResult.slackAbsorption;
+      slackZone = lopfPFResult.slackZone;
+    } else {
+      const powerFlowResult = solveDCPF(links, zoneInjections, slackZoneId);
+      flows = powerFlowResult.flows;
+      angles = powerFlowResult.angles;
+      slackAbsorption = powerFlowResult.slackAbsorption;
+      slackZone = powerFlowResult.slackZone;
+    }
+  } catch (err) {
+    console.warn('DC power flow failed:', err.message, '— returning zero flows');
+    // Return empty flows — the network may be disconnected (e.g. reinforcements disabled)
+  }
 
   // Compute boundary utilisation
+  const activeBoundaryMapping = zoneMode === 'flop' ? data.boundaryLinkMappingFLOP : data.boundaryLinkMapping;
+  // Use 2024 capabilities if reinforcements disabled (shows what happens without upgrades)
+  const capabilityYear = reinforcementsEnabled ? year : 2024;
   const boundaryUtilisation = computeBoundaryUtilisation(
     flows,
-    data.boundaryLinkMapping,
+    activeBoundaryMapping,
     data.etysCapabilities,
-    year,
+    capabilityYear,
     scenario
   );
 
@@ -611,6 +980,7 @@ export function runScenario(params) {
       .filter(([_, data]) => data.utilisation_pct > 80)
       .map(([id, data]) => ({ id, ...data })),
     interconnectorImport: totalInterconnectorImport,
+    interconnectorImportPct: resolvedICImport,
     nationalWindCF
   };
 
@@ -624,7 +994,10 @@ export function runScenario(params) {
     zoneGenerationByType,
     zoneDemand,
     dispatchDetails,
-    validationInfo
+    nodalPrices: dispatchDetails?.nodalPrices || null,
+    validationInfo,
+    resolvedICImport,
+    zoneMode
   };
 }
 
@@ -632,22 +1005,8 @@ export function runScenario(params) {
  * Calculate national average wind CF from current generation mix
  * This is used to determine dispatch blend (national vs local-first)
  */
-function calculateNationalWindCFFromGeneration(zoneGenerationByType, climatology, season, windPercentile) {
-  let totalWindOutput = 0;
-  let totalWindCapacity = 0;
-
-  for (const [zoneId, genByType] of Object.entries(zoneGenerationByType)) {
-    // Sum wind output (already weather-scaled)
-    const windOnshore = genByType['Wind Onshore'] || 0;
-    const windOffshore = genByType['Wind Offshore'] || 0;
-    totalWindOutput += windOnshore + windOffshore;
-
-    // Get installed wind capacity for this zone
-    // Note: genByType already has weather-adjusted values, so we need to back-calculate capacity
-    // or use the climatology directly
-  }
-
-  // Get average CF from climatology across zones
+function calculateNationalWindCFFromGeneration(climatology, season, windPercentile, installedWindCapacity) {
+  // Get average CF from climatology across zones, weighted by installed capacity (not generation)
   if (climatology?.tnuos_zones) {
     let weightedCF = 0;
     let totalWeight = 0;
@@ -656,12 +1015,11 @@ function calculateNationalWindCFFromGeneration(zoneGenerationByType, climatology
       const windCFData = zoneClimate.wind_cf?.[season];
       if (windCFData) {
         const cf = getInterpolatedPercentileSimple(windCFData, windPercentile);
-        // Weight by zone's typical wind output
-        const zoneWind = (zoneGenerationByType[zoneId]?.['Wind Onshore'] || 0) +
-                        (zoneGenerationByType[zoneId]?.['Wind Offshore'] || 0);
-        if (zoneWind > 0) {
-          weightedCF += cf * zoneWind;
-          totalWeight += zoneWind;
+        // Weight by installed wind capacity (not weather-adjusted generation — avoids circular dependency)
+        const zoneWindCapacity = installedWindCapacity[zoneId] || 0;
+        if (zoneWindCapacity > 0) {
+          weightedCF += cf * zoneWindCapacity;
+          totalWeight += zoneWindCapacity;
         }
       }
     }
@@ -709,37 +1067,59 @@ function computeBoundaryUtilisation(flows, boundaryMapping, etysCapabilities, ye
   const isFES = fesScenarios.includes(scenario);
   const scenarioGroup = isFES ? 'fes24' : 'cp30';
 
+  // First pass: compute raw capability for each boundary
+  const rawCapabilities = {};
+  for (const [capName, boundary] of Object.entries(boundaryMapping.boundary_links)) {
+    let capability = 0;
+    if (etysCapabilities?.boundaries?.[capName]) {
+      const scenarioData = etysCapabilities.boundaries[capName][scenarioGroup];
+      if (scenarioData?.[scenario]?.Capability) {
+        capability = scenarioData[scenario].Capability[String(year)] || 0;
+      }
+    }
+    if (capability === 0) {
+      capability = boundary.capability_2024_mw || 0;
+    }
+    rawCapabilities[capName] = capability;
+  }
+
+  // Build effective capability for shared boundaries:
+  // At 27-node resolution, boundaries sharing crossing links see the same aggregate flow.
+  // Use the maximum capability among the shared group as denominator to avoid
+  // artificially inflating utilisation on lower-capability members.
+  const effectiveCapabilities = { ...rawCapabilities };
+  for (const [capName, boundary] of Object.entries(boundaryMapping.boundary_links)) {
+    if (boundary.shares_with && boundary.shares_with.length > 0) {
+      const groupCaps = [rawCapabilities[capName] || 0];
+      for (const peer of boundary.shares_with) {
+        if (rawCapabilities[peer] !== undefined) {
+          groupCaps.push(rawCapabilities[peer]);
+        }
+      }
+      effectiveCapabilities[capName] = Math.max(...groupCaps);
+    }
+  }
+
   for (const [capName, boundary] of Object.entries(boundaryMapping.boundary_links)) {
     // Sum absolute flows across all crossing links
     const totalFlow = (boundary.crossing_links || []).reduce((sum, linkId) => {
       return sum + Math.abs(flows[linkId] || 0);
     }, 0);
 
-    // Get capability for this year and scenario from etys_capabilities.json
-    let capability = 0;
-
-    if (etysCapabilities && etysCapabilities.boundaries && etysCapabilities.boundaries[capName]) {
-      const boundaryData = etysCapabilities.boundaries[capName];
-      const scenarioData = boundaryData[scenarioGroup];
-
-      if (scenarioData && scenarioData[scenario]) {
-        const capabilityByYear = scenarioData[scenario].Capability;
-        capability = capabilityByYear[String(year)] || 0;
-      }
-    }
-
-    // Fallback to capability_2024_mw if dynamic lookup fails
-    if (capability === 0) {
-      capability = boundary.capability_2024_mw || 0;
-    }
+    const capability = effectiveCapabilities[capName];
+    const isShared = boundary.shares_with && boundary.shares_with.length > 0;
+    const ownCapability = rawCapabilities[capName];
 
     result[capName] = {
       flow_mw: totalFlow,
       capability_mw: capability,
+      own_capability_mw: ownCapability,
       utilisation_pct: capability > 0 ? (totalFlow / capability) * 100 : 0,
       crossing_links: boundary.crossing_links || [],
       north_zones: boundary.north_zones || [],
-      south_zones: boundary.south_zones || []
+      south_zones: boundary.south_zones || [],
+      is_shared: isShared,
+      shared_with: boundary.shares_with || []
     };
   }
 

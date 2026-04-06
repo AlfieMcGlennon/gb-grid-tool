@@ -1,0 +1,1794 @@
+{
+  "A1": {
+    "generation_by_type": {},
+    "demand_mw": 1569.8,
+    "total_built_mw": 0,
+    "tnuos_zones": [
+      "GZ23",
+      "GZ24"
+    ],
+    "primary_tnuos_zone": "GZ24",
+    "n_substations": 8,
+    "centroid_lat": 51.5594,
+    "centroid_lon": 0.0786
+  },
+  "A3": {
+    "generation_by_type": {
+      "CCGT (Combined Cycle Gas Turbine)": {
+        "built_mw": 442.0,
+        "n_projects": 1
+      }
+    },
+    "demand_mw": 378.2,
+    "total_built_mw": 442.0,
+    "tnuos_zones": [
+      "GZ24"
+    ],
+    "primary_tnuos_zone": "GZ24",
+    "n_substations": 2,
+    "centroid_lat": 51.6789,
+    "centroid_lon": -0.1058
+  },
+  "A4": {
+    "generation_by_type": {},
+    "demand_mw": 996.5,
+    "total_built_mw": 0,
+    "tnuos_zones": [
+      "GZ23"
+    ],
+    "primary_tnuos_zone": "GZ23",
+    "n_substations": 3,
+    "centroid_lat": 51.4556,
+    "centroid_lon": -0.1295
+  },
+  "A6": {
+    "generation_by_type": {
+      "Energy Storage System": {
+        "built_mw": 99.0,
+        "n_projects": 1
+      }
+    },
+    "demand_mw": 2021.6,
+    "total_built_mw": 99.0,
+    "tnuos_zones": [
+      "GZ25"
+    ],
+    "primary_tnuos_zone": "GZ25",
+    "n_substations": 8,
+    "centroid_lat": 51.5867,
+    "centroid_lon": -0.4841
+  },
+  "A7": {
+    "generation_by_type": {},
+    "demand_mw": 2194.2,
+    "total_built_mw": 0,
+    "tnuos_zones": [
+      "GZ23",
+      "GZ25"
+    ],
+    "primary_tnuos_zone": "GZ23",
+    "n_substations": 8,
+    "centroid_lat": 51.5171,
+    "centroid_lon": -0.152
+  },
+  "A8": {
+    "generation_by_type": {},
+    "demand_mw": 1580.4,
+    "total_built_mw": 0,
+    "tnuos_zones": [
+      "GZ23",
+      "GZ24",
+      "GZ25"
+    ],
+    "primary_tnuos_zone": "GZ25",
+    "n_substations": 7,
+    "centroid_lat": 51.3723,
+    "centroid_lon": -0.1216
+  },
+  "A9": {
+    "generation_by_type": {
+      "CCGT (Combined Cycle Gas Turbine)": {
+        "built_mw": 715.0,
+        "n_projects": 1
+      }
+    },
+    "demand_mw": 275.2,
+    "total_built_mw": 715.0,
+    "tnuos_zones": [
+      "GZ24"
+    ],
+    "primary_tnuos_zone": "GZ24",
+    "n_substations": 1,
+    "centroid_lat": 51.774,
+    "centroid_lon": 0.0519
+  },
+  "B1": {
+    "generation_by_type": {
+      "CCGT (Combined Cycle Gas Turbine)": {
+        "built_mw": 460.0,
+        "n_projects": 1
+      },
+      "Energy Storage System": {
+        "built_mw": 35.8,
+        "n_projects": 1
+      },
+      "Wind Offshore": {
+        "built_mw": 400.0,
+        "n_projects": 1
+      }
+    },
+    "demand_mw": 697.1,
+    "total_built_mw": 895.8,
+    "tnuos_zones": [
+      "GZ25"
+    ],
+    "primary_tnuos_zone": "GZ25",
+    "n_substations": 4,
+    "centroid_lat": 50.9902,
+    "centroid_lon": 0.0401
+  },
+  "B2": {
+    "generation_by_type": {
+      "CCGT (Combined Cycle Gas Turbine)": {
+        "built_mw": 940.0,
+        "n_projects": 2
+      },
+      "CHP (Combined Heat and Power)": {
+        "built_mw": 158.0,
+        "n_projects": 1
+      },
+      "Energy Storage System": {
+        "built_mw": 49.9,
+        "n_projects": 1
+      },
+      "Energy Storage System;Gas Reciprocating": {
+        "built_mw": 19.0,
+        "n_projects": 1
+      },
+      "Gas Reciprocating": {
+        "built_mw": 45.0,
+        "n_projects": 1
+      },
+      "OCGT (Open Cycle Gas Turbine)": {
+        "built_mw": 189.9,
+        "n_projects": 1
+      },
+      "Oil & AGT (Advanced Gas Turbine)": {
+        "built_mw": 21.0,
+        "n_projects": 1
+      }
+    },
+    "demand_mw": 1062.1,
+    "total_built_mw": 1422.8,
+    "tnuos_zones": [
+      "GZ26"
+    ],
+    "primary_tnuos_zone": "GZ26",
+    "n_substations": 6,
+    "centroid_lat": 50.8807,
+    "centroid_lon": -1.2216
+  },
+  "B3": {
+    "generation_by_type": {
+      "Oil & AGT (Advanced Gas Turbine)": {
+        "built_mw": 20.0,
+        "n_projects": 1
+      }
+    },
+    "demand_mw": 882.9,
+    "total_built_mw": 20.0,
+    "tnuos_zones": [
+      "GZ26"
+    ],
+    "primary_tnuos_zone": "GZ26",
+    "n_substations": 1,
+    "centroid_lat": 0,
+    "centroid_lon": 0
+  },
+  "B4": {
+    "generation_by_type": {
+      "CCGT (Combined Cycle Gas Turbine);Energy Storage System": {
+        "built_mw": 1705.0,
+        "n_projects": 1
+      },
+      "Energy Storage System": {
+        "built_mw": 20.0,
+        "n_projects": 1
+      },
+      "OCGT (Open Cycle Gas Turbine)": {
+        "built_mw": 100.0,
+        "n_projects": 1
+      },
+      "Thermal": {
+        "built_mw": 47.0,
+        "n_projects": 1
+      }
+    },
+    "demand_mw": 367.6,
+    "total_built_mw": 1872.0,
+    "tnuos_zones": [
+      "GZ25",
+      "GZ5"
+    ],
+    "primary_tnuos_zone": "GZ25",
+    "n_substations": 3,
+    "centroid_lat": 51.2709,
+    "centroid_lon": -1.0483
+  },
+  "C1": {
+    "generation_by_type": {
+      "Biomass": {
+        "built_mw": 43.0,
+        "n_projects": 1
+      },
+      "CCGT (Combined Cycle Gas Turbine)": {
+        "built_mw": 850.0,
+        "n_projects": 1
+      },
+      "Energy Storage System;Gas Reciprocating": {
+        "built_mw": 1050.0,
+        "n_projects": 1
+      }
+    },
+    "demand_mw": 143.3,
+    "total_built_mw": 1943.0,
+    "tnuos_zones": [
+      "GZ24"
+    ],
+    "primary_tnuos_zone": "GZ24",
+    "n_substations": 2,
+    "centroid_lat": 51.5332,
+    "centroid_lon": 0.4307
+  },
+  "C2": {
+    "generation_by_type": {
+      "CCGT (Combined Cycle Gas Turbine)": {
+        "built_mw": 812.0,
+        "n_projects": 1
+      }
+    },
+    "demand_mw": 582.3,
+    "total_built_mw": 812.0,
+    "tnuos_zones": [
+      "GZ24"
+    ],
+    "primary_tnuos_zone": "GZ24",
+    "n_substations": 4,
+    "centroid_lat": 51.3197,
+    "centroid_lon": 0.3428
+  },
+  "C3": {
+    "generation_by_type": {
+      "CCGT (Combined Cycle Gas Turbine)": {
+        "built_mw": 910.0,
+        "n_projects": 1
+      },
+      "CCGT (Combined Cycle Gas Turbine);Reactive Compensation": {
+        "built_mw": 1517.0,
+        "n_projects": 1
+      },
+      "CHP (Combined Heat and Power)": {
+        "built_mw": 35.8,
+        "n_projects": 1
+      },
+      "Energy Storage System": {
+        "built_mw": 49.9,
+        "n_projects": 1
+      }
+    },
+    "demand_mw": 65.5,
+    "total_built_mw": 2512.7,
+    "tnuos_zones": [
+      "GZ16",
+      "GZ24"
+    ],
+    "primary_tnuos_zone": "GZ24",
+    "n_substations": 5,
+    "centroid_lat": 51.3446,
+    "centroid_lon": 0.7931
+  },
+  "C4": {
+    "generation_by_type": {
+      "CCGT (Combined Cycle Gas Turbine)": {
+        "built_mw": 10.0,
+        "n_projects": 1
+      },
+      "Nuclear": {
+        "built_mw": 0.0,
+        "n_projects": 1
+      }
+    },
+    "demand_mw": 179.3,
+    "total_built_mw": 10.0,
+    "tnuos_zones": [
+      "GZ24"
+    ],
+    "primary_tnuos_zone": "GZ24",
+    "n_substations": 2,
+    "centroid_lat": 51.1158,
+    "centroid_lon": 0.9266
+  },
+  "C5": {
+    "generation_by_type": {},
+    "demand_mw": 422.2,
+    "total_built_mw": 0,
+    "tnuos_zones": [
+      "GZ24"
+    ],
+    "primary_tnuos_zone": "GZ24",
+    "n_substations": 3,
+    "centroid_lat": 51.7129,
+    "centroid_lon": 0.7292
+  },
+  "C6": {
+    "generation_by_type": {
+      "Energy Storage System": {
+        "built_mw": 99.0,
+        "n_projects": 1
+      }
+    },
+    "demand_mw": 148.9,
+    "total_built_mw": 99.0,
+    "tnuos_zones": [
+      "GZ24"
+    ],
+    "primary_tnuos_zone": "GZ24",
+    "n_substations": 1,
+    "centroid_lat": 51.5983,
+    "centroid_lon": 0.3012
+  },
+  "C7": {
+    "generation_by_type": {
+      "Demand;Energy Storage System;PV Array (Photo Voltaic/solar)": {
+        "built_mw": 550.0,
+        "n_projects": 1
+      },
+      "Energy Storage System": {
+        "built_mw": 100.0,
+        "n_projects": 1
+      },
+      "Wind Offshore": {
+        "built_mw": 930.0,
+        "n_projects": 2
+      }
+    },
+    "demand_mw": 140.4,
+    "total_built_mw": 1580.0,
+    "tnuos_zones": [
+      "GZ24"
+    ],
+    "primary_tnuos_zone": "GZ24",
+    "n_substations": 6,
+    "centroid_lat": 51.2774,
+    "centroid_lon": 1.0683
+  },
+  "D4": {
+    "generation_by_type": {
+      "Energy Storage System": {
+        "built_mw": 129.4,
+        "n_projects": 1
+      },
+      "PV Array (Photo Voltaic/solar)": {
+        "built_mw": 49.9,
+        "n_projects": 1
+      }
+    },
+    "demand_mw": 885.5,
+    "total_built_mw": 179.3,
+    "tnuos_zones": [
+      "GZ18"
+    ],
+    "primary_tnuos_zone": "GZ18",
+    "n_substations": 2,
+    "centroid_lat": 52.0211,
+    "centroid_lon": -0.9651
+  },
+  "D5": {
+    "generation_by_type": {
+      "OCGT (Open Cycle Gas Turbine)": {
+        "built_mw": 15.0,
+        "n_projects": 1
+      }
+    },
+    "demand_mw": 364.0,
+    "total_built_mw": 15.0,
+    "tnuos_zones": [
+      "GZ18"
+    ],
+    "primary_tnuos_zone": "GZ18",
+    "n_substations": 2,
+    "centroid_lat": 51.9857,
+    "centroid_lon": 0.1356
+  },
+  "D6": {
+    "generation_by_type": {
+      "Energy Storage System": {
+        "built_mw": 49.9,
+        "n_projects": 1
+      },
+      "OCGT (Open Cycle Gas Turbine)": {
+        "built_mw": 12.0,
+        "n_projects": 1
+      }
+    },
+    "demand_mw": 599.1,
+    "total_built_mw": 61.9,
+    "tnuos_zones": [
+      "GZ18",
+      "GZ25"
+    ],
+    "primary_tnuos_zone": "GZ25",
+    "n_substations": 3,
+    "centroid_lat": 51.7593,
+    "centroid_lon": -1.2844
+  },
+  "E1": {
+    "generation_by_type": {
+      "CHP (Combined Heat and Power)": {
+        "built_mw": 47.0,
+        "n_projects": 1
+      }
+    },
+    "demand_mw": 833.0,
+    "total_built_mw": 47.0,
+    "tnuos_zones": [
+      "GZ26"
+    ],
+    "primary_tnuos_zone": "GZ26",
+    "n_substations": 3,
+    "centroid_lat": 50.8142,
+    "centroid_lon": -2.449
+  },
+  "E7": {
+    "generation_by_type": {},
+    "demand_mw": 151.7,
+    "total_built_mw": 0,
+    "tnuos_zones": [
+      "GZ26"
+    ],
+    "primary_tnuos_zone": "GZ26",
+    "n_substations": 2,
+    "centroid_lat": 51.1607,
+    "centroid_lon": -2.8396
+  },
+  "E8": {
+    "generation_by_type": {
+      "CCGT (Combined Cycle Gas Turbine)": {
+        "built_mw": 10.0,
+        "n_projects": 1
+      }
+    },
+    "demand_mw": 89.3,
+    "total_built_mw": 10.0,
+    "tnuos_zones": [
+      "GZ26"
+    ],
+    "primary_tnuos_zone": "GZ26",
+    "n_substations": 1,
+    "centroid_lat": 51.0781,
+    "centroid_lon": -3.3946
+  },
+  "F6": {
+    "generation_by_type": {
+      "CCGT (Combined Cycle Gas Turbine)": {
+        "built_mw": 905.0,
+        "n_projects": 1
+      },
+      "CHP (Combined Heat and Power)": {
+        "built_mw": 82.4,
+        "n_projects": 3
+      },
+      "Energy Storage System": {
+        "built_mw": 22.0,
+        "n_projects": 1
+      },
+      "OCGT (Open Cycle Gas Turbine)": {
+        "built_mw": 140.0,
+        "n_projects": 1
+      },
+      "Reactive Compensation": {
+        "built_mw": 20.0,
+        "n_projects": 1
+      }
+    },
+    "demand_mw": 1112.4,
+    "total_built_mw": 1169.4,
+    "tnuos_zones": [
+      "GZ26",
+      "GZ27"
+    ],
+    "primary_tnuos_zone": "GZ27",
+    "n_substations": 6,
+    "centroid_lat": 50.5896,
+    "centroid_lon": -4.1399
+  },
+  "G1": {
+    "generation_by_type": {
+      "Thermal": {
+        "built_mw": 41.8,
+        "n_projects": 1
+      }
+    },
+    "demand_mw": 477.5,
+    "total_built_mw": 41.8,
+    "tnuos_zones": [
+      "GZ22",
+      "GZ7"
+    ],
+    "primary_tnuos_zone": "GZ7",
+    "n_substations": 2,
+    "centroid_lat": 51.8633,
+    "centroid_lon": -2.3039
+  },
+  "G5": {
+    "generation_by_type": {},
+    "demand_mw": 836.8,
+    "total_built_mw": 0,
+    "tnuos_zones": [
+      "GZ22"
+    ],
+    "primary_tnuos_zone": "GZ22",
+    "n_substations": 3,
+    "centroid_lat": 51.466,
+    "centroid_lon": -2.5745
+  },
+  "G6": {
+    "generation_by_type": {
+      "Energy Storage System": {
+        "built_mw": 19.0,
+        "n_projects": 1
+      }
+    },
+    "demand_mw": 545.5,
+    "total_built_mw": 19.0,
+    "tnuos_zones": [
+      "GZ22"
+    ],
+    "primary_tnuos_zone": "GZ22",
+    "n_substations": 2,
+    "centroid_lat": 51.5322,
+    "centroid_lon": -2.0773
+  },
+  "G7": {
+    "generation_by_type": {
+      "CCGT (Combined Cycle Gas Turbine)": {
+        "built_mw": 1234.0,
+        "n_projects": 1
+      },
+      "Nuclear": {
+        "built_mw": 0.0,
+        "n_projects": 1
+      }
+    },
+    "demand_mw": 311.3,
+    "total_built_mw": 1234.0,
+    "tnuos_zones": [
+      "GZ22"
+    ],
+    "primary_tnuos_zone": "GZ22",
+    "n_substations": 4,
+    "centroid_lat": 51.3072,
+    "centroid_lon": -2.6386
+  },
+  "H1": {
+    "generation_by_type": {
+      "CHP (Combined Heat and Power)": {
+        "built_mw": 120.0,
+        "n_projects": 1
+      }
+    },
+    "demand_mw": 134.0,
+    "total_built_mw": 120.0,
+    "tnuos_zones": [
+      "GZ18",
+      "GZ2",
+      "GZ21"
+    ],
+    "primary_tnuos_zone": "GZ21",
+    "n_substations": 4,
+    "centroid_lat": 51.5633,
+    "centroid_lon": -3.6259
+  },
+  "H2": {
+    "generation_by_type": {
+      "CCGT (Combined Cycle Gas Turbine)": {
+        "built_mw": 10.0,
+        "n_projects": 1
+      },
+      "CCGT (Combined Cycle Gas Turbine);Demand": {
+        "built_mw": 850.0,
+        "n_projects": 1
+      },
+      "Energy Storage System": {
+        "built_mw": 369.9,
+        "n_projects": 2
+      }
+    },
+    "demand_mw": 745.3,
+    "total_built_mw": 1229.9,
+    "tnuos_zones": [
+      "GZ21"
+    ],
+    "primary_tnuos_zone": "GZ21",
+    "n_substations": 7,
+    "centroid_lat": 51.5649,
+    "centroid_lon": -3.1861
+  },
+  "H6": {
+    "generation_by_type": {
+      "Demand;Hydrogen": {
+        "built_mw": 2199.0,
+        "n_projects": 1
+      },
+      "Energy Storage System;Reactive Compensation": {
+        "built_mw": 12.0,
+        "n_projects": 1
+      },
+      "Gas Reciprocating": {
+        "built_mw": 21.0,
+        "n_projects": 1
+      },
+      "OCGT (Open Cycle Gas Turbine)": {
+        "built_mw": 339.0,
+        "n_projects": 2
+      },
+      "Wind Onshore": {
+        "built_mw": 228.0,
+        "n_projects": 1
+      }
+    },
+    "demand_mw": 885.8,
+    "total_built_mw": 2799.0,
+    "tnuos_zones": [
+      "GZ18",
+      "GZ20",
+      "GZ22"
+    ],
+    "primary_tnuos_zone": "GZ18",
+    "n_substations": 6,
+    "centroid_lat": 51.9313,
+    "centroid_lon": -4.1204
+  },
+  "J1": {
+    "generation_by_type": {
+      "Biomass": {
+        "built_mw": 38.0,
+        "n_projects": 1
+      },
+      "CCGT (Combined Cycle Gas Turbine)": {
+        "built_mw": 2440.0,
+        "n_projects": 2
+      },
+      "Energy Storage System": {
+        "built_mw": 49.9,
+        "n_projects": 1
+      },
+      "Energy Storage System;OCGT (Open Cycle Gas Turbine)": {
+        "built_mw": 300.0,
+        "n_projects": 1
+      },
+      "Energy Storage System;PV Array (Photo Voltaic/solar)": {
+        "built_mw": 99.8,
+        "n_projects": 2
+      },
+      "Oil & AGT (Advanced Gas Turbine)": {
+        "built_mw": 20.5,
+        "n_projects": 1
+      },
+      "PV Array (Photo Voltaic/solar)": {
+        "built_mw": 50.0,
+        "n_projects": 1
+      },
+      "Wind Offshore": {
+        "built_mw": 1230.0,
+        "n_projects": 2
+      }
+    },
+    "demand_mw": 853.1,
+    "total_built_mw": 4228.2,
+    "tnuos_zones": [
+      "GZ17",
+      "GZ18"
+    ],
+    "primary_tnuos_zone": "GZ18",
+    "n_substations": 10,
+    "centroid_lat": 52.8281,
+    "centroid_lon": -0.1505
+  },
+  "J3": {
+    "generation_by_type": {
+      "OCGT (Open Cycle Gas Turbine)": {
+        "built_mw": 299.0,
+        "n_projects": 1
+      },
+      "Wind Offshore": {
+        "built_mw": 315.0,
+        "n_projects": 1
+      }
+    },
+    "demand_mw": -94.3,
+    "total_built_mw": 614.0,
+    "tnuos_zones": [
+      "GZ18"
+    ],
+    "primary_tnuos_zone": "GZ18",
+    "n_substations": 6,
+    "centroid_lat": 52.6695,
+    "centroid_lon": 1.3167
+  },
+  "J4": {
+    "generation_by_type": {
+      "CCGT (Combined Cycle Gas Turbine);Energy Storage System": {
+        "built_mw": 740.0,
+        "n_projects": 1
+      }
+    },
+    "demand_mw": 176.8,
+    "total_built_mw": 740.0,
+    "tnuos_zones": [
+      "GZ16",
+      "GZ18"
+    ],
+    "primary_tnuos_zone": "GZ18",
+    "n_substations": 3,
+    "centroid_lat": 52.2896,
+    "centroid_lon": -0.2135
+  },
+  "J5": {
+    "generation_by_type": {
+      "Biomass": {
+        "built_mw": 41.0,
+        "n_projects": 1
+      },
+      "Energy Storage System": {
+        "built_mw": 49.9,
+        "n_projects": 1
+      },
+      "Energy Storage System;PV Array (Photo Voltaic/solar)": {
+        "built_mw": 57.0,
+        "n_projects": 1
+      },
+      "Nuclear": {
+        "built_mw": 1230.0,
+        "n_projects": 1
+      },
+      "Wind Offshore": {
+        "built_mw": 1691.9,
+        "n_projects": 2
+      }
+    },
+    "demand_mw": 459.5,
+    "total_built_mw": 3069.8,
+    "tnuos_zones": [
+      "GZ18"
+    ],
+    "primary_tnuos_zone": "GZ18",
+    "n_substations": 9,
+    "centroid_lat": 52.217,
+    "centroid_lon": 1.066
+  },
+  "J6": {
+    "generation_by_type": {
+      "CCGT (Combined Cycle Gas Turbine)": {
+        "built_mw": 445.0,
+        "n_projects": 1
+      },
+      "OCGT (Open Cycle Gas Turbine)": {
+        "built_mw": 299.0,
+        "n_projects": 1
+      }
+    },
+    "demand_mw": 697.8,
+    "total_built_mw": 744.0,
+    "tnuos_zones": [
+      "GZ16",
+      "GZ17",
+      "GZ18"
+    ],
+    "primary_tnuos_zone": "GZ18",
+    "n_substations": 5,
+    "centroid_lat": 52.5369,
+    "centroid_lon": -0.7245
+  },
+  "J8": {
+    "generation_by_type": {
+      "Waste": {
+        "built_mw": 55.0,
+        "n_projects": 1
+      }
+    },
+    "demand_mw": 105.6,
+    "total_built_mw": 55.0,
+    "tnuos_zones": [
+      "GZ24"
+    ],
+    "primary_tnuos_zone": "GZ24",
+    "n_substations": 1,
+    "centroid_lat": 51.8652,
+    "centroid_lon": 0.5601
+  },
+  "K4": {
+    "generation_by_type": {
+      "Wind Offshore": {
+        "built_mw": 824.0,
+        "n_projects": 1
+      }
+    },
+    "demand_mw": 196.4,
+    "total_built_mw": 824.0,
+    "tnuos_zones": [
+      "GZ17"
+    ],
+    "primary_tnuos_zone": "GZ17",
+    "n_substations": 4,
+    "centroid_lat": 53.0768,
+    "centroid_lon": -0.2231
+  },
+  "K5": {
+    "generation_by_type": {
+      "CCGT (Combined Cycle Gas Turbine);Demand": {
+        "built_mw": 1752.0,
+        "n_projects": 1
+      }
+    },
+    "demand_mw": 162.3,
+    "total_built_mw": 1752.0,
+    "tnuos_zones": [
+      "GZ16"
+    ],
+    "primary_tnuos_zone": "GZ16",
+    "n_substations": 2,
+    "centroid_lat": 53.1558,
+    "centroid_lon": -0.8425
+  },
+  "K6": {
+    "generation_by_type": {
+      "CCGT (Combined Cycle Gas Turbine);Energy Storage System": {
+        "built_mw": 3714.0,
+        "n_projects": 1
+      }
+    },
+    "demand_mw": 270.4,
+    "total_built_mw": 3714.0,
+    "tnuos_zones": [
+      "GZ16"
+    ],
+    "primary_tnuos_zone": "GZ16",
+    "n_substations": 1,
+    "centroid_lat": 53.2296,
+    "centroid_lon": -0.5252
+  },
+  "L1": {
+    "generation_by_type": {},
+    "demand_mw": 270.4,
+    "total_built_mw": 0,
+    "tnuos_zones": [
+      "GZ18"
+    ],
+    "primary_tnuos_zone": "GZ18",
+    "n_substations": 1,
+    "centroid_lat": 52.5237,
+    "centroid_lon": -2.1911
+  },
+  "L2": {
+    "generation_by_type": {
+      "CCGT (Combined Cycle Gas Turbine)": {
+        "built_mw": 380.0,
+        "n_projects": 1
+      },
+      "Energy Storage System": {
+        "built_mw": 297.0,
+        "n_projects": 2
+      }
+    },
+    "demand_mw": 1442.0,
+    "total_built_mw": 677.0,
+    "tnuos_zones": [
+      "GZ18"
+    ],
+    "primary_tnuos_zone": "GZ18",
+    "n_substations": 7,
+    "centroid_lat": 52.541,
+    "centroid_lon": -2.137
+  },
+  "L3": {
+    "generation_by_type": {
+      "CCGT (Combined Cycle Gas Turbine)": {
+        "built_mw": 29.0,
+        "n_projects": 1
+      },
+      "Energy Storage System": {
+        "built_mw": 98.0,
+        "n_projects": 1
+      },
+      "Energy Storage System;PV Array (Photo Voltaic/solar)": {
+        "built_mw": 49.9,
+        "n_projects": 1
+      }
+    },
+    "demand_mw": 2830.8,
+    "total_built_mw": 176.9,
+    "tnuos_zones": [
+      "GZ18"
+    ],
+    "primary_tnuos_zone": "GZ18",
+    "n_substations": 8,
+    "centroid_lat": 52.3707,
+    "centroid_lon": -1.6918
+  },
+  "L5": {
+    "generation_by_type": {
+      "CHP (Combined Heat and Power)": {
+        "built_mw": 162.0,
+        "n_projects": 1
+      },
+      "Gas Reciprocating": {
+        "built_mw": 20.0,
+        "n_projects": 1
+      },
+      "OCGT (Open Cycle Gas Turbine)": {
+        "built_mw": 140.0,
+        "n_projects": 1
+      },
+      "Thermal": {
+        "built_mw": 14.0,
+        "n_projects": 1
+      }
+    },
+    "demand_mw": 964.2,
+    "total_built_mw": 336.0,
+    "tnuos_zones": [
+      "GZ18"
+    ],
+    "primary_tnuos_zone": "GZ18",
+    "n_substations": 4,
+    "centroid_lat": 52.8144,
+    "centroid_lon": -2.1205
+  },
+  "L7": {
+    "generation_by_type": {
+      "CHP (Combined Heat and Power)": {
+        "built_mw": 20.9,
+        "n_projects": 1
+      },
+      "CHP (Combined Heat and Power);Energy Storage System;PV Array (Photo Voltaic/solar);Wind Onshore": {
+        "built_mw": 43.0,
+        "n_projects": 1
+      },
+      "Energy Storage System;OCGT (Open Cycle Gas Turbine)": {
+        "built_mw": 225.0,
+        "n_projects": 1
+      },
+      "Thermal": {
+        "built_mw": 20.9,
+        "n_projects": 1
+      }
+    },
+    "demand_mw": 596.0,
+    "total_built_mw": 309.8,
+    "tnuos_zones": [
+      "GZ16",
+      "GZ18"
+    ],
+    "primary_tnuos_zone": "GZ18",
+    "n_substations": 3,
+    "centroid_lat": 52.8046,
+    "centroid_lon": -1.0939
+  },
+  "L8": {
+    "generation_by_type": {
+      "Energy Storage System": {
+        "built_mw": 57.0,
+        "n_projects": 1
+      }
+    },
+    "demand_mw": 557.9,
+    "total_built_mw": 57.0,
+    "tnuos_zones": [
+      "GZ18"
+    ],
+    "primary_tnuos_zone": "GZ18",
+    "n_substations": 2,
+    "centroid_lat": 52.6566,
+    "centroid_lon": -1.2407
+  },
+  "M4": {
+    "generation_by_type": {},
+    "demand_mw": 196.7,
+    "total_built_mw": 0,
+    "tnuos_zones": [
+      "GZ18"
+    ],
+    "primary_tnuos_zone": "GZ18",
+    "n_substations": 2,
+    "centroid_lat": 52.8373,
+    "centroid_lon": -3.1444
+  },
+  "M5": {
+    "generation_by_type": {
+      "Wind Offshore": {
+        "built_mw": 574.0,
+        "n_projects": 1
+      }
+    },
+    "demand_mw": 180.8,
+    "total_built_mw": 574.0,
+    "tnuos_zones": [
+      "GZ16",
+      "GZ19"
+    ],
+    "primary_tnuos_zone": "GZ16",
+    "n_substations": 4,
+    "centroid_lat": 53.1681,
+    "centroid_lon": -3.2114
+  },
+  "M6": {
+    "generation_by_type": {
+      "Hydro": {
+        "built_mw": 39.0,
+        "n_projects": 1
+      },
+      "Pump Storage": {
+        "built_mw": 1644.0,
+        "n_projects": 1
+      }
+    },
+    "demand_mw": 0,
+    "total_built_mw": 1683.0,
+    "tnuos_zones": [
+      "GZ16",
+      "GZ19"
+    ],
+    "primary_tnuos_zone": "GZ19",
+    "n_substations": 9,
+    "centroid_lat": 53.0865,
+    "centroid_lon": -4.2552
+  },
+  "M7": {
+    "generation_by_type": {
+      "Hydro": {
+        "built_mw": 10.0,
+        "n_projects": 1
+      },
+      "Pump Storage": {
+        "built_mw": 360.0,
+        "n_projects": 1
+      }
+    },
+    "demand_mw": 21.3,
+    "total_built_mw": 370.0,
+    "tnuos_zones": [
+      "GZ18"
+    ],
+    "primary_tnuos_zone": "GZ18",
+    "n_substations": 2,
+    "centroid_lat": 52.769,
+    "centroid_lon": -3.7943
+  },
+  "M8": {
+    "generation_by_type": {},
+    "demand_mw": 37.6,
+    "total_built_mw": 0,
+    "tnuos_zones": [
+      "GZ19"
+    ],
+    "primary_tnuos_zone": "GZ19",
+    "n_substations": 1,
+    "centroid_lat": 53.3166,
+    "centroid_lon": -4.464
+  },
+  "N1": {
+    "generation_by_type": {
+      "Energy Storage System": {
+        "built_mw": 126.9,
+        "n_projects": 3
+      },
+      "Reactive Compensation": {
+        "built_mw": 0.0,
+        "n_projects": 1
+      }
+    },
+    "demand_mw": 1266.5,
+    "total_built_mw": 126.9,
+    "tnuos_zones": [
+      "GZ15",
+      "GZ16"
+    ],
+    "primary_tnuos_zone": "GZ15",
+    "n_substations": 5,
+    "centroid_lat": 53.4278,
+    "centroid_lon": -2.7597
+  },
+  "N2": {
+    "generation_by_type": {
+      "CCGT (Combined Cycle Gas Turbine)": {
+        "built_mw": 910.0,
+        "n_projects": 1
+      },
+      "Energy Storage System": {
+        "built_mw": 49.9,
+        "n_projects": 1
+      },
+      "Energy Storage System;Reactive Compensation": {
+        "built_mw": 49.9,
+        "n_projects": 1
+      },
+      "Gas Reciprocating": {
+        "built_mw": 20.0,
+        "n_projects": 1
+      },
+      "Wind Onshore": {
+        "built_mw": 174.7,
+        "n_projects": 1
+      }
+    },
+    "demand_mw": 718.6,
+    "total_built_mw": 1204.5,
+    "tnuos_zones": [
+      "GZ16",
+      "GZ18"
+    ],
+    "primary_tnuos_zone": "GZ16",
+    "n_substations": 4,
+    "centroid_lat": 53.3071,
+    "centroid_lon": -2.1861
+  },
+  "N3": {
+    "generation_by_type": {
+      "CCGT (Combined Cycle Gas Turbine)": {
+        "built_mw": 810.0,
+        "n_projects": 1
+      },
+      "Energy Storage System": {
+        "built_mw": 157.0,
+        "n_projects": 1
+      },
+      "Energy Storage System;Wind Offshore": {
+        "built_mw": 90.0,
+        "n_projects": 1
+      },
+      "Gas Reciprocating": {
+        "built_mw": 90.0,
+        "n_projects": 1
+      },
+      "Wind Offshore": {
+        "built_mw": 258.0,
+        "n_projects": 1
+      }
+    },
+    "demand_mw": 248.6,
+    "total_built_mw": 1405.0,
+    "tnuos_zones": [
+      "GZ11",
+      "GZ16"
+    ],
+    "primary_tnuos_zone": "GZ16",
+    "n_substations": 6,
+    "centroid_lat": 53.2487,
+    "centroid_lon": -2.8583
+  },
+  "N4": {
+    "generation_by_type": {
+      "CCGT (Combined Cycle Gas Turbine)": {
+        "built_mw": 42.0,
+        "n_projects": 2
+      }
+    },
+    "demand_mw": 1020.5,
+    "total_built_mw": 42.0,
+    "tnuos_zones": [
+      "GZ15"
+    ],
+    "primary_tnuos_zone": "GZ15",
+    "n_substations": 3,
+    "centroid_lat": 53.6012,
+    "centroid_lon": -2.28
+  },
+  "N5": {
+    "generation_by_type": {
+      "CCGT (Combined Cycle Gas Turbine)": {
+        "built_mw": 21.0,
+        "n_projects": 1
+      }
+    },
+    "demand_mw": 194.0,
+    "total_built_mw": 21.0,
+    "tnuos_zones": [
+      "GZ14"
+    ],
+    "primary_tnuos_zone": "GZ14",
+    "n_substations": 1,
+    "centroid_lat": 53.9285,
+    "centroid_lon": -2.3147
+  },
+  "N6": {
+    "generation_by_type": {},
+    "demand_mw": 58.0,
+    "total_built_mw": 0,
+    "tnuos_zones": [
+      "GZ16"
+    ],
+    "primary_tnuos_zone": "GZ16",
+    "n_substations": 1,
+    "centroid_lat": 53.2475,
+    "centroid_lon": -2.1033
+  },
+  "N7": {
+    "generation_by_type": {},
+    "demand_mw": 351.2,
+    "total_built_mw": 0,
+    "tnuos_zones": [
+      "GZ16"
+    ],
+    "primary_tnuos_zone": "GZ16",
+    "n_substations": 1,
+    "centroid_lat": 53.413,
+    "centroid_lon": -1.9613
+  },
+  "P1": {
+    "generation_by_type": {},
+    "demand_mw": 1387.2,
+    "total_built_mw": 0,
+    "tnuos_zones": [
+      "GZ15"
+    ],
+    "primary_tnuos_zone": "GZ15",
+    "n_substations": 4,
+    "centroid_lat": 53.791,
+    "centroid_lon": -1.7528
+  },
+  "P2": {
+    "generation_by_type": {},
+    "demand_mw": 105.8,
+    "total_built_mw": 0,
+    "tnuos_zones": [
+      "GZ15"
+    ],
+    "primary_tnuos_zone": "GZ15",
+    "n_substations": 2,
+    "centroid_lat": 54.0651,
+    "centroid_lon": -1.3256
+  },
+  "P3": {
+    "generation_by_type": {
+      "Energy Storage System": {
+        "built_mw": 49.9,
+        "n_projects": 1
+      },
+      "Reactive Compensation": {
+        "built_mw": 0.0,
+        "n_projects": 1
+      }
+    },
+    "demand_mw": 1067.0,
+    "total_built_mw": 49.9,
+    "tnuos_zones": [
+      "GZ16"
+    ],
+    "primary_tnuos_zone": "GZ16",
+    "n_substations": 13,
+    "centroid_lat": 53.3815,
+    "centroid_lon": -1.4395
+  },
+  "P4": {
+    "generation_by_type": {
+      "Biomass": {
+        "built_mw": 3906.0,
+        "n_projects": 1
+      },
+      "Energy Storage System": {
+        "built_mw": 99.9,
+        "n_projects": 1
+      },
+      "Wind Onshore": {
+        "built_mw": 32.0,
+        "n_projects": 1
+      }
+    },
+    "demand_mw": 37.5,
+    "total_built_mw": 4037.9,
+    "tnuos_zones": [
+      "GZ15",
+      "GZ16"
+    ],
+    "primary_tnuos_zone": "GZ16",
+    "n_substations": 2,
+    "centroid_lat": 53.7773,
+    "centroid_lon": -1.0012
+  },
+  "P6": {
+    "generation_by_type": {
+      "Demand;Energy Storage System": {
+        "built_mw": 150.0,
+        "n_projects": 1
+      },
+      "Energy Storage System": {
+        "built_mw": 57.0,
+        "n_projects": 1
+      }
+    },
+    "demand_mw": 1005.7,
+    "total_built_mw": 207.0,
+    "tnuos_zones": [
+      "GZ15",
+      "GZ16"
+    ],
+    "primary_tnuos_zone": "GZ15",
+    "n_substations": 6,
+    "centroid_lat": 53.9426,
+    "centroid_lon": -1.2354
+  },
+  "P7": {
+    "generation_by_type": {
+      "CCGT (Combined Cycle Gas Turbine)": {
+        "built_mw": 1400.0,
+        "n_projects": 1
+      },
+      "Hydro": {
+        "built_mw": 20.5,
+        "n_projects": 1
+      },
+      "OCGT (Open Cycle Gas Turbine)": {
+        "built_mw": 619.0,
+        "n_projects": 1
+      },
+      "Wind Offshore": {
+        "built_mw": 2520.0,
+        "n_projects": 1
+      }
+    },
+    "demand_mw": 142.9,
+    "total_built_mw": 4559.5,
+    "tnuos_zones": [
+      "GZ15",
+      "GZ16"
+    ],
+    "primary_tnuos_zone": "GZ15",
+    "n_substations": 7,
+    "centroid_lat": 53.5851,
+    "centroid_lon": -0.2097
+  },
+  "P8": {
+    "generation_by_type": {
+      "Biomass": {
+        "built_mw": 15.0,
+        "n_projects": 1
+      },
+      "CCGT (Combined Cycle Gas Turbine)": {
+        "built_mw": 3912.0,
+        "n_projects": 2
+      },
+      "Energy Storage System": {
+        "built_mw": 99.8,
+        "n_projects": 1
+      },
+      "Energy Storage System;Gas Reciprocating": {
+        "built_mw": 1268.0,
+        "n_projects": 1
+      },
+      "Energy Storage System;PV Array (Photo Voltaic/solar)": {
+        "built_mw": 100.0,
+        "n_projects": 1
+      },
+      "Wind Offshore": {
+        "built_mw": 2826.5,
+        "n_projects": 2
+      }
+    },
+    "demand_mw": 520.6,
+    "total_built_mw": 8221.3,
+    "tnuos_zones": [
+      "GZ15",
+      "GZ16"
+    ],
+    "primary_tnuos_zone": "GZ15",
+    "n_substations": 13,
+    "centroid_lat": 53.6963,
+    "centroid_lon": -0.4372
+  },
+  "Q2": {
+    "generation_by_type": {
+      "CCGT (Combined Cycle Gas Turbine)": {
+        "built_mw": 141.0,
+        "n_projects": 1
+      },
+      "Energy Storage System": {
+        "built_mw": 150.0,
+        "n_projects": 1
+      },
+      "Nuclear": {
+        "built_mw": 1197.0,
+        "n_projects": 1
+      }
+    },
+    "demand_mw": 181.4,
+    "total_built_mw": 1488.0,
+    "tnuos_zones": [
+      "GZ13",
+      "GZ15",
+      "GZ16"
+    ],
+    "primary_tnuos_zone": "GZ15",
+    "n_substations": 9,
+    "centroid_lat": 54.5725,
+    "centroid_lon": -1.0986
+  },
+  "Q4": {
+    "generation_by_type": {
+      "Energy Storage System": {
+        "built_mw": 11.6,
+        "n_projects": 1
+      }
+    },
+    "demand_mw": 983.6,
+    "total_built_mw": 11.6,
+    "tnuos_zones": [
+      "GZ13",
+      "GZ15"
+    ],
+    "primary_tnuos_zone": "GZ13",
+    "n_substations": 7,
+    "centroid_lat": 54.8141,
+    "centroid_lon": -1.4666
+  },
+  "Q5": {
+    "generation_by_type": {},
+    "demand_mw": 372.0,
+    "total_built_mw": 0,
+    "tnuos_zones": [
+      "GZ13"
+    ],
+    "primary_tnuos_zone": "GZ13",
+    "n_substations": 3,
+    "centroid_lat": 54.9997,
+    "centroid_lon": -1.8663
+  },
+  "Q6": {
+    "generation_by_type": {
+      "Biomass": {
+        "built_mw": 396.0,
+        "n_projects": 1
+      }
+    },
+    "demand_mw": -7.1,
+    "total_built_mw": 396.0,
+    "tnuos_zones": [
+      "GZ13"
+    ],
+    "primary_tnuos_zone": "GZ13",
+    "n_substations": 1,
+    "centroid_lat": 55.1299,
+    "centroid_lon": -1.7185
+  },
+  "Q7": {
+    "generation_by_type": {},
+    "demand_mw": 156.7,
+    "total_built_mw": 0,
+    "tnuos_zones": [
+      "GZ13"
+    ],
+    "primary_tnuos_zone": "GZ13",
+    "n_substations": 1,
+    "centroid_lat": 54.6486,
+    "centroid_lon": -1.8627
+  },
+  "Q8": {
+    "generation_by_type": {},
+    "demand_mw": 463.1,
+    "total_built_mw": 0,
+    "tnuos_zones": [
+      "GZ11",
+      "GZ12",
+      "GZ13",
+      "GZ14"
+    ],
+    "primary_tnuos_zone": "GZ11",
+    "n_substations": 5,
+    "centroid_lat": 54.8393,
+    "centroid_lon": -2.6872
+  },
+  "R4": {
+    "generation_by_type": {
+      "Energy Storage System": {
+        "built_mw": 40.0,
+        "n_projects": 1
+      }
+    },
+    "demand_mw": 576.8,
+    "total_built_mw": 40.0,
+    "tnuos_zones": [
+      "GZ12",
+      "GZ14",
+      "GZ15",
+      "GZ16"
+    ],
+    "primary_tnuos_zone": "GZ14",
+    "n_substations": 7,
+    "centroid_lat": 54.5942,
+    "centroid_lon": -2.3533
+  },
+  "R5": {
+    "generation_by_type": {
+      "Nuclear": {
+        "built_mw": 2363.0,
+        "n_projects": 1
+      },
+      "Wind Offshore": {
+        "built_mw": 1646.0,
+        "n_projects": 1
+      }
+    },
+    "demand_mw": 99.5,
+    "total_built_mw": 4009.0,
+    "tnuos_zones": [
+      "GZ14"
+    ],
+    "primary_tnuos_zone": "GZ14",
+    "n_substations": 5,
+    "centroid_lat": 54.0389,
+    "centroid_lon": -2.7286
+  },
+  "R6": {
+    "generation_by_type": {
+      "CHP (Combined Heat and Power)": {
+        "built_mw": 155.0,
+        "n_projects": 1
+      },
+      "Energy Storage System": {
+        "built_mw": 10.0,
+        "n_projects": 1
+      }
+    },
+    "demand_mw": 11.2,
+    "total_built_mw": 165.0,
+    "tnuos_zones": [
+      "GZ14"
+    ],
+    "primary_tnuos_zone": "GZ14",
+    "n_substations": 6,
+    "centroid_lat": 0,
+    "centroid_lon": 0
+  },
+  "S5": {
+    "generation_by_type": {
+      "Wind Onshore": {
+        "built_mw": 249.9,
+        "n_projects": 3
+      }
+    },
+    "demand_mw": 1160.2,
+    "total_built_mw": 249.9,
+    "tnuos_zones": [
+      "GZ8",
+      "GZ9"
+    ],
+    "primary_tnuos_zone": "GZ9",
+    "n_substations": 34,
+    "centroid_lat": 56.0243,
+    "centroid_lon": -3.8731
+  },
+  "S6": {
+    "generation_by_type": {
+      "CCGT (Combined Cycle Gas Turbine)": {
+        "built_mw": 20.0,
+        "n_projects": 1
+      },
+      "Energy Storage System": {
+        "built_mw": 199.9,
+        "n_projects": 2
+      },
+      "Energy Storage System;Hydrogen;PV Array (Photo Voltaic/solar);Wind Onshore": {
+        "built_mw": 238.0,
+        "n_projects": 1
+      },
+      "Energy Storage System;PV Array (Photo Voltaic/solar)": {
+        "built_mw": 50.0,
+        "n_projects": 1
+      },
+      "Energy Storage System;Wind Onshore": {
+        "built_mw": 678.3,
+        "n_projects": 4
+      },
+      "Nuclear": {
+        "built_mw": 1250.0,
+        "n_projects": 2
+      },
+      "Reactive Compensation": {
+        "built_mw": 0.0,
+        "n_projects": 1
+      },
+      "Wind Offshore": {
+        "built_mw": 1126.0,
+        "n_projects": 3
+      },
+      "Wind Onshore": {
+        "built_mw": 3063.4,
+        "n_projects": 30
+      }
+    },
+    "demand_mw": 2847.9,
+    "total_built_mw": 6625.6,
+    "tnuos_zones": [
+      "GZ10",
+      "GZ11",
+      "GZ12",
+      "GZ13",
+      "GZ14",
+      "GZ2",
+      "GZ5",
+      "GZ9"
+    ],
+    "primary_tnuos_zone": "GZ10",
+    "n_substations": 140,
+    "centroid_lat": 55.7171,
+    "centroid_lon": -3.8825
+  },
+  "T1": {
+    "generation_by_type": {
+      "Biomass": {
+        "built_mw": 55.0,
+        "n_projects": 1
+      },
+      "Energy Storage System": {
+        "built_mw": 100.0,
+        "n_projects": 1
+      },
+      "Energy Storage System;Reactive Compensation": {
+        "built_mw": 0.0,
+        "n_projects": 1
+      },
+      "Energy Storage System;Wind Onshore": {
+        "built_mw": 41.4,
+        "n_projects": 1
+      },
+      "Hydro": {
+        "built_mw": 440.2,
+        "n_projects": 12
+      },
+      "Pump Storage": {
+        "built_mw": 740.0,
+        "n_projects": 2
+      },
+      "Wind Onshore": {
+        "built_mw": 891.6,
+        "n_projects": 9
+      }
+    },
+    "demand_mw": 422.2,
+    "total_built_mw": 2268.2,
+    "tnuos_zones": [
+      "GZ1",
+      "GZ3",
+      "GZ4",
+      "GZ8",
+      "GZ9"
+    ],
+    "primary_tnuos_zone": "GZ1",
+    "n_substations": 57,
+    "centroid_lat": 57.3769,
+    "centroid_lon": -4.6706
+  },
+  "T2": {
+    "generation_by_type": {
+      "CCGT (Combined Cycle Gas Turbine)": {
+        "built_mw": 1180.0,
+        "n_projects": 1
+      },
+      "Energy Storage System": {
+        "built_mw": 200.0,
+        "n_projects": 1
+      },
+      "Energy Storage System;Wind Onshore": {
+        "built_mw": 30.0,
+        "n_projects": 1
+      },
+      "Reactive Compensation": {
+        "built_mw": 0.0,
+        "n_projects": 2
+      },
+      "Wind Offshore": {
+        "built_mw": 2493.1,
+        "n_projects": 4
+      },
+      "Wind Onshore": {
+        "built_mw": 222.0,
+        "n_projects": 3
+      }
+    },
+    "demand_mw": 397.7,
+    "total_built_mw": 4125.1,
+    "tnuos_zones": [
+      "GZ1",
+      "GZ2",
+      "GZ5"
+    ],
+    "primary_tnuos_zone": "GZ1",
+    "n_substations": 41,
+    "centroid_lat": 57.2565,
+    "centroid_lon": -2.2074
+  },
+  "T3": {
+    "generation_by_type": {
+      "Energy Storage System": {
+        "built_mw": 40.0,
+        "n_projects": 1
+      },
+      "Hydro": {
+        "built_mw": 187.5,
+        "n_projects": 3
+      },
+      "Wind Onshore": {
+        "built_mw": 122.0,
+        "n_projects": 3
+      }
+    },
+    "demand_mw": 62.6,
+    "total_built_mw": 349.5,
+    "tnuos_zones": [
+      "GZ10",
+      "GZ3",
+      "GZ7",
+      "GZ8"
+    ],
+    "primary_tnuos_zone": "GZ8",
+    "n_substations": 17,
+    "centroid_lat": 56.0705,
+    "centroid_lon": -5.3053
+  },
+  "T4": {
+    "generation_by_type": {
+      "Energy Storage System": {
+        "built_mw": 49.0,
+        "n_projects": 1
+      },
+      "Hydro": {
+        "built_mw": 232.4,
+        "n_projects": 3
+      },
+      "OCGT (Open Cycle Gas Turbine)": {
+        "built_mw": 6.0,
+        "n_projects": 1
+      },
+      "Wind Offshore": {
+        "built_mw": 1075.0,
+        "n_projects": 1
+      },
+      "Wind Onshore": {
+        "built_mw": 223.1,
+        "n_projects": 3
+      }
+    },
+    "demand_mw": 410.8,
+    "total_built_mw": 1585.5,
+    "tnuos_zones": [
+      "GZ5",
+      "GZ6",
+      "GZ9"
+    ],
+    "primary_tnuos_zone": "GZ5",
+    "n_substations": 28,
+    "centroid_lat": 56.5445,
+    "centroid_lon": -3.4258
+  },
+  "T5": {
+    "generation_by_type": {
+      "CCGT (Combined Cycle Gas Turbine)": {
+        "built_mw": 1380.0,
+        "n_projects": 1
+      },
+      "Wind Onshore": {
+        "built_mw": 389.5,
+        "n_projects": 5
+      }
+    },
+    "demand_mw": 73.3,
+    "total_built_mw": 1769.5,
+    "tnuos_zones": [
+      "GZ1"
+    ],
+    "primary_tnuos_zone": "GZ1",
+    "n_substations": 19,
+    "centroid_lat": 58.1135,
+    "centroid_lon": -4.2531
+  }
+}
