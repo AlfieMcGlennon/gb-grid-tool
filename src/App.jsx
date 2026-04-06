@@ -14,6 +14,79 @@ import NodeAdder from './components/NodeAdder'
 import LinkEditor from './components/LinkEditor'
 import DataSourcesPage from './components/DataSourcesPage'
 
+function MobilePreview() {
+  return (
+    <div style={{
+      background: '#0a0a0f',
+      color: '#d4d4d8',
+      minHeight: '100vh',
+      display: 'flex',
+      flexDirection: 'column',
+      alignItems: 'center',
+      justifyContent: 'center',
+      padding: '24px',
+      fontFamily: "'JetBrains Mono', monospace",
+      textAlign: 'center'
+    }}>
+      <h1 style={{ color: '#ffb000', fontSize: '1.4rem', marginBottom: '8px' }}>
+        GB Grid Scenario Tool
+      </h1>
+      <p style={{ color: '#71717a', fontSize: '0.85rem', marginBottom: '24px', maxWidth: '320px' }}>
+        Interactive stress-testing and scenario planning for the GB electricity transmission grid
+      </p>
+      <img
+        src={import.meta.env.BASE_URL + 'preview.png'}
+        alt="GB Grid Scenario Tool — interactive map showing power flows across 27 transmission zones"
+        style={{
+          width: '100%',
+          maxWidth: '500px',
+          borderRadius: '4px',
+          border: '1px solid #2a2a35',
+          marginBottom: '24px'
+        }}
+      />
+      <p style={{ color: '#d4d4d8', fontSize: '0.9rem', marginBottom: '12px' }}>
+        This tool is designed for desktop use.
+      </p>
+      <p style={{ color: '#71717a', fontSize: '0.8rem', marginBottom: '24px', maxWidth: '300px' }}>
+        The interactive map, control panel, and power flow engine require a wider screen.
+        Please visit on a desktop or laptop for the full experience.
+      </p>
+      <a
+        href="https://github.com/AlfieMcGlennon/gb-grid-tool"
+        style={{
+          color: '#0a0a0f',
+          background: '#ffb000',
+          padding: '10px 24px',
+          borderRadius: '2px',
+          textDecoration: 'none',
+          fontSize: '0.85rem',
+          fontWeight: 600
+        }}
+      >
+        View on GitHub
+      </a>
+      <p style={{ color: '#52525b', fontSize: '0.7rem', marginTop: '32px' }}>
+        Built with React, Leaflet, and DC power flow — all client-side, no backend.
+        <br />Data from NESO (OGL v3) and ECMWF ERA5 (C3S).
+      </p>
+    </div>
+  );
+}
+
+function AppWrapper() {
+  const [isMobile, setIsMobile] = useState(window.innerWidth < 900);
+
+  useEffect(() => {
+    const handleResize = () => setIsMobile(window.innerWidth < 900);
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
+  if (isMobile) return <MobilePreview />;
+  return <App />;
+}
+
 function App() {
   const [data, setData] = useState(null);
   const [loading, setLoading] = useState(true);
@@ -836,4 +909,4 @@ function App() {
   );
 }
 
-export default App;
+export default AppWrapper;

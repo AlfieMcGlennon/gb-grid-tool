@@ -159,6 +159,10 @@ Thumbs.db
 # Claude Code working files
 .claude/
 
+# Private development notes
+docs/RL_ENVIRONMENT_NOTES.md
+docs/PROJECT_DEEP_DIVE.md
+
 # Development scratch notes (not part of the project)
 CLAUDE_v4_updates.md
 DARK_THEME_LAYOUT.md
