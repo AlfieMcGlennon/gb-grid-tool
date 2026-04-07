@@ -166,7 +166,7 @@ function App() {
           if (instance && typeof instance.solve === 'function') {
             highsRef.current = instance;
             setHighsReady(true);
-            console.log('HiGHS solver loaded successfully');
+            if (import.meta.env.DEV) console.log('HiGHS solver loaded successfully');
           } else {
             console.warn('HiGHS init returned object without solve()');
           }
@@ -224,45 +224,35 @@ function App() {
 
     setPowerFlowResults(results);
 
-    // Console validation
-    console.group(`🔌 Power Flow - Year ${params.year}, ${params.scenario}, ${params.season}, ${params.dispatchMode}`);
-    console.log('Total Generation:', results.validationInfo.totalGeneration.toFixed(1), 'MW');
-    console.log('Total Demand:', results.validationInfo.totalDemand.toFixed(1), 'MW');
-    console.log('Slack Bus Absorption:', results.validationInfo.slackAbsorption.toFixed(1), 'MW');
-    console.log('Weather: Wind p' + params.windPercentile + ', Solar p' + params.solarPercentile + ', Demand p' + params.demandPercentile);
+    if (import.meta.env.DEV) {
+      console.group(`Power Flow - Year ${params.year}, ${params.scenario}, ${params.season}, ${params.dispatchMode}`);
+      console.log('Total Generation:', results.validationInfo.totalGeneration.toFixed(1), 'MW');
+      console.log('Total Demand:', results.validationInfo.totalDemand.toFixed(1), 'MW');
+      console.log('Slack Bus Absorption:', results.validationInfo.slackAbsorption.toFixed(1), 'MW');
 
-    // Test: Verify B6F capability changes with year/scenario
-    const b6fData = results.boundaryUtilisation['B6F'];
-    if (b6fData) {
-      console.log(`\n✓ B6F Capability Test: ${b6fData.capability_mw.toFixed(0)} MW at ${params.year} ${params.scenario}`);
-      console.log(`  Expected: 7200 MW at 2024 Holistic Transition, 10200 MW at 2030 Holistic Transition`);
+      const b6fData = results.boundaryUtilisation['B6F'];
+      if (b6fData) {
+        console.log(`B6F Capability: ${b6fData.capability_mw.toFixed(0)} MW at ${params.year} ${params.scenario}`);
+      }
+
+      if (params.dispatchMode === 'merit-order' && results.dispatchDetails) {
+        console.log('Merit Order:', {
+          generation: results.dispatchDetails.national.generation.toFixed(0) + ' MW',
+          demand: results.dispatchDetails.national.demand.toFixed(0) + ' MW',
+          imbalance: results.dispatchDetails.national.imbalance.toFixed(0) + ' MW'
+        });
+      }
+
+      console.log('Top 5 Boundary Utilisations:');
+      console.table(results.validationInfo.topBoundaryUtilisations.map(b => ({
+        Boundary: b.id,
+        'Flow (MW)': b.flow_mw.toFixed(1),
+        'Capability (MW)': b.capability_mw.toFixed(1),
+        'Utilisation (%)': b.utilisation_pct.toFixed(1)
+      })));
+
+      console.groupEnd();
     }
-
-    // Show dispatch details if merit order is active
-    if (params.dispatchMode === 'merit-order' && results.dispatchDetails) {
-      console.log('\nMerit Order Dispatch:');
-      console.log('  National Generation:', results.dispatchDetails.national.generation.toFixed(1), 'MW');
-      console.log('  National Demand:', results.dispatchDetails.national.demand.toFixed(1), 'MW');
-      console.log('  Must-Run (Wind/Solar/Nuclear):', results.dispatchDetails.national.mustRun.toFixed(1), 'MW');
-      console.log('  Dispatched (Flexible):', results.dispatchDetails.national.dispatched.toFixed(1), 'MW');
-      console.log('  Imbalance:', results.dispatchDetails.national.imbalance.toFixed(1), 'MW');
-    }
-
-    console.log('\nTop 5 Boundary Utilisations:');
-    console.table(results.validationInfo.topBoundaryUtilisations.map(b => ({
-      Boundary: b.id,
-      'Flow (MW)': b.flow_mw.toFixed(1),
-      'Capability (MW)': b.capability_mw.toFixed(1),
-      'Utilisation (%)': b.utilisation_pct.toFixed(1)
-    })));
-
-    if (results.validationInfo.boundariesOver80pct.length > 0) {
-      console.warn(`⚠️ ${results.validationInfo.boundariesOver80pct.length} boundaries exceeding 80% utilisation`);
-    } else {
-      console.log('✅ No boundaries exceeding 80% utilisation');
-    }
-
-    console.groupEnd();
   }, []);
 
   // Handle plant edits
@@ -740,6 +730,7 @@ function App() {
             setFuelToggles(prev => ({ ...prev, [fuelType]: enabled }));
           }}
           onDispatchModeChange={setDispatchMode}
+          highsReady={highsReady}
           onInterconnectorImportChange={setInterconnectorImport}
           dynamicIC={dynamicIC}
           onDynamicICChange={setDynamicIC}

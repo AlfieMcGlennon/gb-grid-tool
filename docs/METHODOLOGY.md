@@ -413,7 +413,7 @@ It is least accurate for:
 
 6. **Simplified dispatch**: Merit order does not model ramp rates, minimum up/down times, or maintenance outages. LOPF includes linearised start-up and ramp costs but not integer commitment decisions. Neither mode replicates NESO's Balancing Mechanism actions.
 
-7. **Storage dispatched at full capacity**: Pumped hydro and battery storage dispatch like simple flexible generation — there is no temporal arbitrage (charge low, discharge high). This overestimates storage output during low-price periods and underestimates it during peaks.
+7. **Storage dispatch approximated by duration-bounded CF**: Battery output is capped at 67% of rated power (4h duration over a 6h peak window) and pumped hydro at 85% (6h duration, derated for round-trip losses). This is a static energy constraint — there is no temporal arbitrage (charge during surplus, discharge during deficit) or state-of-charge tracking. The approximation is reasonable for single-snapshot planning studies but overestimates storage availability during sustained high-demand periods and underestimates it during brief peaks.
 
 8. **Interconnector lookup is average historic**: The dynamic IC import percentage reflects the mean of historic observations in each wind-demand bin, not a market-responsive model. It does not account for changes in European interconnector capacity, market coupling evolution, or future price dynamics.
 

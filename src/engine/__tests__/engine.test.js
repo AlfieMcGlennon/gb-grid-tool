@@ -1,7 +1,8 @@
-import { describe, it, expect } from 'vitest';
+import { describe, it, expect, vi } from 'vitest';
 import { solveDCPF } from '../dcPowerFlow.js';
 import { applyMeritOrder } from '../meritOrder.js';
 import { getLinksForYear } from '../networkBuilder.js';
+import { runNMinus1 } from '../contingency.js';
 
 // ── DC Power Flow Tests ─────────────────────────────────────────────
 
@@ -322,5 +323,298 @@ describe('Merit Order - Extended', () => {
     const gen = result.adjustedGeneration.Z1;
     expect(gen['Wind Onshore']).toBeCloseTo(300, -1);
     expect(gen['CCGT']).toBeGreaterThan(gen['OCGT'] || 0);
+  });
+});
+
+// ── N-1 Contingency Analysis Tests ──────────────────────────────────
+
+describe('N-1 Contingency Analysis', () => {
+  const triangleLinks = [
+    { id: 'A-B', from: 'A', to: 'B', x_equivalent: 5.0, capacity_mw: 1000 },
+    { id: 'B-C', from: 'B', to: 'C', x_equivalent: 5.0, capacity_mw: 1000 },
+    { id: 'A-C', from: 'A', to: 'C', x_equivalent: 10.0, capacity_mw: 500 }
+  ];
+  const injections = { A: 600, B: -200, C: -400 };
+  const simpleBoundaryMapping = {
+    boundary_links: {
+      'TEST_B': {
+        crossing_links: ['A-B'],
+        capability_2024_mw: 800,
+        shares_with: []
+      }
+    }
+  };
+
+  it('tests all links as contingencies', () => {
+    const result = runNMinus1({
+      links: triangleLinks,
+      injections,
+      slackZone: 'C',
+      boundaryMapping: simpleBoundaryMapping,
+      etysCapabilities: {},
+      year: 2024,
+      scenario: 'Holistic Transition'
+    });
+
+    expect(result.results).toHaveLength(3);
+    expect(result.summary.totalContingencies).toBe(3);
+  });
+
+  it('detects network disconnection when bridge link removed', () => {
+    // Linear network: A-B-C. Removing A-B disconnects A.
+    const linearLinks = [
+      { id: 'A-B', from: 'A', to: 'B', x_equivalent: 5.0, capacity_mw: 1000 },
+      { id: 'B-C', from: 'B', to: 'C', x_equivalent: 5.0, capacity_mw: 1000 }
+    ];
+    const result = runNMinus1({
+      links: linearLinks,
+      injections: { A: 300, B: 0, C: -300 },
+      slackZone: 'C',
+      boundaryMapping: { boundary_links: {} },
+      etysCapabilities: {},
+      year: 2024,
+      scenario: 'Holistic Transition'
+    });
+
+    // Removing either link disconnects the network
+    const critical = result.results.filter(r => r.severity === 'critical');
+    expect(critical.length).toBe(2);
+    expect(result.summary.critical).toBe(2);
+  });
+
+  it('correctly classifies severity levels', () => {
+    const result = runNMinus1({
+      links: triangleLinks,
+      injections,
+      slackZone: 'C',
+      boundaryMapping: simpleBoundaryMapping,
+      etysCapabilities: {},
+      year: 2024,
+      scenario: 'Holistic Transition'
+    });
+
+    // Each result should have a valid severity
+    for (const r of result.results) {
+      expect(['secure', 'stressed', 'marginal', 'overloaded', 'critical']).toContain(r.severity);
+    }
+  });
+
+  it('returns worst case from connected results', () => {
+    const result = runNMinus1({
+      links: triangleLinks,
+      injections,
+      slackZone: 'C',
+      boundaryMapping: simpleBoundaryMapping,
+      etysCapabilities: {},
+      year: 2024,
+      scenario: 'Holistic Transition'
+    });
+
+    // Worst case should be defined (triangle is fully connected after any single removal)
+    expect(result.worstCase).not.toBeNull();
+    expect(result.worstCase.removedLink).toBeDefined();
+    expect(result.worstCase.worstBoundaryUtil).toBeGreaterThanOrEqual(0);
+  });
+
+  it('reports solve time', () => {
+    const result = runNMinus1({
+      links: triangleLinks,
+      injections,
+      slackZone: 'C',
+      boundaryMapping: simpleBoundaryMapping,
+      etysCapabilities: {},
+      year: 2024,
+      scenario: 'Holistic Transition'
+    });
+
+    expect(result.summary.solveTimeMs).toBeGreaterThanOrEqual(0);
+    expect(result.summary.avgSolveTimeMs).toBeGreaterThanOrEqual(0);
+  });
+
+  it('redistributes flow when a parallel path is removed', () => {
+    // Triangle: remove A-C, all flow must go A→B→C
+    const result = runNMinus1({
+      links: triangleLinks,
+      injections: { A: 500, B: 0, C: -500 },
+      slackZone: 'C',
+      boundaryMapping: { boundary_links: {} },
+      etysCapabilities: {},
+      year: 2024,
+      scenario: 'Holistic Transition'
+    });
+
+    // Find the contingency where A-C is removed
+    const acRemoved = result.results.find(r => r.removedLink === 'A-C');
+    expect(acRemoved).toBeDefined();
+    expect(acRemoved.isDisconnected).toBe(false);
+    // All 500 MW must flow through A-B then B-C
+    expect(Math.abs(acRemoved.flows['A-B'])).toBeCloseTo(500, -1);
+    expect(Math.abs(acRemoved.flows['B-C'])).toBeCloseTo(500, -1);
+  });
+});
+
+// ── LOPF Tests (structural, without HiGHS) ─────────────────────────
+
+describe('LOPF Structure', () => {
+  // We cannot run the actual HiGHS solver in unit tests (WASM dependency),
+  // but we can test that solveLOPF throws appropriately and validates inputs.
+
+  it('throws without HiGHS instance', async () => {
+    const { solveLOPF } = await import('../lopf.js');
+
+    expect(() => solveLOPF({
+      zoneGenerationByType: { Z1: { 'CCGT': 1000 } },
+      zoneDemand: { Z1: 800 },
+      links: [{ id: 'Z1-Z2', from: 'Z1', to: 'Z2', x_equivalent: 5.0, capacity_mw: 500 }],
+      marginalCosts: {},
+      highs: null
+    })).toThrow('HiGHS solver instance required');
+  });
+
+  it('builds correct generator list from zone generation', async () => {
+    const { solveLOPF } = await import('../lopf.js');
+
+    // Mock HiGHS that returns a solution structure
+    const mockHighs = {
+      solve: vi.fn().mockReturnValue({
+        Status: 'Optimal',
+        Columns: {
+          x0: { Primal: 0.8 },  // CCGT dispatch (GW)
+          x1: { Primal: 0.3 },  // Wind dispatch (GW)
+          x2: { Primal: 0 },    // theta Z1
+          x3: { Primal: 0 }     // theta Z2
+        },
+        Rows: {
+          c0: { Dual: 50 },
+          c1: { Dual: 55 }
+        }
+      })
+    };
+
+    const result = solveLOPF({
+      zoneGenerationByType: {
+        Z1: { 'CCGT': 1000, 'Wind Onshore': 500 },
+        Z2: {}
+      },
+      zoneDemand: { Z1: 800, Z2: 300 },
+      links: [{ id: 'Z1-Z2', from: 'Z1', to: 'Z2', x_equivalent: 5.0, capacity_mw: 2000 }],
+      marginalCosts: {
+        technologies: {
+          'CCGT': { srmc_gbp_mwh: 50, startup_cost_gbp_mw: 40, ramp_penalty_gbp_mw: 2, min_stable_pct: 50, must_run: false },
+          'Wind Onshore': { srmc_gbp_mwh: 0, startup_cost_gbp_mw: 0, ramp_penalty_gbp_mw: 0, min_stable_pct: 0, must_run: true, curtailable: true }
+        }
+      },
+      highs: mockHighs,
+      slackZone: 'Z1'
+    });
+
+    // Verify HiGHS was called with an LP string
+    expect(mockHighs.solve).toHaveBeenCalledTimes(1);
+    const lpStr = mockHighs.solve.mock.calls[0][0];
+    expect(lpStr).toContain('Minimize');
+    expect(lpStr).toContain('Subject To');
+    expect(lpStr).toContain('Bounds');
+    expect(lpStr).toContain('End');
+
+    // Result should have expected structure
+    expect(result.status).toBe('Optimal');
+    expect(result.dispatch).toBeDefined();
+    expect(result.flows).toBeDefined();
+    expect(result.totalCost).toBeGreaterThanOrEqual(0);
+    expect(result.generators).toBeDefined();
+    expect(result.generators.length).toBe(2); // CCGT + Wind
+  });
+
+  it('respects fuel toggles (disabled types excluded from LP)', async () => {
+    const { solveLOPF } = await import('../lopf.js');
+
+    const mockHighs = {
+      solve: vi.fn().mockReturnValue({
+        Status: 'Optimal',
+        Columns: {
+          x0: { Primal: 0.5 },  // Only Wind (CCGT disabled)
+          x1: { Primal: 0 },
+          x2: { Primal: 0 }
+        },
+        Rows: { c0: { Dual: 0 }, c1: { Dual: 0 } }
+      })
+    };
+
+    const result = solveLOPF({
+      zoneGenerationByType: {
+        Z1: { 'CCGT': 1000, 'Wind Onshore': 500 }
+      },
+      zoneDemand: { Z1: 500 },
+      links: [],
+      marginalCosts: { technologies: {} },
+      fuelToggles: { 'CCGT': false },
+      highs: mockHighs
+    });
+
+    // Only Wind should be in generators (CCGT disabled)
+    expect(result.generators.length).toBe(1);
+    expect(result.generators[0].type).toBe('Wind Onshore');
+  });
+
+  it('returns non-optimal status without crashing', async () => {
+    const { solveLOPF } = await import('../lopf.js');
+
+    const mockHighs = {
+      solve: vi.fn().mockReturnValue({
+        Status: 'Infeasible',
+        Columns: {},
+        Rows: {}
+      })
+    };
+
+    const result = solveLOPF({
+      zoneGenerationByType: { Z1: { 'CCGT': 100 } },
+      zoneDemand: { Z1: 5000 },
+      links: [],
+      marginalCosts: { technologies: {} },
+      highs: mockHighs
+    });
+
+    expect(result.status).toBe('Infeasible');
+    expect(result.totalCost).toBe(0);
+    expect(Object.keys(result.dispatch)).toHaveLength(0);
+  });
+
+  it('includes boundary constraints with slack variables in LP', async () => {
+    const { solveLOPF } = await import('../lopf.js');
+
+    const mockHighs = {
+      solve: vi.fn().mockReturnValue({
+        Status: 'Optimal',
+        Columns: {
+          x0: { Primal: 0.8 },
+          x1: { Primal: 0 },
+          x2: { Primal: 0 },
+          x3: { Primal: 0 },  // slack s_pos
+          x4: { Primal: 0 }   // slack s_neg
+        },
+        Rows: { c0: { Dual: 50 }, c1: { Dual: 55 } }
+      })
+    };
+
+    const result = solveLOPF({
+      zoneGenerationByType: { Z1: { 'CCGT': 1000 }, Z2: {} },
+      zoneDemand: { Z1: 300, Z2: 500 },
+      links: [{ id: 'Z1-Z2', from: 'Z1', to: 'Z2', x_equivalent: 5.0, capacity_mw: 2000 }],
+      marginalCosts: { technologies: { 'CCGT': { srmc_gbp_mwh: 50 } } },
+      boundaryLimits: {
+        'B_TEST': { crossing_links: ['Z1-Z2'], capability_mw: 600 }
+      },
+      highs: mockHighs,
+      slackZone: 'Z1'
+    });
+
+    // LP string should contain the slack penalty terms
+    const lpStr = mockHighs.solve.mock.calls[0][0];
+    expect(lpStr).toContain('x3');  // slack variable
+    expect(lpStr).toContain('x4');  // slack variable
+
+    expect(result.status).toBe('Optimal');
+    expect(result.constraintCost).toBeDefined();
   });
 });

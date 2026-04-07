@@ -16,14 +16,45 @@ import { getInterpolatedPercentile } from '../utils/percentiles.js';
 const NUCLEAR_AVAILABILITY_FACTOR = 0.80;
 
 /**
- * Storage dispatch factor: approximate average output as fraction of rated capacity.
- * Storage is a time-shifting resource — a 100 MW battery with 4h duration can deliver
- * 400 MWh/day but not 100 MW continuously. At system level, average dispatch across
- * a day is roughly capacity × (duration / 24h). Using 4h/24h ≈ 17% as a representative
- * fleet-average factor for GB storage (mix of 1-4h batteries + 6h pumped hydro).
- * Source: National Grid ESO Future Energy Scenarios 2024, storage utilisation assumptions.
+ * Storage dispatch parameters.
+ *
+ * Storage is modelled as flexible generation with output bounded by both power rating
+ * and a duration-derived energy constraint. In a single-snapshot model we cannot track
+ * state-of-charge, so we cap average output at (duration / snapshot_window) of rated
+ * power — i.e. a 4 h battery can sustain full output for at most 4 of a notional 6 h
+ * peak window, giving a max average CF of 4/6 ≈ 0.67. Pumped hydro with ~6 h duration
+ * can sustain full output across the window (CF up to 1.0, capped at 0.85 for
+ * round-trip losses and operational reserve).
+ *
+ * Actual dispatch fraction within that cap is set by the zone's supply-demand balance:
+ *   - If the zone has a generation deficit, storage dispatches up to the cap.
+ *   - If the zone has a surplus, storage output is zero (it would be charging).
+ *
+ * Sources:
+ *   - NESO FES 2024 storage duration assumptions (2-4 h batteries, 6 h pumped hydro)
+ *   - Round-trip efficiency ~85% (lithium-ion) / ~78% (pumped hydro) from BEIS 2023
  */
-const STORAGE_DISPATCH_FACTOR = 0.17;
+const STORAGE_PEAK_WINDOW_HOURS = 6;
+const STORAGE_DURATION_HOURS = {
+  battery: 4,      // fleet-average BESS duration (mix of 1–4 h)
+  pumpedHydro: 6   // Dinorwig, Ffestiniog, Cruachan, etc.
+};
+const STORAGE_MAX_CF = {
+  battery: Math.min(1.0, STORAGE_DURATION_HOURS.battery / STORAGE_PEAK_WINDOW_HOURS),  // 0.67
+  pumpedHydro: 0.85  // 6 h duration covers window but derated for round-trip losses
+};
+
+/**
+ * Compute storage dispatch for a given capacity.
+ * Returns MW output bounded by the duration-derived max CF.
+ * In simple/FLOP dispatch modes, storage dispatches at its max CF.
+ * Merit order and LOPF handle storage dispatch separately via their own logic.
+ */
+function getStorageDispatch(capacityMW, plantType) {
+  const isPumped = plantType.includes('Pump');
+  const maxCF = isPumped ? STORAGE_MAX_CF.pumpedHydro : STORAGE_MAX_CF.battery;
+  return capacityMW * maxCF;
+}
 
 /**
  * Known major project commission years
@@ -324,7 +355,7 @@ function buildZoneGeneration({
       } else if (plantType.includes('Nuclear')) {
         generation = capacity * NUCLEAR_AVAILABILITY_FACTOR;
       } else if (plantType.includes('Storage') || plantType.includes('Pump')) {
-        generation = capacity * STORAGE_DISPATCH_FACTOR;
+        generation = getStorageDispatch(capacity, plantType);
       } else {
         generation = capacity;
       }
@@ -538,7 +569,7 @@ function buildFLOPGeneration({
       } else if (plantType.includes('Nuclear')) {
         generation = capacity * NUCLEAR_AVAILABILITY_FACTOR;
       } else if (plantType.includes('Storage') || plantType.includes('Pump')) {
-        generation = capacity * STORAGE_DISPATCH_FACTOR;
+        generation = getStorageDispatch(capacity, plantType);
       } else {
         generation = capacity;
       }
@@ -615,10 +646,12 @@ function applyCurtailment(meritResult, zoneGeneration, zoneDemand) {
   const totalGenBeforeCurtailment = Object.values(zoneGeneration).reduce((sum, v) => sum + v, 0);
   const totalDemandForCurtailment = Object.values(zoneDemand).reduce((sum, v) => sum + v, 0);
 
-  console.group('🔄 POST-DISPATCH CURTAILMENT CHECK');
-  console.log('Total Generation (incl. interconnectors):', totalGenBeforeCurtailment.toFixed(0), 'MW');
-  console.log('Total Demand:', totalDemandForCurtailment.toFixed(0), 'MW');
-  console.log('Excess:', (totalGenBeforeCurtailment - totalDemandForCurtailment).toFixed(0), 'MW');
+  if (import.meta.env.DEV) {
+    console.group('POST-DISPATCH CURTAILMENT CHECK');
+    console.log('Total Generation (incl. interconnectors):', totalGenBeforeCurtailment.toFixed(0), 'MW');
+    console.log('Total Demand:', totalDemandForCurtailment.toFixed(0), 'MW');
+    console.log('Excess:', (totalGenBeforeCurtailment - totalDemandForCurtailment).toFixed(0), 'MW');
+  }
 
   let windCurtailment;
 
@@ -634,8 +667,10 @@ function applyCurtailment(meritResult, zoneGeneration, zoneDemand) {
       }
     }
 
-    console.log('Wind available for curtailment:', totalWind.toFixed(0), 'MW');
-    console.log('Solar available for curtailment:', totalSolar.toFixed(0), 'MW');
+    if (import.meta.env.DEV) {
+      console.log('Wind available for curtailment:', totalWind.toFixed(0), 'MW');
+      console.log('Solar available for curtailment:', totalSolar.toFixed(0), 'MW');
+    }
 
     let windCurtailed = 0;
     let solarCurtailed = 0;
@@ -654,7 +689,7 @@ function applyCurtailment(meritResult, zoneGeneration, zoneDemand) {
           }
         }
       }
-      console.log('⚡ Wind curtailed:', windCurtailed.toFixed(0), 'MW');
+      if (import.meta.env.DEV) console.log('Wind curtailed:', windCurtailed.toFixed(0), 'MW');
     }
 
     if (totalSolar > 0 && excess > 0) {
@@ -671,7 +706,7 @@ function applyCurtailment(meritResult, zoneGeneration, zoneDemand) {
           }
         }
       }
-      console.log('⚡ Solar curtailed:', solarCurtailed.toFixed(0), 'MW');
+      if (import.meta.env.DEV) console.log('Solar curtailed:', solarCurtailed.toFixed(0), 'MW');
     }
 
     windCurtailment = {
@@ -688,19 +723,15 @@ function applyCurtailment(meritResult, zoneGeneration, zoneDemand) {
     meritResult.national.generation = newTotalGen;
     meritResult.national.imbalance = newTotalGen - totalDemandForCurtailment;
 
-    console.log('✅ After curtailment - Generation:', newTotalGen.toFixed(0), 'MW, Balance:', (newTotalGen - totalDemandForCurtailment).toFixed(0), 'MW');
-
-    if (excess > 0) {
-      console.warn('⚠️ Remaining excess:', excess.toFixed(0), 'MW (nuclear/hydro/biomass/interconnectors cannot be curtailed)');
-    }
+    if (import.meta.env.DEV) console.log('After curtailment - Generation:', newTotalGen.toFixed(0), 'MW, Balance:', (newTotalGen - totalDemandForCurtailment).toFixed(0), 'MW');
   } else {
-    console.log('✅ No curtailment needed - generation <= demand');
+    if (import.meta.env.DEV) console.log('No curtailment needed - generation <= demand');
     windCurtailment = {
       curtailedMW: 0, windCurtailedMW: 0, solarCurtailedMW: 0,
       curtailmentPct: 0, originalWindMW: 0, originalSolarMW: 0, isCurtailed: false
     };
   }
-  console.groupEnd();
+  if (import.meta.env.DEV) console.groupEnd();
 
   return { zoneGeneration, windCurtailment };
 }
@@ -810,19 +841,20 @@ export function runScenario(params) {
     installedWindCapacity
   );
 
-  // DEBUG: Log capacity totals before dispatch
-  console.group(`🔍 GENERATION & DEMAND DEBUG (Year: ${year})`);
-  console.log('Year-Scaled Capacity:', {
-    total: debugTotals.builtCapacity.toFixed(0) + ' MW',
-    wind: debugTotals.windCapacity.toFixed(0) + ' MW',
-    solar: debugTotals.solarCapacity.toFixed(0) + ' MW',
-    nuclear: debugTotals.nuclearCapacity.toFixed(0) + ' MW'
-  });
-  console.log('Total Base Demand (from zones for ' + year + '):', debugTotals.baseDemand.toFixed(0) + ' MW');
-  console.log('Interconnector Import:', totalInterconnectorImport.toFixed(0) + ' MW', `(${interconnectorImport}%)`);
-  console.log('National Wind CF:', (nationalWindCF * 100).toFixed(1) + '%');
-  console.log('Dispatch Mode:', dispatchMode);
-  console.log('Year:', year, '| Season:', season, '| Wind p' + windPercentile, '| Solar p' + solarPercentile, '| Demand p' + demandPercentile);
+  if (import.meta.env.DEV) {
+    console.group(`GENERATION & DEMAND DEBUG (Year: ${year})`);
+    console.log('Year-Scaled Capacity:', {
+      total: debugTotals.builtCapacity.toFixed(0) + ' MW',
+      wind: debugTotals.windCapacity.toFixed(0) + ' MW',
+      solar: debugTotals.solarCapacity.toFixed(0) + ' MW',
+      nuclear: debugTotals.nuclearCapacity.toFixed(0) + ' MW'
+    });
+    console.log('Total Base Demand (from zones for ' + year + '):', debugTotals.baseDemand.toFixed(0) + ' MW');
+    console.log('Interconnector Import:', totalInterconnectorImport.toFixed(0) + ' MW', `(${interconnectorImport}%)`);
+    console.log('National Wind CF:', (nationalWindCF * 100).toFixed(1) + '%');
+    console.log('Dispatch Mode:', dispatchMode);
+    console.log('Year:', year, '| Season:', season, '| Wind p' + windPercentile, '| Solar p' + solarPercentile, '| Demand p' + demandPercentile);
+  }
 
   // Apply merit order dispatch if enabled
   let zoneGeneration = {}; // Total generation per zone
@@ -847,16 +879,17 @@ export function runScenario(params) {
     zoneGeneration = curtailmentResult.zoneGeneration;
     dispatchDetails.windCurtailment = curtailmentResult.windCurtailment;
 
-    // DEBUG: Log merit order dispatch results
-    console.log('Merit Order Dispatch Results:', {
-      nationalDemand: dispatchDetails.national.demand.toFixed(0) + ' MW',
-      nationalGeneration: dispatchDetails.national.generation.toFixed(0) + ' MW',
-      mustRun: dispatchDetails.national.mustRun.toFixed(0) + ' MW',
-      flexible: dispatchDetails.national.dispatched.toFixed(0) + ' MW',
-      interconnectors: totalInterconnectorImport.toFixed(0) + ' MW',
-      imbalance: dispatchDetails.national.imbalance.toFixed(0) + ' MW',
-      blendFactor: (dispatchDetails.blendFactor * 100).toFixed(0) + '% national'
-    });
+    if (import.meta.env.DEV) {
+      console.log('Merit Order Dispatch Results:', {
+        nationalDemand: dispatchDetails.national.demand.toFixed(0) + ' MW',
+        nationalGeneration: dispatchDetails.national.generation.toFixed(0) + ' MW',
+        mustRun: dispatchDetails.national.mustRun.toFixed(0) + ' MW',
+        flexible: dispatchDetails.national.dispatched.toFixed(0) + ' MW',
+        interconnectors: totalInterconnectorImport.toFixed(0) + ' MW',
+        imbalance: dispatchDetails.national.imbalance.toFixed(0) + ' MW',
+        blendFactor: (dispatchDetails.blendFactor * 100).toFixed(0) + '% national'
+      });
+    }
   } else if (dispatchMode === 'lopf' && highs) {
     // LOPF dispatch: network-constrained economic dispatch using HiGHS LP solver
     // Build boundary limits from ETYS capabilities
@@ -938,12 +971,14 @@ export function runScenario(params) {
       dispatchDetails.lopfFallback = true;
     }
 
-    console.log('LOPF Dispatch Results:', {
-      status: lopfResult.status,
-      totalCost: lopfResult.totalCost?.toFixed(0) + ' GBP',
-      constraintCost: lopfResult.constraintCost?.toFixed(0) + ' GBP',
-      violations: Object.keys(lopfResult.boundaryViolations || {}).length
-    });
+    if (import.meta.env.DEV) {
+      console.log('LOPF Dispatch Results:', {
+        status: lopfResult.status,
+        totalCost: lopfResult.totalCost?.toFixed(0) + ' GBP',
+        constraintCost: lopfResult.constraintCost?.toFixed(0) + ' GBP',
+        violations: Object.keys(lopfResult.boundaryViolations || {}).length
+      });
+    }
   } else if (dispatchMode === 'lopf' && !highs) {
     // LOPF requested but HiGHS not loaded — fall back to merit order
     console.warn('LOPF requested but HiGHS solver not available — falling back to merit order dispatch');
@@ -971,16 +1006,17 @@ export function runScenario(params) {
       zoneGeneration[zoneId] = (zoneGeneration[zoneId] || 0) + importMW;
     }
 
-    // DEBUG: Log simple dispatch totals
-    const totalGen = Object.values(zoneGeneration).reduce((sum, v) => sum + v, 0);
-    const totalDemand = Object.values(zoneDemand).reduce((sum, v) => sum + v, 0);
-    console.log('Simple Dispatch Results:', {
-      totalGeneration: totalGen.toFixed(0) + ' MW',
-      totalDemand: totalDemand.toFixed(0) + ' MW',
-      imbalance: (totalGen - totalDemand).toFixed(0) + ' MW'
-    });
+    if (import.meta.env.DEV) {
+      const totalGen = Object.values(zoneGeneration).reduce((sum, v) => sum + v, 0);
+      const totalDemand = Object.values(zoneDemand).reduce((sum, v) => sum + v, 0);
+      console.log('Simple Dispatch Results:', {
+        totalGeneration: totalGen.toFixed(0) + ' MW',
+        totalDemand: totalDemand.toFixed(0) + ' MW',
+        imbalance: (totalGen - totalDemand).toFixed(0) + ' MW'
+      });
+    }
   }
-  console.groupEnd();
+  if (import.meta.env.DEV) console.groupEnd();
 
   // Net injection = generation - demand per zone
   const zoneSource = zoneMode === 'flop' ? (data.zonesFLOP || {}) : data.zonesTNUoS;
@@ -1275,7 +1311,7 @@ function applyPlantEditsToGeneration(
     } else if (plantType.includes('Nuclear')) {
       originalContribution = baseMW * NUCLEAR_AVAILABILITY_FACTOR;
     } else if (plantType.includes('Storage') || plantType.includes('Pump')) {
-      originalContribution = baseMW * STORAGE_DISPATCH_FACTOR;
+      originalContribution = getStorageDispatch(baseMW, plantType);
     } else {
       // Thermal/Hydro/Other: full output
       originalContribution = baseMW;

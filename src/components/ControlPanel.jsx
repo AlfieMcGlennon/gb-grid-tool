@@ -11,6 +11,7 @@ export default function ControlPanel({
   demandPercentile,
   fuelToggles,
   dispatchMode,
+  highsReady,
   interconnectorImport,
   zoneMode,
   onZoneModeChange,
@@ -323,9 +324,12 @@ export default function ControlPanel({
             </button>
             <button
               className={`toggle-button ${dispatchMode === 'lopf' ? 'active' : ''}`}
-              onClick={() => onDispatchModeChange('lopf')}
+              onClick={() => highsReady && onDispatchModeChange('lopf')}
+              disabled={!highsReady}
+              title={highsReady ? 'Linear Optimal Power Flow' : 'Loading LP solver...'}
+              style={!highsReady ? { opacity: 0.4, cursor: 'not-allowed' } : {}}
             >
-              LOPF
+              LOPF{!highsReady && ' ...'}
             </button>
           </div>
           {dispatchMode === 'lopf' && (
