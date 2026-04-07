@@ -6,7 +6,7 @@ Interactive client-side tool for stress-testing and scenario planning on the GB 
 - Select a year (2024-2035) and see planned reinforcements appear on the network
 - Toggle reinforcements on/off to compare current vs future network capacity
 - Choose FES/CP30 scenarios with different generation and demand assumptions
-- Switch between TNUoS 27-zone and FLOP 137-zone resolution for power flow analysis
+- Switch between TNUoS 27-zone and FLOP 82-zone resolution for power flow analysis
 - Stress-test with weather percentile sliders (wind, solar, demand by season)
 - Toggle fuel types on/off to explore retirement scenarios (e.g. "what if all gas retires?")
 - Edit individual power plants (ramp up, ramp down, retire, change commissioning date)
@@ -34,7 +34,7 @@ gb-grid-tool/
 │   │   ├── DetailPanel.jsx       # Click-to-inspect: zone, boundary, or link detail
 │   │   ├── LinkLayer.jsx         # Zonal link arrows with flow magnitude
 │   │   ├── ScenarioManager.jsx   # FES scenario + CP30 scenario management
-│   │   ├── PlantEditor.jsx       # Edit individual plant output, status, commissioning
+│   │   ├── PlantEditor.jsx       # Edit individual plant output (0-200%), status, commissioning
 │   │   ├── NodeAdder.jsx         # Add hypothetical generation to any zone
 │   │   ├── LinkEditor.jsx        # Add/upgrade/remove transmission links
 │   │   ├── ContingencyPanel.jsx  # N-1 contingency analysis UI
@@ -48,7 +48,7 @@ gb-grid-tool/
 │   │   ├── networkBuilder.js     # Build admittance matrix from links for selected year
 │   │   ├── scenarioRunner.js     # Combine generation, demand, weather → run power flow
 │   │   ├── meritOrder.js         # Stack generation by marginal cost until demand met
-│   │   ├── lopf.js               # Linear optimal power flow (HiGHS-based)
+│   │   ├── lopf.js               # Linear optimal power flow (HiGHS-based, per-link thermal + boundary constraints)
 │   │   └── contingency.js        # N-1 analysis: remove each link, re-solve, find worst case
 │   ├── data/
 │   │   └── dataLoader.js         # Fetch and cache all JSON/GeoJSON from public/data/
@@ -80,7 +80,7 @@ gb-grid-tool/
 ### Zone schemes
 
 - **27 TNUoS generation zones** (GZ1–GZ27): Primary physics network. DC power flow runs at this resolution. Each zone is a node in the power flow.
-- **137 FLOP zones** (A1, B2, R5, T1, etc.): Higher-resolution zonal model derived from NESO's FLOP (Forecast of Locational Prices) methodology. Uses substation-level aggregation. No year-dependent topology (static 2024 network). Slack bus = R5 (Lancashire/Cumbria, maps to GZ14).
+- **82 FLOP zones** (A1, B2, R5, T1, etc.): Higher-resolution zonal model derived from NESO's FLOP (Forecast of Locational Prices) methodology. Uses substation-level aggregation. Year-dependent topology from ETYS Appendix B circuit changes mapped to FLOP zones (99% coverage via circuit-graph propagation). Slack bus = R5 (Lancashire/Cumbria, maps to GZ14).
 - **14 DNO licence areas**: Display aggregation layer. Toggle to show demand grouped by distribution region. Not used in physics.
 
 ### ETYS boundaries
@@ -107,7 +107,7 @@ Standard DC power flow approximation (linearised from full AC power flow by assu
 
 Gaussian elimination with partial pivoting, 27×27 system, <1ms solve time. Pure JS, no libraries. Slack bus = highest-demand zone (GZ18, London/Thames Valley).
 
-**Assumption**: Power distributes inversely proportional to reactance. This is physically correct for DC power flow but does not account for active dispatch decisions, constraint management, or generator merit order that NESO applies in real-time operation. Merit order dispatch is available as an optional mode (see Phase 4).
+**Assumption**: Power distributes inversely proportional to reactance. This is physically correct for DC power flow but does not account for active dispatch decisions or constraint management. Three dispatch modes are available: Simple (all generation runs), Merit Order (cost-stacked with MSL constraints), and LOPF (network-constrained economic dispatch with per-link thermal limits and boundary capability constraints, solved via HiGHS LP). DC power flow implementation independently verified against PyPSA 1.1.2 — all 43 link flows match to 0.000 MW.
 
 ### Year slider (2024-2035)
 
@@ -145,17 +145,18 @@ NESO historic half-hourly Transmission System Demand (TSD) from 2009-2025 (~280,
 |------|------|---------|
 | `zone_boundaries_tnuos.geojson` | 38 KB | 27 TNUoS zone polygons, WGS84 |
 | `zone_boundaries_dno.geojson` | 349 KB | 14 DNO licence area polygons, WGS84 |
-| `zone_boundaries_flop.geojson` | ~200 KB | 137 FLOP zone polygons, WGS84 |
+| `zone_boundaries_flop.geojson` | ~200 KB | 82 FLOP zone polygons, WGS84 |
 | `etys_boundaries.geojson` | 63 KB | 34 boundary lines, WGS84 |
 | `gb_coastline.geojson` | 146 KB | GB outline (union of DNO areas) |
 | `etys_capabilities.json` | 323 KB | 22 boundaries × 20 years × 5 scenarios × 7 metrics (exact NESO values) |
 | `links_tnuos.json` | ~5 KB | 40 adjacency-filtered zonal links with real reactances |
 | `links_tnuos_by_year.json` | ~60 KB | Network evolution 2024-2035 (from Appendix B planned changes) |
-| `links_flop.json` | ~15 KB | FLOP zonal links with reactances (static 2024 topology) |
+| `links_flop.json` | ~15 KB | FLOP zonal links with reactances (2024 baseline) |
+| `links_flop_by_year.json` | ~293 KB | FLOP network evolution 2024-2035 (from Appendix B circuit changes) |
 | `boundary_link_mapping.json` | ~5 KB | ETYS boundary → crossing TNUoS link pairs (18/22 mapped) |
 | `boundary_link_mapping_flop.json` | ~8 KB | ETYS boundary → crossing FLOP link pairs with shares_with |
 | `zones_tnuos.json` | ~30 KB | 27 zones: generation by type + demand by year (47,940 MW base) |
-| `zones_flop.json` | ~80 KB | 137 FLOP zones: generation by type, demand_mw, primary_tnuos_zone |
+| `zones_flop.json` | ~80 KB | 82 FLOP zones: generation by type, demand_mw, primary_tnuos_zone |
 | `plants_tnuos.json` | ~100 KB | 1,896 generation projects with zone assignments |
 | `demand_by_node.json` | ~80 KB | 965 demand nodes with yearly MW (100% mapped) |
 | `climatology.json` | 296 KB | ERA5 6 variables, 23 percentiles, daylight-filtered solar |
@@ -192,10 +193,10 @@ npm run preview      # Preview production build
 4. **Plant mapping coverage**: 58% of TEC Register projects (1,093/1,896) mapped to zones. The 42% unmapped are predominantly "Scoping" status. All 313 "Built" projects and most "Under Construction" projects are mapped.
 5. **Solar daylight filtering**: Uses Spencer (1971) solar position at zone centroid. Does not account for terrain shading. ~5% of daytime winter hours have genuinely zero solar CF from heavy overcast — these are correctly included as real daytime conditions.
 6. **Demand year-scaling with constant zone shares**: Zone demand = year-projected baseline × (seasonal percentile / seasonal mean). This preserves ETYS demand growth projections while applying seasonal weather variation from historic data. However, per-zone shares of national demand are constant across percentiles — the zone's share at p10 is the same as at p90.
-7. **No generator merit order in default mode**: Simple dispatch runs all enabled generation simultaneously. Merit order mode (Phase 4) stacks by marginal cost. Neither accounts for NESO's real-time balancing mechanism actions.
+7. **Storage dispatch simplified**: Batteries and pumped hydro dispatch at 17% of rated capacity (approximating 4h average duration over 24h). No temporal arbitrage or state-of-charge modelling.
 8. **Substation mapping**: 795/885 ETYS substations mapped via 3-phase process (GSP point-in-polygon → circuit-graph propagation → TO fallback + fuzzy name matching).
 9. **Shared boundary resolution**: Boundaries sharing crossing links at 27-node resolution (B1aF/B2F, B3/B4F/B5, B8/NW3, EC5I/B14/LE1, SC1/SC1.5/B13) use the maximum capability in the shared group as denominator. This prevents artificial utilisation inflation but means the model cannot distinguish individual boundary constraints within a shared group.
-10. **FLOP zone static topology**: The 137-zone FLOP model uses a single static 2024 network topology. Unlike the TNUoS model which has year-dependent links from ETYS Appendix B (2024-2035), the FLOP links do not change with the year slider. Reinforcement analysis should be done in TNUoS mode. FLOP generation uses pre-aggregated built capacity only (no year-dependent commissioning pipeline).
+10. **FLOP reinforcement mapping**: The 82-zone FLOP model derives year-dependent links from ETYS Appendix B circuit changes mapped to FLOP zones via circuit-graph propagation (99% substation coverage). Seven new Western Isles substations are assigned by geographic proximity. Reactances are recalculated per year using proper parallel combination. FLOP generation uses the same plant-level `isPlantOperational` pipeline as TNUoS, with plants mapped to FLOP zones via connection site matching (98.6% built MW coverage).
 
 ## Future: Monte Carlo stress testing
 

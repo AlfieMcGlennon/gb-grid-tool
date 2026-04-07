@@ -402,9 +402,9 @@
       "id": "GZ1-GZ2",
       "from": "GZ1",
       "to": "GZ2",
-      "capacity_mw": 1154,
+      "capacity_mw": 1296.8,
       "n_circuits": 6,
-      "x_equivalent": 0.164166,
+      "x_equivalent": 0.042858,
       "carrier": "AC"
     },
     {
@@ -492,7 +492,7 @@
       "id": "GZ11-GZ9",
       "from": "GZ11",
       "to": "GZ9",
-      "capacity_mw": 8886,
+      "capacity_mw": 8042.7,
       "n_circuits": 18,
       "x_equivalent": 0.010005,
       "carrier": "AC"
@@ -501,9 +501,9 @@
       "id": "GZ12-GZ14",
       "from": "GZ12",
       "to": "GZ14",
-      "capacity_mw": 4515,
+      "capacity_mw": 5223.0,
       "n_circuits": 3,
-      "x_equivalent": 0.09785,
+      "x_equivalent": 0.098791,
       "carrier": "AC"
     },
     {
@@ -537,7 +537,7 @@
       "id": "GZ15-GZ16",
       "from": "GZ15",
       "to": "GZ16",
-      "capacity_mw": 41109,
+      "capacity_mw": 42365.4,
       "n_circuits": 19,
       "x_equivalent": 0.012879,
       "carrier": "AC"
@@ -555,7 +555,7 @@
       "id": "GZ16-GZ18",
       "from": "GZ16",
       "to": "GZ18",
-      "capacity_mw": 40768,
+      "capacity_mw": 40826.0,
       "n_circuits": 16,
       "x_equivalent": 0.009643,
       "carrier": "AC"
@@ -573,9 +573,9 @@
       "id": "GZ17-GZ18",
       "from": "GZ17",
       "to": "GZ18",
-      "capacity_mw": 18603,
+      "capacity_mw": 18603.0,
       "n_circuits": 6,
-      "x_equivalent": 0.144246,
+      "x_equivalent": 0.132069,
       "carrier": "AC"
     },
     {
@@ -681,7 +681,7 @@
       "id": "GZ25-GZ26",
       "from": "GZ25",
       "to": "GZ26",
-      "capacity_mw": 11431,
+      "capacity_mw": 12075.5,
       "n_circuits": 4,
       "x_equivalent": 0.120103,
       "carrier": "AC"
@@ -771,7 +771,7 @@
       "id": "GZ8-GZ9",
       "from": "GZ8",
       "to": "GZ9",
-      "capacity_mw": 2711,
+      "capacity_mw": 4567.3,
       "n_circuits": 6,
       "x_equivalent": 0.36515,
       "carrier": "AC"
@@ -791,9 +791,9 @@
       "id": "GZ1-GZ2",
       "from": "GZ1",
       "to": "GZ2",
-      "capacity_mw": 1154,
+      "capacity_mw": 1296.8,
       "n_circuits": 6,
-      "x_equivalent": 0.164166,
+      "x_equivalent": 0.042858,
       "carrier": "AC"
     },
     {
@@ -881,7 +881,7 @@
       "id": "GZ11-GZ9",
       "from": "GZ11",
       "to": "GZ9",
-      "capacity_mw": 8886,
+      "capacity_mw": 8042.7,
       "n_circuits": 18,
       "x_equivalent": 0.010005,
       "carrier": "AC"
@@ -890,9 +890,9 @@
       "id": "GZ12-GZ14",
       "from": "GZ12",
       "to": "GZ14",
-      "capacity_mw": 4515,
+      "capacity_mw": 5223.0,
       "n_circuits": 3,
-      "x_equivalent": 0.09785,
+      "x_equivalent": 0.098791,
       "carrier": "AC"
     },
     {
@@ -926,7 +926,7 @@
       "id": "GZ15-GZ16",
       "from": "GZ15",
       "to": "GZ16",
-      "capacity_mw": 41109,
+      "capacity_mw": 42365.4,
       "n_circuits": 19,
       "x_equivalent": 0.012879,
       "carrier": "AC"
@@ -944,7 +944,7 @@
       "id": "GZ16-GZ18",
       "from": "GZ16",
       "to": "GZ18",
-      "capacity_mw": 40768,
+      "capacity_mw": 40826.0,
       "n_circuits": 16,
       "x_equivalent": 0.009643,
       "carrier": "AC"
@@ -962,9 +962,9 @@
       "id": "GZ17-GZ18",
       "from": "GZ17",
       "to": "GZ18",
-      "capacity_mw": 18603,
+      "capacity_mw": 18603.0,
       "n_circuits": 6,
-      "x_equivalent": 0.144246,
+      "x_equivalent": 0.132069,
       "carrier": "AC"
     },
     {
@@ -1070,7 +1070,7 @@
       "id": "GZ25-GZ26",
       "from": "GZ25",
       "to": "GZ26",
-      "capacity_mw": 11431,
+      "capacity_mw": 12075.5,
       "n_circuits": 4,
       "x_equivalent": 0.120103,
       "carrier": "AC"
@@ -1160,7 +1160,7 @@
       "id": "GZ8-GZ9",
       "from": "GZ8",
       "to": "GZ9",
-      "capacity_mw": 2711,
+      "capacity_mw": 4567.3,
       "n_circuits": 6,
       "x_equivalent": 0.36515,
       "carrier": "AC"
@@ -1171,36 +1171,36 @@
       "id": "GZ1-GZ11",
       "from": "GZ1",
       "to": "GZ11",
-      "capacity_mw": 2180,
+      "capacity_mw": 4000.0,
       "n_circuits": 2,
-      "x_equivalent": 1.4523,
+      "x_equivalent": 0.6555,
       "carrier": "AC"
     },
     {
       "id": "GZ1-GZ2",
       "from": "GZ1",
       "to": "GZ2",
-      "capacity_mw": 1154,
+      "capacity_mw": 1296.8,
       "n_circuits": 6,
-      "x_equivalent": 0.164166,
+      "x_equivalent": 0.042858,
       "carrier": "AC"
     },
     {
       "id": "GZ1-GZ3",
       "from": "GZ1",
       "to": "GZ3",
-      "capacity_mw": 4817,
+      "capacity_mw": 4817.0,
       "n_circuits": 3,
-      "x_equivalent": 0.487871,
+      "x_equivalent": 0.036113,
       "carrier": "AC"
     },
     {
       "id": "GZ1-GZ5",
       "from": "GZ1",
       "to": "GZ5",
-      "capacity_mw": 4456,
+      "capacity_mw": 4456.0,
       "n_circuits": 11,
-      "x_equivalent": 0.298726,
+      "x_equivalent": 0.030414,
       "carrier": "AC"
     },
     {
@@ -1216,9 +1216,9 @@
       "id": "GZ10-GZ12",
       "from": "GZ10",
       "to": "GZ12",
-      "capacity_mw": 171,
+      "capacity_mw": 171.0,
       "n_circuits": 1,
-      "x_equivalent": 3.042099,
+      "x_equivalent": 6.081698,
       "carrier": "AC"
     },
     {
@@ -1252,7 +1252,7 @@
       "id": "GZ11-GZ12",
       "from": "GZ11",
       "to": "GZ12",
-      "capacity_mw": 4684,
+      "capacity_mw": 5136.0,
       "n_circuits": 4,
       "x_equivalent": 0.036459,
       "carrier": "AC"
@@ -1270,7 +1270,7 @@
       "id": "GZ11-GZ9",
       "from": "GZ11",
       "to": "GZ9",
-      "capacity_mw": 8886,
+      "capacity_mw": 7415.3,
       "n_circuits": 18,
       "x_equivalent": 0.010005,
       "carrier": "AC"
@@ -1279,9 +1279,9 @@
       "id": "GZ12-GZ14",
       "from": "GZ12",
       "to": "GZ14",
-      "capacity_mw": 4515,
+      "capacity_mw": 5223.0,
       "n_circuits": 3,
-      "x_equivalent": 0.09785,
+      "x_equivalent": 0.100038,
       "carrier": "AC"
     },
     {
@@ -1297,7 +1297,7 @@
       "id": "GZ13-GZ15",
       "from": "GZ13",
       "to": "GZ15",
-      "capacity_mw": 14967,
+      "capacity_mw": 16845.2,
       "n_circuits": 8,
       "x_equivalent": 0.050427,
       "carrier": "AC"
@@ -1315,9 +1315,9 @@
       "id": "GZ15-GZ16",
       "from": "GZ15",
       "to": "GZ16",
-      "capacity_mw": 47109,
+      "capacity_mw": 48365.4,
       "n_circuits": 23,
-      "x_equivalent": 0.012879,
+      "x_equivalent": 0.0121,
       "carrier": "AC"
     },
     {
@@ -1333,34 +1333,34 @@
       "id": "GZ16-GZ18",
       "from": "GZ16",
       "to": "GZ18",
-      "capacity_mw": 43547,
+      "capacity_mw": 44159.0,
       "n_circuits": 17,
-      "x_equivalent": 0.009643,
+      "x_equivalent": 0.009061,
       "carrier": "AC"
     },
     {
       "id": "GZ16-GZ19",
       "from": "GZ16",
       "to": "GZ19",
-      "capacity_mw": 5330,
+      "capacity_mw": 5330.0,
       "n_circuits": 2,
-      "x_equivalent": 0.264,
+      "x_equivalent": 0.26835,
       "carrier": "AC"
     },
     {
       "id": "GZ17-GZ18",
       "from": "GZ17",
       "to": "GZ18",
-      "capacity_mw": 18603,
+      "capacity_mw": 18603.0,
       "n_circuits": 6,
-      "x_equivalent": 0.144246,
+      "x_equivalent": 0.132069,
       "carrier": "AC"
     },
     {
       "id": "GZ18-GZ20",
       "from": "GZ18",
       "to": "GZ20",
-      "capacity_mw": 8337,
+      "capacity_mw": 8337.0,
       "n_circuits": 3,
       "x_equivalent": 0.489393,
       "carrier": "AC"
@@ -1378,16 +1378,16 @@
       "id": "GZ18-GZ22",
       "from": "GZ18",
       "to": "GZ22",
-      "capacity_mw": 15050,
+      "capacity_mw": 15050.0,
       "n_circuits": 6,
-      "x_equivalent": 0.165123,
+      "x_equivalent": 0.154264,
       "carrier": "AC"
     },
     {
       "id": "GZ18-GZ24",
       "from": "GZ18",
       "to": "GZ24",
-      "capacity_mw": 11663,
+      "capacity_mw": 12483.5,
       "n_circuits": 4,
       "x_equivalent": 0.142223,
       "carrier": "AC"
@@ -1414,7 +1414,7 @@
       "id": "GZ22-GZ25",
       "from": "GZ22",
       "to": "GZ25",
-      "capacity_mw": 5138,
+      "capacity_mw": 7049.0,
       "n_circuits": 4,
       "x_equivalent": 0.421472,
       "carrier": "AC"
@@ -1432,9 +1432,9 @@
       "id": "GZ23-GZ24",
       "from": "GZ23",
       "to": "GZ24",
-      "capacity_mw": 11946,
+      "capacity_mw": 11946.0,
       "n_circuits": 6,
-      "x_equivalent": 0.039898,
+      "x_equivalent": 0.040332,
       "carrier": "AC"
     },
     {
@@ -1459,7 +1459,7 @@
       "id": "GZ25-GZ26",
       "from": "GZ25",
       "to": "GZ26",
-      "capacity_mw": 11431,
+      "capacity_mw": 13010.0,
       "n_circuits": 4,
       "x_equivalent": 0.120103,
       "carrier": "AC"
@@ -1468,9 +1468,9 @@
       "id": "GZ26-GZ27",
       "from": "GZ26",
       "to": "GZ27",
-      "capacity_mw": 7279,
+      "capacity_mw": 7279.0,
       "n_circuits": 4,
-      "x_equivalent": 0.295607,
+      "x_equivalent": 0.295719,
       "carrier": "AC"
     },
     {
@@ -1522,9 +1522,9 @@
       "id": "GZ5-GZ9",
       "from": "GZ5",
       "to": "GZ9",
-      "capacity_mw": 6552,
+      "capacity_mw": 6552.0,
       "n_circuits": 6,
-      "x_equivalent": 0.835,
+      "x_equivalent": 0.063413,
       "carrier": "AC"
     },
     {
@@ -1549,7 +1549,7 @@
       "id": "GZ8-GZ9",
       "from": "GZ8",
       "to": "GZ9",
-      "capacity_mw": 2711,
+      "capacity_mw": 4567.3,
       "n_circuits": 6,
       "x_equivalent": 0.36515,
       "carrier": "AC"
@@ -1560,36 +1560,36 @@
       "id": "GZ1-GZ11",
       "from": "GZ1",
       "to": "GZ11",
-      "capacity_mw": 2180,
+      "capacity_mw": 4000.0,
       "n_circuits": 2,
-      "x_equivalent": 1.4523,
+      "x_equivalent": 0.6555,
       "carrier": "AC"
     },
     {
       "id": "GZ1-GZ2",
       "from": "GZ1",
       "to": "GZ2",
-      "capacity_mw": 1154,
+      "capacity_mw": 1296.8,
       "n_circuits": 6,
-      "x_equivalent": 0.164166,
+      "x_equivalent": 0.042858,
       "carrier": "AC"
     },
     {
       "id": "GZ1-GZ3",
       "from": "GZ1",
       "to": "GZ3",
-      "capacity_mw": 4817,
+      "capacity_mw": 4817.0,
       "n_circuits": 3,
-      "x_equivalent": 0.487871,
+      "x_equivalent": 0.036113,
       "carrier": "AC"
     },
     {
       "id": "GZ1-GZ5",
       "from": "GZ1",
       "to": "GZ5",
-      "capacity_mw": 4456,
+      "capacity_mw": 4456.0,
       "n_circuits": 11,
-      "x_equivalent": 0.298726,
+      "x_equivalent": 0.030414,
       "carrier": "AC"
     },
     {
@@ -1605,9 +1605,9 @@
       "id": "GZ10-GZ12",
       "from": "GZ10",
       "to": "GZ12",
-      "capacity_mw": 171,
+      "capacity_mw": 171.0,
       "n_circuits": 1,
-      "x_equivalent": 3.042099,
+      "x_equivalent": 6.081698,
       "carrier": "AC"
     },
     {
@@ -1641,7 +1641,7 @@
       "id": "GZ11-GZ12",
       "from": "GZ11",
       "to": "GZ12",
-      "capacity_mw": 4684,
+      "capacity_mw": 5136.0,
       "n_circuits": 4,
       "x_equivalent": 0.036459,
       "carrier": "AC"
@@ -1659,18 +1659,18 @@
       "id": "GZ11-GZ9",
       "from": "GZ11",
       "to": "GZ9",
-      "capacity_mw": 10386,
+      "capacity_mw": 8915.3,
       "n_circuits": 19,
-      "x_equivalent": 0.010005,
+      "x_equivalent": 0.00985,
       "carrier": "AC"
     },
     {
       "id": "GZ12-GZ14",
       "from": "GZ12",
       "to": "GZ14",
-      "capacity_mw": 4515,
+      "capacity_mw": 5223.0,
       "n_circuits": 3,
-      "x_equivalent": 0.09785,
+      "x_equivalent": 0.100038,
       "carrier": "AC"
     },
     {
@@ -1686,7 +1686,7 @@
       "id": "GZ13-GZ15",
       "from": "GZ13",
       "to": "GZ15",
-      "capacity_mw": 14967,
+      "capacity_mw": 16845.2,
       "n_circuits": 8,
       "x_equivalent": 0.050427,
       "carrier": "AC"
@@ -1704,9 +1704,9 @@
       "id": "GZ15-GZ16",
       "from": "GZ15",
       "to": "GZ16",
-      "capacity_mw": 47109,
+      "capacity_mw": 48365.4,
       "n_circuits": 23,
-      "x_equivalent": 0.012879,
+      "x_equivalent": 0.0121,
       "carrier": "AC"
     },
     {
@@ -1722,34 +1722,34 @@
       "id": "GZ16-GZ18",
       "from": "GZ16",
       "to": "GZ18",
-      "capacity_mw": 43547,
+      "capacity_mw": 44159.0,
       "n_circuits": 17,
-      "x_equivalent": 0.009643,
+      "x_equivalent": 0.009061,
       "carrier": "AC"
     },
     {
       "id": "GZ16-GZ19",
       "from": "GZ16",
       "to": "GZ19",
-      "capacity_mw": 5330,
+      "capacity_mw": 5330.0,
       "n_circuits": 2,
-      "x_equivalent": 0.264,
+      "x_equivalent": 0.26835,
       "carrier": "AC"
     },
     {
       "id": "GZ17-GZ18",
       "from": "GZ17",
       "to": "GZ18",
-      "capacity_mw": 18603,
+      "capacity_mw": 18603.0,
       "n_circuits": 6,
-      "x_equivalent": 0.144246,
+      "x_equivalent": 0.132069,
       "carrier": "AC"
     },
     {
       "id": "GZ18-GZ20",
       "from": "GZ18",
       "to": "GZ20",
-      "capacity_mw": 8337,
+      "capacity_mw": 8337.0,
       "n_circuits": 3,
       "x_equivalent": 0.489393,
       "carrier": "AC"
@@ -1767,16 +1767,16 @@
       "id": "GZ18-GZ22",
       "from": "GZ18",
       "to": "GZ22",
-      "capacity_mw": 15050,
+      "capacity_mw": 15050.0,
       "n_circuits": 6,
-      "x_equivalent": 0.165123,
+      "x_equivalent": 0.154264,
       "carrier": "AC"
     },
     {
       "id": "GZ18-GZ24",
       "from": "GZ18",
       "to": "GZ24",
-      "capacity_mw": 11663,
+      "capacity_mw": 12483.5,
       "n_circuits": 4,
       "x_equivalent": 0.142223,
       "carrier": "AC"
@@ -1803,7 +1803,7 @@
       "id": "GZ22-GZ25",
       "from": "GZ22",
       "to": "GZ25",
-      "capacity_mw": 5138,
+      "capacity_mw": 7049.0,
       "n_circuits": 4,
       "x_equivalent": 0.421472,
       "carrier": "AC"
@@ -1821,9 +1821,9 @@
       "id": "GZ23-GZ24",
       "from": "GZ23",
       "to": "GZ24",
-      "capacity_mw": 11946,
+      "capacity_mw": 11946.0,
       "n_circuits": 6,
-      "x_equivalent": 0.039898,
+      "x_equivalent": 0.040332,
       "carrier": "AC"
     },
     {
@@ -1848,7 +1848,7 @@
       "id": "GZ25-GZ26",
       "from": "GZ25",
       "to": "GZ26",
-      "capacity_mw": 11431,
+      "capacity_mw": 13010.0,
       "n_circuits": 4,
       "x_equivalent": 0.120103,
       "carrier": "AC"
@@ -1857,9 +1857,9 @@
       "id": "GZ26-GZ27",
       "from": "GZ26",
       "to": "GZ27",
-      "capacity_mw": 7279,
+      "capacity_mw": 7279.0,
       "n_circuits": 4,
-      "x_equivalent": 0.295607,
+      "x_equivalent": 0.295719,
       "carrier": "AC"
     },
     {
@@ -1911,9 +1911,9 @@
       "id": "GZ5-GZ9",
       "from": "GZ5",
       "to": "GZ9",
-      "capacity_mw": 6552,
+      "capacity_mw": 6552.0,
       "n_circuits": 6,
-      "x_equivalent": 0.835,
+      "x_equivalent": 0.063413,
       "carrier": "AC"
     },
     {
@@ -1938,7 +1938,7 @@
       "id": "GZ8-GZ9",
       "from": "GZ8",
       "to": "GZ9",
-      "capacity_mw": 2711,
+      "capacity_mw": 4567.3,
       "n_circuits": 6,
       "x_equivalent": 0.36515,
       "carrier": "AC"
@@ -1949,43 +1949,43 @@
       "id": "GZ1-GZ11",
       "from": "GZ1",
       "to": "GZ11",
-      "capacity_mw": 2180,
-      "n_circuits": 2,
-      "x_equivalent": 1.4523,
+      "capacity_mw": 7080.0,
+      "n_circuits": 4,
+      "x_equivalent": 0.196562,
       "carrier": "AC"
     },
     {
       "id": "GZ1-GZ2",
       "from": "GZ1",
       "to": "GZ2",
-      "capacity_mw": 2118,
-      "n_circuits": 11,
-      "x_equivalent": 0.164166,
+      "capacity_mw": 2260.8,
+      "n_circuits": 10,
+      "x_equivalent": 0.034261,
       "carrier": "AC"
     },
     {
       "id": "GZ1-GZ3",
       "from": "GZ1",
       "to": "GZ3",
-      "capacity_mw": 14544,
+      "capacity_mw": 14544.0,
       "n_circuits": 10,
-      "x_equivalent": 0.487871,
+      "x_equivalent": 0.012391,
       "carrier": "AC"
     },
     {
       "id": "GZ1-GZ5",
       "from": "GZ1",
       "to": "GZ5",
-      "capacity_mw": 4632,
+      "capacity_mw": 4632.0,
       "n_circuits": 12,
-      "x_equivalent": 0.298726,
+      "x_equivalent": 0.027876,
       "carrier": "AC"
     },
     {
       "id": "GZ10-GZ11",
       "from": "GZ10",
       "to": "GZ11",
-      "capacity_mw": 5800,
+      "capacity_mw": 5722.0,
       "n_circuits": 4,
       "x_equivalent": 0.115839,
       "carrier": "AC"
@@ -1994,16 +1994,16 @@
       "id": "GZ10-GZ12",
       "from": "GZ10",
       "to": "GZ12",
-      "capacity_mw": 171,
+      "capacity_mw": 171.0,
       "n_circuits": 1,
-      "x_equivalent": 3.042099,
+      "x_equivalent": 6.081698,
       "carrier": "AC"
     },
     {
       "id": "GZ10-GZ8",
       "from": "GZ10",
       "to": "GZ8",
-      "capacity_mw": 2240,
+      "capacity_mw": 2762.0,
       "n_circuits": 2,
       "x_equivalent": 0.381978,
       "carrier": "AC"
@@ -2012,7 +2012,7 @@
       "id": "GZ10-GZ9",
       "from": "GZ10",
       "to": "GZ9",
-      "capacity_mw": 759,
+      "capacity_mw": 602.5,
       "n_circuits": 4,
       "x_equivalent": 0.321971,
       "carrier": "AC"
@@ -2021,7 +2021,7 @@
       "id": "GZ11-GZ12",
       "from": "GZ11",
       "to": "GZ12",
-      "capacity_mw": 4684,
+      "capacity_mw": 3082.0,
       "n_circuits": 4,
       "x_equivalent": 0.036459,
       "carrier": "AC"
@@ -2039,18 +2039,18 @@
       "id": "GZ11-GZ9",
       "from": "GZ11",
       "to": "GZ9",
-      "capacity_mw": 18916,
+      "capacity_mw": 15854.7,
       "n_circuits": 22,
-      "x_equivalent": 0.010005,
+      "x_equivalent": 0.009935,
       "carrier": "AC"
     },
     {
       "id": "GZ12-GZ14",
       "from": "GZ12",
       "to": "GZ14",
-      "capacity_mw": 4515,
+      "capacity_mw": 8573.0,
       "n_circuits": 3,
-      "x_equivalent": 0.09785,
+      "x_equivalent": 0.100038,
       "carrier": "AC"
     },
     {
@@ -2066,9 +2066,9 @@
       "id": "GZ13-GZ15",
       "from": "GZ13",
       "to": "GZ15",
-      "capacity_mw": 17159,
+      "capacity_mw": 20266.4,
       "n_circuits": 8,
-      "x_equivalent": 0.050427,
+      "x_equivalent": 0.048358,
       "carrier": "AC"
     },
     {
@@ -2084,9 +2084,9 @@
       "id": "GZ15-GZ16",
       "from": "GZ15",
       "to": "GZ16",
-      "capacity_mw": 47109,
+      "capacity_mw": 48365.4,
       "n_circuits": 23,
-      "x_equivalent": 0.012879,
+      "x_equivalent": 0.0121,
       "carrier": "AC"
     },
     {
@@ -2102,36 +2102,36 @@
       "id": "GZ16-GZ18",
       "from": "GZ16",
       "to": "GZ18",
-      "capacity_mw": 63669,
+      "capacity_mw": 63880.0,
       "n_circuits": 23,
-      "x_equivalent": 0.009643,
+      "x_equivalent": 0.007938,
       "carrier": "AC"
     },
     {
       "id": "GZ16-GZ19",
       "from": "GZ16",
       "to": "GZ19",
-      "capacity_mw": 9733,
+      "capacity_mw": 9733.0,
       "n_circuits": 4,
-      "x_equivalent": 0.264,
+      "x_equivalent": 0.033317,
       "carrier": "AC"
     },
     {
       "id": "GZ17-GZ18",
       "from": "GZ17",
       "to": "GZ18",
-      "capacity_mw": 18603,
+      "capacity_mw": 18603.0,
       "n_circuits": 6,
-      "x_equivalent": 0.144246,
+      "x_equivalent": 0.132069,
       "carrier": "AC"
     },
     {
       "id": "GZ18-GZ20",
       "from": "GZ18",
       "to": "GZ20",
-      "capacity_mw": 5558,
+      "capacity_mw": 5558.0,
       "n_circuits": 2,
-      "x_equivalent": 0.489393,
+      "x_equivalent": 0.736533,
       "carrier": "AC"
     },
     {
@@ -2147,25 +2147,25 @@
       "id": "GZ18-GZ22",
       "from": "GZ18",
       "to": "GZ22",
-      "capacity_mw": 15050,
+      "capacity_mw": 15801.6,
       "n_circuits": 6,
-      "x_equivalent": 0.165123,
+      "x_equivalent": 0.154264,
       "carrier": "AC"
     },
     {
       "id": "GZ18-GZ24",
       "from": "GZ18",
       "to": "GZ24",
-      "capacity_mw": 12210,
+      "capacity_mw": 13030.5,
       "n_circuits": 4,
-      "x_equivalent": 0.142223,
+      "x_equivalent": 0.134634,
       "carrier": "AC"
     },
     {
       "id": "GZ18-GZ25",
       "from": "GZ18",
       "to": "GZ25",
-      "capacity_mw": 14136,
+      "capacity_mw": 14924.0,
       "n_circuits": 6,
       "x_equivalent": 0.116955,
       "carrier": "AC"
@@ -2183,7 +2183,7 @@
       "id": "GZ22-GZ25",
       "from": "GZ22",
       "to": "GZ25",
-      "capacity_mw": 5138,
+      "capacity_mw": 9931.0,
       "n_circuits": 4,
       "x_equivalent": 0.421472,
       "carrier": "AC"
@@ -2201,18 +2201,18 @@
       "id": "GZ23-GZ24",
       "from": "GZ23",
       "to": "GZ24",
-      "capacity_mw": 11946,
+      "capacity_mw": 15502.0,
       "n_circuits": 6,
-      "x_equivalent": 0.039898,
+      "x_equivalent": 0.040332,
       "carrier": "AC"
     },
     {
       "id": "GZ23-GZ25",
       "from": "GZ23",
       "to": "GZ25",
-      "capacity_mw": 8928,
+      "capacity_mw": 8928.0,
       "n_circuits": 6,
-      "x_equivalent": 0.014706,
+      "x_equivalent": 0.013572,
       "carrier": "AC"
     },
     {
@@ -2228,7 +2228,7 @@
       "id": "GZ25-GZ26",
       "from": "GZ25",
       "to": "GZ26",
-      "capacity_mw": 11431,
+      "capacity_mw": 13010.0,
       "n_circuits": 4,
       "x_equivalent": 0.120103,
       "carrier": "AC"
@@ -2237,18 +2237,18 @@
       "id": "GZ26-GZ27",
       "from": "GZ26",
       "to": "GZ27",
-      "capacity_mw": 7279,
+      "capacity_mw": 7279.0,
       "n_circuits": 4,
-      "x_equivalent": 0.295607,
+      "x_equivalent": 0.295719,
       "carrier": "AC"
     },
     {
       "id": "GZ3-GZ4",
       "from": "GZ3",
       "to": "GZ4",
-      "capacity_mw": 930,
+      "capacity_mw": 930.0,
       "n_circuits": 2,
-      "x_equivalent": 14.87,
+      "x_equivalent": 7.558326,
       "carrier": "AC"
     },
     {
@@ -2264,9 +2264,9 @@
       "id": "GZ3-GZ9",
       "from": "GZ3",
       "to": "GZ9",
-      "capacity_mw": 4690,
-      "n_circuits": 2,
-      "x_equivalent": 0.885625,
+      "capacity_mw": 2780.0,
+      "n_circuits": 1,
+      "x_equivalent": 1.396,
       "carrier": "AC"
     },
     {
@@ -2282,9 +2282,9 @@
       "id": "GZ5-GZ9",
       "from": "GZ5",
       "to": "GZ9",
-      "capacity_mw": 3000,
+      "capacity_mw": 3000.0,
       "n_circuits": 3,
-      "x_equivalent": 0.835,
+      "x_equivalent": 0.118501,
       "carrier": "AC"
     },
     {
@@ -2300,9 +2300,9 @@
       "id": "GZ8-GZ9",
       "from": "GZ8",
       "to": "GZ9",
-      "capacity_mw": 3331,
+      "capacity_mw": 6115.5,
       "n_circuits": 6,
-      "x_equivalent": 0.36515,
+      "x_equivalent": 0.234402,
       "carrier": "AC"
     }
   ],
@@ -2311,43 +2311,43 @@
       "id": "GZ1-GZ11",
       "from": "GZ1",
       "to": "GZ11",
-      "capacity_mw": 2180,
-      "n_circuits": 2,
-      "x_equivalent": 1.4523,
+      "capacity_mw": 7080.0,
+      "n_circuits": 4,
+      "x_equivalent": 0.196562,
       "carrier": "AC"
     },
     {
       "id": "GZ1-GZ2",
       "from": "GZ1",
       "to": "GZ2",
-      "capacity_mw": 2118,
-      "n_circuits": 11,
-      "x_equivalent": 0.164166,
+      "capacity_mw": 2260.8,
+      "n_circuits": 10,
+      "x_equivalent": 0.034261,
       "carrier": "AC"
     },
     {
       "id": "GZ1-GZ3",
       "from": "GZ1",
       "to": "GZ3",
-      "capacity_mw": 14544,
+      "capacity_mw": 14544.0,
       "n_circuits": 10,
-      "x_equivalent": 0.487871,
+      "x_equivalent": 0.012391,
       "carrier": "AC"
     },
     {
       "id": "GZ1-GZ5",
       "from": "GZ1",
       "to": "GZ5",
-      "capacity_mw": 4632,
+      "capacity_mw": 4632.0,
       "n_circuits": 12,
-      "x_equivalent": 0.298726,
+      "x_equivalent": 0.027876,
       "carrier": "AC"
     },
     {
       "id": "GZ10-GZ11",
       "from": "GZ10",
       "to": "GZ11",
-      "capacity_mw": 5800,
+      "capacity_mw": 5722.0,
       "n_circuits": 4,
       "x_equivalent": 0.115839,
       "carrier": "AC"
@@ -2356,16 +2356,16 @@
       "id": "GZ10-GZ12",
       "from": "GZ10",
       "to": "GZ12",
-      "capacity_mw": 171,
+      "capacity_mw": 171.0,
       "n_circuits": 1,
-      "x_equivalent": 3.042099,
+      "x_equivalent": 6.081698,
       "carrier": "AC"
     },
     {
       "id": "GZ10-GZ8",
       "from": "GZ10",
       "to": "GZ8",
-      "capacity_mw": 2240,
+      "capacity_mw": 2762.0,
       "n_circuits": 2,
       "x_equivalent": 0.381978,
       "carrier": "AC"
@@ -2374,7 +2374,7 @@
       "id": "GZ10-GZ9",
       "from": "GZ10",
       "to": "GZ9",
-      "capacity_mw": 759,
+      "capacity_mw": 602.5,
       "n_circuits": 4,
       "x_equivalent": 0.321971,
       "carrier": "AC"
@@ -2383,7 +2383,7 @@
       "id": "GZ11-GZ12",
       "from": "GZ11",
       "to": "GZ12",
-      "capacity_mw": 4684,
+      "capacity_mw": 3082.0,
       "n_circuits": 4,
       "x_equivalent": 0.036459,
       "carrier": "AC"
@@ -2401,18 +2401,18 @@
       "id": "GZ11-GZ9",
       "from": "GZ11",
       "to": "GZ9",
-      "capacity_mw": 18916,
+      "capacity_mw": 15854.7,
       "n_circuits": 22,
-      "x_equivalent": 0.010005,
+      "x_equivalent": 0.009935,
       "carrier": "AC"
     },
     {
       "id": "GZ12-GZ14",
       "from": "GZ12",
       "to": "GZ14",
-      "capacity_mw": 4515,
+      "capacity_mw": 8573.0,
       "n_circuits": 3,
-      "x_equivalent": 0.09785,
+      "x_equivalent": 0.100038,
       "carrier": "AC"
     },
     {
@@ -2428,9 +2428,9 @@
       "id": "GZ13-GZ15",
       "from": "GZ13",
       "to": "GZ15",
-      "capacity_mw": 17159,
+      "capacity_mw": 20266.4,
       "n_circuits": 8,
-      "x_equivalent": 0.050427,
+      "x_equivalent": 0.048358,
       "carrier": "AC"
     },
     {
@@ -2446,9 +2446,9 @@
       "id": "GZ15-GZ16",
       "from": "GZ15",
       "to": "GZ16",
-      "capacity_mw": 47109,
+      "capacity_mw": 48365.4,
       "n_circuits": 23,
-      "x_equivalent": 0.012879,
+      "x_equivalent": 0.0121,
       "carrier": "AC"
     },
     {
@@ -2464,36 +2464,36 @@
       "id": "GZ16-GZ18",
       "from": "GZ16",
       "to": "GZ18",
-      "capacity_mw": 63669,
+      "capacity_mw": 63880.0,
       "n_circuits": 23,
-      "x_equivalent": 0.009643,
+      "x_equivalent": 0.007938,
       "carrier": "AC"
     },
     {
       "id": "GZ16-GZ19",
       "from": "GZ16",
       "to": "GZ19",
-      "capacity_mw": 9733,
+      "capacity_mw": 9733.0,
       "n_circuits": 4,
-      "x_equivalent": 0.264,
+      "x_equivalent": 0.033317,
       "carrier": "AC"
     },
     {
       "id": "GZ17-GZ18",
       "from": "GZ17",
       "to": "GZ18",
-      "capacity_mw": 18603,
+      "capacity_mw": 18603.0,
       "n_circuits": 6,
-      "x_equivalent": 0.144246,
+      "x_equivalent": 0.132069,
       "carrier": "AC"
     },
     {
       "id": "GZ18-GZ20",
       "from": "GZ18",
       "to": "GZ20",
-      "capacity_mw": 5558,
+      "capacity_mw": 5558.0,
       "n_circuits": 2,
-      "x_equivalent": 0.489393,
+      "x_equivalent": 0.736533,
       "carrier": "AC"
     },
     {
@@ -2509,25 +2509,25 @@
       "id": "GZ18-GZ22",
       "from": "GZ18",
       "to": "GZ22",
-      "capacity_mw": 15050,
+      "capacity_mw": 15801.6,
       "n_circuits": 6,
-      "x_equivalent": 0.165123,
+      "x_equivalent": 0.154264,
       "carrier": "AC"
     },
     {
       "id": "GZ18-GZ24",
       "from": "GZ18",
       "to": "GZ24",
-      "capacity_mw": 12210,
+      "capacity_mw": 13030.5,
       "n_circuits": 4,
-      "x_equivalent": 0.142223,
+      "x_equivalent": 0.134634,
       "carrier": "AC"
     },
     {
       "id": "GZ18-GZ25",
       "from": "GZ18",
       "to": "GZ25",
-      "capacity_mw": 14136,
+      "capacity_mw": 14924.0,
       "n_circuits": 6,
       "x_equivalent": 0.116955,
       "carrier": "AC"
@@ -2545,7 +2545,7 @@
       "id": "GZ22-GZ25",
       "from": "GZ22",
       "to": "GZ25",
-      "capacity_mw": 5138,
+      "capacity_mw": 9931.0,
       "n_circuits": 4,
       "x_equivalent": 0.421472,
       "carrier": "AC"
@@ -2563,18 +2563,18 @@
       "id": "GZ23-GZ24",
       "from": "GZ23",
       "to": "GZ24",
-      "capacity_mw": 11946,
+      "capacity_mw": 15502.0,
       "n_circuits": 6,
-      "x_equivalent": 0.039898,
+      "x_equivalent": 0.040332,
       "carrier": "AC"
     },
     {
       "id": "GZ23-GZ25",
       "from": "GZ23",
       "to": "GZ25",
-      "capacity_mw": 8928,
+      "capacity_mw": 8928.0,
       "n_circuits": 6,
-      "x_equivalent": 0.014706,
+      "x_equivalent": 0.013572,
       "carrier": "AC"
     },
     {
@@ -2590,7 +2590,7 @@
       "id": "GZ25-GZ26",
       "from": "GZ25",
       "to": "GZ26",
-      "capacity_mw": 11431,
+      "capacity_mw": 13010.0,
       "n_circuits": 4,
       "x_equivalent": 0.120103,
       "carrier": "AC"
@@ -2599,18 +2599,18 @@
       "id": "GZ26-GZ27",
       "from": "GZ26",
       "to": "GZ27",
-      "capacity_mw": 7279,
+      "capacity_mw": 7279.0,
       "n_circuits": 4,
-      "x_equivalent": 0.295607,
+      "x_equivalent": 0.295719,
       "carrier": "AC"
     },
     {
       "id": "GZ3-GZ4",
       "from": "GZ3",
       "to": "GZ4",
-      "capacity_mw": 930,
+      "capacity_mw": 930.0,
       "n_circuits": 2,
-      "x_equivalent": 14.87,
+      "x_equivalent": 7.558326,
       "carrier": "AC"
     },
     {
@@ -2626,9 +2626,9 @@
       "id": "GZ3-GZ9",
       "from": "GZ3",
       "to": "GZ9",
-      "capacity_mw": 4690,
-      "n_circuits": 2,
-      "x_equivalent": 0.885625,
+      "capacity_mw": 2780.0,
+      "n_circuits": 1,
+      "x_equivalent": 1.396,
       "carrier": "AC"
     },
     {
@@ -2644,9 +2644,9 @@
       "id": "GZ5-GZ9",
       "from": "GZ5",
       "to": "GZ9",
-      "capacity_mw": 3000,
+      "capacity_mw": 3000.0,
       "n_circuits": 3,
-      "x_equivalent": 0.835,
+      "x_equivalent": 0.118501,
       "carrier": "AC"
     },
     {
@@ -2662,9 +2662,9 @@
       "id": "GZ8-GZ9",
       "from": "GZ8",
       "to": "GZ9",
-      "capacity_mw": 3331,
+      "capacity_mw": 6115.5,
       "n_circuits": 6,
-      "x_equivalent": 0.36515,
+      "x_equivalent": 0.234402,
       "carrier": "AC"
     }
   ],
@@ -2673,43 +2673,43 @@
       "id": "GZ1-GZ11",
       "from": "GZ1",
       "to": "GZ11",
-      "capacity_mw": 2180,
-      "n_circuits": 2,
-      "x_equivalent": 1.4523,
+      "capacity_mw": 7080.0,
+      "n_circuits": 4,
+      "x_equivalent": 0.196562,
       "carrier": "AC"
     },
     {
       "id": "GZ1-GZ2",
       "from": "GZ1",
       "to": "GZ2",
-      "capacity_mw": 2118,
-      "n_circuits": 11,
-      "x_equivalent": 0.164166,
+      "capacity_mw": 2260.8,
+      "n_circuits": 10,
+      "x_equivalent": 0.034261,
       "carrier": "AC"
     },
     {
       "id": "GZ1-GZ3",
       "from": "GZ1",
       "to": "GZ3",
-      "capacity_mw": 14544,
+      "capacity_mw": 14544.0,
       "n_circuits": 10,
-      "x_equivalent": 0.487871,
+      "x_equivalent": 0.012391,
       "carrier": "AC"
     },
     {
       "id": "GZ1-GZ5",
       "from": "GZ1",
       "to": "GZ5",
-      "capacity_mw": 4632,
+      "capacity_mw": 4632.0,
       "n_circuits": 12,
-      "x_equivalent": 0.298726,
+      "x_equivalent": 0.027876,
       "carrier": "AC"
     },
     {
       "id": "GZ10-GZ11",
       "from": "GZ10",
       "to": "GZ11",
-      "capacity_mw": 5800,
+      "capacity_mw": 5722.0,
       "n_circuits": 4,
       "x_equivalent": 0.115839,
       "carrier": "AC"
@@ -2718,16 +2718,16 @@
       "id": "GZ10-GZ12",
       "from": "GZ10",
       "to": "GZ12",
-      "capacity_mw": 171,
+      "capacity_mw": 171.0,
       "n_circuits": 1,
-      "x_equivalent": 3.042099,
+      "x_equivalent": 6.081698,
       "carrier": "AC"
     },
     {
       "id": "GZ10-GZ8",
       "from": "GZ10",
       "to": "GZ8",
-      "capacity_mw": 2240,
+      "capacity_mw": 2762.0,
       "n_circuits": 2,
       "x_equivalent": 0.381978,
       "carrier": "AC"
@@ -2736,7 +2736,7 @@
       "id": "GZ10-GZ9",
       "from": "GZ10",
       "to": "GZ9",
-      "capacity_mw": 759,
+      "capacity_mw": 602.5,
       "n_circuits": 4,
       "x_equivalent": 0.321971,
       "carrier": "AC"
@@ -2745,7 +2745,7 @@
       "id": "GZ11-GZ12",
       "from": "GZ11",
       "to": "GZ12",
-      "capacity_mw": 4684,
+      "capacity_mw": 3082.0,
       "n_circuits": 4,
       "x_equivalent": 0.036459,
       "carrier": "AC"
@@ -2763,18 +2763,18 @@
       "id": "GZ11-GZ9",
       "from": "GZ11",
       "to": "GZ9",
-      "capacity_mw": 18916,
+      "capacity_mw": 15854.7,
       "n_circuits": 22,
-      "x_equivalent": 0.010005,
+      "x_equivalent": 0.009935,
       "carrier": "AC"
     },
     {
       "id": "GZ12-GZ14",
       "from": "GZ12",
       "to": "GZ14",
-      "capacity_mw": 4515,
+      "capacity_mw": 8573.0,
       "n_circuits": 3,
-      "x_equivalent": 0.09785,
+      "x_equivalent": 0.100038,
       "carrier": "AC"
     },
     {
@@ -2790,9 +2790,9 @@
       "id": "GZ13-GZ15",
       "from": "GZ13",
       "to": "GZ15",
-      "capacity_mw": 17159,
+      "capacity_mw": 20266.4,
       "n_circuits": 8,
-      "x_equivalent": 0.050427,
+      "x_equivalent": 0.048358,
       "carrier": "AC"
     },
     {
@@ -2808,9 +2808,9 @@
       "id": "GZ15-GZ16",
       "from": "GZ15",
       "to": "GZ16",
-      "capacity_mw": 47109,
+      "capacity_mw": 48365.4,
       "n_circuits": 23,
-      "x_equivalent": 0.012879,
+      "x_equivalent": 0.0121,
       "carrier": "AC"
     },
     {
@@ -2826,36 +2826,36 @@
       "id": "GZ16-GZ18",
       "from": "GZ16",
       "to": "GZ18",
-      "capacity_mw": 63669,
+      "capacity_mw": 63880.0,
       "n_circuits": 23,
-      "x_equivalent": 0.009643,
+      "x_equivalent": 0.007938,
       "carrier": "AC"
     },
     {
       "id": "GZ16-GZ19",
       "from": "GZ16",
       "to": "GZ19",
-      "capacity_mw": 9733,
+      "capacity_mw": 9733.0,
       "n_circuits": 4,
-      "x_equivalent": 0.264,
+      "x_equivalent": 0.033317,
       "carrier": "AC"
     },
     {
       "id": "GZ17-GZ18",
       "from": "GZ17",
       "to": "GZ18",
-      "capacity_mw": 18603,
+      "capacity_mw": 18603.0,
       "n_circuits": 6,
-      "x_equivalent": 0.144246,
+      "x_equivalent": 0.132069,
       "carrier": "AC"
     },
     {
       "id": "GZ18-GZ20",
       "from": "GZ18",
       "to": "GZ20",
-      "capacity_mw": 5558,
+      "capacity_mw": 5558.0,
       "n_circuits": 2,
-      "x_equivalent": 0.489393,
+      "x_equivalent": 0.736533,
       "carrier": "AC"
     },
     {
@@ -2871,25 +2871,25 @@
       "id": "GZ18-GZ22",
       "from": "GZ18",
       "to": "GZ22",
-      "capacity_mw": 15050,
+      "capacity_mw": 15801.6,
       "n_circuits": 6,
-      "x_equivalent": 0.165123,
+      "x_equivalent": 0.154264,
       "carrier": "AC"
     },
     {
       "id": "GZ18-GZ24",
       "from": "GZ18",
       "to": "GZ24",
-      "capacity_mw": 12210,
+      "capacity_mw": 13030.5,
       "n_circuits": 4,
-      "x_equivalent": 0.142223,
+      "x_equivalent": 0.134634,
       "carrier": "AC"
     },
     {
       "id": "GZ18-GZ25",
       "from": "GZ18",
       "to": "GZ25",
-      "capacity_mw": 14136,
+      "capacity_mw": 14924.0,
       "n_circuits": 6,
       "x_equivalent": 0.116955,
       "carrier": "AC"
@@ -2907,7 +2907,7 @@
       "id": "GZ22-GZ25",
       "from": "GZ22",
       "to": "GZ25",
-      "capacity_mw": 5138,
+      "capacity_mw": 9931.0,
       "n_circuits": 4,
       "x_equivalent": 0.421472,
       "carrier": "AC"
@@ -2925,18 +2925,18 @@
       "id": "GZ23-GZ24",
       "from": "GZ23",
       "to": "GZ24",
-      "capacity_mw": 11946,
+      "capacity_mw": 15502.0,
       "n_circuits": 6,
-      "x_equivalent": 0.039898,
+      "x_equivalent": 0.040332,
       "carrier": "AC"
     },
     {
       "id": "GZ23-GZ25",
       "from": "GZ23",
       "to": "GZ25",
-      "capacity_mw": 8928,
+      "capacity_mw": 8928.0,
       "n_circuits": 6,
-      "x_equivalent": 0.014706,
+      "x_equivalent": 0.013572,
       "carrier": "AC"
     },
     {
@@ -2952,7 +2952,7 @@
       "id": "GZ25-GZ26",
       "from": "GZ25",
       "to": "GZ26",
-      "capacity_mw": 11431,
+      "capacity_mw": 13010.0,
       "n_circuits": 4,
       "x_equivalent": 0.120103,
       "carrier": "AC"
@@ -2961,18 +2961,18 @@
       "id": "GZ26-GZ27",
       "from": "GZ26",
       "to": "GZ27",
-      "capacity_mw": 7279,
+      "capacity_mw": 7279.0,
       "n_circuits": 4,
-      "x_equivalent": 0.295607,
+      "x_equivalent": 0.295719,
       "carrier": "AC"
     },
     {
       "id": "GZ3-GZ4",
       "from": "GZ3",
       "to": "GZ4",
-      "capacity_mw": 930,
+      "capacity_mw": 930.0,
       "n_circuits": 2,
-      "x_equivalent": 14.87,
+      "x_equivalent": 7.558326,
       "carrier": "AC"
     },
     {
@@ -2988,9 +2988,9 @@
       "id": "GZ3-GZ9",
       "from": "GZ3",
       "to": "GZ9",
-      "capacity_mw": 4690,
-      "n_circuits": 2,
-      "x_equivalent": 0.885625,
+      "capacity_mw": 2780.0,
+      "n_circuits": 1,
+      "x_equivalent": 1.396,
       "carrier": "AC"
     },
     {
@@ -3006,9 +3006,9 @@
       "id": "GZ5-GZ9",
       "from": "GZ5",
       "to": "GZ9",
-      "capacity_mw": 3000,
+      "capacity_mw": 3000.0,
       "n_circuits": 3,
-      "x_equivalent": 0.835,
+      "x_equivalent": 0.118501,
       "carrier": "AC"
     },
     {
@@ -3024,9 +3024,9 @@
       "id": "GZ8-GZ9",
       "from": "GZ8",
       "to": "GZ9",
-      "capacity_mw": 3331,
+      "capacity_mw": 6115.5,
       "n_circuits": 6,
-      "x_equivalent": 0.36515,
+      "x_equivalent": 0.234402,
       "carrier": "AC"
     }
   ],
@@ -3035,43 +3035,43 @@
       "id": "GZ1-GZ11",
       "from": "GZ1",
       "to": "GZ11",
-      "capacity_mw": 2180,
-      "n_circuits": 2,
-      "x_equivalent": 1.4523,
+      "capacity_mw": 9598.0,
+      "n_circuits": 4,
+      "x_equivalent": 0.196562,
       "carrier": "AC"
     },
     {
       "id": "GZ1-GZ2",
       "from": "GZ1",
       "to": "GZ2",
-      "capacity_mw": 2118,
-      "n_circuits": 11,
-      "x_equivalent": 0.164166,
+      "capacity_mw": 2260.8,
+      "n_circuits": 10,
+      "x_equivalent": 0.034261,
       "carrier": "AC"
     },
     {
       "id": "GZ1-GZ3",
       "from": "GZ1",
       "to": "GZ3",
-      "capacity_mw": 16008,
+      "capacity_mw": 14126.0,
       "n_circuits": 11,
-      "x_equivalent": 0.487871,
+      "x_equivalent": 0.011483,
       "carrier": "AC"
     },
     {
       "id": "GZ1-GZ5",
       "from": "GZ1",
       "to": "GZ5",
-      "capacity_mw": 2452,
+      "capacity_mw": 2452.0,
       "n_circuits": 10,
-      "x_equivalent": 0.298726,
+      "x_equivalent": 0.030436,
       "carrier": "AC"
     },
     {
       "id": "GZ10-GZ11",
       "from": "GZ10",
       "to": "GZ11",
-      "capacity_mw": 5800,
+      "capacity_mw": 5722.0,
       "n_circuits": 4,
       "x_equivalent": 0.115839,
       "carrier": "AC"
@@ -3080,16 +3080,16 @@
       "id": "GZ10-GZ12",
       "from": "GZ10",
       "to": "GZ12",
-      "capacity_mw": 171,
+      "capacity_mw": 171.0,
       "n_circuits": 1,
-      "x_equivalent": 3.042099,
+      "x_equivalent": 6.081698,
       "carrier": "AC"
     },
     {
       "id": "GZ10-GZ8",
       "from": "GZ10",
       "to": "GZ8",
-      "capacity_mw": 2240,
+      "capacity_mw": 2762.0,
       "n_circuits": 2,
       "x_equivalent": 0.381978,
       "carrier": "AC"
@@ -3098,7 +3098,7 @@
       "id": "GZ10-GZ9",
       "from": "GZ10",
       "to": "GZ9",
-      "capacity_mw": 759,
+      "capacity_mw": 602.5,
       "n_circuits": 4,
       "x_equivalent": 0.321971,
       "carrier": "AC"
@@ -3107,7 +3107,7 @@
       "id": "GZ11-GZ12",
       "from": "GZ11",
       "to": "GZ12",
-      "capacity_mw": 4684,
+      "capacity_mw": 3082.0,
       "n_circuits": 4,
       "x_equivalent": 0.036459,
       "carrier": "AC"
@@ -3125,18 +3125,18 @@
       "id": "GZ11-GZ9",
       "from": "GZ11",
       "to": "GZ9",
-      "capacity_mw": 21233,
+      "capacity_mw": 18728.0,
       "n_circuits": 23,
-      "x_equivalent": 0.010005,
+      "x_equivalent": 0.008886,
       "carrier": "AC"
     },
     {
       "id": "GZ12-GZ14",
       "from": "GZ12",
       "to": "GZ14",
-      "capacity_mw": 4515,
+      "capacity_mw": 8573.0,
       "n_circuits": 3,
-      "x_equivalent": 0.09785,
+      "x_equivalent": 0.100038,
       "carrier": "AC"
     },
     {
@@ -3152,9 +3152,9 @@
       "id": "GZ13-GZ15",
       "from": "GZ13",
       "to": "GZ15",
-      "capacity_mw": 17159,
+      "capacity_mw": 20266.4,
       "n_circuits": 8,
-      "x_equivalent": 0.050427,
+      "x_equivalent": 0.048358,
       "carrier": "AC"
     },
     {
@@ -3170,9 +3170,9 @@
       "id": "GZ15-GZ16",
       "from": "GZ15",
       "to": "GZ16",
-      "capacity_mw": 47109,
+      "capacity_mw": 48365.4,
       "n_circuits": 23,
-      "x_equivalent": 0.012879,
+      "x_equivalent": 0.0121,
       "carrier": "AC"
     },
     {
@@ -3188,36 +3188,36 @@
       "id": "GZ16-GZ18",
       "from": "GZ16",
       "to": "GZ18",
-      "capacity_mw": 63669,
+      "capacity_mw": 63880.0,
       "n_circuits": 23,
-      "x_equivalent": 0.009643,
+      "x_equivalent": 0.007938,
       "carrier": "AC"
     },
     {
       "id": "GZ16-GZ19",
       "from": "GZ16",
       "to": "GZ19",
-      "capacity_mw": 9733,
+      "capacity_mw": 9733.0,
       "n_circuits": 4,
-      "x_equivalent": 0.264,
+      "x_equivalent": 0.033317,
       "carrier": "AC"
     },
     {
       "id": "GZ17-GZ18",
       "from": "GZ17",
       "to": "GZ18",
-      "capacity_mw": 18603,
+      "capacity_mw": 18603.0,
       "n_circuits": 6,
-      "x_equivalent": 0.144246,
+      "x_equivalent": 0.132069,
       "carrier": "AC"
     },
     {
       "id": "GZ18-GZ20",
       "from": "GZ18",
       "to": "GZ20",
-      "capacity_mw": 5558,
+      "capacity_mw": 5558.0,
       "n_circuits": 2,
-      "x_equivalent": 0.489393,
+      "x_equivalent": 0.736533,
       "carrier": "AC"
     },
     {
@@ -3233,25 +3233,25 @@
       "id": "GZ18-GZ22",
       "from": "GZ18",
       "to": "GZ22",
-      "capacity_mw": 15050,
+      "capacity_mw": 15801.6,
       "n_circuits": 6,
-      "x_equivalent": 0.165123,
+      "x_equivalent": 0.154264,
       "carrier": "AC"
     },
     {
       "id": "GZ18-GZ24",
       "from": "GZ18",
       "to": "GZ24",
-      "capacity_mw": 12210,
+      "capacity_mw": 13030.5,
       "n_circuits": 4,
-      "x_equivalent": 0.142223,
+      "x_equivalent": 0.134634,
       "carrier": "AC"
     },
     {
       "id": "GZ18-GZ25",
       "from": "GZ18",
       "to": "GZ25",
-      "capacity_mw": 14136,
+      "capacity_mw": 14924.0,
       "n_circuits": 6,
       "x_equivalent": 0.116955,
       "carrier": "AC"
@@ -3269,7 +3269,7 @@
       "id": "GZ22-GZ25",
       "from": "GZ22",
       "to": "GZ25",
-      "capacity_mw": 5138,
+      "capacity_mw": 9931.0,
       "n_circuits": 4,
       "x_equivalent": 0.421472,
       "carrier": "AC"
@@ -3287,18 +3287,18 @@
       "id": "GZ23-GZ24",
       "from": "GZ23",
       "to": "GZ24",
-      "capacity_mw": 11946,
+      "capacity_mw": 15502.0,
       "n_circuits": 6,
-      "x_equivalent": 0.039898,
+      "x_equivalent": 0.040332,
       "carrier": "AC"
     },
     {
       "id": "GZ23-GZ25",
       "from": "GZ23",
       "to": "GZ25",
-      "capacity_mw": 8928,
+      "capacity_mw": 8928.0,
       "n_circuits": 6,
-      "x_equivalent": 0.014706,
+      "x_equivalent": 0.013572,
       "carrier": "AC"
     },
     {
@@ -3314,7 +3314,7 @@
       "id": "GZ25-GZ26",
       "from": "GZ25",
       "to": "GZ26",
-      "capacity_mw": 11431,
+      "capacity_mw": 13010.0,
       "n_circuits": 4,
       "x_equivalent": 0.120103,
       "carrier": "AC"
@@ -3323,18 +3323,18 @@
       "id": "GZ26-GZ27",
       "from": "GZ26",
       "to": "GZ27",
-      "capacity_mw": 7279,
+      "capacity_mw": 7279.0,
       "n_circuits": 4,
-      "x_equivalent": 0.295607,
+      "x_equivalent": 0.295719,
       "carrier": "AC"
     },
     {
       "id": "GZ3-GZ4",
       "from": "GZ3",
       "to": "GZ4",
-      "capacity_mw": 930,
+      "capacity_mw": 930.0,
       "n_circuits": 2,
-      "x_equivalent": 14.87,
+      "x_equivalent": 7.558326,
       "carrier": "AC"
     },
     {
@@ -3350,9 +3350,9 @@
       "id": "GZ3-GZ9",
       "from": "GZ3",
       "to": "GZ9",
-      "capacity_mw": 4690,
-      "n_circuits": 2,
-      "x_equivalent": 0.885625,
+      "capacity_mw": 2780.0,
+      "n_circuits": 1,
+      "x_equivalent": 1.396,
       "carrier": "AC"
     },
     {
@@ -3368,9 +3368,9 @@
       "id": "GZ5-GZ9",
       "from": "GZ5",
       "to": "GZ9",
-      "capacity_mw": 9642,
+      "capacity_mw": 9642.0,
       "n_circuits": 6,
-      "x_equivalent": 0.835,
+      "x_equivalent": 0.026082,
       "carrier": "AC"
     },
     {
@@ -3386,9 +3386,9 @@
       "id": "GZ8-GZ9",
       "from": "GZ8",
       "to": "GZ9",
-      "capacity_mw": 3331,
+      "capacity_mw": 6115.5,
       "n_circuits": 6,
-      "x_equivalent": 0.36515,
+      "x_equivalent": 0.234402,
       "carrier": "AC"
     }
   ],
@@ -3397,43 +3397,43 @@
       "id": "GZ1-GZ11",
       "from": "GZ1",
       "to": "GZ11",
-      "capacity_mw": 2180,
-      "n_circuits": 2,
-      "x_equivalent": 1.4523,
+      "capacity_mw": 9598.0,
+      "n_circuits": 4,
+      "x_equivalent": 0.196562,
       "carrier": "AC"
     },
     {
       "id": "GZ1-GZ2",
       "from": "GZ1",
       "to": "GZ2",
-      "capacity_mw": 2118,
-      "n_circuits": 11,
-      "x_equivalent": 0.164166,
+      "capacity_mw": 2260.8,
+      "n_circuits": 10,
+      "x_equivalent": 0.034261,
       "carrier": "AC"
     },
     {
       "id": "GZ1-GZ3",
       "from": "GZ1",
       "to": "GZ3",
-      "capacity_mw": 16008,
+      "capacity_mw": 14126.0,
       "n_circuits": 11,
-      "x_equivalent": 0.487871,
+      "x_equivalent": 0.011483,
       "carrier": "AC"
     },
     {
       "id": "GZ1-GZ5",
       "from": "GZ1",
       "to": "GZ5",
-      "capacity_mw": 2452,
+      "capacity_mw": 2452.0,
       "n_circuits": 10,
-      "x_equivalent": 0.298726,
+      "x_equivalent": 0.030436,
       "carrier": "AC"
     },
     {
       "id": "GZ10-GZ11",
       "from": "GZ10",
       "to": "GZ11",
-      "capacity_mw": 5800,
+      "capacity_mw": 5322.0,
       "n_circuits": 4,
       "x_equivalent": 0.115839,
       "carrier": "AC"
@@ -3442,16 +3442,16 @@
       "id": "GZ10-GZ12",
       "from": "GZ10",
       "to": "GZ12",
-      "capacity_mw": 171,
+      "capacity_mw": 171.0,
       "n_circuits": 1,
-      "x_equivalent": 3.042099,
+      "x_equivalent": 6.081698,
       "carrier": "AC"
     },
     {
       "id": "GZ10-GZ8",
       "from": "GZ10",
       "to": "GZ8",
-      "capacity_mw": 2240,
+      "capacity_mw": 2762.0,
       "n_circuits": 2,
       "x_equivalent": 0.381978,
       "carrier": "AC"
@@ -3460,7 +3460,7 @@
       "id": "GZ10-GZ9",
       "from": "GZ10",
       "to": "GZ9",
-      "capacity_mw": 759,
+      "capacity_mw": 602.5,
       "n_circuits": 4,
       "x_equivalent": 0.321971,
       "carrier": "AC"
@@ -3469,7 +3469,7 @@
       "id": "GZ11-GZ12",
       "from": "GZ11",
       "to": "GZ12",
-      "capacity_mw": 4684,
+      "capacity_mw": 4334.0,
       "n_circuits": 4,
       "x_equivalent": 0.036459,
       "carrier": "AC"
@@ -3487,18 +3487,18 @@
       "id": "GZ11-GZ9",
       "from": "GZ11",
       "to": "GZ9",
-      "capacity_mw": 29176,
+      "capacity_mw": 25990.7,
       "n_circuits": 24,
-      "x_equivalent": 0.010005,
+      "x_equivalent": 0.008299,
       "carrier": "AC"
     },
     {
       "id": "GZ12-GZ14",
       "from": "GZ12",
       "to": "GZ14",
-      "capacity_mw": 4515,
+      "capacity_mw": 8573.0,
       "n_circuits": 3,
-      "x_equivalent": 0.09785,
+      "x_equivalent": 0.100038,
       "carrier": "AC"
     },
     {
@@ -3514,16 +3514,16 @@
       "id": "GZ13-GZ15",
       "from": "GZ13",
       "to": "GZ15",
-      "capacity_mw": 17159,
+      "capacity_mw": 22234.8,
       "n_circuits": 8,
-      "x_equivalent": 0.050427,
+      "x_equivalent": 0.048358,
       "carrier": "AC"
     },
     {
       "id": "GZ14-GZ15",
       "from": "GZ14",
       "to": "GZ15",
-      "capacity_mw": 7157,
+      "capacity_mw": 6940.3,
       "n_circuits": 3,
       "x_equivalent": 0.348681,
       "carrier": "AC"
@@ -3532,88 +3532,88 @@
       "id": "GZ15-GZ16",
       "from": "GZ15",
       "to": "GZ16",
-      "capacity_mw": 53767,
+      "capacity_mw": 55740.5,
       "n_circuits": 25,
-      "x_equivalent": 0.012879,
+      "x_equivalent": 0.011571,
       "carrier": "AC"
     },
     {
       "id": "GZ16-GZ17",
       "from": "GZ16",
       "to": "GZ17",
-      "capacity_mw": 31853,
+      "capacity_mw": 31853.0,
       "n_circuits": 10,
-      "x_equivalent": 0.303849,
+      "x_equivalent": 0.028733,
       "carrier": "AC"
     },
     {
       "id": "GZ16-GZ18",
       "from": "GZ16",
       "to": "GZ18",
-      "capacity_mw": 63669,
+      "capacity_mw": 63433.0,
       "n_circuits": 23,
-      "x_equivalent": 0.009643,
+      "x_equivalent": 0.007938,
       "carrier": "AC"
     },
     {
       "id": "GZ16-GZ19",
       "from": "GZ16",
       "to": "GZ19",
-      "capacity_mw": 9733,
+      "capacity_mw": 9733.0,
       "n_circuits": 4,
-      "x_equivalent": 0.264,
+      "x_equivalent": 0.033317,
       "carrier": "AC"
     },
     {
       "id": "GZ17-GZ18",
       "from": "GZ17",
       "to": "GZ18",
-      "capacity_mw": 18603,
+      "capacity_mw": 18603.0,
       "n_circuits": 6,
-      "x_equivalent": 0.144246,
+      "x_equivalent": 0.132069,
       "carrier": "AC"
     },
     {
       "id": "GZ18-GZ20",
       "from": "GZ18",
       "to": "GZ20",
-      "capacity_mw": 5558,
+      "capacity_mw": 5558.0,
       "n_circuits": 2,
-      "x_equivalent": 0.489393,
+      "x_equivalent": 0.736533,
       "carrier": "AC"
     },
     {
       "id": "GZ18-GZ21",
       "from": "GZ18",
       "to": "GZ21",
-      "capacity_mw": 10754,
+      "capacity_mw": 10754.0,
       "n_circuits": 5,
-      "x_equivalent": 0.115045,
+      "x_equivalent": 0.071654,
       "carrier": "AC"
     },
     {
       "id": "GZ18-GZ22",
       "from": "GZ18",
       "to": "GZ22",
-      "capacity_mw": 15050,
+      "capacity_mw": 15801.6,
       "n_circuits": 6,
-      "x_equivalent": 0.165123,
+      "x_equivalent": 0.154264,
       "carrier": "AC"
     },
     {
       "id": "GZ18-GZ24",
       "from": "GZ18",
       "to": "GZ24",
-      "capacity_mw": 12210,
+      "capacity_mw": 13030.5,
       "n_circuits": 4,
-      "x_equivalent": 0.142223,
+      "x_equivalent": 0.134634,
       "carrier": "AC"
     },
     {
       "id": "GZ18-GZ25",
       "from": "GZ18",
       "to": "GZ25",
-      "capacity_mw": 14136,
+      "capacity_mw": 14924.0,
       "n_circuits": 6,
       "x_equivalent": 0.116955,
       "carrier": "AC"
@@ -3631,7 +3631,7 @@
       "id": "GZ22-GZ25",
       "from": "GZ22",
       "to": "GZ25",
-      "capacity_mw": 5138,
+      "capacity_mw": 9931.0,
       "n_circuits": 4,
       "x_equivalent": 0.421472,
       "carrier": "AC"
@@ -3640,7 +3640,7 @@
       "id": "GZ22-GZ26",
       "from": "GZ22",
       "to": "GZ26",
-      "capacity_mw": 10224,
+      "capacity_mw": 11312.0,
       "n_circuits": 4,
       "x_equivalent": 0.01169,
       "carrier": "AC"
@@ -3649,18 +3649,18 @@
       "id": "GZ23-GZ24",
       "from": "GZ23",
       "to": "GZ24",
-      "capacity_mw": 11946,
+      "capacity_mw": 15502.0,
       "n_circuits": 6,
-      "x_equivalent": 0.039898,
+      "x_equivalent": 0.040332,
       "carrier": "AC"
     },
     {
       "id": "GZ23-GZ25",
       "from": "GZ23",
       "to": "GZ25",
-      "capacity_mw": 8928,
+      "capacity_mw": 8928.0,
       "n_circuits": 6,
-      "x_equivalent": 0.014706,
+      "x_equivalent": 0.013572,
       "carrier": "AC"
     },
     {
@@ -3676,7 +3676,7 @@
       "id": "GZ25-GZ26",
       "from": "GZ25",
       "to": "GZ26",
-      "capacity_mw": 11431,
+      "capacity_mw": 13010.0,
       "n_circuits": 4,
       "x_equivalent": 0.120103,
       "carrier": "AC"
@@ -3685,18 +3685,18 @@
       "id": "GZ26-GZ27",
       "from": "GZ26",
       "to": "GZ27",
-      "capacity_mw": 7279,
+      "capacity_mw": 7279.0,
       "n_circuits": 4,
-      "x_equivalent": 0.295607,
+      "x_equivalent": 0.295719,
       "carrier": "AC"
     },
     {
       "id": "GZ3-GZ4",
       "from": "GZ3",
       "to": "GZ4",
-      "capacity_mw": 930,
+      "capacity_mw": 930.0,
       "n_circuits": 2,
-      "x_equivalent": 14.87,
+      "x_equivalent": 7.558326,
       "carrier": "AC"
     },
     {
@@ -3712,9 +3712,9 @@
       "id": "GZ3-GZ9",
       "from": "GZ3",
       "to": "GZ9",
-      "capacity_mw": 4690,
-      "n_circuits": 2,
-      "x_equivalent": 0.885625,
+      "capacity_mw": 2780.0,
+      "n_circuits": 1,
+      "x_equivalent": 1.396,
       "carrier": "AC"
     },
     {
@@ -3730,9 +3730,9 @@
       "id": "GZ5-GZ9",
       "from": "GZ5",
       "to": "GZ9",
-      "capacity_mw": 8552,
+      "capacity_mw": 8552.0,
       "n_circuits": 5,
-      "x_equivalent": 0,
+      "x_equivalent": 0.026495,
       "carrier": "AC"
     },
     {
@@ -3748,9 +3748,9 @@
       "id": "GZ8-GZ9",
       "from": "GZ8",
       "to": "GZ9",
-      "capacity_mw": 3331,
+      "capacity_mw": 6115.5,
       "n_circuits": 6,
-      "x_equivalent": 0.36515,
+      "x_equivalent": 0.234402,
       "carrier": "AC"
     }
   ],
@@ -3759,43 +3759,43 @@
       "id": "GZ1-GZ11",
       "from": "GZ1",
       "to": "GZ11",
-      "capacity_mw": 2180,
-      "n_circuits": 2,
-      "x_equivalent": 1.4523,
+      "capacity_mw": 9598.0,
+      "n_circuits": 4,
+      "x_equivalent": 0.196562,
       "carrier": "AC"
     },
     {
       "id": "GZ1-GZ2",
       "from": "GZ1",
       "to": "GZ2",
-      "capacity_mw": 2118,
-      "n_circuits": 11,
-      "x_equivalent": 0.164166,
+      "capacity_mw": 2260.8,
+      "n_circuits": 10,
+      "x_equivalent": 0.034261,
       "carrier": "AC"
     },
     {
       "id": "GZ1-GZ3",
       "from": "GZ1",
       "to": "GZ3",
-      "capacity_mw": 16008,
+      "capacity_mw": 14126.0,
       "n_circuits": 11,
-      "x_equivalent": 0.487871,
+      "x_equivalent": 0.011483,
       "carrier": "AC"
     },
     {
       "id": "GZ1-GZ5",
       "from": "GZ1",
       "to": "GZ5",
-      "capacity_mw": 2452,
+      "capacity_mw": 2452.0,
       "n_circuits": 10,
-      "x_equivalent": 0.298726,
+      "x_equivalent": 0.030436,
       "carrier": "AC"
     },
     {
       "id": "GZ10-GZ11",
       "from": "GZ10",
       "to": "GZ11",
-      "capacity_mw": 5800,
+      "capacity_mw": 5322.0,
       "n_circuits": 4,
       "x_equivalent": 0.115839,
       "carrier": "AC"
@@ -3804,16 +3804,16 @@
       "id": "GZ10-GZ12",
       "from": "GZ10",
       "to": "GZ12",
-      "capacity_mw": 171,
+      "capacity_mw": 171.0,
       "n_circuits": 1,
-      "x_equivalent": 3.042099,
+      "x_equivalent": 6.081698,
       "carrier": "AC"
     },
     {
       "id": "GZ10-GZ8",
       "from": "GZ10",
       "to": "GZ8",
-      "capacity_mw": 2240,
+      "capacity_mw": 2762.0,
       "n_circuits": 2,
       "x_equivalent": 0.381978,
       "carrier": "AC"
@@ -3822,7 +3822,7 @@
       "id": "GZ10-GZ9",
       "from": "GZ10",
       "to": "GZ9",
-      "capacity_mw": 759,
+      "capacity_mw": 602.5,
       "n_circuits": 4,
       "x_equivalent": 0.321971,
       "carrier": "AC"
@@ -3831,7 +3831,7 @@
       "id": "GZ11-GZ12",
       "from": "GZ11",
       "to": "GZ12",
-      "capacity_mw": 4684,
+      "capacity_mw": 4334.0,
       "n_circuits": 4,
       "x_equivalent": 0.036459,
       "carrier": "AC"
@@ -3849,18 +3849,18 @@
       "id": "GZ11-GZ9",
       "from": "GZ11",
       "to": "GZ9",
-      "capacity_mw": 29176,
+      "capacity_mw": 25990.7,
       "n_circuits": 24,
-      "x_equivalent": 0.010005,
+      "x_equivalent": 0.008299,
       "carrier": "AC"
     },
     {
       "id": "GZ12-GZ14",
       "from": "GZ12",
       "to": "GZ14",
-      "capacity_mw": 4515,
+      "capacity_mw": 8573.0,
       "n_circuits": 3,
-      "x_equivalent": 0.09785,
+      "x_equivalent": 0.100038,
       "carrier": "AC"
     },
     {
@@ -3876,16 +3876,16 @@
       "id": "GZ13-GZ15",
       "from": "GZ13",
       "to": "GZ15",
-      "capacity_mw": 17159,
+      "capacity_mw": 22234.8,
       "n_circuits": 8,
-      "x_equivalent": 0.050427,
+      "x_equivalent": 0.048358,
       "carrier": "AC"
     },
     {
       "id": "GZ14-GZ15",
       "from": "GZ14",
       "to": "GZ15",
-      "capacity_mw": 7157,
+      "capacity_mw": 6940.3,
       "n_circuits": 3,
       "x_equivalent": 0.348681,
       "carrier": "AC"
@@ -3894,88 +3894,88 @@
       "id": "GZ15-GZ16",
       "from": "GZ15",
       "to": "GZ16",
-      "capacity_mw": 53767,
+      "capacity_mw": 55740.5,
       "n_circuits": 25,
-      "x_equivalent": 0.012879,
+      "x_equivalent": 0.011571,
       "carrier": "AC"
     },
     {
       "id": "GZ16-GZ17",
       "from": "GZ16",
       "to": "GZ17",
-      "capacity_mw": 31853,
+      "capacity_mw": 31853.0,
       "n_circuits": 10,
-      "x_equivalent": 0.303849,
+      "x_equivalent": 0.028733,
       "carrier": "AC"
     },
     {
       "id": "GZ16-GZ18",
       "from": "GZ16",
       "to": "GZ18",
-      "capacity_mw": 63669,
+      "capacity_mw": 63433.0,
       "n_circuits": 23,
-      "x_equivalent": 0.009643,
+      "x_equivalent": 0.007938,
       "carrier": "AC"
     },
     {
       "id": "GZ16-GZ19",
       "from": "GZ16",
       "to": "GZ19",
-      "capacity_mw": 9733,
+      "capacity_mw": 9733.0,
       "n_circuits": 4,
-      "x_equivalent": 0.264,
+      "x_equivalent": 0.033317,
       "carrier": "AC"
     },
     {
       "id": "GZ17-GZ18",
       "from": "GZ17",
       "to": "GZ18",
-      "capacity_mw": 18603,
+      "capacity_mw": 18603.0,
       "n_circuits": 6,
-      "x_equivalent": 0.144246,
+      "x_equivalent": 0.132069,
       "carrier": "AC"
     },
     {
       "id": "GZ18-GZ20",
       "from": "GZ18",
       "to": "GZ20",
-      "capacity_mw": 5558,
+      "capacity_mw": 5558.0,
       "n_circuits": 2,
-      "x_equivalent": 0.489393,
+      "x_equivalent": 0.736533,
       "carrier": "AC"
     },
     {
       "id": "GZ18-GZ21",
       "from": "GZ18",
       "to": "GZ21",
-      "capacity_mw": 10754,
+      "capacity_mw": 10754.0,
       "n_circuits": 5,
-      "x_equivalent": 0.115045,
+      "x_equivalent": 0.071654,
       "carrier": "AC"
     },
     {
       "id": "GZ18-GZ22",
       "from": "GZ18",
       "to": "GZ22",
-      "capacity_mw": 15050,
+      "capacity_mw": 15801.6,
       "n_circuits": 6,
-      "x_equivalent": 0.165123,
+      "x_equivalent": 0.154264,
       "carrier": "AC"
     },
     {
       "id": "GZ18-GZ24",
       "from": "GZ18",
       "to": "GZ24",
-      "capacity_mw": 12210,
+      "capacity_mw": 13030.5,
       "n_circuits": 4,
-      "x_equivalent": 0.142223,
+      "x_equivalent": 0.134634,
       "carrier": "AC"
     },
     {
       "id": "GZ18-GZ25",
       "from": "GZ18",
       "to": "GZ25",
-      "capacity_mw": 14136,
+      "capacity_mw": 14924.0,
       "n_circuits": 6,
       "x_equivalent": 0.116955,
       "carrier": "AC"
@@ -3993,7 +3993,7 @@
       "id": "GZ22-GZ25",
       "from": "GZ22",
       "to": "GZ25",
-      "capacity_mw": 5138,
+      "capacity_mw": 9931.0,
       "n_circuits": 4,
       "x_equivalent": 0.421472,
       "carrier": "AC"
@@ -4002,7 +4002,7 @@
       "id": "GZ22-GZ26",
       "from": "GZ22",
       "to": "GZ26",
-      "capacity_mw": 10224,
+      "capacity_mw": 11312.0,
       "n_circuits": 4,
       "x_equivalent": 0.01169,
       "carrier": "AC"
@@ -4011,18 +4011,18 @@
       "id": "GZ23-GZ24",
       "from": "GZ23",
       "to": "GZ24",
-      "capacity_mw": 11946,
+      "capacity_mw": 15502.0,
       "n_circuits": 6,
-      "x_equivalent": 0.039898,
+      "x_equivalent": 0.040332,
       "carrier": "AC"
     },
     {
       "id": "GZ23-GZ25",
       "from": "GZ23",
       "to": "GZ25",
-      "capacity_mw": 8928,
+      "capacity_mw": 8928.0,
       "n_circuits": 6,
-      "x_equivalent": 0.014706,
+      "x_equivalent": 0.013572,
       "carrier": "AC"
     },
     {
@@ -4038,7 +4038,7 @@
       "id": "GZ25-GZ26",
       "from": "GZ25",
       "to": "GZ26",
-      "capacity_mw": 11431,
+      "capacity_mw": 13010.0,
       "n_circuits": 4,
       "x_equivalent": 0.120103,
       "carrier": "AC"
@@ -4047,18 +4047,18 @@
       "id": "GZ26-GZ27",
       "from": "GZ26",
       "to": "GZ27",
-      "capacity_mw": 7279,
+      "capacity_mw": 7279.0,
       "n_circuits": 4,
-      "x_equivalent": 0.295607,
+      "x_equivalent": 0.295719,
       "carrier": "AC"
     },
     {
       "id": "GZ3-GZ4",
       "from": "GZ3",
       "to": "GZ4",
-      "capacity_mw": 930,
+      "capacity_mw": 930.0,
       "n_circuits": 2,
-      "x_equivalent": 14.87,
+      "x_equivalent": 7.558326,
       "carrier": "AC"
     },
     {
@@ -4074,9 +4074,9 @@
       "id": "GZ3-GZ9",
       "from": "GZ3",
       "to": "GZ9",
-      "capacity_mw": 4690,
-      "n_circuits": 2,
-      "x_equivalent": 0.885625,
+      "capacity_mw": 2780.0,
+      "n_circuits": 1,
+      "x_equivalent": 1.396,
       "carrier": "AC"
     },
     {
@@ -4092,9 +4092,9 @@
       "id": "GZ5-GZ9",
       "from": "GZ5",
       "to": "GZ9",
-      "capacity_mw": 8552,
+      "capacity_mw": 8552.0,
       "n_circuits": 5,
-      "x_equivalent": 0,
+      "x_equivalent": 0.026495,
       "carrier": "AC"
     },
     {
@@ -4110,9 +4110,9 @@
       "id": "GZ8-GZ9",
       "from": "GZ8",
       "to": "GZ9",
-      "capacity_mw": 3331,
+      "capacity_mw": 6115.5,
       "n_circuits": 6,
-      "x_equivalent": 0.36515,
+      "x_equivalent": 0.234402,
       "carrier": "AC"
     }
   ],
@@ -4121,43 +4121,43 @@
       "id": "GZ1-GZ11",
       "from": "GZ1",
       "to": "GZ11",
-      "capacity_mw": 2180,
-      "n_circuits": 2,
-      "x_equivalent": 1.4523,
+      "capacity_mw": 9598.0,
+      "n_circuits": 4,
+      "x_equivalent": 0.196562,
       "carrier": "AC"
     },
     {
       "id": "GZ1-GZ2",
       "from": "GZ1",
       "to": "GZ2",
-      "capacity_mw": 2118,
-      "n_circuits": 11,
-      "x_equivalent": 0.164166,
+      "capacity_mw": 2260.8,
+      "n_circuits": 10,
+      "x_equivalent": 0.034261,
       "carrier": "AC"
     },
     {
       "id": "GZ1-GZ3",
       "from": "GZ1",
       "to": "GZ3",
-      "capacity_mw": 16134,
+      "capacity_mw": 14252.0,
       "n_circuits": 12,
-      "x_equivalent": 0.487871,
+      "x_equivalent": 0.011428,
       "carrier": "AC"
     },
     {
       "id": "GZ1-GZ5",
       "from": "GZ1",
       "to": "GZ5",
-      "capacity_mw": 2452,
+      "capacity_mw": 2452.0,
       "n_circuits": 10,
-      "x_equivalent": 0.298726,
+      "x_equivalent": 0.030436,
       "carrier": "AC"
     },
     {
       "id": "GZ10-GZ11",
       "from": "GZ10",
       "to": "GZ11",
-      "capacity_mw": 5800,
+      "capacity_mw": 5322.0,
       "n_circuits": 4,
       "x_equivalent": 0.115839,
       "carrier": "AC"
@@ -4166,16 +4166,16 @@
       "id": "GZ10-GZ12",
       "from": "GZ10",
       "to": "GZ12",
-      "capacity_mw": 171,
+      "capacity_mw": 171.0,
       "n_circuits": 1,
-      "x_equivalent": 3.042099,
+      "x_equivalent": 6.081698,
       "carrier": "AC"
     },
     {
       "id": "GZ10-GZ8",
       "from": "GZ10",
       "to": "GZ8",
-      "capacity_mw": 2240,
+      "capacity_mw": 2762.0,
       "n_circuits": 2,
       "x_equivalent": 0.381978,
       "carrier": "AC"
@@ -4184,7 +4184,7 @@
       "id": "GZ10-GZ9",
       "from": "GZ10",
       "to": "GZ9",
-      "capacity_mw": 759,
+      "capacity_mw": 533.8,
       "n_circuits": 4,
       "x_equivalent": 0.321971,
       "carrier": "AC"
@@ -4193,7 +4193,7 @@
       "id": "GZ11-GZ12",
       "from": "GZ11",
       "to": "GZ12",
-      "capacity_mw": 4684,
+      "capacity_mw": 4334.0,
       "n_circuits": 4,
       "x_equivalent": 0.036459,
       "carrier": "AC"
@@ -4211,34 +4211,34 @@
       "id": "GZ11-GZ9",
       "from": "GZ11",
       "to": "GZ9",
-      "capacity_mw": 29246,
+      "capacity_mw": 27565.3,
       "n_circuits": 24,
-      "x_equivalent": 0.010005,
+      "x_equivalent": 0.008295,
       "carrier": "AC"
     },
     {
       "id": "GZ12-GZ14",
       "from": "GZ12",
       "to": "GZ14",
-      "capacity_mw": 4515,
+      "capacity_mw": 8573.0,
       "n_circuits": 3,
-      "x_equivalent": 0.09785,
+      "x_equivalent": 0.100038,
       "carrier": "AC"
     },
     {
       "id": "GZ13-GZ15",
       "from": "GZ13",
       "to": "GZ15",
-      "capacity_mw": 17159,
+      "capacity_mw": 22234.8,
       "n_circuits": 8,
-      "x_equivalent": 0.050427,
+      "x_equivalent": 0.048358,
       "carrier": "AC"
     },
     {
       "id": "GZ14-GZ15",
       "from": "GZ14",
       "to": "GZ15",
-      "capacity_mw": 7157,
+      "capacity_mw": 6940.3,
       "n_circuits": 3,
       "x_equivalent": 0.348681,
       "carrier": "AC"
@@ -4247,88 +4247,88 @@
       "id": "GZ15-GZ16",
       "from": "GZ15",
       "to": "GZ16",
-      "capacity_mw": 62357,
+      "capacity_mw": 69016.3,
       "n_circuits": 27,
-      "x_equivalent": 0.012879,
+      "x_equivalent": 0.010519,
       "carrier": "AC"
     },
     {
       "id": "GZ16-GZ17",
       "from": "GZ16",
       "to": "GZ17",
-      "capacity_mw": 31306,
+      "capacity_mw": 31306.0,
       "n_circuits": 10,
-      "x_equivalent": 0.303849,
+      "x_equivalent": 0.002728,
       "carrier": "AC"
     },
     {
       "id": "GZ16-GZ18",
       "from": "GZ16",
       "to": "GZ18",
-      "capacity_mw": 75429,
+      "capacity_mw": 75193.0,
       "n_circuits": 27,
-      "x_equivalent": 0.009643,
+      "x_equivalent": 0.00762,
       "carrier": "AC"
     },
     {
       "id": "GZ16-GZ19",
       "from": "GZ16",
       "to": "GZ19",
-      "capacity_mw": 9733,
+      "capacity_mw": 9733.0,
       "n_circuits": 4,
-      "x_equivalent": 0.264,
+      "x_equivalent": 0.033317,
       "carrier": "AC"
     },
     {
       "id": "GZ17-GZ18",
       "from": "GZ17",
       "to": "GZ18",
-      "capacity_mw": 18603,
+      "capacity_mw": 18603.0,
       "n_circuits": 6,
-      "x_equivalent": 0.144246,
+      "x_equivalent": 0.132069,
       "carrier": "AC"
     },
     {
       "id": "GZ18-GZ20",
       "from": "GZ18",
       "to": "GZ20",
-      "capacity_mw": 5558,
+      "capacity_mw": 5558.0,
       "n_circuits": 2,
-      "x_equivalent": 0.489393,
+      "x_equivalent": 0.736533,
       "carrier": "AC"
     },
     {
       "id": "GZ18-GZ21",
       "from": "GZ18",
       "to": "GZ21",
-      "capacity_mw": 10754,
+      "capacity_mw": 10754.0,
       "n_circuits": 5,
-      "x_equivalent": 0.115045,
+      "x_equivalent": 0.071654,
       "carrier": "AC"
     },
     {
       "id": "GZ18-GZ22",
       "from": "GZ18",
       "to": "GZ22",
-      "capacity_mw": 15050,
+      "capacity_mw": 15801.6,
       "n_circuits": 6,
-      "x_equivalent": 0.165123,
+      "x_equivalent": 0.154264,
       "carrier": "AC"
     },
     {
       "id": "GZ18-GZ24",
       "from": "GZ18",
       "to": "GZ24",
-      "capacity_mw": 12210,
+      "capacity_mw": 13030.5,
       "n_circuits": 4,
-      "x_equivalent": 0.142223,
+      "x_equivalent": 0.134634,
       "carrier": "AC"
     },
     {
       "id": "GZ18-GZ25",
       "from": "GZ18",
       "to": "GZ25",
-      "capacity_mw": 14136,
+      "capacity_mw": 14924.0,
       "n_circuits": 6,
       "x_equivalent": 0.116955,
       "carrier": "AC"
@@ -4346,7 +4346,7 @@
       "id": "GZ22-GZ25",
       "from": "GZ22",
       "to": "GZ25",
-      "capacity_mw": 5138,
+      "capacity_mw": 9931.0,
       "n_circuits": 4,
       "x_equivalent": 0.421472,
       "carrier": "AC"
@@ -4355,7 +4355,7 @@
       "id": "GZ22-GZ26",
       "from": "GZ22",
       "to": "GZ26",
-      "capacity_mw": 10224,
+      "capacity_mw": 11312.0,
       "n_circuits": 4,
       "x_equivalent": 0.01169,
       "carrier": "AC"
@@ -4364,18 +4364,18 @@
       "id": "GZ23-GZ24",
       "from": "GZ23",
       "to": "GZ24",
-      "capacity_mw": 11946,
+      "capacity_mw": 15502.0,
       "n_circuits": 6,
-      "x_equivalent": 0.039898,
+      "x_equivalent": 0.040332,
       "carrier": "AC"
     },
     {
       "id": "GZ23-GZ25",
       "from": "GZ23",
       "to": "GZ25",
-      "capacity_mw": 8928,
+      "capacity_mw": 8928.0,
       "n_circuits": 6,
-      "x_equivalent": 0.014706,
+      "x_equivalent": 0.013572,
       "carrier": "AC"
     },
     {
@@ -4391,7 +4391,7 @@
       "id": "GZ25-GZ26",
       "from": "GZ25",
       "to": "GZ26",
-      "capacity_mw": 11431,
+      "capacity_mw": 13010.0,
       "n_circuits": 4,
       "x_equivalent": 0.120103,
       "carrier": "AC"
@@ -4400,18 +4400,18 @@
       "id": "GZ26-GZ27",
       "from": "GZ26",
       "to": "GZ27",
-      "capacity_mw": 7279,
+      "capacity_mw": 7279.0,
       "n_circuits": 4,
-      "x_equivalent": 0.295607,
+      "x_equivalent": 0.295719,
       "carrier": "AC"
     },
     {
       "id": "GZ3-GZ4",
       "from": "GZ3",
       "to": "GZ4",
-      "capacity_mw": 930,
+      "capacity_mw": 930.0,
       "n_circuits": 2,
-      "x_equivalent": 14.87,
+      "x_equivalent": 7.558326,
       "carrier": "AC"
     },
     {
@@ -4427,9 +4427,9 @@
       "id": "GZ3-GZ9",
       "from": "GZ3",
       "to": "GZ9",
-      "capacity_mw": 4690,
-      "n_circuits": 2,
-      "x_equivalent": 0.885625,
+      "capacity_mw": 2780.0,
+      "n_circuits": 1,
+      "x_equivalent": 1.396,
       "carrier": "AC"
     },
     {
@@ -4445,9 +4445,9 @@
       "id": "GZ5-GZ9",
       "from": "GZ5",
       "to": "GZ9",
-      "capacity_mw": 8552,
+      "capacity_mw": 8552.0,
       "n_circuits": 5,
-      "x_equivalent": 0,
+      "x_equivalent": 0.026495,
       "carrier": "AC"
     },
     {
@@ -4463,9 +4463,9 @@
       "id": "GZ8-GZ9",
       "from": "GZ8",
       "to": "GZ9",
-      "capacity_mw": 3331,
+      "capacity_mw": 6115.5,
       "n_circuits": 6,
-      "x_equivalent": 0.36515,
+      "x_equivalent": 0.234402,
       "carrier": "AC"
     }
   ]

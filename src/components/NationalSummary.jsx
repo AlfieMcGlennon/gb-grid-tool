@@ -119,14 +119,32 @@ export default function NationalSummary({
     });
   }
 
-  // Boundaries over 100%
-  const criticalBoundaries = (boundariesOver80pct || []).filter(b => b.utilisation_pct > 100);
-  if (criticalBoundaries.length > 0) {
-    const plural = criticalBoundaries.length > 1;
+  // LOPF fallback warning
+  if (powerFlowResults.dispatchDetails?.lopfFallback) {
     warnings.push({
       type: 'warning',
-      message: `${criticalBoundaries.length} ${plural ? 'boundaries exceed' : 'boundary exceeds'} 100% capability. Network constraints would curtail flows.`
+      message: 'LOPF solver could not find a feasible solution — fell back to merit order dispatch.'
     });
+  }
+
+  // Boundaries over 100%
+  const criticalBoundaries = (boundariesOver80pct || []).filter(b => b.utilisation_pct > 100);
+  const isLOPF = powerFlowResults.dispatchDetails?.lopf && powerFlowResults.dispatchDetails?.status === 'Optimal';
+
+  if (criticalBoundaries.length > 0) {
+    const count = criticalBoundaries.length;
+    const plural = count > 1;
+    if (isLOPF) {
+      warnings.push({
+        type: 'warning',
+        message: `LOPF could not resolve ${count} ${plural ? 'boundaries' : 'boundary'} within capability at these conditions. The network cannot feasibly accommodate the optimal dispatch pattern.`
+      });
+    } else {
+      warnings.push({
+        type: 'warning',
+        message: `${count} ${plural ? 'boundaries exceed' : 'boundary exceeds'} 100% capability. Network constraints would curtail flows.`
+      });
+    }
   }
 
   const narrative = generateNarrative();

@@ -20,7 +20,10 @@ const DEFAULTS = {
   windPercentile: 50,
   solarPercentile: 50,
   demandPercentile: 75,
-  interconnectorImport: 65
+  interconnectorImport: 25,
+  dynamicIC: false,
+  reinforcementsEnabled: true,
+  zoneMode: 'tnuos'
 };
 
 export default function ScenarioManager({
@@ -32,6 +35,9 @@ export default function ScenarioManager({
   solarPercentile,
   demandPercentile,
   interconnectorImport,
+  dynamicIC,
+  reinforcementsEnabled,
+  zoneMode,
   fuelToggles,
   plantEdits,
   addedNodes,
@@ -58,7 +64,10 @@ export default function ScenarioManager({
         year,
         scenario,
         season,
-        dispatchMode
+        dispatchMode,
+        dynamicIC,
+        reinforcementsEnabled,
+        zoneMode
       },
       // Always include all slider values
       sliders: {
@@ -168,6 +177,9 @@ export default function ScenarioManager({
         scenario: data.base?.scenario ?? DEFAULTS.scenario,
         season: data.base?.season ?? DEFAULTS.season,
         dispatchMode: data.base?.dispatchMode ?? DEFAULTS.dispatchMode,
+        dynamicIC: data.base?.dynamicIC ?? DEFAULTS.dynamicIC,
+        reinforcementsEnabled: data.base?.reinforcementsEnabled ?? DEFAULTS.reinforcementsEnabled,
+        zoneMode: data.base?.zoneMode ?? DEFAULTS.zoneMode,
         windPercentile: data.sliders?.windPercentile ?? DEFAULTS.windPercentile,
         solarPercentile: data.sliders?.solarPercentile ?? DEFAULTS.solarPercentile,
         demandPercentile: data.sliders?.demandPercentile ?? DEFAULTS.demandPercentile,
@@ -367,6 +379,9 @@ export function loadScenarioFromURL() {
       scenario: data.base?.scenario ?? DEFAULTS.scenario,
       season: data.base?.season ?? DEFAULTS.season,
       dispatchMode: data.base?.dispatchMode ?? DEFAULTS.dispatchMode,
+      dynamicIC: data.base?.dynamicIC ?? DEFAULTS.dynamicIC,
+      reinforcementsEnabled: data.base?.reinforcementsEnabled ?? DEFAULTS.reinforcementsEnabled,
+      zoneMode: data.base?.zoneMode ?? DEFAULTS.zoneMode,
       windPercentile: data.sliders?.windPercentile ?? DEFAULTS.windPercentile,
       solarPercentile: data.sliders?.solarPercentile ?? DEFAULTS.solarPercentile,
       demandPercentile: data.sliders?.demandPercentile ?? DEFAULTS.demandPercentile,

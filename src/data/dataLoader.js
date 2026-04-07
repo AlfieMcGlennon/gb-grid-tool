@@ -24,6 +24,7 @@ export async function loadAllData() {
       marginalCosts,
       zonesFLOP,
       linksFLOP,
+      linksFLOPByYear,
       zoneBoundariesFLOP,
       boundaryLinkMappingFLOP
     ] = await Promise.all([
@@ -45,6 +46,7 @@ export async function loadAllData() {
       fetch(`${DATA_BASE}/marginal_costs.json`).then(r => r.json()),
       fetch(`${DATA_BASE}/zones_flop.json`).then(r => r.json()),
       fetch(`${DATA_BASE}/links_flop.json`).then(r => r.json()),
+      fetch(`${DATA_BASE}/links_flop_by_year.json`).then(r => r.json()),
       fetch(`${DATA_BASE}/zone_boundaries_flop.geojson`).then(r => r.json()),
       fetch(`${DATA_BASE}/boundary_link_mapping_flop.json`).then(r => r.json())
     ]);
@@ -68,6 +70,7 @@ export async function loadAllData() {
       marginalCosts,
       zonesFLOP,
       linksFLOP,
+      linksFLOPByYear,
       zoneBoundariesFLOP,
       boundaryLinkMappingFLOP
     };

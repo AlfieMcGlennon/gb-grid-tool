@@ -10,12 +10,33 @@
  * @returns {Object} { flows: {linkId: flowMW}, angles: {zoneId: angleDeg}, slackAbsorption: MW }
  */
 export function solveDCPF(links, injections, slackZone = "GZ18") {
-  // Get all unique zone IDs from injections
-  const zones = Object.keys(injections).sort();
+  // Get zones that are actually connected by links (isolated zones cause singular matrix)
+  const connectedZones = new Set();
+  for (const link of links) {
+    if (link.x_equivalent && link.x_equivalent > 0) {
+      connectedZones.add(link.from);
+      connectedZones.add(link.to);
+    }
+  }
+  // Ensure slack bus is included
+  connectedZones.add(slackZone);
+
+  const allZones = Object.keys(injections);
+  const disconnected = allZones.filter(z => !connectedZones.has(z));
+  if (disconnected.length > 0) {
+    const lostMW = disconnected.reduce((sum, z) => sum + Math.abs(injections[z] || 0), 0);
+    if (lostMW > 1) {
+      console.warn(`DC power flow: ${disconnected.length} disconnected zone(s) excluded (${disconnected.join(', ')}), ${lostMW.toFixed(0)} MW injection lost`);
+    }
+  }
+  const zones = allZones.filter(z => connectedZones.has(z)).sort();
   const nZones = zones.length;
 
-  if (nZones === 0) {
-    throw new Error("No zones provided in injections");
+  if (nZones <= 1) {
+    // Single zone or no zones — no power flow to solve
+    const angles = {};
+    zones.forEach(z => { angles[z] = 0; });
+    return { flows: {}, angles, slackAbsorption: 0, slackZone };
   }
 
   // Create zone index mapping
@@ -33,6 +54,12 @@ export function solveDCPF(links, injections, slackZone = "GZ18") {
 
     if (i === undefined || j === undefined) {
       console.warn(`Link ${link.id} references unknown zone(s): ${link.from}, ${link.to}`);
+      continue;
+    }
+
+    // Skip links with zero or missing reactance (would cause division by zero)
+    if (!link.x_equivalent || link.x_equivalent <= 0) {
+      console.warn(`Link ${link.id} has invalid reactance (${link.x_equivalent}), skipping`);
       continue;
     }
 
@@ -97,6 +124,7 @@ export function solveDCPF(links, injections, slackZone = "GZ18") {
     const j = zoneToIdx[link.to];
 
     if (i === undefined || j === undefined) continue;
+    if (!link.x_equivalent || link.x_equivalent <= 0) continue;
 
     // Flow in per-unit: divide by x_pu = x_percent / 100, equivalent to multiply by 100/x_percent
     const flow_pu = (theta_pu[i] - theta_pu[j]) * 100.0 / link.x_equivalent;
