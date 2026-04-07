@@ -16,6 +16,16 @@ import { getInterpolatedPercentile } from '../utils/percentiles.js';
 const NUCLEAR_AVAILABILITY_FACTOR = 0.80;
 
 /**
+ * Storage dispatch factor: approximate average output as fraction of rated capacity.
+ * Storage is a time-shifting resource — a 100 MW battery with 4h duration can deliver
+ * 400 MWh/day but not 100 MW continuously. At system level, average dispatch across
+ * a day is roughly capacity × (duration / 24h). Using 4h/24h ≈ 17% as a representative
+ * fleet-average factor for GB storage (mix of 1-4h batteries + 6h pumped hydro).
+ * Source: National Grid ESO Future Energy Scenarios 2024, storage utilisation assumptions.
+ */
+const STORAGE_DISPATCH_FACTOR = 0.17;
+
+/**
  * Known major project commission years
  * Used for data-driven generation projection when commissioning_year not in plant data
  * Sources: NESO, developer announcements, BEIS/DESNZ
@@ -313,6 +323,8 @@ function buildZoneGeneration({
         generation = capacity * 0.15;
       } else if (plantType.includes('Nuclear')) {
         generation = capacity * NUCLEAR_AVAILABILITY_FACTOR;
+      } else if (plantType.includes('Storage') || plantType.includes('Pump')) {
+        generation = capacity * STORAGE_DISPATCH_FACTOR;
       } else {
         generation = capacity;
       }
@@ -415,7 +427,7 @@ function buildZoneGeneration({
  * @returns {{ yearFilteredCapacity, zoneGenerationByType, zoneDemand, interconnectorByZone, totalInterconnectorImport, debugTotals }}
  */
 function buildFLOPGeneration({
-  data, season, windPercentile, solarPercentile, demandPercentile,
+  data, year = 2024, season, windPercentile, solarPercentile, demandPercentile,
   interconnectorImport, fuelToggles
 }) {
   const zoneGenerationByType = {};
@@ -437,6 +449,29 @@ function buildFLOPGeneration({
 
   const zonesFLOP = data.zonesFLOP || {};
 
+  // Aggregate plant capacities by FLOP zone and type for the selected year
+  // Uses the same isPlantOperational() pipeline as TNUoS for consistency
+  const plants = data.plantsTNUoS || [];
+  const plantCapByFlopZone = {};  // { flopZoneId: { plantType: mw } }
+  const hasPlantData = {};  // tracks which FLOP zones have plant-level data
+
+  for (const plant of plants) {
+    const flopZone = plant.flop_zone_id;
+    const plantType = plant.plant_type;
+    if (!flopZone || !plantType) continue;
+    if (!isGenerationType(plantType)) continue;
+
+    if (!hasPlantData[flopZone]) hasPlantData[flopZone] = {};
+    hasPlantData[flopZone][plantType] = true;
+
+    if (!isPlantOperational(plant, year)) continue;
+
+    if (!plantCapByFlopZone[flopZone]) plantCapByFlopZone[flopZone] = {};
+    const mw = plant.mw_connected > 0 ? plant.mw_connected : plant.mw_total;
+    plantCapByFlopZone[flopZone][plantType] =
+      (plantCapByFlopZone[flopZone][plantType] || 0) + mw;
+  }
+
   for (const [zoneId, zoneData] of Object.entries(zonesFLOP)) {
     const genByType = {};
     const zoneFallback = zoneData.generation_by_type || {};
@@ -446,10 +481,13 @@ function buildFLOPGeneration({
     // Track capacity for this zone
     yearFilteredCapacity[zoneId] = {};
 
-    for (const [plantType, typeData] of Object.entries(zoneFallback)) {
+    // Use plant-based capacity only (no fallback to zones_flop.json to avoid double-counting)
+    const zoneCapacity = plantCapByFlopZone[zoneId] || {};
+
+    for (const plantType of Object.keys(zoneCapacity)) {
       if (!isGenerationType(plantType)) continue;
 
-      const capacity = typeData.built_mw || 0;
+      const capacity = zoneCapacity[plantType] || 0;
       yearFilteredCapacity[zoneId][plantType] = capacity;
 
       debugTotalBuiltCapacity += capacity;
@@ -499,6 +537,8 @@ function buildFLOPGeneration({
         generation = capacity * 0.15;
       } else if (plantType.includes('Nuclear')) {
         generation = capacity * NUCLEAR_AVAILABILITY_FACTOR;
+      } else if (plantType.includes('Storage') || plantType.includes('Pump')) {
+        generation = capacity * STORAGE_DISPATCH_FACTOR;
       } else {
         generation = capacity;
       }
@@ -508,9 +548,26 @@ function buildFLOPGeneration({
 
     zoneGenerationByType[zoneId] = genByType;
 
-    // Demand: use seasonal percentile directly, scaled by this zone's share of the TNUoS zone
-    // This mirrors the TNUoS demand fix — using absolute seasonal values, not ACS-scaled
-    const baseDemand = zoneData.demand_mw || 0;
+    // Demand: use seasonal percentile scaled by this zone's share of the TNUoS zone,
+    // with year-dependent growth from the parent TNUoS zone's demand forecast
+    const baseDemand2024 = zoneData.demand_mw || 0;
+
+    // Year growth: look up parent TNUoS zone's demand for selected year vs 2024
+    const tnuosZoneData = primaryTNUoS ? data.zonesTNUoS?.[primaryTNUoS] : null;
+    const tnuosDemandByYear = tnuosZoneData?.demand_mw_by_year || {};
+    const tnuosDemand2024 = tnuosDemandByYear['2024'] || 0;
+    let tnuosDemandYear = tnuosDemandByYear[String(year)];
+    if (tnuosDemandYear === undefined) {
+      // Closest available year
+      const availYears = Object.keys(tnuosDemandByYear).map(Number).sort((a, b) => a - b);
+      const closest = availYears.length > 0
+        ? availYears.reduce((prev, curr) => Math.abs(curr - year) < Math.abs(prev - year) ? curr : prev)
+        : 2024;
+      tnuosDemandYear = tnuosDemandByYear[String(closest)] || tnuosDemand2024;
+    }
+    const yearGrowthFactor = tnuosDemand2024 > 0 ? tnuosDemandYear / tnuosDemand2024 : 1;
+    const baseDemand = baseDemand2024 * yearGrowthFactor;
+
     debugTotalBaseDemand += baseDemand;
 
     let demand = baseDemand;
@@ -520,12 +577,11 @@ function buildFLOPGeneration({
         zoneDemandClimate.seasonal[season].percentiles,
         demandPercentile
       );
-      const tnuosMeanDemand = zoneDemandClimate.seasonal[season].mean;
-      // This FLOP zone's share of the TNUoS zone's demand
-      const tnuosTotalDemand = zoneDemandClimate.demand_by_year?.['2024'] || tnuosMeanDemand;
-      const zoneShare = tnuosTotalDemand > 0 ? baseDemand / tnuosTotalDemand : 0;
-      // Apply: seasonal percentile × this zone's share
-      demand = seasonalDemand * zoneShare;
+      // This FLOP zone's share of the TNUoS zone's demand (using year-scaled values)
+      const tnuosTotalDemand = zoneDemandClimate.demand_by_year?.['2024'] || zoneDemandClimate.seasonal?.[season]?.mean;
+      const zoneShare = tnuosTotalDemand > 0 ? baseDemand2024 / tnuosTotalDemand : 0;
+      // Apply: seasonal percentile × zone share × year growth
+      demand = seasonalDemand * zoneShare * (year === 2024 ? 1.0 : yearGrowthFactor);
     }
 
     zoneDemand[zoneId] = demand;
@@ -662,7 +718,7 @@ function applyCurtailment(meritResult, zoneGeneration, zoneDemand) {
  * @param {number} params.demandPercentile - Demand percentile 1-99 (default: 75)
  * @param {Object} params.fuelToggles - Which fuel types are enabled
  * @param {string} params.dispatchMode - 'simple', 'merit-order', or 'lopf' (default: 'simple')
- * @param {number} params.interconnectorImport - Interconnector import % (0-100, default: 65)
+ * @param {number} params.interconnectorImport - Interconnector import % (0-100, default: 25)
  * @param {Object} params.userEdits - User modifications to plants/links (Phase 6)
  * @param {Object} params.plantEdits - Plant edits: { plantId: { status, outputPct, ... } }
  * @param {Array} params.addedNodes - Hypothetical generation nodes: [{ zoneId, plantType, capacityMW }, ...]
@@ -681,7 +737,7 @@ export function runScenario(params) {
     demandPercentile = 75,
     fuelToggles = {},
     dispatchMode = 'simple',
-    interconnectorImport = 65,  // Default 65% import (typical for GB)
+    interconnectorImport = 25,  // Default 25% import
     dynamicIC = false,          // Use NESO historic lookup for IC import %
     userEdits = null,
     plantEdits = {},
@@ -702,7 +758,12 @@ export function runScenario(params) {
   const linkYear = reinforcementsEnabled ? year : 2024;
   let links;
   if (zoneMode === 'flop') {
-    links = data.linksFLOP || [];  // FLOP has no year-dependent topology
+    if (data.linksFLOPByYear) {
+      const baseLinks = getLinksForYear(data.linksFLOPByYear, linkYear);
+      links = applyLinkEdits(baseLinks, linkEdits);
+    } else {
+      links = data.linksFLOP || [];  // Fallback to static 2024 if by-year not loaded
+    }
   } else {
     const baseLinks = getLinksForYear(data.linksTNUoSByYear, linkYear);
     links = applyUserEdits(baseLinks, userEdits);
@@ -714,7 +775,7 @@ export function runScenario(params) {
   let genResult;
   if (zoneMode === 'flop') {
     genResult = buildFLOPGeneration({
-      data, season, windPercentile, solarPercentile, demandPercentile,
+      data, year, season, windPercentile, solarPercentile, demandPercentile,
       interconnectorImport: resolvedICImport, fuelToggles
     });
   } else {
@@ -1212,8 +1273,9 @@ function applyPlantEditsToGeneration(
         originalContribution = baseMW * solarCF * daylightFraction;
       }
     } else if (plantType.includes('Nuclear')) {
-      // Nuclear: apply 80% availability factor
       originalContribution = baseMW * NUCLEAR_AVAILABILITY_FACTOR;
+    } else if (plantType.includes('Storage') || plantType.includes('Pump')) {
+      originalContribution = baseMW * STORAGE_DISPATCH_FACTOR;
     } else {
       // Thermal/Hydro/Other: full output
       originalContribution = baseMW;

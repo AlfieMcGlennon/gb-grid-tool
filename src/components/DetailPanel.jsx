@@ -182,7 +182,7 @@ function BoundaryDetail({ boundaryId, boundaryData, powerFlowResults, onClose })
   );
 }
 
-function ZoneDetail({ selectedZone, zone, powerFlowResults, plantsData, plantEdits, addedNodes, onOpenPlantEditor, onOpenNodeAdder, onClose }) {
+function ZoneDetail({ selectedZone, zone, powerFlowResults, plantsData, plantEdits, addedNodes, onOpenPlantEditor, onOpenNodeAdder, onPlantEdit, onRemoveAddedNode, onClose }) {
   // Collapsible section state
   const [dispatchExpanded, setDispatchExpanded] = useState(true);
   const [pipelineExpanded, setPipelineExpanded] = useState(false);
@@ -201,11 +201,18 @@ function ZoneDetail({ selectedZone, zone, powerFlowResults, plantsData, plantEdi
   // Get base zone data
   const genByType = zone.generation_by_type || {};
   const totalBuilt = zone.total_built_mw || 0;
-  const totalPipeline = zone.total_pipeline_mw || 0;
 
   // Get zone's plants from plants data
-  const zonePlants = plantsData?.filter(p => p.zone_id === selectedZone) || [];
+  const zonePlants = plantsData?.filter(p => p.zone_id === selectedZone || (p.flop_zone_id && p.flop_zone_id === selectedZone)) || [];
   const builtPlants = zonePlants.filter(p => p.status === 'Built' && p.mw_connected > 0);
+
+  // Pipeline = committed projects only (exclude Scoping which rarely gets built)
+  const pipelinePlants = zonePlants.filter(p =>
+    p.status === 'Consents Approved' ||
+    p.status === 'Awaiting Consents' ||
+    p.status === 'Under Construction/Commissioning'
+  );
+  const totalPipeline = pipelinePlants.reduce((sum, p) => sum + (p.mw_total || p.mw_connected || 0), 0);
 
   // Get hypothetical nodes for this zone
   const zoneAddedNodes = (addedNodes || []).filter(n => n.zoneId === selectedZone);
@@ -273,6 +280,56 @@ function ZoneDetail({ selectedZone, zone, powerFlowResults, plantsData, plantEdi
             </div>
           </div>
         </div>
+
+        {/* Active Edits for this zone — consolidated hub */}
+        {(() => {
+          const zoneEdits = zonePlants
+            .filter(p => plantEdits?.[(p.project_id || p.project)])
+            .map(p => {
+              const plantId = p.project_id || p.project;
+              const edit = plantEdits[plantId];
+              return { ...p, plantId, edit };
+            });
+          const totalEdits = zoneEdits.length + zoneAddedNodes.length;
+          if (totalEdits === 0) return null;
+
+          const editStyle = { display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '5px 0', fontSize: '12px', borderBottom: '1px solid var(--border-default)' };
+          const nameStyle = { color: 'var(--text-primary)', cursor: 'pointer', flex: 1, overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' };
+          const tagStyle = { color: 'var(--text-muted)', marginLeft: '4px', fontSize: '11px' };
+          const btnStyle = { background: 'none', border: 'none', color: 'var(--text-muted)', cursor: 'pointer', padding: '2px 6px', fontSize: '14px', flexShrink: 0 };
+
+          return (
+            <div style={{ padding: '8px 0', marginBottom: '12px', borderBottom: '1px solid var(--border-default)' }}>
+              <h4 style={{ fontSize: '12px', color: 'var(--accent-primary)', margin: '0 0 8px 0', textTransform: 'uppercase', letterSpacing: '0.5px' }}>
+                {totalEdits} Active Edit{totalEdits !== 1 ? 's' : ''}
+              </h4>
+
+              {/* Plant edits */}
+              {zoneEdits.map(({ plantId, project, edit }) => (
+                <div key={`pe-${plantId}`} style={editStyle}>
+                  <span style={nameStyle} title={`Click to edit ${project}`} onClick={() => onOpenPlantEditor?.(selectedZone)}>
+                    {project?.slice(0, 28)}
+                    <span style={tagStyle}>
+                      {edit?.status === 'Retired' ? 'retired' : edit?.outputPct !== undefined ? `${edit.outputPct}%` : 'modified'}
+                    </span>
+                  </span>
+                  <button onClick={() => onPlantEdit?.(plantId, null)} style={btnStyle} title="Remove edit">×</button>
+                </div>
+              ))}
+
+              {/* Added nodes */}
+              {zoneAddedNodes.map(node => (
+                <div key={`an-${node.id}`} style={editStyle}>
+                  <span style={nameStyle} title={`Click to edit hypothetical generation`} onClick={() => onOpenNodeAdder?.(selectedZone)}>
+                    {node.name?.slice(0, 28) || node.plantType}
+                    <span style={tagStyle}>+{node.capacityMW.toLocaleString()} MW</span>
+                  </span>
+                  <button onClick={() => onRemoveAddedNode?.(node.id)} style={btnStyle} title="Remove node">×</button>
+                </div>
+              ))}
+            </div>
+          );
+        })()}
 
         {/* Dispatch Breakdown - Weather-adjusted */}
         {activeDispatch.length > 0 && (
@@ -379,11 +436,18 @@ function ZoneDetail({ selectedZone, zone, powerFlowResults, plantsData, plantEdi
               {zoneAddedNodes.length > 0 && (
                 <div className="added-nodes-list">
                   {zoneAddedNodes.map(node => (
-                    <div key={node.id} className="added-node-row">
-                      <span className="added-node-name">{node.name}</span>
-                      <span className="added-node-details">
-                        {node.plantType} • {node.capacityMW.toLocaleString()} MW
-                      </span>
+                    <div key={node.id} className="added-node-row" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+                      <div style={{ flex: 1 }}>
+                        <span className="added-node-name">{node.name}</span>
+                        <span className="added-node-details">
+                          {node.plantType} • {node.capacityMW.toLocaleString()} MW
+                        </span>
+                      </div>
+                      <button
+                        onClick={() => onRemoveAddedNode?.(node.id)}
+                        style={{ background: 'none', border: 'none', color: 'var(--text-muted)', cursor: 'pointer', padding: '2px 6px', fontSize: '14px', flexShrink: 0 }}
+                        title="Remove hypothetical generation"
+                      >×</button>
                     </div>
                   ))}
                 </div>
@@ -438,9 +502,20 @@ function ZoneDetail({ selectedZone, zone, powerFlowResults, plantsData, plantEdi
 
                     return (
                       <div key={plantId || idx} className={`plant-row ${isEdited ? 'edited' : ''}`}>
-                        <div className="plant-name">
-                          {plant.project}
-                          {isEdited && <span className="plant-edit-badge">edited</span>}
+                        <div className="plant-name" style={{ display: 'flex', alignItems: 'center' }}>
+                          <span style={{ flex: 1, cursor: isEdited ? 'pointer' : 'default' }} onClick={isEdited ? () => onOpenPlantEditor?.(selectedZone) : undefined}>
+                            {plant.project}
+                          </span>
+                          {isEdited && (
+                            <>
+                              <span className="plant-edit-badge">edited</span>
+                              <button
+                                onClick={(e) => { e.stopPropagation(); onPlantEdit?.(plantId, null); }}
+                                style={{ background: 'none', border: 'none', color: 'var(--text-muted)', cursor: 'pointer', padding: '0 4px', fontSize: '13px', lineHeight: 1, flexShrink: 0 }}
+                                title="Remove edit"
+                              >×</button>
+                            </>
+                          )}
                         </div>
                         <div className="plant-details">
                           <span className={`plant-type ${effectiveStatus === 'Retired' ? 'retired' : ''}`}>
@@ -683,7 +758,7 @@ function WelcomeOverview({ powerFlowResults, zoneData, onBoundaryClick, onClose 
   );
 }
 
-export default function DetailPanel({ selectedZone, selectedBoundary, zoneData, boundaryData, powerFlowResults, plantsData, plantEdits, addedNodes, onOpenPlantEditor, onOpenNodeAdder, onBoundaryClick, onClose }) {
+export default function DetailPanel({ selectedZone, selectedBoundary, zoneData, boundaryData, powerFlowResults, plantsData, plantEdits, addedNodes, onOpenPlantEditor, onOpenNodeAdder, onPlantEdit, onRemoveAddedNode, onBoundaryClick, onClose }) {
   // Show boundary detail if boundary is selected
   if (selectedBoundary && boundaryData) {
     return <BoundaryDetail
@@ -729,6 +804,8 @@ export default function DetailPanel({ selectedZone, selectedBoundary, zoneData, 
     addedNodes={addedNodes}
     onOpenPlantEditor={onOpenPlantEditor}
     onOpenNodeAdder={onOpenNodeAdder}
+    onPlantEdit={onPlantEdit}
+    onRemoveAddedNode={onRemoveAddedNode}
     onClose={onClose}
   />;
 }

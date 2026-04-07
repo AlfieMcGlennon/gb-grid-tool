@@ -426,12 +426,7 @@ export default function ControlPanel({
             Imports: <span className="control-value">
               {dynamicIC ? `${resolvedICImport ?? '...'}%` : `${localInterconnectorImport}%`}
             </span>
-            <span className="percentile-desc">
-              {dynamicIC ? '(NESO historic)' :
-               localInterconnectorImport <= 20 ? '(exporting)' :
-               localInterconnectorImport <= 45 ? '(low import)' :
-               localInterconnectorImport <= 75 ? '(typical)' : '(max import)'}
-            </span>
+            {dynamicIC && <span className="percentile-desc">(NESO historic)</span>}
           </label>
           <label className="dynamic-ic-toggle">
             <input

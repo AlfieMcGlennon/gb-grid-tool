@@ -47,7 +47,13 @@ export function solveLOPF(params) {
     throw new Error('HiGHS solver instance required. Load with: const highs = await highsInit()');
   }
 
-  const zones = Object.keys(zoneGenerationByType).sort();
+  // Include ALL zones with generation OR demand — zones with only demand are transit/sink
+  // nodes that must be in the LP for correct flow modelling
+  const zoneSet = new Set([
+    ...Object.keys(zoneGenerationByType),
+    ...Object.keys(zoneDemand)
+  ]);
+  const zones = [...zoneSet].sort();
   const nZones = zones.length;
   const zoneIdx = {};
   zones.forEach((z, i) => { zoneIdx[z] = i; });
@@ -161,6 +167,25 @@ export function solveLOPF(params) {
     }
 
     constraints2.push({ row, lower: demand, upper: demand });
+  }
+
+  // Per-link thermal flow limits (standard DC-OPF formulation)
+  // Constraint: -capacity ≤ b × (θ_i - θ_j) ≤ capacity for each link
+  // No slack variables — these are hard constraints (the LP redispatches to respect them)
+  for (const link of links) {
+    const i = zoneIdx[link.from];
+    const j = zoneIdx[link.to];
+    if (i === undefined || j === undefined) continue;
+    if (!link.capacity_mw || link.capacity_mw <= 0) continue;
+
+    const bGW = 100.0 / link.x_equivalent * 100.0 / GW_SCALE;
+    const capGW = link.capacity_mw / GW_SCALE;
+
+    const row = {};
+    row[thetaOffset + i] = bGW;
+    row[thetaOffset + j] = -bGW;
+
+    constraints2.push({ row, lower: -capGW, upper: capGW });
   }
 
   // Boundary flow limits with slack variables for feasibility

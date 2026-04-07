@@ -13,6 +13,7 @@ import ScenarioManager from './components/ScenarioManager'
 import NodeAdder from './components/NodeAdder'
 import LinkEditor from './components/LinkEditor'
 import DataSourcesPage from './components/DataSourcesPage'
+import FeaturesGuidePage from './components/FeaturesGuidePage'
 
 function MobilePreview() {
   return (
@@ -20,56 +21,20 @@ function MobilePreview() {
       background: '#0a0a0f',
       color: '#d4d4d8',
       minHeight: '100vh',
-      display: 'flex',
-      flexDirection: 'column',
-      alignItems: 'center',
-      justifyContent: 'center',
-      padding: '24px',
       fontFamily: "'JetBrains Mono', monospace",
-      textAlign: 'center'
     }}>
-      <h1 style={{ color: '#ffb000', fontSize: '1.4rem', marginBottom: '8px' }}>
-        GB Grid Scenario Tool
-      </h1>
-      <p style={{ color: '#71717a', fontSize: '0.85rem', marginBottom: '24px', maxWidth: '320px' }}>
-        Interactive stress-testing and scenario planning for the GB electricity transmission grid
-      </p>
-      <img
-        src={import.meta.env.BASE_URL + 'preview.png'}
-        alt="GB Grid Scenario Tool — interactive map showing power flows across 27 transmission zones"
-        style={{
-          width: '100%',
-          maxWidth: '500px',
-          borderRadius: '4px',
-          border: '1px solid #2a2a35',
-          marginBottom: '24px'
-        }}
-      />
-      <p style={{ color: '#d4d4d8', fontSize: '0.9rem', marginBottom: '12px' }}>
-        This tool is designed for desktop use.
-      </p>
-      <p style={{ color: '#71717a', fontSize: '0.8rem', marginBottom: '24px', maxWidth: '300px' }}>
-        The interactive map, control panel, and power flow engine require a wider screen.
-        Please visit on a desktop or laptop for the full experience.
-      </p>
-      <a
-        href="https://github.com/AlfieMcGlennon/gb-grid-tool"
-        style={{
-          color: '#0a0a0f',
-          background: '#ffb000',
-          padding: '10px 24px',
-          borderRadius: '2px',
-          textDecoration: 'none',
-          fontSize: '0.85rem',
-          fontWeight: 600
-        }}
-      >
-        View on GitHub
-      </a>
-      <p style={{ color: '#52525b', fontSize: '0.7rem', marginTop: '32px' }}>
-        Built with React, Leaflet, and DC power flow — all client-side, no backend.
-        <br />Data from NESO (OGL v3) and ECMWF ERA5 (C3S).
-      </p>
+      <div style={{
+        textAlign: 'center',
+        padding: '24px 24px 0',
+      }}>
+        <h1 style={{ color: '#ffb000', fontSize: '1.4rem', marginBottom: '8px' }}>
+          GB Grid Scenario Tool
+        </h1>
+        <p style={{ color: '#71717a', fontSize: '0.85rem', marginBottom: '16px' }}>
+          Interactive stress-testing and scenario planning for the GB electricity transmission grid
+        </p>
+      </div>
+      <FeaturesGuidePage isMobile={true} />
     </div>
   );
 }
@@ -112,7 +77,7 @@ function App() {
   const [availableFuelTypes, setAvailableFuelTypes] = useState([]);
 
   // Phase 4: Interconnector import percentage (0-100%) and dynamic mode
-  const [interconnectorImport, setInterconnectorImport] = useState(65);
+  const [interconnectorImport, setInterconnectorImport] = useState(25);
   const [dynamicIC, setDynamicIC] = useState(false);
 
   // Zone mode: 'tnuos' (27 zones) or 'flop' (82 zones)
@@ -154,6 +119,9 @@ function App() {
 
   // UI state: data sources page visibility
   const [dataSourcesOpen, setDataSourcesOpen] = useState(false);
+
+  // UI state: features guide page visibility
+  const [featuresGuideOpen, setFeaturesGuideOpen] = useState(false);
 
   // UI state: right panel collapse
   const [rightPanelCollapsed, setRightPanelCollapsed] = useState(false);
@@ -227,8 +195,9 @@ function App() {
     { isOpen: linkEditorOpen, onClose: () => setLinkEditorOpen(false) },
     { isOpen: contingencyPanelOpen, onClose: () => { setContingencyPanelOpen(false); setSelectedContingency(null); } },
     { isOpen: scenarioManagerOpen, onClose: () => setScenarioManagerOpen(false) },
-    { isOpen: dataSourcesOpen, onClose: () => setDataSourcesOpen(false) }
-  ], [plantEditorZone, nodeAdderZone, linkEditorOpen, contingencyPanelOpen, scenarioManagerOpen, dataSourcesOpen]);
+    { isOpen: dataSourcesOpen, onClose: () => setDataSourcesOpen(false) },
+    { isOpen: featuresGuideOpen, onClose: () => setFeaturesGuideOpen(false) }
+  ], [plantEditorZone, nodeAdderZone, linkEditorOpen, contingencyPanelOpen, scenarioManagerOpen, dataSourcesOpen, featuresGuideOpen]);
   useEscapeKey(escapeModals);
 
   // Run power flow scenario (memoized to avoid unnecessary recalculations)
@@ -293,95 +262,6 @@ function App() {
       console.log('✅ No boundaries exceeding 80% utilisation');
     }
 
-    // DEBUG: Link reactance and flow analysis
-    console.group('\n⚡ Link Reactance & Flow Analysis');
-
-    // Get current year links
-    const yearKey = String(params.year);
-    const currentLinks = loadedData.linksTNUoSByYear?.[yearKey] || loadedData.linksTNUoSByYear?.['2024'] || [];
-
-    // Combine link data with flows
-    const linkAnalysis = currentLinks.map(link => {
-      const linkId = `${link.from}-${link.to}`;
-      const flow = results.flows?.[linkId] || 0;
-      return {
-        linkId,
-        from: link.from,
-        to: link.to,
-        x_equivalent: link.x_equivalent || 0,
-        capacity_mw: link.capacity_mw || 0,
-        flow_mw: flow,
-        flow_magnitude: Math.abs(flow)
-      };
-    });
-
-    // Sort by flow magnitude
-    linkAnalysis.sort((a, b) => b.flow_magnitude - a.flow_magnitude);
-
-    // Show top 10
-    console.log('Top 10 Links by Flow Magnitude:');
-    console.table(linkAnalysis.slice(0, 10).map(l => ({
-      'Link': l.linkId,
-      'Reactance (pu)': l.x_equivalent.toFixed(4),
-      'Capacity (MW)': l.capacity_mw.toFixed(0),
-      'Flow (MW)': l.flow_mw.toFixed(1),
-      'Flow Mag (MW)': l.flow_magnitude.toFixed(1)
-    })));
-
-    // Show specific boundary links
-    console.log('\n🎯 Key Boundary Links:');
-
-    const keyLinks = [
-      { id: 'GZ11-GZ12', name: 'B6 boundary', expectedX: 0.08 },
-      { id: 'GZ12-GZ11', name: 'B6 boundary (reverse)', expectedX: 0.08 },
-      { id: 'GZ16-GZ18', name: 'NW3/B8 boundary', expectedX: null },
-      { id: 'GZ18-GZ16', name: 'NW3/B8 boundary (reverse)', expectedX: null },
-      { id: 'GZ1-GZ3', name: 'B1a boundary', expectedX: null },
-      { id: 'GZ3-GZ1', name: 'B1a boundary (reverse)', expectedX: null },
-      { id: 'GZ1-GZ5', name: 'B1a boundary', expectedX: null },
-      { id: 'GZ5-GZ1', name: 'B1a boundary (reverse)', expectedX: null }
-    ];
-
-    keyLinks.forEach(key => {
-      const link = linkAnalysis.find(l => l.linkId === key.id);
-      if (link) {
-        let message = `${key.id} (${key.name}): x=${link.x_equivalent.toFixed(4)}, capacity=${link.capacity_mw.toFixed(0)} MW, flow=${link.flow_mw.toFixed(1)} MW`;
-        if (key.expectedX) {
-          const diff = Math.abs(link.x_equivalent - key.expectedX);
-          if (diff > 0.02) {
-            message += ` ⚠️ Expected ~${key.expectedX}, got ${link.x_equivalent.toFixed(4)}`;
-          } else {
-            message += ` ✓ Close to expected ${key.expectedX}`;
-          }
-        }
-        console.log(message);
-      } else {
-        console.log(`${key.id} (${key.name}): NOT FOUND IN NETWORK`);
-      }
-    });
-
-    // Compare B6 vs NW3 reactances
-    const b6Link = linkAnalysis.find(l => l.linkId === 'GZ11-GZ12' || l.linkId === 'GZ12-GZ11');
-    const nw3Link = linkAnalysis.find(l => l.linkId === 'GZ16-GZ18' || l.linkId === 'GZ18-GZ16');
-
-    if (b6Link && nw3Link) {
-      const ratio = b6Link.x_equivalent / nw3Link.x_equivalent;
-      console.log(`\n📊 B6 vs NW3 Reactance Comparison:`);
-      console.log(`  B6 (GZ11-GZ12): ${b6Link.x_equivalent.toFixed(4)} pu`);
-      console.log(`  NW3 (GZ16-GZ18): ${nw3Link.x_equivalent.toFixed(4)} pu`);
-      console.log(`  Ratio (B6/NW3): ${ratio.toFixed(2)}x`);
-      if (ratio > 1.5) {
-        console.warn(`  ⚠️ B6 reactance is ${ratio.toFixed(1)}x higher than NW3!`);
-        console.warn(`  This causes power to route through NW3 instead of B6.`);
-        console.warn(`  Check reactance calculation in data pipeline.`);
-      } else if (ratio < 0.67) {
-        console.log(`  ✓ B6 has lower reactance, power prefers B6 route`);
-      } else {
-        console.log(`  ✓ Reactances are similar, flows determined by injection pattern`);
-      }
-    }
-
-    console.groupEnd();
     console.groupEnd();
   }, []);
 
@@ -603,6 +483,9 @@ function App() {
               solarPercentile={solarPercentile}
               demandPercentile={demandPercentile}
               interconnectorImport={interconnectorImport}
+              dynamicIC={dynamicIC}
+              reinforcementsEnabled={reinforcementsEnabled}
+              zoneMode={zoneMode}
               fuelToggles={fuelToggles}
               plantEdits={plantEdits}
               addedNodes={addedNodes}
@@ -616,6 +499,9 @@ function App() {
                 setSolarPercentile(imported.solarPercentile);
                 setDemandPercentile(imported.demandPercentile);
                 setInterconnectorImport(imported.interconnectorImport);
+                setDynamicIC(imported.dynamicIC);
+                setReinforcementsEnabled(imported.reinforcementsEnabled);
+                setZoneMode(imported.zoneMode);
                 // Merge fuel toggles (imported overrides)
                 setFuelToggles(prev => ({
                   ...Object.fromEntries(Object.keys(prev).map(k => [k, true])),
@@ -681,6 +567,16 @@ function App() {
         </div>
       )}
 
+      {/* Features Guide Page Modal */}
+      {featuresGuideOpen && (
+        <div className="data-sources-modal" role="dialog" aria-modal="true" aria-label="Features and Guide">
+          <div className="data-sources-backdrop" onClick={() => setFeaturesGuideOpen(false)} />
+          <div className="data-sources-container">
+            <FeaturesGuidePage onClose={() => setFeaturesGuideOpen(false)} />
+          </div>
+        </div>
+      )}
+
       <ScenarioChangeSummary
         powerFlowResults={powerFlowResults}
         params={{
@@ -712,14 +608,20 @@ function App() {
         </div>
         <nav className="top-bar-nav">
           <button
-            className={`nav-link ${!dataSourcesOpen ? 'active' : ''}`}
-            onClick={() => setDataSourcesOpen(false)}
+            className={`nav-link ${!dataSourcesOpen && !featuresGuideOpen ? 'active' : ''}`}
+            onClick={() => { setDataSourcesOpen(false); setFeaturesGuideOpen(false); }}
           >
             Map
           </button>
           <button
+            className={`nav-link ${featuresGuideOpen ? 'active' : ''}`}
+            onClick={() => { setFeaturesGuideOpen(true); setDataSourcesOpen(false); }}
+          >
+            Features & Guide
+          </button>
+          <button
             className={`nav-link ${dataSourcesOpen ? 'active' : ''}`}
-            onClick={() => setDataSourcesOpen(true)}
+            onClick={() => { setDataSourcesOpen(true); setFeaturesGuideOpen(false); }}
           >
             Data & Sources
           </button>
@@ -757,14 +659,18 @@ function App() {
             <DetailPanel
               selectedZone={selectedZone}
               selectedBoundary={selectedBoundary}
-              zoneData={data.zonesTNUoS}
-              boundaryData={data.boundaryLinkMapping}
+              zoneData={zoneMode === 'flop' ? data.zonesFLOP : data.zonesTNUoS}
+              boundaryData={zoneMode === 'flop' ? data.boundaryLinkMappingFLOP : data.boundaryLinkMapping}
               powerFlowResults={powerFlowResults}
               plantsData={data.plantsTNUoS}
               plantEdits={plantEdits}
               addedNodes={addedNodes}
               onOpenPlantEditor={(zoneId) => setPlantEditorZone(zoneId)}
               onOpenNodeAdder={(zoneId) => setNodeAdderZone(zoneId)}
+              onPlantEdit={handlePlantEdit}
+              onRemoveAddedNode={(nodeId) => {
+                setAddedNodes(prev => prev.filter((node, idx) => (node.id || idx) !== nodeId));
+              }}
               onBoundaryClick={(boundaryId) => {
                 setSelectedBoundary(boundaryId);
                 setSelectedZone(null);
@@ -861,7 +767,7 @@ function App() {
             setWindPercentile(50);
             setSolarPercentile(50);
             setDemandPercentile(75);
-            setInterconnectorImport(65);
+            setInterconnectorImport(25);
             setDynamicIC(false);
             setReinforcementsEnabled(true);
             setDispatchMode('simple');

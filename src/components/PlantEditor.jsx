@@ -27,7 +27,7 @@ export default function PlantEditor({
   const zonePlants = useMemo(() => {
     if (!plantsData || !zoneId) return [];
     return plantsData
-      .filter(p => p.zone_id === zoneId)
+      .filter(p => p.zone_id === zoneId || (p.flop_zone_id && p.flop_zone_id === zoneId))
       .map(p => ({
         ...p,
         // Apply any existing edits
@@ -35,11 +35,15 @@ export default function PlantEditor({
       }));
   }, [plantsData, zoneId, plantEdits]);
 
-  // Get unique statuses and types for filters
+  // Get unique statuses and types for filters — add "Edited" as a virtual status
+  const hasAnyEdits = zonePlants.some(p => plantEdits?.[(p.project_id || p.project)]);
+
   const statuses = useMemo(() => {
     const set = new Set(zonePlants.map(p => p.status));
-    return ['all', ...Array.from(set).sort()];
-  }, [zonePlants]);
+    const list = ['all', ...Array.from(set).sort()];
+    if (hasAnyEdits) list.splice(1, 0, 'Edited');  // Add after 'all'
+    return list;
+  }, [zonePlants, hasAnyEdits]);
 
   const plantTypes = useMemo(() => {
     const set = new Set(zonePlants.map(p => p.plant_type));
@@ -52,11 +56,14 @@ export default function PlantEditor({
       const matchesSearch = !searchTerm ||
         plant.project?.toLowerCase().includes(searchTerm.toLowerCase()) ||
         plant.plant_type?.toLowerCase().includes(searchTerm.toLowerCase());
-      const matchesStatus = statusFilter === 'all' || plant.status === statusFilter;
+      const plantId = plant.project_id || plant.project;
+      const isEdited = !!plantEdits?.[plantId];
+      const matchesStatus = statusFilter === 'all' ||
+        (statusFilter === 'Edited' ? isEdited : plant.status === statusFilter);
       const matchesType = typeFilter === 'all' || plant.plant_type === typeFilter;
       return matchesSearch && matchesStatus && matchesType;
     });
-  }, [zonePlants, searchTerm, statusFilter, typeFilter]);
+  }, [zonePlants, searchTerm, statusFilter, typeFilter, plantEdits]);
 
   // Calculate zone summary with edits applied
   const zoneSummary = useMemo(() => {
@@ -200,7 +207,8 @@ export default function PlantEditor({
         ) : (
           filteredPlants.map((plant, idx) => {
             const plantId = plant.project_id || plant.project;
-            const isExpanded = expandedPlant === plantId;
+            const uniqueKey = `${plantId}_${idx}`;
+            const isExpanded = expandedPlant === uniqueKey;
             const effectiveStatus = getEffectiveStatus(plant);
             const effectiveOutput = getEffectiveOutput(plant);
             const isEdited = hasEdit(plant);
@@ -209,13 +217,13 @@ export default function PlantEditor({
 
             return (
               <div
-                key={plantId || idx}
+                key={uniqueKey}
                 className={`plant-editor-item ${isExpanded ? 'expanded' : ''} ${isEdited ? 'edited' : ''}`}
               >
                 {/* Plant Header - Click to expand */}
                 <div
                   className="plant-editor-item-header"
-                  onClick={() => setExpandedPlant(isExpanded ? null : plantId)}
+                  onClick={() => setExpandedPlant(isExpanded ? null : uniqueKey)}
                 >
                   <div className="plant-item-info">
                     <div className="plant-item-name">
@@ -269,14 +277,14 @@ export default function PlantEditor({
                           type="range"
                           className="output-slider"
                           min="0"
-                          max="100"
+                          max="200"
                           value={effectiveOutput}
                           onChange={(e) => handleEdit(plant, 'outputPct', Number(e.target.value))}
                         />
                         <div className="slider-labels">
                           <span>0%</span>
-                          <span>50%</span>
                           <span>100%</span>
+                          <span>200%</span>
                         </div>
                       </div>
                     )}
